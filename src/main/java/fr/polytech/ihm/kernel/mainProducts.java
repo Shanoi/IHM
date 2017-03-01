@@ -9,10 +9,7 @@ import fr.polytech.ihm.data.Product;
 import java.sql.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author Olivier
- */
+
 public class mainProducts {
 
     private ArrayList<Product> products;
@@ -26,16 +23,16 @@ public class mainProducts {
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
-            System.out.println("Chargement du Driver Réussie");
+            System.out.println("Chargement du Driver RÃ©ussie");
 
             Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
-            System.out.println("Connexion Réussie");
+            System.out.println("Connexion RÃ©ussie");
 
             Statement lien = cnx.createStatement();
-            System.out.println("Lien Créé");
+            System.out.println("Lien CrÃ©Ã©");
 
             ResultSet rs = lien.executeQuery("select * from `product` ");
-            System.out.println("Requête Effectuée");
+            System.out.println("RequÃªte EffectuÃ©e");
 
             while (rs.next()) {
 
@@ -46,7 +43,7 @@ public class mainProducts {
 
         } catch (Exception e) {
 
-            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+            System.out.println("Le Programme a EchouÃ© :/ \n" + e.getMessage());
 
         }
 

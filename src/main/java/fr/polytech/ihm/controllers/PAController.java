@@ -15,11 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-/**
- * FXML Controller class
- *
- * @author Olivier
- */
+
 public class PAController implements Initializable {
 
     @FXML private Label accrochePhare;

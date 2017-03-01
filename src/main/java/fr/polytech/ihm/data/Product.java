@@ -5,10 +5,7 @@
  */
 package fr.polytech.ihm.data;
 
-/**
- *
- * @author Olivier
- */
+
 public class Product {
 
     private final float prix;
