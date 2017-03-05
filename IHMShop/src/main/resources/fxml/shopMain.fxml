@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ShopMainController">
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <fx:include source="/fxml/upperBand.fxml" />
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <fx:include source="/fxml/directionscommon.fxml" />
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="880.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_LEFT" text="Nos produits" underline="true">
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="1080.0">
+               <top>
+                  <Label contentDisplay="CENTER" text="Les Plus Populaires" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="30.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+               </top>
+               <center>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label text="15.99€" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label text="25.99€" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label text="17.99€" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label text="45.99€" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label text="5.99€" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <bottom>
+                  <ScrollBar BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="500.0">
+                     <top>
+                        <Label text="Nouveaux Produits - Neurologies" underline="true" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="240.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="240.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="500.0">
+                     <top>
+                        <Label text="Nouveaux Produits - Sciences" underline="true" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="240.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <center>
+                        <HBox alignment="CENTER" prefHeight="240.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets top="20.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="880.0" prefWidth="840.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="PROMOTIONS" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="Calibri Bold" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER" prefHeight="330.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="PRODUITS NEUROLOGIE" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="25.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER" vvalue="0.5">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <content>
+                        <HBox alignment="CENTER" fillHeight="false" prefWidth="1680.0">
+                           <children>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="350.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="PRODUITS SCIENCES" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER" vvalue="0.5">
+                     <content>
+                        <HBox alignment="CENTER" fillHeight="false" prefWidth="1680.0">
+                           <children>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Nom du produit" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="xx,xx€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="xx,xx€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-xx%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Neuropsychologie du langage" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Text strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">
+                                             <font>
+                                                <Font name="Calibri Bold" size="20.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Label text="14.99€" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="-60%" textFill="#e10909">
+                                             <font>
+                                                <Font name="Calibri" size="20.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="193.0" prefWidth="1920.0">
+         <children>
+            <AnchorPane prefHeight="216.0" prefWidth="1920.0">
+               <children>
+                  <HBox layoutX="896.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Pane prefHeight="153.0" prefWidth="100.0" />
+                        <TextArea editable="false" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="1344.0" text="To be or to have est une société spécialisée dans.............">
+                           <font>
+                              <Font size="32.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox prefHeight="878.0" prefWidth="1920.0">
+         <children>
+            <Pane prefHeight="878.0" prefWidth="100.0" />
+            <AnchorPane maxHeight="1.7976931348623157E308" minHeight="420.0" minWidth="1120.0" prefHeight="798.0" prefWidth="1384.0">
+               <children>
+                  <TabPane layoutX="468.0" layoutY="336.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <tabs>
+                        <Tab closable="false" text="Evenements">
+                           <content>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn prefWidth="245.0" text="Date" />
+                                    <TableColumn prefWidth="1099.0" text="Description" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </Tab>
+                        <Tab text="Magasins">
+                           <content>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn prefWidth="287.66668701171875" text="Nom" />
+                                    <TableColumn prefWidth="820.3333129882812" text="Adresse" />
+                                    <TableColumn prefWidth="236.99993896484375" text="Distance" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </Tab>
+                        <Tab closable="false" text="Offre d'emploi">
+                           <content>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn minWidth="0.0" prefWidth="364.3333435058594" text="Nom du poste" />
+                                    <TableColumn minWidth="0.0" prefWidth="523.3333129882812" resizable="false" text="Fonction" />
+                                    <TableColumn maxWidth="548.6666870117188" minWidth="0.0" prefWidth="248.6666259765625" resizable="false" text="Localisation" />
+                                    <TableColumn maxWidth="522.0" minWidth="120.0" prefWidth="211.3333740234375" resizable="false" text="Postée le" />
+                                 </columns>
+                              </TableView>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="680.0" prefWidth="400.0">
+               <children>
+                  <VBox layoutX="150.0" layoutY="340.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="41.0" prefWidth="360.0" text="Contactez nous">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextArea editable="false" prefHeight="189.0" prefWidth="360.0" text="To be or to have&#10;123 avenue de France&#10;France, PARIS 75000&#10;06.07.08.09.10&#10;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" prefHeight="155.0" prefWidth="339.0" text="ToBeOrToHave.com&#10;Visitez ToBeOrToHave.com&#10;Ou appelez le 06.06.06.06.06&#10;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea editable="false" prefHeight="156.0" prefWidth="339.0" text="Support après vente&#10;Ecrivez à SAV@TBOTH.com&#10;Ou appelez le 06.07.07.07.07&#10;">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="directionCommon" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionCommonController">
+   <children>
+      <VBox fx:id="coordContainer" alignment="CENTER" prefHeight="160.0" prefWidth="1100.0">
+         <children>
+            <Label fx:id="nosCoordonnees" alignment="CENTER" text="Nos coordonnées" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Label>
+            <VBox fx:id="coordExpliciteContainer" fillWidth="false">
+               <children>
+                  <HBox fx:id="numTelContainer" alignment="CENTER">
+                     <children>
+                        <Label fx:id="numTel" accessibleRole="BUTTON" text="Numéro de téléphone : " textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="numTelExplicite" text="0 xxx xx xx xx">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="adresseContainer" alignment="CENTER_LEFT">
+                     <children>
+                        <Label fx:id="adresse" text="Adresse : " textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="adresseExplicite" text="A définir (random)" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="webSiteContainer" alignment="CENTER_LEFT">
+                     <children>
+                        <Label fx:id="webSite" text="Notre site internet : " textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="webSiteExplicit" text="www.ToBeorToHave.com">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="300.0" right="100.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox fx:id="lineContainer" alignment="CENTER">
+         <children>
+            <Separator fx:id="separator" orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </VBox>
+      <VBox fx:id="infoDirectionContainer" alignment="CENTER" prefHeight="160.0" prefWidth="522.0">
+         <children>
+            <Label fx:id="ouNousTrouver" alignment="CENTER" contentDisplay="CENTER" text="Vous ne savez pas où nous trouver ?" textAlignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox fx:id="directionLabelContainer" alignment="CENTER_LEFT">
+               <children>
+                  <Label fx:id="cliquezBouton" alignment="CENTER" contentDisplay="CENTER" text="Cliquez sur le bouton : " textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="30.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="nomBouton" text="Se diriger">
+                     <font>
+                        <Font name="Calibri Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox fx:id="seDirigerContainer" alignment="CENTER" prefHeight="160.0" prefWidth="456.0">
+         <children>
+            <Button fx:id="seDirigerBouton" mnemonicParsing="false" onAction="#directionsPage" text="Se diriger">
+               <font>
+                  <Font name="System Bold" size="45.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</HBox>
