@@ -19,7 +19,7 @@ public class mainProducts {
     public mainProducts() {
 
         products = new ArrayList<Product>();
-
+        System.out.println("LOL");
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
