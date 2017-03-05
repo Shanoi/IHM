@@ -1,0 +1,69 @@
+/* Application wide styles */
+
+.label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.header {
+	-fx-background-image: url("../images/background.jpg");
+}
+
+#title {
+    -fx-font-size: 96px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.h1 {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+.button-label {
+    -fx-font-size: 28px;
+    -fx-text-fill: #333333;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+
+.button {
+    -fx-text-fill: #333333;
+	-fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.button:hover{
+    -fx-base: #395bae;
+}
+
+/* Component specific styles */
+
+
+.main-panel {
+    -fx-background-image: url("../images/background-test.jpg");
+	-fx-background-repeat: stretch;   
+    -fx-background-size: 1920 1080
+}
+
+.menu-pane {
+	-fx-background-color: white;
+}
+
+.menu-row {
+	-fx-spacing: 200px;
+	-fx-alignement: center;
+}
+
+.hello-message {
+    -fx-text-fill: #AA0000;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
