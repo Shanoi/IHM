@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 
 public class MainApp extends Application {
 
+    private static final int WIDTH = 1920;
+    private static final int HEIGHT = 1080;
     private static final Logger log = LoggerFactory.getLogger(MainApp.class);
 
     public static void main(String[] args) throws Exception {
@@ -26,7 +28,7 @@ public class MainApp extends Application {
         Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
 
         log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 1920, 1080);
+        Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
         //scene.getStylesheets().add("/styles/styles.css");
 
         stage.setTitle("PLS..... DO IT");
