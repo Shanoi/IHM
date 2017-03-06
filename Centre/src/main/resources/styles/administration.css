@@ -19,6 +19,13 @@
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
+#highlight {
+    -fx-font-size: 74px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #dd465d;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
 .h1 {
     -fx-font-size: 48px;
     -fx-font-weight: bold;
@@ -102,17 +109,17 @@
 .showcase-pane {
 	-fx-background-color: white;
 	-fx-pref-width: 1450px;
-	-fx-pref-height: 800px;
+	-fx-pref-height: 700px;
 	-fx-padding: 20 40 20 40;
 }
 
 .showcase-scroll {
 	-fx-background-color: white;
 	-fx-pref-width: 1450px;
-	-fx-pref-height: 800px;
+	-fx-pref-height: 700px;
 	-fx-min-width: 1450px;
-	-fx-min-height: 800px;
+	-fx-min-height: 700px;
 	-fx-max-width: 1450px;
-	-fx-max-height: 800px;
+	-fx-max-height: 700px;
 	-fx-padding: 0 0 0 0;
 }
