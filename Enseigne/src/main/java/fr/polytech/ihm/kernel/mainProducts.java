@@ -48,6 +48,12 @@ public class mainProducts {
         }
 
     }
+    
+    public int getNbMainProds(){
+        
+        return products.size();
+        
+    }
 
     public Product getCurrentProduct() {
 
