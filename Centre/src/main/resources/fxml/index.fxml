@@ -13,34 +13,41 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@../styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/logo%20cap%20sophia.png" />
+                  <Image url="@/images/logo cap sophia.png" />
                </image>
             </ImageView>
-            <Label id="title" text="Cap Sophia">
-               <HBox.margin>
-                  <Insets left="550.0" />
-               </HBox.margin>
-            </Label>
-            <Button mnemonicParsing="false" styleClass="button-back" text="A propos">
-               <HBox.margin>
-                  <Insets left="330.0" />
-               </HBox.margin>
-            </Button>
             <ImageView fitHeight="150.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/france.png" />
+                  <Image url="@/images/france.png" />
                </image>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </ImageView>
+            <Label id="title" text="Cap Sophia">
+               <HBox.margin>
+                  <Insets left="480.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#admin" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/images/admin-access.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="320.0" />
+               </HBox.margin>
+            </ImageView>
+            <Button mnemonicParsing="false" onMouseClicked="#info" styleClass="button-back" text="A propos">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </top>
