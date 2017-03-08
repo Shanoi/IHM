@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.CatalogController">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -34,11 +34,7 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Slider>
-                        <CheckBox mnemonicParsing="false" text="Soldes">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></CheckBox>
-                        <CheckBox mnemonicParsing="false" text="Promo">
+                        <CheckBox mnemonicParsing="false" text="Soldes/Promos">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></CheckBox>
@@ -70,15 +66,6 @@
                   <VBox prefHeight="217.0" prefWidth="154.0">
                      <children>
                         <Label text="Marque" />
-                        <ChoiceBox prefWidth="150.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></ChoiceBox>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="217.0" prefWidth="153.0">
-                     <children>
-                        <Label text="Utilisation" />
                         <ChoiceBox prefWidth="150.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />

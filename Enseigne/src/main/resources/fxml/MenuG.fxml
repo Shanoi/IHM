@@ -20,7 +20,7 @@
                <content>
                   <VBox alignment="TOP_CENTER" prefHeight="3143.0" prefWidth="196.0">
                      <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="cd" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#goToCatalogCDView" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/images/CD.png" />
                            </image>
