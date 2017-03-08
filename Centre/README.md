@@ -8,8 +8,7 @@
 
 ## TODO
 
-* Controller administration
-* Controller index
+* Vue pour les informations
+* Controller administration menu
+* Ajouter une ligne dans le addStore pour les categories
 * Renommer le css
-* Pour le changement de scene:
-    http://stackoverflow.com/questions/13003323/javafx-how-to-change-stage

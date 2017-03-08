@@ -22,7 +22,7 @@
                                 <Button fx:id="gauchePhare" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#gauchePhare" text="&lt;" />
                                 <ImageView fx:id="imagePhare" fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@images/rzrblade14-16__store_gallery.png" />
+                                        <Image url="@images/rzrblade.png" />
                                     </image>
                                 </ImageView>
                                 <VBox prefHeight="482.0" prefWidth="817.0">
