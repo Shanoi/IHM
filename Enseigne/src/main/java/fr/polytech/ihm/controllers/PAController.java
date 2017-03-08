@@ -8,6 +8,9 @@ package fr.polytech.ihm.controllers;
 import fr.polytech.ihm.kernel.mainProducts;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,7 +48,7 @@ public class PAController implements Initializable {
     private int indexPrev = 0;
     private int indexNext = 0;
 
-    Integer i = 0;
+    private AnimationTimer tracker;
 
     /**
      * Initializes the controller class.
@@ -60,23 +63,45 @@ public class PAController implements Initializable {
         accrochePhare.setText(mainProds.getCurrentProduct().getNom());
         // imagePhare.setImage(image);
 
-        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
+        /*new Timer().schedule(
+         new TimerTask() {
+
+         @Override
+         public void run() {
+         accrochePhare.setText(mainProds.nextProduct().getNom());
+         }
+         }, 0, 5000);*/
+        //Soluttion qui fonctionne  
+        /*Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(10), new EventHandler<ActionEvent>() {
+
+         @Override
+         public void handle(ActionEvent event) {
+
+         accrochePhare.setText(mainProds.nextProduct().getNom());
+
+         }
+         }));
+         fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+         fiveSecondsWonder.play();*/
+        tracker = new AnimationTimer() {
+            
+            private long lastUpdate = 0;
 
             @Override
-            public void handle(ActionEvent event) {
-
-                accrochePhare.setText(mainProds.nextProduct().getNom());
-
+            public void handle(long timestamp) {
+                if (timestamp - lastUpdate >= 300000000) { //Mettre un 2ème if si on veut rallonger le temps?
+                    System.out.println("LOL");
+                    accrochePhare.setText(mainProds.nextProduct().getNom());
+                    lastUpdate = timestamp;
+                }
             }
-        }));
-        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
-        fiveSecondsWonder.play();
+        };
 
     }
 
     @FXML
     private void gauchePhare(MouseEvent event) {
-
+        tracker.start();
         accrochePhare.setText(mainProds.prevProduct().getNom());
 
     }
