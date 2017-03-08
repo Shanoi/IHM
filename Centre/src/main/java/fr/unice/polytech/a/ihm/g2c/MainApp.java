@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c;
 
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
+import fr.unice.polytech.a.ihm.g2c.controller.IndexController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,28 +33,19 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        initScene();
+        //initScene();
 
         stage.setTitle("Cap Sophia");
-        stage.setScene(INDEX.getScene());
+        FXMLLoader loader = new FXMLLoader();
+        Parent rootNode = loader.load(getClass().getResourceAsStream(INDEX.getFxmlFile()));
+        Scene scene = new Scene(rootNode, MainApp.WIDTH, MainApp.HEIGHT);
+        IndexController controller = loader.getController();
+        stage.setScene(scene);
         stage.setMaximized(true);
         stage.setFullScreen(true);
         stage.show();
+        Thread.sleep(1000);
+        controller.test();
     }
 
-    private void initScene() {
-        for (AppScene appScene: values()) {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                Parent rootNode = loader.load(getClass().getResourceAsStream(appScene.getFxmlFile()));
-                Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
-                scene.getStylesheets().add(appScene.getCssFile());
-                appScene.setScene(scene);
-
-
-            } catch (IOException e) {
-                logger.error(e);
-            }
-        }
-    }
 }
