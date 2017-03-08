@@ -41,13 +41,18 @@ public class MenuController {
 
         if (event.getButton() == MouseButton.PRIMARY){
             stage = (Stage)  aboutUsButton.getScene().getWindow();
-            startViewAboutUs(stage);
+            startAboutUsView(stage, 0);
         }
     }
 
     @FXML
-    void goToShopsViews(MouseEvent event) {
+    void goToShopsViews(MouseEvent event) throws IOException {
+        Stage stage;
 
+        if (event.getButton() == MouseButton.PRIMARY){
+            stage = (Stage)  aboutUsButton.getScene().getWindow();
+            startAboutUsView(stage, 1);
+        }
     }
 
     @FXML
@@ -55,17 +60,20 @@ public class MenuController {
 
     }
 
-    @FXML
-    private void startViewAboutUs(Stage stage) throws IOException {
+    private void startAboutUsView(Stage stage, int tabID) throws IOException {
         String fxmlFile = "/fxml/savoirplus.fxml";
-        FXMLLoader loader = new FXMLLoader();
-        Parent rootNode = (Parent) loader.load(getClass().getResourceAsStream(fxmlFile));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = fxmlLoader.load();
 
-        Scene scene = new Scene(rootNode, 1920, 1080);
+        SavoirPlusController savoirPlusController = fxmlLoader.getController();
+        savoirPlusController.setTabView(tabID);
+
+        Scene scene = new Scene(root, 1920, 1080);
         scene.getStylesheets().add("/styles/styles.css");
-
         stage.setTitle("To be or To Have");
+
         stage.setScene(scene);
         stage.show();
     }
+
 }
