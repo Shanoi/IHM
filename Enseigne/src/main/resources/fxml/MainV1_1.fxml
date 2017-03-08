@@ -13,7 +13,7 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
 
     <left>
-        <fx:include source="MenuG.fxml"/>
+        <fx:include source="/fxml/MenuG.fxml"/>
 
     </left>
 	
@@ -28,7 +28,7 @@
                                 <Button alignment="CENTER" mnemonicParsing="false" text="&lt;" />
                                 <ImageView fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@rzrblade14-16__store_gallery.png" />
+                                        <Image url="@images/rzrblade.png" />
                                     </image>
                                 </ImageView>
                                 <VBox prefHeight="482.0" prefWidth="817.0">
@@ -60,7 +60,7 @@
                                     <children>
                                         <ImageView fitHeight="298.0" fitWidth="1186.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@0226000008254188-photo-asus-rog-g7521.jpg" />
+                                                <Image url="@images/0226000008254188-photo-asus-rog-g7521.jpg" />
                                             </image>
                                         </ImageView>
                                         <Label prefHeight="75.0" prefWidth="140.0" text="Prix">
@@ -74,7 +74,7 @@
                                     <children>
                                         <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@e-640x457.png" />
+                                                <Image url="@images/e-640x457.png" />
                                             </image>
                                         </ImageView>
                                         <Label text="Prix">
@@ -88,7 +88,7 @@
                                     <children>
                                         <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@f532.jpg" />
+                                                <Image url="@images/f532.jpg" />
                                             </image>
                                         </ImageView>
                                         <Label text="Prix">

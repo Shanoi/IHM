@@ -17,36 +17,44 @@
             <children>
                 <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="971.0" prefWidth="1920.0">
                     <items>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <Button fx:id="gauchePhare" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#gauchePhare" text="&lt;" />
-                                <ImageView fx:id="imagePhare" fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/rzrblade.png" />
-                                    </image>
-                                </ImageView>
-                                <VBox prefHeight="482.0" prefWidth="817.0">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                            <left>
+                                <Button fx:id="gauchePhare" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#gauchePhare" text="&lt;" BorderPane.alignment="CENTER" />
+                            </left>
+                            <right>
+                                <Button fx:id="droitePhare" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#droitePhare" text="&gt;" BorderPane.alignment="CENTER" />
+                            </right>
+                            <center>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <Label fx:id="accrochePhare" text="Phrase d'accroche">
-                                            <font>
-                                                <Font size="82.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Prix">
-                                            <font>
-                                                <Font size="68.0" />
-                                            </font>
-                                        </Label>
-                                        <Label text="Nom produit">
-                                            <font>
-                                                <Font size="88.0" />
-                                            </font>
-                                        </Label>
+                                        <ImageView fx:id="imagePhare" fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/rzrblade.png" />
+                                            </image>
+                                        </ImageView>
+                                        <VBox prefHeight="482.0" prefWidth="817.0">
+                                            <children>
+                                                <Label fx:id="accrochePhare" text="Phrase d'accroche">
+                                                    <font>
+                                                        <Font size="82.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Prix">
+                                                    <font>
+                                                        <Font size="68.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Nom produit">
+                                                    <font>
+                                                        <Font size="88.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
                                     </children>
-                                </VBox>
-                                <Button fx:id="droitePhare" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#droitePhare" text="&gt;" />
-                            </children>
-                        </HBox>
+                                </HBox>
+                            </center>
+                        </BorderPane>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                             <children>
                                 <Button mnemonicParsing="false" text="&lt;" />

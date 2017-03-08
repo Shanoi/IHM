@@ -16,6 +16,9 @@ import java.io.IOException;
 
 /**
  * Created by Enzo on 08/03/2017.
+ * 
+ * Ajouter l'image des catégories dans la BD
+ * 
  */
 public class MenuController {
     @FXML
