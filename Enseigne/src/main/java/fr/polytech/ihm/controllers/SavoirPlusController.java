@@ -77,17 +77,21 @@ public class SavoirPlusController {
     @FXML
     private TextArea support;
 
+    SingleSelectionModel<Tab> selectionModel;
+
     @FXML
     public void initialize(){
         initEvents();
         initShops();
         initJobs();
-        SingleSelectionModel<Tab> selectionModel = spreadsheet.getSelectionModel();
-        selectionModel.select(shops);
+        selectionModel = spreadsheet.getSelectionModel();
     }
 
-    @FXML
-    public void initEvents(){
+    public void setTabView(int index){
+        selectionModel.select(index);
+    }
+
+    private void initEvents(){
         ObservableList<Events> events = FXCollections.observableArrayList();
         events.add(new Events("01/01/2017", "This event is the first item in the spreadsheet !"));
         events.add(new Events("02/02/2017", "And this is the second one"));
@@ -98,8 +102,7 @@ public class SavoirPlusController {
         eventsSpread.setItems(events);
     }
 
-    @FXML
-    public void initShops(){
+    private void initShops(){
         ObservableList<Shop> shops = FXCollections.observableArrayList();
 
         shops.add(new Shop("Magasin 1", "123 rue de la paix", 50.9));
@@ -113,8 +116,7 @@ public class SavoirPlusController {
         shopSpread.setItems(shops);
     }
 
-    @FXML
-    public void initJobs(){
+    private void initJobs(){
         ObservableList<JobOffer> jobs = FXCollections.observableArrayList();
 
         jobs.add(new JobOffer("Hôte(sse) de caisse", "Vente", "Variées","01/01/2017"));
