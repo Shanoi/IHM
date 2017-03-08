@@ -11,7 +11,7 @@
 
 <HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.SceneDisplayController">
    <children>
-      <ImageView fx:id="homePicture" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homePicture" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="/images/logo.png" />
          </image>
