@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controllers;
 
+import com.sun.org.apache.xml.internal.resolver.Catalog;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,6 +30,9 @@ public class MenuController {
 
     @FXML
     private Button aboutUsButton;
+
+    @FXML
+    private Button catalogButton;
 
     @FXML
     void clickedOnLogo(MouseEvent event) {
@@ -75,5 +79,36 @@ public class MenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+
+    private void startCatalogCDView(Stage stage) throws IOException{
+        String fxmlFile = "/fxml/maquette.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = fxmlLoader.load();
+
+        CatalogController catalogController = fxmlLoader.getController();
+
+        Scene scene = new Scene(root, 1920, 1080);
+        scene.getStylesheets().add("/styles/styles.css");
+        stage.setTitle("To be or To Have: Catalog");
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void goToCatalogCDView(MouseEvent event) throws IOException {
+        Stage stage;
+
+        if (event.getButton() == MouseButton.PRIMARY){
+            stage = (Stage)  catalogButton.getScene().getWindow();
+            startCatalogCDView(stage);
+        }
+    }
+
+
+
+
+
 
 }
