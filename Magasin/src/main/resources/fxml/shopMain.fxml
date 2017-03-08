@@ -15,14 +15,14 @@
    <top>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <fx:include source="upperBand.fxml" />
+            <fx:include source="/fxml/upperBand.fxml" />
          </children>
       </HBox>
    </top>
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <fx:include source="directionscommon.fxml" />
+            <fx:include source="/fxml/directionscommon.fxml" />
          </children>
       </HBox>
    </bottom>

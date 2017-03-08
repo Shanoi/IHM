@@ -19,7 +19,7 @@
             <Insets left="5.0" />
          </HBox.margin>
       </ImageView>
-      <Label fx:id="homeLabel" prefWidth="700.0" text="TO BE OR TO HAVE">
+      <Label fx:id="homeLabel" accessibleRole="BUTTON" onMouseClicked="#goHome" prefWidth="700.0" text="TO BE OR TO HAVE">
          <font>
             <Font name="System Bold" size="60.0" />
          </font>
