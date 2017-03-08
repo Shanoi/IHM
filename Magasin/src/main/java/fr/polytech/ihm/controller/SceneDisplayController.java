@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class SceneDisplayController {
@@ -28,8 +27,8 @@ public class SceneDisplayController {
     }
 
     @FXML
-    void goHome(ActionEvent event) throws IOException {
-        buttonModel.directionView((Stage) homePicture.getScene().getWindow());
+    void goHome(javafx.scene.input.MouseEvent event) throws IOException {
+        buttonModel.homeView((Stage) homePicture.getScene().getWindow());
     }
 
 }
