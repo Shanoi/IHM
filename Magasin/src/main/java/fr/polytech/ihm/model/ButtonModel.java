@@ -18,17 +18,19 @@ public class ButtonModel {
     public void homeView(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/shopMain.fxml"));
         Scene scene = new Scene(root);
-        new AppController(primaryStage, scene);
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreen(true);
-        primaryStage.show();
+        setPrimaryStageProperty(primaryStage, scene);
     }
 
     public void directionView(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/directions.fxml"));
         Scene scene = new Scene(root);
+        setPrimaryStageProperty(primaryStage, scene);
+    }
+
+    public void setPrimaryStageProperty(Stage primaryStage, Scene scene) {
         new AppController(primaryStage, scene);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreenExitHint("");
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
