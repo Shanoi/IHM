@@ -18,8 +18,8 @@ public class mainProducts {
 
     public mainProducts() {
 
-        products = new ArrayList<Product>();
-        System.out.println("LOL");
+        products = new ArrayList<>();
+        
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -31,13 +31,14 @@ public class mainProducts {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            ResultSet rs = lien.executeQuery("select * from `product` ");
+            ResultSet rs = lien.executeQuery("select * from products "
+                    + "NATURAL JOIN sell");
             System.out.println("Requête Effectuée");
 
             while (rs.next()) {
 
-                products.add(new Product(rs.getFloat("price"), rs.getString("productname"), rs.getString("image")));
-                
+                products.add(new Product(rs.getFloat("priceSell"), rs.getString("productName"), rs.getString("picture")));
+                System.out.println("RES : " + rs.getFloat("priceSell"));
 
             }
 
