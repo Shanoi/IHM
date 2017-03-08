@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.SceneDisplayController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="homePicture" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="/images/logo.png" />
          </image>
@@ -19,7 +19,7 @@
             <Insets left="5.0" />
          </HBox.margin>
       </ImageView>
-      <Label prefWidth="700.0" text="TO BE OR TO HAVE">
+      <Label fx:id="homeLabel" prefWidth="700.0" text="TO BE OR TO HAVE">
          <font>
             <Font name="System Bold" size="60.0" />
          </font>

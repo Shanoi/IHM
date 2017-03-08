@@ -8,25 +8,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="directionCommon" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionCommonController">
+<HBox prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.SceneDisplayController">
    <children>
-      <VBox fx:id="coordContainer" alignment="CENTER" prefHeight="160.0" prefWidth="1100.0">
+      <VBox alignment="CENTER" prefHeight="160.0" prefWidth="1100.0">
          <children>
-            <Label fx:id="nosCoordonnees" alignment="CENTER" text="Nos coordonnées" textAlignment="CENTER" underline="true">
+            <Label alignment="CENTER" text="Nos coordonnées" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
             </Label>
-            <VBox fx:id="coordExpliciteContainer" fillWidth="false">
+            <VBox fillWidth="false">
                <children>
-                  <HBox fx:id="numTelContainer" alignment="CENTER">
+                  <HBox alignment="CENTER">
                      <children>
-                        <Label fx:id="numTel" accessibleRole="BUTTON" text="Numéro de téléphone : " textAlignment="CENTER">
+                        <Label accessibleRole="BUTTON" text="Numéro de téléphone : " textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="numTelExplicite" text="0 xxx xx xx xx">
+                        <Label text="0 xxx xx xx xx">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -36,14 +36,14 @@
                         </Label>
                      </children>
                   </HBox>
-                  <HBox fx:id="adresseContainer" alignment="CENTER_LEFT">
+                  <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label fx:id="adresse" text="Adresse : " textAlignment="CENTER">
+                        <Label text="Adresse : " textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="adresseExplicite" text="A définir (random)" textAlignment="CENTER">
+                        <Label text="A définir (random)" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -56,14 +56,14 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox fx:id="webSiteContainer" alignment="CENTER_LEFT">
+                  <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label fx:id="webSite" text="Notre site internet : " textAlignment="CENTER">
+                        <Label text="Notre site internet : " textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="webSiteExplicit" text="www.ToBeorToHave.com">
+                        <Label text="www.ToBeorToHave.com">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -80,12 +80,12 @@
             </VBox>
          </children>
       </VBox>
-      <VBox fx:id="lineContainer" alignment="CENTER">
+      <VBox alignment="CENTER">
          <children>
-            <Separator fx:id="separator" orientation="VERTICAL" prefHeight="200.0" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
          </children>
       </VBox>
-      <VBox fx:id="infoDirectionContainer" alignment="CENTER" prefHeight="160.0" prefWidth="522.0">
+      <VBox alignment="CENTER" prefHeight="160.0" prefWidth="522.0">
          <children>
             <Label fx:id="ouNousTrouver" alignment="CENTER" contentDisplay="CENTER" text="Vous ne savez pas où nous trouver ?" textAlignment="CENTER">
                <font>
@@ -95,9 +95,9 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </Label>
-            <HBox fx:id="directionLabelContainer" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT">
                <children>
-                  <Label fx:id="cliquezBouton" alignment="CENTER" contentDisplay="CENTER" text="Cliquez sur le bouton : " textAlignment="CENTER">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Cliquez sur le bouton : " textAlignment="CENTER">
                      <font>
                         <Font name="Calibri" size="30.0" />
                      </font>
@@ -105,7 +105,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="nomBouton" text="Se diriger">
+                  <Label text="Se diriger">
                      <font>
                         <Font name="Calibri Bold" size="40.0" />
                      </font>
@@ -117,7 +117,7 @@
             </HBox>
          </children>
       </VBox>
-      <HBox fx:id="seDirigerContainer" alignment="CENTER" prefHeight="160.0" prefWidth="456.0">
+      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="456.0">
          <children>
             <Button fx:id="seDirigerBouton" mnemonicParsing="false" onAction="#directionsPage" text="Se diriger">
                <font>
