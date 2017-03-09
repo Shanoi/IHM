@@ -16,8 +16,8 @@ import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
 
 public class MainApp extends Application {
 
-    public static final int HEIGHT = 1080;
-    public static final int WIDTH = 1920;
+    public static final int HEIGHT = 540;
+    public static final int WIDTH = 960;
     
     private static final Logger logger = LogManager.getLogger(MainApp.class);
 
@@ -41,11 +41,11 @@ public class MainApp extends Application {
         Scene scene = new Scene(rootNode, MainApp.WIDTH, MainApp.HEIGHT);
         IndexController controller = loader.getController();
         stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.setFullScreen(true);
+        //stage.setMaximized(true);
+        //stage.setFullScreen(true);
         stage.show();
-        Thread.sleep(1000);
-        controller.test();
+        /*Thread.sleep(1000);
+        controller.test();*/
     }
 
 }
