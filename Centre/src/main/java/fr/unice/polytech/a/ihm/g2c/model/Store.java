@@ -16,7 +16,7 @@ public class Store {
     public Store(String name, String description, String imgPath, Category category) {
         this.name = name;
         this.description = description;
-        this.img = new Image(getClass().getResourceAsStream(imgPath));
+        //this.img = new Image(getClass().getResourceAsStream(imgPath));
         this.category = category;
     }
 
@@ -34,5 +34,16 @@ public class Store {
 
     public Category getCategory() {
         return category;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Store{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", img=").append(img);
+        sb.append(", category=").append(category);
+        sb.append('}');
+        return sb.toString();
     }
 }

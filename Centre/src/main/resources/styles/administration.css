@@ -109,7 +109,7 @@
 .showcase-pane {
 	-fx-background-color: white;
 	-fx-pref-width: 725px;
-	-fx-pref-height: 350px;
+	/*-fx-pref-height: 350px;*/
 	-fx-padding: 10 20 10 20;
 }
 

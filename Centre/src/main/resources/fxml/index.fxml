@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
@@ -66,9 +66,9 @@
    <center>
       <ScrollPane fitToWidth="true" prefHeight="100.0" prefWidth="100.0" styleClass="showcase-scroll" BorderPane.alignment="CENTER">
          <content>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="showcase-pane">
+            <VBox alignment="CENTER" prefWidth="50.0" styleClass="showcase-pane">
                <children>
-                  <Label id="highlight" text="Activité phare !" />
+                  <Label id="highlight" fx:id="highlight" maxWidth="600.0" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" minHeight="250.0" prefTileHeight="100.0" prefTileWidth="100.0" vgap="12.0">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />

@@ -22,7 +22,7 @@
                   <Insets left="150.0" />
                </HBox.margin>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#index" prefHeight="40.0" prefWidth="92.0" styleClass="button-back" text="Retour">
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="92.0" styleClass="button-back" text="Retour">
                <HBox.margin>
                   <Insets left="90.0" top="17.0" />
                </HBox.margin>

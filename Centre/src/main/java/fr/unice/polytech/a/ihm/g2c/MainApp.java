@@ -2,6 +2,7 @@ package fr.unice.polytech.a.ihm.g2c;
 
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
 import fr.unice.polytech.a.ihm.g2c.controller.IndexController;
+import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +29,8 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-
+        DataModel data = DataModel.getInstance();
+        data.setHighlight("C'est les soldes !! A partir de -40% dans tous les magasins");
     }
 
     @Override

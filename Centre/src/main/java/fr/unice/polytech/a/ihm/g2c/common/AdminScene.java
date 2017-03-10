@@ -5,7 +5,7 @@ package fr.unice.polytech.a.ihm.g2c.common;
  */
 public enum AdminScene {
 
-    GLOBAL("/fxml/inc/administration-global.fxml"),
+    MENU("/fxml/inc/administration-menu.fxml"),
     INFO("/fxml/inc/administration-info.fxml"),
     HIGHLIGHT("/fxml/inc/administration-highlight.fxml"),
     STORE_ADD("/fxml/inc/administration-addStore.fxml");

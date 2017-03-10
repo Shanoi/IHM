@@ -6,6 +6,9 @@ package fr.unice.polytech.a.ihm.g2c.common;
 public enum Category {
 
     FASHION_MAN,
-    FASHION_WOMAN;
+    FASHION_WOMAN,
+    HIGH_TECH,
+    COSMETIC,
+    TELECOM;
 
 }
