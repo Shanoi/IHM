@@ -12,19 +12,19 @@
    <top>
       <HBox prefHeight="150.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/logo.png" />
                </image>
             </ImageView>
             <Label id="title" text="Espace Administrateur">
                <HBox.margin>
-                  <Insets left="300.0" />
+                  <Insets left="150.0" />
                </HBox.margin>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#index" prefHeight="80.0" prefWidth="185.0" styleClass="button-back" text="Retour">
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#index" prefHeight="40.0" prefWidth="92.0" styleClass="button-back" text="Retour">
                <HBox.margin>
-                  <Insets left="180.0" top="35.0" />
+                  <Insets left="90.0" top="17.0" />
                </HBox.margin>
             </Button>
          </children>

@@ -15,37 +15,37 @@
 
 <BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/france.png" />
                </image>
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
             </ImageView>
             <Label id="title" text="Cap Sophia">
                <HBox.margin>
-                  <Insets left="480.0" />
+                  <Insets left="240.0" />
                </HBox.margin>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="60.0" onMouseClicked="#admin" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="30.0" onMouseClicked="#admin" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/admin-access.png" />
                </image>
                <HBox.margin>
-                  <Insets left="320.0" />
+                  <Insets left="160.0" />
                </HBox.margin>
             </ImageView>
             <Button mnemonicParsing="false" onMouseClicked="#info" styleClass="button-back" text="A propos">
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets left="5.0" />
                </HBox.margin>
             </Button>
          </children>
@@ -54,7 +54,7 @@
    <left>
       <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0" styleClass="nav">
+            <VBox prefHeight="100.0" prefWidth="50.0" styleClass="nav">
                <children>
                   <TextField promptText="Recherche..." />
                   <Label styleClass="h1" text="Catégories" />
@@ -64,12 +64,12 @@
       </ScrollPane>
    </left>
    <center>
-      <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="showcase-scroll" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" prefHeight="100.0" prefWidth="100.0" styleClass="showcase-scroll" BorderPane.alignment="CENTER">
          <content>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="showcase-pane">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0" styleClass="showcase-pane">
                <children>
                   <Label id="highlight" text="Activité phare !" />
-                  <TilePane fx:id="storesList" hgap="24.0" maxHeight="1.7976931348623157E308" minHeight="500.0" prefTileHeight="200.0" prefTileWidth="200.0" vgap="24.0">
+                  <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" minHeight="250.0" prefTileHeight="100.0" prefTileWidth="100.0" vgap="12.0">
                      <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
@@ -89,10 +89,10 @@
                         <AnchorPane layoutX="1154.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
                      </children>
                      <padding>
-                        <Insets left="24.0" top="24.0" />
+                        <Insets left="12.0" top="12.0" />
                      </padding>
                      <VBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
                   </TilePane>
                </children>
