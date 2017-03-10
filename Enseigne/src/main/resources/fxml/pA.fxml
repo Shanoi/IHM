@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -27,11 +28,15 @@
                             <center>
                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                     <children>
-                                        <ImageView fx:id="imagePhare" fitWidth="347.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/rzrblade.png" />
-                                            </image>
-                                        </ImageView>
+                                        <Pane prefHeight="482.0" prefWidth="623.0" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <ImageView fx:id="imagePhare" fitHeight="482.0" fitWidth="644.0" onMouseClicked="#clickImgPhare" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@images/rzrblade.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </Pane>
                                         <VBox prefHeight="482.0" prefWidth="817.0">
                                             <children>
                                                 <Label fx:id="accrochePhare" text="Phrase d'accroche">
@@ -39,7 +44,7 @@
                                                         <Font size="82.0" />
                                                     </font>
                                                 </Label>
-                                                <Label text="Prix">
+                                                <Label fx:id="prixPhare" text="Prix">
                                                     <font>
                                                         <Font size="68.0" />
                                                     </font>
@@ -55,54 +60,62 @@
                                 </HBox>
                             </center>
                         </BorderPane>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <children>
-                                <Button mnemonicParsing="false" text="&lt;" />
-                                <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
-                                    <children>
-                                        <ImageView fitHeight="298.0" fitWidth="1186.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/0226000008254188-photo-asus-rog-g7521.jpg" />
-                                            </image>
-                                        </ImageView>
-                                        <Label prefHeight="75.0" prefWidth="140.0" text="Prix">
-                                            <font>
-                                                <Font size="30.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
-                                    <children>
-                                        <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/e-640x457.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Label text="Prix">
-                                            <font>
-                                                <Font size="30.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </VBox>
-                                <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
-                                    <children>
-                                        <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@images/f532.jpg" />
-                                            </image>
-                                        </ImageView>
-                                        <Label text="Prix">
-                                            <font>
-                                                <Font size="30.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </VBox>
-                                <Button mnemonicParsing="false" text="&gt;" />
-                            </children>
-                        </HBox>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                                <Button mnemonicParsing="false" text="&lt;" BorderPane.alignment="CENTER" />
+                     </left>
+                     <center>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                  <children>
+                                      <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
+                                          <children>
+                                              <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@images/0226000008254188-photo-asus-rog-g7521.jpg" />
+                                                  </image>
+                                              </ImageView>
+                                              <Label prefHeight="75.0" prefWidth="140.0" text="Prix">
+                                                  <font>
+                                                      <Font size="30.0" />
+                                                  </font>
+                                              </Label>
+                                          </children>
+                                      </VBox>
+                                      <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
+                                          <children>
+                                              <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@images/e-640x457.png" />
+                                                  </image>
+                                              </ImageView>
+                                              <Label text="Prix">
+                                                  <font>
+                                                      <Font size="30.0" />
+                                                  </font>
+                                              </Label>
+                                          </children>
+                                      </VBox>
+                                      <VBox alignment="CENTER" prefHeight="481.0" prefWidth="569.0">
+                                          <children>
+                                              <ImageView fitHeight="301.0" fitWidth="644.0" pickOnBounds="true" preserveRatio="true">
+                                                  <image>
+                                                      <Image url="@images/f532.jpg" />
+                                                  </image>
+                                              </ImageView>
+                                              <Label text="Prix">
+                                                  <font>
+                                                      <Font size="30.0" />
+                                                  </font>
+                                              </Label>
+                                          </children>
+                                      </VBox>
+                                  </children>
+                              </HBox>
+                     </center>
+                     <right>
+                                <Button mnemonicParsing="false" text="&gt;" BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
                     </items>
                 </SplitPane>
                 <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="1920.0" text="Description" textAlignment="CENTER" />
