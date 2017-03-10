@@ -79,7 +79,6 @@ public class SavoirPlusController {
 
     SingleSelectionModel<Tab> selectionModel;
 
-    @FXML
     public void initialize(){
         initEvents();
         initShops();
