@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="212" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.MenuController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="212.0">
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1006.0" prefWidth="212.0">
          <children>
             <ImageView fx:id="logoCompany" fitHeight="150.0" fitWidth="212.0" onMouseClicked="#clickedOnLogo" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -16,7 +16,7 @@
                </image>
             </ImageView>
             <TextField fx:id="searchBar" onKeyPressed="#goToSearchView" text="Recherche" />
-            <ScrollPane prefHeight="793.0" prefWidth="212.0">
+            <ScrollPane prefHeight="772.0" prefWidth="212.0">
                <content>
                   <VBox alignment="TOP_CENTER" prefHeight="3143.0" prefWidth="196.0">
                      <children>
@@ -37,7 +37,7 @@
                         </ImageView>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="136.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
@@ -56,7 +56,7 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <Button fx:id="shopsButton" mnemonicParsing="false" onMouseClicked="#goToShopsViews" prefHeight="86.0" prefWidth="215.0" text="Magasins" />
+            <Button fx:id="shopsButton" mnemonicParsing="false" onMouseClicked="#goToShopsViews" prefHeight="74.0" prefWidth="212.0" text="Magasins" />
             <Button fx:id="aboutUsButton" mnemonicParsing="false" onMouseClicked="#goToAboutUsView" prefHeight="14.0" prefWidth="212.0" text="En savoir plus" />
          </children>
       </VBox>

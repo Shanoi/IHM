@@ -40,6 +40,9 @@ public class PAController implements Initializable {
     @FXML
     private ImageView imagePhare;
 
+    @FXML
+    private Label prixPhare;
+
     private mainProducts mainProds;
 
     private final String pathToImageSortBy = "nameOfProject/resources/testDataIcons/";
@@ -52,6 +55,8 @@ public class PAController implements Initializable {
 
     private AnimationTimer tracker;
 
+    private Product product;
+
     /**
      * Initializes the controller class.
      */
@@ -62,7 +67,9 @@ public class PAController implements Initializable {
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
         mainProds = new mainProducts();
 
-        accrochePhare.setText(mainProds.getCurrentProduct().getNom());
+        changeMainProd(mainProds.getCurrentProduct());
+
+        //accrochePhare.setText(mainProds.getCurrentProduct().getNom());
         //imagePhare.setImage(image);
 
         /*new Timer().schedule(
@@ -100,8 +107,6 @@ public class PAController implements Initializable {
 
                     product = mainProds.nextProduct();
 
-                    System.out.println("IMG : " + getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
-
                     accrochePhare.setText(product.getNom());
 
                     image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
@@ -114,7 +119,7 @@ public class PAController implements Initializable {
                     ft1.setToValue(0.0);
                     ft1.setCycleCount(0);
                     ft1.setAutoReverse(true);
-                    
+
                     ft2.setNode(accrochePhare);
                     ft2.setDuration(new Duration(300));
                     ft2.setFromValue(1.0);
@@ -135,15 +140,39 @@ public class PAController implements Initializable {
 
     @FXML
     private void gauchePhare(MouseEvent event) {
-        tracker.start();
-        accrochePhare.setText(mainProds.prevProduct().getNom());
+        //tracker.start();
+
+        product = mainProds.prevProduct();
+
+        changeMainProd(product);
 
     }
 
     @FXML
     private void droitePhare(MouseEvent event) {
 
-        accrochePhare.setText(mainProds.nextProduct().getNom());
+        product = mainProds.nextProduct();
+
+        changeMainProd(product);
+
+    }
+
+    @FXML
+    private void clickImgPhare(MouseEvent event){
+        
+        
+        
+    }
+    
+    private void changeMainProd(Product product) {
+
+        accrochePhare.setText(product.getNom());
+
+        image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
+
+        imagePhare.setImage(image);
+
+        prixPhare.setText(Float.toString(product.getPrix()));
 
     }
 
