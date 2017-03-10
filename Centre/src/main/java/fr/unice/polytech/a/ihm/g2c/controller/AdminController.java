@@ -1,5 +1,6 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
+import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +18,10 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-        String fxmlFile = "/fxml/dep_ad_banner.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
-            Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
-            rootPane.setCenter(rootNode);
+            Parent rootNode = loader.load(getClass().getResourceAsStream(AdminScene.GLOBAL.getFxmlFile()));
+            setSubFrame(rootNode);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,6 +31,17 @@ public class AdminController {
     void index(MouseEvent event) {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         ControllerUtil.showScene(AppScene.INDEX, stage);
+    }
+
+    public void setAdminScene(AdminScene scene) {
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Parent rootNode = loader.load(getClass().getResourceAsStream(scene.getFxmlFile()));
+            ((AdminSceneController)loader.getController()).initParent()
+            rootPane.setCenter(rootNode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
