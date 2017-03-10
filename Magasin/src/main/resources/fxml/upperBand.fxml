@@ -37,7 +37,7 @@
                   <Image url="/images/search_icon.png" />
                </image>
             </ImageView>
-            <TextField prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
+            <TextField focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
                <HBox.margin>
                   <Insets left="2.0" />
                </HBox.margin>
@@ -47,7 +47,7 @@
             </TextField>
          </children>
       </HBox>
-      <Button alignment="CENTER" mnemonicParsing="false" prefWidth="375.0" text="En savoir plus">
+      <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefWidth="375.0" text="En savoir plus">
          <font>
             <Font size="30.0" />
          </font>

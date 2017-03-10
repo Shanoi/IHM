@@ -31,7 +31,7 @@ public class ButtonModel {
         new AppController(primaryStage, scene);
         primaryStage.setScene(scene);
         primaryStage.setFullScreenExitHint("");
-        primaryStage.setFullScreen(true);
+        //primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
