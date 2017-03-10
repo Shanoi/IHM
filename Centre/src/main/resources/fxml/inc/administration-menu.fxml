@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootPane" maxHeight="400.0" maxWidth="900.0" prefHeight="450.0" prefWidth="900.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.MenuController">
+   <children>
+      <Label styleClass="h1" text="Gestion Magasins" />
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="menu-row">
+         <children>
+            <VBox alignment="CENTER" onMouseClicked="#changeOrder" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/buttons/ordre.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="button-label" text="Changer l'ordre" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#addStore" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/buttons/minus.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="button-label" text="Ajouter un magasin" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="155.0" layoutY="5.0" onMouseClicked="#removeStore" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/buttons/plus.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="button-label" text="Enlever un magasin" />
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Label layoutX="25.0" layoutY="15.0" styleClass="h1" text="Gestion Centre commercial">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER" layoutX="25.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" styleClass="menu-row">
+         <children>
+            <VBox alignment="CENTER" onMouseClicked="#changeHighlight" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/buttons/event.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="button-label" text="Modifier l'activité phare" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#changeInfo" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/images/buttons/info.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label styleClass="button-label" text="Modifier les informations" />
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+</VBox>

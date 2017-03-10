@@ -16,6 +16,9 @@ import java.io.IOException;
 
 /**
  * Created by Enzo on 08/03/2017.
+ *
+ * Ajouter l'image des catégories dans la BD
+ *
  */
 public class MenuController {
     @FXML
@@ -31,8 +34,16 @@ public class MenuController {
     private Button aboutUsButton;
 
     @FXML
-    void clickedOnLogo(MouseEvent event) {
+    private ImageView cd;
 
+    @FXML
+    void clickedOnLogo(MouseEvent event) throws IOException {
+        Stage stage;
+
+        if (event.getButton() == MouseButton.PRIMARY){
+            stage = (Stage)  aboutUsButton.getScene().getWindow();
+            startMainView(stage);
+        }
     }
 
     @FXML
@@ -56,12 +67,22 @@ public class MenuController {
     }
 
     @FXML
+    void goToCatalogCDView(MouseEvent event) throws IOException {
+        Stage stage;
+
+        if (event.getButton() == MouseButton.PRIMARY){
+            stage = (Stage)  cd.getScene().getWindow();
+            startCatalogCDView(stage);
+        }
+    }
+
+    @FXML
     void goToSearchView(KeyEvent event) {
 
     }
 
     private void startAboutUsView(Stage stage, int tabID) throws IOException {
-        String fxmlFile = "/fxml/savoirplus.fxml";
+        String fxmlFile = "/fxml/testSp.fxml";
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = fxmlLoader.load();
 
@@ -76,4 +97,30 @@ public class MenuController {
         stage.show();
     }
 
+    private void startMainView(Stage stage) throws IOException {
+        String fxmlFile = "/fxml/MainPage.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root, 1920, 1080);
+        scene.getStylesheets().add("/styles/styles.css");
+        stage.setTitle("To be or To Have");
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+    private void startCatalogCDView(Stage stage) throws IOException{
+        String fxmlFile = "/fxml/searchFinal.fxml";
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root, 1920, 1080);
+        scene.getStylesheets().add("/styles/styles.css");
+        stage.setTitle("To be or To Have: Catalog");
+
+        stage.setScene(scene);
+        stage.show();
+    }
 }

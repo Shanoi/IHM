@@ -1,6 +1,8 @@
 package fr.unice.polytech.a.ihm.g2c;
 
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
+import fr.unice.polytech.a.ihm.g2c.controller.IndexController;
+import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +17,8 @@ import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
 
 public class MainApp extends Application {
 
-    public static final int HEIGHT = 1080;
-    public static final int WIDTH = 1920;
+    public static final int HEIGHT = 540;
+    public static final int WIDTH = 960;
     
     private static final Logger logger = LogManager.getLogger(MainApp.class);
 
@@ -27,33 +29,25 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-
+        DataModel data = DataModel.getInstance();
+        data.setHighlight("C'est les soldes !! A partir de -40% dans tous les magasins");
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        initScene();
+        //initScene();
 
         stage.setTitle("Cap Sophia");
-        stage.setScene(INDEX.getScene());
-        stage.setMaximized(true);
-        stage.setFullScreen(true);
+        FXMLLoader loader = new FXMLLoader();
+        Parent rootNode = loader.load(getClass().getResourceAsStream(INDEX.getFxmlFile()));
+        Scene scene = new Scene(rootNode, MainApp.WIDTH, MainApp.HEIGHT);
+        IndexController controller = loader.getController();
+        stage.setScene(scene);
+        //stage.setMaximized(true);
+        //stage.setFullScreen(true);
         stage.show();
+        /*Thread.sleep(1000);
+        controller.test();*/
     }
 
-    private void initScene() {
-        for (AppScene appScene: values()) {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                Parent rootNode = loader.load(getClass().getResourceAsStream(appScene.getFxmlFile()));
-                Scene scene = new Scene(rootNode, WIDTH, HEIGHT);
-                scene.getStylesheets().add(appScene.getCssFile());
-                appScene.setScene(scene);
-
-
-            } catch (IOException e) {
-                logger.error(e);
-            }
-        }
-    }
 }
