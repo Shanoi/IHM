@@ -32,24 +32,27 @@ public class InsertApp {
             String tel, String mail, double ca, int nbEmployes, double coutMaintenance, String pageWeb, int prodRenvoyes) {
         String sql = "INSERT INTO magasin(idMagasin,magasinName,adresseMagasin,latitudeMagasin,longitudeMagasin,"
                 + "TelephoneMagasin,mailMagasin,CAMagasin,nbEmployés,coutMaintenance,pageWeb,prodRenvoyés) "
-                + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+                + "VALUES($next_id,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, name);
-            pstmt.setString(2, adresse);
-            pstmt.setDouble(3, latitude);
-            pstmt.setDouble(4, longitude);
-            pstmt.setString(5, tel);
-            pstmt.setString(6, mail);
-            pstmt.setDouble(7, ca);
-            pstmt.setInt(8, nbEmployes);
-            pstmt.setDouble(9, coutMaintenance);
-            pstmt.setString(10, pageWeb);
-            pstmt.setInt(11, prodRenvoyes);
+            pstmt.setString(2, name);
+            pstmt.setString(3, adresse);
+            pstmt.setDouble(4, latitude);
+            pstmt.setDouble(5, longitude);
+            pstmt.setString(6, tel);
+            pstmt.setString(7, mail);
+            pstmt.setDouble(8, ca);
+            pstmt.setInt(9, nbEmployes);
+            pstmt.setDouble(10, coutMaintenance);
+            pstmt.setString(11, pageWeb);
+            pstmt.setInt(12, prodRenvoyes);
             pstmt.executeUpdate();
+            
+            System.out.println("Requête Effectuée");
+            
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
 
