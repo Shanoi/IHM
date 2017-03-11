@@ -11,13 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,17 +54,17 @@ public class ProductModel {
     private void initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
         ObservableList<Parent> items = FXCollections.observableArrayList();
         for (String str : currentNeurologicalProductPromo) {
-            FXMLLoader loader = new FXMLLoader();
-            Parent productView = loader.load(getClass().getResource("/fxml/Client/listView_product_promo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product.fxml"));
+            Parent productView = (Parent) loader.load();
+            ListViewProductController listViewcontroller = loader.getController();
             JSONObject neuroProduct = produitsNeurologique.getJSONObject(str);
             String name = neuroProduct.getString("nom");
-            Image image = new Image("/images/" + str);
+            Image image = new Image("/images/product_neuro/" + str + ".jpg");
             int price = neuroProduct.getInt("prix");
-            ((ListViewProductController) loader.getController()).initializeProduct(name, image, price);
+            listViewcontroller.initializeProduct(name, image, price);
             items.add(productView);
         }
         currentNeurologicalProductPromoView.setItems(items);
-
     }
 
     private void initializeScientificProductPromoView() {
