@@ -11,12 +11,15 @@ public class Product {
     private final String nom;
     private final String image;
     private final String description;
+    private final String category;
 
-    public Product(float prix, String nom, String image, String description) {
+    public Product(float prix, String nom, String image,
+            String description, String category) {
         this.prix = prix;
         this.nom = nom;
         this.image = image;
         this.description = description;
+        this.category = category;
     }
 
     public float getPrix() {
@@ -33,6 +36,10 @@ public class Product {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
 }

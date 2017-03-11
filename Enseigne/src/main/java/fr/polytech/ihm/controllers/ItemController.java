@@ -5,9 +5,14 @@
  */
 package fr.polytech.ihm.controllers;
 
+import fr.polytech.ihm.custom.ProductListCell;
 import fr.polytech.ihm.data.Product;
+import fr.polytech.ihm.kernel.CategoryProduct;
+import static fr.polytech.ihm.kernel.CategoryProduct.getCategoryProduct;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,7 +30,7 @@ import org.slf4j.LoggerFactory;
 public class ItemController implements Initializable {
 
     private static final Logger log = LoggerFactory.getLogger(ItemController.class);
-    
+
     @FXML
     private ImageView imgProd;
     @FXML
@@ -39,6 +44,8 @@ public class ItemController implements Initializable {
     @FXML
     private ListView listItem;
 
+    private ObservableList<Product> productObservableList;
+
     /**
      * Initializes the controller class.
      */
@@ -49,14 +56,23 @@ public class ItemController implements Initializable {
 
     public void initItem(Product product) {
 
-        log.info("Produit selectionné : " + product.getNom());
+        productObservableList = FXCollections.observableArrayList();
+
+        productObservableList.addAll(getCategoryProduct(product.getCategory()));
+
+        System.out.println("LIST : " + getCategoryProduct(product.getCategory()));
         
+        listItem.setItems(productObservableList);
+        listItem.setCellFactory(studentListView -> new ProductListCell());
+
+        log.info("Produit selectionné : " + product.getNom());
+
         nomProd.setText(product.getNom());
 
         Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
         imgProd.setImage(image);
-        
+
         descrProd.setText(product.getDescription());
 
     }

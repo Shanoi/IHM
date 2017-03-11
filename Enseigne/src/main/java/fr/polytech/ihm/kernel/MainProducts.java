@@ -9,7 +9,6 @@ import fr.polytech.ihm.data.Product;
 import java.sql.*;
 import java.util.ArrayList;
 
-
 public class MainProducts {
 
     private ArrayList<Product> products;
@@ -19,7 +18,7 @@ public class MainProducts {
     public MainProducts() {
 
         products = new ArrayList<>();
-        
+
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -37,8 +36,12 @@ public class MainProducts {
 
             while (rs.next()) {
 
-                products.add(new Product(rs.getFloat("priceSell"), rs.getString("productName"), rs.getString("picture"), rs.getString("description")));
-                System.out.println("RES : " + rs.getFloat("priceSell"));
+                products.add(new Product(rs.getFloat("priceSell"),
+                        rs.getString("productName"),
+                        rs.getString("picture"),
+                        rs.getString("description"),
+                        rs.getString("category")));
+                System.out.println("RES : " + rs.getString("category"));
 
             }
 
@@ -49,11 +52,11 @@ public class MainProducts {
         }
 
     }
-    
-    public int getNbMainProds(){
-        
+
+    public int getNbMainProds() {
+
         return products.size();
-        
+
     }
 
     public Product getCurrentProduct() {
