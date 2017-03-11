@@ -24,4 +24,11 @@ public class UpperBandController {
         loader.load(stage, "/fxml/Client/shopMain.fxml");
     }
 
+    @FXML
+    void enSavoirPlus() throws Exception {
+        Stage stage = (Stage) homeLabel.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/Client/savoirplus.fxml");
+    }
+
 }

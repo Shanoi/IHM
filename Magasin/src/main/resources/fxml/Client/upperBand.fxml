@@ -47,7 +47,7 @@
             </TextField>
          </children>
       </HBox>
-      <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefWidth="375.0" text="En savoir plus">
+      <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefWidth="375.0" text="En savoir plus" onMouseClicked="#enSavoirPlus">
          <font>
             <Font size="30.0" />
          </font>
