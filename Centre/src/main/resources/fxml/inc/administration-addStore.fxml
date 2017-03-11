@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="40.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
    <children>
       <Label styleClass="h1" text="Ajout d'un magasin" />
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="30.0">
@@ -20,12 +21,17 @@
                   <Label layoutX="10.0" layoutY="10.0" styleClass="button-label" text="Description du magasin" />
                   <Label layoutX="10.0" layoutY="80.0" styleClass="button-label" text="Image">
                      <VBox.margin>
-                        <Insets top="82.0" />
+                        <Insets top="90.0" />
                      </VBox.margin>
                   </Label>
                   <Label layoutX="53.0" layoutY="10.0" styleClass="button-label" text="Catégorie du magasin">
                      <VBox.margin>
                         <Insets top="4.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="201.0" styleClass="button-label" text="Enseigne">
+                     <VBox.margin>
+                        <Insets top="2.0" />
                      </VBox.margin>
                   </Label>
                </children>
@@ -41,6 +47,7 @@
                      </children>
                   </HBox>
                   <ChoiceBox fx:id="category" minHeight="20.0" prefWidth="200.0" />
+                  <CheckBox fx:id="sign" mnemonicParsing="false" />
                </children>
             </VBox>
          </children>

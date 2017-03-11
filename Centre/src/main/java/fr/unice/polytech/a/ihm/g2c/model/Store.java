@@ -15,12 +15,15 @@ public class Store {
     private String description;
     private Image img;
     private Category category;
+    private boolean sign;
 
-    public Store(String name, String description, String imgPath, Category category) throws FileNotFoundException {
+
+    public Store(String name, String description, String imgPath, Category category, boolean sign) throws FileNotFoundException {
         this.name = name;
         this.description = description;
         this.img = new Image(new FileInputStream(imgPath));
         this.category = category;
+        this.sign = sign;
     }
 
     public String getName() {
@@ -42,5 +45,9 @@ public class Store {
     @Override
     public String toString() {
         return name;
+    }
+
+    public boolean isSign() {
+        return sign;
     }
 }

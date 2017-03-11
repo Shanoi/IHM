@@ -24,6 +24,7 @@
     * Regler le probleme de police qui change
     * Extension
     * Renommer le css
+    * Renommer les classes css
     
 ## Idées d'améliorations
 
