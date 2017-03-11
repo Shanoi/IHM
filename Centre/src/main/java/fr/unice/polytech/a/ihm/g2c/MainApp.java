@@ -30,11 +30,11 @@ public class MainApp extends Application {
     @Override
     public void init() throws Exception {
         DataModel data = DataModel.getInstance();
-        data.setHighlight("C'est les soldes !! A partir de -40% dans tous les magasins");
+        data.setHighlight("Les soldes arrivent !! Jusqu'à -70% dans tous les magasins");
         data.addStore(new Store("Fnac", "salut", "src/main/resources/images/stores/fnac.jpg", HIGH_TECH));
         data.addStore(new Store("Armani", "salut", "src/main/resources/images/stores/armani.jpg", FASHION_MAN));
         data.addStore(new Store("Zara", "salut", "src/main/resources/images/stores/zara.png", FASHION_WOMAN));
-        data.addStore(new Store("Hipster Label", "salut", "src/main/resources/images/stores/hipster.png", FASHION_MAN));
+        data.addStore(new Store("The Hipster Label", "salut", "src/main/resources/images/stores/hipster.png", FASHION_MAN));
         data.addStore(new Store("Orange", "salut", "src/main/resources/images/stores/orange.jpg", TELECOM));
         data.addStore(new Store("Hugo Boss", "salut", "src/main/resources/images/stores/hugoboss.jpg", FASHION_MAN));
         data.addStore(new Store("Sephora", "salut", "src/main/resources/images/stores/sephora.png", COSMETIC));

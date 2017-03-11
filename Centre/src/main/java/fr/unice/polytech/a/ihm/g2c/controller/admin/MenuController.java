@@ -41,8 +41,8 @@ public class MenuController extends AdminSceneController {
     }
 
     @FXML
-    void changeOrder(MouseEvent event) {
-
+    void changeSelection(MouseEvent event) {
+        adminController.setAdminScene(STORE_SELECTION);
     }
 
     @FXML

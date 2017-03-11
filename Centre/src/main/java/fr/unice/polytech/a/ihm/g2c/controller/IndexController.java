@@ -1,11 +1,12 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.common.Category;
+import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,9 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -37,6 +36,7 @@ public class IndexController {
     private double tileWidth;
     private double tileHeight;
     private List<Category> categoryFilter;
+    private SortingType sortingType = SortingType.A_TO_Z;
 
     @FXML
     private Label highlight;
@@ -45,23 +45,33 @@ public class IndexController {
     @FXML
     private TilePane storesList;
     @FXML
+    private TilePane storeSelection;
+    @FXML
     private VBox menuList;
+    @FXML
+    public ChoiceBox<SortingType> sortTypeChooser;
 
-    public void test() {
-        Stage stage = (Stage) rootPane.getScene().getWindow();
-        ControllerUtil.showScene(ADMIN, stage);
-    }
 
 
     @FXML
     public void initialize() {
+        // Fields
         tileHeight = storesList.getPrefTileHeight();
         tileWidth = storesList.getPrefTileWidth();
         categoryFilter = new ArrayList<>();
 
+        // Sorting
+        sortTypeChooser.getItems().addAll(SortingType.values());
+        sortTypeChooser.setValue(SortingType.A_TO_Z);
+        sortTypeChooser.valueProperty().addListener((observable, oldValue, newValue) -> {
+            sortingType = newValue;
+            refreshStoresList();
+        });
+
+        // Menu
         Arrays.stream(Category.values()).forEach(category ->  {
             CheckBox cb = new CheckBox(category.toString());
-            cb.selectedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
+            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue)
                     categoryFilter.add(Category.valueOf(cb.getText()));
                 else
@@ -71,10 +81,9 @@ public class IndexController {
             menuList.getChildren().add(cb);
         });
 
+        // Stores
         DataModel data = DataModel.getInstance();
         highlight.setText(data.getHighlight());
-        //List<Store> stores = DataModel.getInstance().getStoreList();
-        //stores.forEach(store -> addTile(store.getImg()));
         refreshStoresList();
     }
 
@@ -89,21 +98,25 @@ public class IndexController {
         logger.debug("info");
     }
 
-    private void addTile(Image img) {
+    private void addTile(TilePane pane, Image img) {
         ImageView tile = new ImageView(img);
         tile.setFitWidth(tileWidth);
         tile.setFitHeight(tileHeight);
-        storesList.getChildren().add(tile);
+        pane.getChildren().add(tile);
     }
 
     private void refreshStoresList() {
         logger.debug("Refreshing store list");
-        List<Store> stores = DataModel.getInstance().getStoreList();
+        List<Store> storesToDisplay = DataModel.getInstance().getStoreList();
         if (!categoryFilter.isEmpty())
-            stores = stores.stream().filter(store -> categoryFilter.contains(store.getCategory())).collect(Collectors.toList());
-        logger.debug("Stores to display: " + stores);
+            storesToDisplay = storesToDisplay.stream().filter(store -> categoryFilter.contains(store.getCategory())).collect(Collectors.toList());
+        storesToDisplay.sort(sortingType.getComparator());
+        logger.debug("Stores to display: " + storesToDisplay);
         storesList.getChildren().clear();
-        stores.forEach(store -> addTile(store.getImg()));
+        storesToDisplay.forEach(store -> addTile(storesList, store.getImg()));
+        List<Store> storeSelectionToDisplay = DataModel.getInstance().getStoreSelectionList();
+        storeSelection.getChildren().clear();
+        storeSelectionToDisplay.stream().filter(storesToDisplay::contains).forEach(store -> addTile(storeSelection, store.getImg()));
     }
 
 }

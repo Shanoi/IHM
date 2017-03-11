@@ -5,10 +5,12 @@ package fr.unice.polytech.a.ihm.g2c.common;
  */
 public enum Category {
 
+    // Waning: needs to be in alphabetical order !
+
+    COSMETIC,
     FASHION_MAN,
     FASHION_WOMAN,
     HIGH_TECH,
-    COSMETIC,
     TELECOM;
 
 }
