@@ -9,8 +9,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -174,7 +180,6 @@ public class AdminPanelController {
         nbSold.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNbSell() + ""));
 
         productList.setItems(products);
-
     }
 
     private void fillShop(){
@@ -187,6 +192,30 @@ public class AdminPanelController {
         phoneShop.setCellValueFactory(cellData -> cellData.getValue().getPhoneShop());
 
         shopList.setItems(shops);
+
+        shopList.setRowFactory(tv -> {
+            TableRow<Shop> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY) {
+
+                    Shop clickedRow = row.getItem();
+                    String fxmlFile = "/fxml/infosShop.fxml";
+                    FXMLLoader loader = new FXMLLoader();
+                    try {
+                        Stage stage = new Stage();
+                        Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+                        Scene scene = new Scene(rootNode);
+                        stage.setScene(scene);
+                        ((InfosShopController)loader.getController()).initInfosShop(clickedRow);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row ;
+        });
     }
 
     @FXML

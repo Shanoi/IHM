@@ -32,7 +32,7 @@
                         <TextField fx:id="catProductField" layoutX="439.0" layoutY="115.0" promptText="Catégorie" />
                         <TextField fx:id="imageProductField" layoutX="44.0" layoutY="115.0" promptText="Image de l'objet" />
                         <TextField fx:id="catNameField" disable="true" layoutX="439.0" layoutY="155.0" promptText="Image de la catégorie" />
-                        <Button fx:id="addProductButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onMousePressed="#addProduct" text="Ajouter" />
+                        <Button fx:id="addProductButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onAction="#addProduct" text="Ajouter" />
                         <Label fx:id="resultLabelProduct" layoutX="706.0" layoutY="276.0" />
                      </children>
                   </AnchorPane>
@@ -66,7 +66,7 @@
                         <TextField fx:id="nbEmpShopField" layoutX="360.0" layoutY="324.0" prefHeight="31.0" prefWidth="300.0" promptText="Nombre d'employé du magasin" />
                         <TextField fx:id="costShopField" layoutX="360.0" layoutY="419.0" prefHeight="31.0" prefWidth="300.0" promptText="Coût de maintenance" />
                         <TextField fx:id="webShopField" layoutX="360.0" layoutY="232.0" prefHeight="31.0" prefWidth="300.0" promptText="Page web du magasin" />
-                        <Button fx:id="addShopButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onMousePressed="#addShop" text="Ajouter" />
+                        <Button fx:id="addShopButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onAction="#addShop" text="Ajouter" />
                         <Label fx:id="resultLabel" alignment="TOP_CENTER" layoutX="706.0" layoutY="276.0" />
                      </children></AnchorPane>
               </content>
