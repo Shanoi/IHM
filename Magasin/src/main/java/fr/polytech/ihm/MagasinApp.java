@@ -18,7 +18,7 @@ public class MagasinApp extends Application {
         Stage Admin_Stage = new Stage();
 
         Loader loader = new Loader();
-        loader.load(primaryStage, fxml_magasin, true);
+        //loader.load(primaryStage, fxml_magasin);
         loader.load(Admin_Stage, fxml_admin, false);
     }
 
