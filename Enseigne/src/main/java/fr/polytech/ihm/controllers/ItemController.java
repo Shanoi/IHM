@@ -7,8 +7,8 @@ package fr.polytech.ihm.controllers;
 
 import fr.polytech.ihm.custom.ProductListCell;
 import fr.polytech.ihm.data.Product;
-import fr.polytech.ihm.kernel.CategoryProduct;
-import static fr.polytech.ihm.kernel.CategoryProduct.getCategoryProduct;
+import fr.polytech.ihm.kernel.Tools;
+import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
