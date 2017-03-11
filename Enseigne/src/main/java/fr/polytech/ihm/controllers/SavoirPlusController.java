@@ -7,24 +7,27 @@ package fr.polytech.ihm.controllers;
 import fr.polytech.ihm.data.Events;
 import fr.polytech.ihm.data.JobOffer;
 import fr.polytech.ihm.data.Shop;
+import fr.polytech.ihm.kernel.EventParser;
+import fr.polytech.ihm.kernel.JobOfferParser;
+import fr.polytech.ihm.kernel.ShopParser;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import java.awt.*;
 
 public class SavoirPlusController {
-    private static final Logger log = LoggerFactory.getLogger(SavoirPlusController.class);
 
-    @FXML
-    private TextArea testHeader;
+    private ShopParser shopParser;
+    private EventParser eventParser;
+    private JobOfferParser jobOfferParser;
+
+    private Point posCustomer = new Point(0,0);
 
     @FXML
     private TabPane spreadsheet;
-
-    @FXML
-    private Tab event;
 
     @FXML
     private TableView<Events> eventsSpread;
@@ -34,9 +37,6 @@ public class SavoirPlusController {
 
     @FXML
     private TableColumn<Events, String> descEvent;
-
-    @FXML
-    private Tab shops;
 
     @FXML
     private TableView<Shop> shopSpread;
@@ -49,9 +49,6 @@ public class SavoirPlusController {
 
     @FXML
     private TableColumn<Shop, String> distShop;
-
-    @FXML
-    private Tab jobs;
 
     @FXML
     private TableView<JobOffer> jobSpread;
@@ -68,22 +65,17 @@ public class SavoirPlusController {
     @FXML
     private TableColumn<JobOffer, String> dateJobs;
 
-    @FXML
-    private TextArea adress;
-
-    @FXML
-    private TextArea website;
-
-    @FXML
-    private TextArea support;
-
     SingleSelectionModel<Tab> selectionModel;
 
     public void initialize(){
+        shopParser = new ShopParser();
+        eventParser = new EventParser();
+        jobOfferParser = new JobOfferParser();
+        selectionModel = spreadsheet.getSelectionModel();
+
         initEvents();
         initShops();
         initJobs();
-        selectionModel = spreadsheet.getSelectionModel();
     }
 
     public void setTabView(int index){
@@ -92,11 +84,11 @@ public class SavoirPlusController {
 
     private void initEvents(){
         ObservableList<Events> events = FXCollections.observableArrayList();
-        events.add(new Events("01/01/2017", "This event is the first item in the spreadsheet !"));
-        events.add(new Events("02/02/2017", "And this is the second one"));
 
-        dateEvent.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
-        descEvent.setCellValueFactory(cellData -> cellData.getValue().descProperty());
+        events.addAll(eventParser.getEvents());
+
+        dateEvent.setCellValueFactory(cellData -> cellData.getValue().getDateEvent());
+        descEvent.setCellValueFactory(cellData -> cellData.getValue().getDescEvent());
 
         eventsSpread.setItems(events);
     }
@@ -104,13 +96,11 @@ public class SavoirPlusController {
     private void initShops(){
         ObservableList<Shop> shops = FXCollections.observableArrayList();
 
-        shops.add(new Shop("Magasin 1", "123 rue de la paix", 50.9));
-        shops.add(new Shop("Magasin 2", "456 route de Napoléon", 26.0));
-        shops.add(new Shop("Magasin 3", "789 avenue Martin", 146.4));
+        shops.addAll(shopParser.getShop());
 
-        nameShop.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        adressShop.setCellValueFactory(cellData -> cellData.getValue().adressProperty());
-        distShop.setCellValueFactory(cellData -> cellData.getValue().distanceProperty());
+        nameShop.setCellValueFactory(cellData -> cellData.getValue().getNameShop());
+        adressShop.setCellValueFactory(cellData -> cellData.getValue().getAdressShop());
+        distShop.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().distanceShopForPos(posCustomer) + " km"));
 
         shopSpread.setItems(shops);
     }
@@ -118,14 +108,12 @@ public class SavoirPlusController {
     private void initJobs(){
         ObservableList<JobOffer> jobs = FXCollections.observableArrayList();
 
-        jobs.add(new JobOffer("Hôte(sse) de caisse", "Vente", "Variées","01/01/2017"));
-        jobs.add(new JobOffer("Directeur de magasin", "Vente", "Nice","02/02/2017"));
-        jobs.add(new JobOffer("Analyste financier", "Marketing", "Paris","03/03/2017"));
+        jobs.addAll(jobOfferParser.getJobOffers());
 
-        nameJobs.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        functionJobs.setCellValueFactory(cellData -> cellData.getValue().functionProperty());
-        localisationJobs.setCellValueFactory(cellData -> cellData.getValue().localisationProperty());
-        dateJobs.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+        nameJobs.setCellValueFactory(cellData -> cellData.getValue().getDescJO());
+        functionJobs.setCellValueFactory(cellData -> cellData.getValue().getFunctionJO());
+        localisationJobs.setCellValueFactory(cellData -> new SimpleStringProperty("Magasin n°" + cellData.getValue().getIdShop()));
+        dateJobs.setCellValueFactory(cellData -> cellData.getValue().getDateJO());
 
         jobSpread.setItems(jobs);
     }

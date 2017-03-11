@@ -8,27 +8,37 @@ import javafx.beans.property.StringProperty;
  */
 public class Events {
 
-    private StringProperty date;
-    private StringProperty desc;
+    private int idEvent;
+    private int idShop;
+    private StringProperty nameEvent;
+    private StringProperty dateEvent;
+    private StringProperty descEvent;
 
-    public Events(String date, String desc){
-        this.date = new SimpleStringProperty(date);
-        this.desc = new SimpleStringProperty(desc);
+    public Events(int idEvent, int idShop, String nameEvent, String dateEvent, String descEvent){
+        this.idEvent = idEvent;
+        this.idShop = idShop;
+        this.nameEvent = new SimpleStringProperty(nameEvent);
+        this.dateEvent = new SimpleStringProperty(dateEvent);
+        this.descEvent = new SimpleStringProperty(descEvent);
     }
 
-    public String getName(){
-        return date.get();
+    public int getIdEvent() {
+        return idEvent;
     }
 
-    public String getDesc(){
-        return desc.get();
+    public int getIdShop() {
+        return idShop;
     }
 
-    public StringProperty dateProperty(){
-        return date;
+    public String getNameEvent() {
+        return nameEvent.get();
     }
 
-    public StringProperty descProperty(){
-        return desc;
+    public StringProperty getDateEvent(){
+        return dateEvent;
+    }
+
+    public StringProperty getDescEvent(){
+        return descEvent;
     }
 }
