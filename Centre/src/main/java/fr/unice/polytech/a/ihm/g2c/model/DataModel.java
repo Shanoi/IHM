@@ -12,6 +12,7 @@ public class DataModel {
     private static DataModel instance = new DataModel();
 
     private List<Store> storeList = new ArrayList<>();
+    private List<Store> storeSelectionList = new ArrayList<>();
     private String highlight;
 
     private DataModel() {
@@ -33,6 +34,14 @@ public class DataModel {
 
     public List<Store> getStoreList() {
         return new LinkedList<>(storeList);
+    }
+
+    public List<Store> getStoreSelectionList() {
+        return new ArrayList<>(storeSelectionList);
+    }
+
+    public void setStoreSelectionList(List<Store> storeSelectionList) {
+        this.storeSelectionList = storeSelectionList;
     }
 
     public String getHighlight() {

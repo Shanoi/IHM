@@ -6,16 +6,21 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Product;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainProducts {
+public class ProductsParser {
 
-    private ArrayList<Product> products;
+    private List<Product> products;
 
     private int currentIndex = 0;
 
-    public MainProducts() {
+    public ProductsParser() {
 
         products = new ArrayList<>();
 
@@ -40,7 +45,9 @@ public class MainProducts {
                         rs.getString("productName"),
                         rs.getString("picture"),
                         rs.getString("description"),
-                        rs.getString("category")));
+                        rs.getString("category"),
+                        rs.getInt("idMarque"),
+                        rs.getInt("nbSell")));
                 System.out.println("RES : " + rs.getString("category"));
 
             }
@@ -97,4 +104,7 @@ public class MainProducts {
 
     }
 
+    public List<Product> getProducts(){
+        return products;
+    }
 }

@@ -9,7 +9,8 @@ public enum AdminScene {
     INFO("/fxml/inc/administration-info.fxml"),
     HIGHLIGHT("/fxml/inc/administration-highlight.fxml"),
     STORE_ADD("/fxml/inc/administration-addStore.fxml"),
-    STORE_REMOVE("/fxml/inc/administration-removeStore.fxml");
+    STORE_REMOVE("/fxml/inc/administration-removeStore.fxml"),
+    STORE_SELECTION("/fxml/inc/administration-selectStore.fxml");
 
     private String fxmlFile;
 

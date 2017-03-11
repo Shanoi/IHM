@@ -56,4 +56,25 @@ public class InsertApp {
         }
     }
 
+    public void insertProduct(String name, String desc, int brandID, String picture, String catProduct) {
+        String sql = "INSERT INTO products(idProduct,productName,description,idMarque,nbSell,"
+                + "picture,category) "
+                + "VALUES($next_id,?,?,?,?,?,?)";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(2, name);
+            pstmt.setString(3, desc);
+            pstmt.setDouble(4, brandID);
+            pstmt.setDouble(5, 0);
+            pstmt.setString(6, picture);
+            pstmt.setString(7, catProduct);
+            pstmt.executeUpdate();
+
+            System.out.println("Requête Effectuée");
+
+        } catch (SQLException e) {
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+        }
+    }
 }

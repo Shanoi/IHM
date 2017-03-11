@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
@@ -65,10 +66,27 @@
    <center>
       <ScrollPane fitToWidth="true" prefHeight="100.0" prefWidth="100.0" styleClass="showcase-scroll" BorderPane.alignment="CENTER">
          <content>
-            <VBox alignment="CENTER" prefWidth="50.0" styleClass="showcase-pane">
+            <VBox prefWidth="50.0" spacing="20.0" styleClass="index-central-pane">
                <children>
-                  <Label id="highlight" fx:id="highlight" maxWidth="600.0" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                  <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" minHeight="250.0" prefTileHeight="100.0" prefTileWidth="100.0" vgap="12.0">
+                  <Label id="highlight" fx:id="highlight" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                  <Label styleClass="h1" text="A découvrir" />
+                  <TilePane fx:id="storeSelection" hgap="12.0" layoutX="30.0" layoutY="84.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-pane" vgap="12.0">
+                     <padding>
+                        <Insets left="12.0" top="12.0" />
+                     </padding>
+                  </TilePane>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="h1" text="Toutes les boutiques" />
+                        <Label styleClass="button-label" text="Trier par">
+                           <HBox.margin>
+                              <Insets left="290.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="sortTypeChooser" prefWidth="80.0" />
+                     </children>
+                  </HBox>
+                  <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-pane" vgap="12.0">
                      <padding>
                         <Insets left="12.0" top="12.0" />
                      </padding>

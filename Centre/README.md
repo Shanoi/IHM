@@ -4,6 +4,8 @@
     oui
 * Traduction ?
     pas tout
+* Est-ce que le client va essayer de faire planter le soft ?
+* Peut-on changer de spé ?
 
 
 
@@ -11,19 +13,20 @@
 
 * Admin
     * Vue / Controller pour les informations
-    * Controller ordre des magasins
+    * S'occuper de l'exception dans AddStore#sumbit ?
 * Index
-    * Mettre un system de trie pour les magasins dans l'index
-    * Afficher la descrption des magasins
+    * Afficher la description des magasins
+    * Mettre "pas de resultat"
 * Info
     * Mettre les informations
     * Carte du centre
 * Divers
     * Regler le probleme de police qui change
-    * Voir pour mettre en plein ecran
     * Extension
     * Renommer le css
     
 ## Idées d'améliorations
 
 * Localiser un magasin choisi dans l'index
+* Voir pour mettre en plein ecran
+* S'occuper des exceptions ?

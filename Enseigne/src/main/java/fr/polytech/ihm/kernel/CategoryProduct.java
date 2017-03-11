@@ -6,6 +6,7 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Product;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -50,7 +51,7 @@ public class CategoryProduct {
                  rs.getString("productName"),
                  rs.getString("picture"),
                  rs.getString("description"),
-                 rs.getString("category")));
+                 rs.getString("category"), rs.getInt("idMarque"), rs.getInt("nbSell")));
                 System.out.println("RES : " + rs.getString("productName"));
 
             }

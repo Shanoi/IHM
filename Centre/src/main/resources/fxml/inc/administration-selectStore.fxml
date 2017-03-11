@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" spacing="50.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.SelectionStoreController">
+   <children>
+      <Label styleClass="h1" text="Modifier les boutiques à découvrir" />
+      <VBox alignment="CENTER" maxHeight="50.0" prefHeight="100.0" prefWidth="100.0" spacing="50.0">
+         <children>
+            <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="500.0">
+               <content>
+                  <VBox fx:id="storeList" maxHeight="1.7976931348623157E308" spacing="5.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+            <Button mnemonicParsing="false" onMouseClicked="#submit" styleClass="button-done" text="Valider" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

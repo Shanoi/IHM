@@ -90,8 +90,12 @@
 }
 
 .menu-row {
-	-fx-spacing: 100px;
+	-fx-spacing: 50px;
 	-fx-alignement: center;
+}
+
+.button-admin {
+    -fx-pref-width: 250px;
 }
 
 .hello-message {
@@ -109,11 +113,18 @@
 	-fx-pref-width: 175px;
 }
 
+.index-central-pane{
+    -fx-background-color: white;
+    -fx-pref-width: 725px;
+    -fx-padding: 10 20 10 20;
+}
+
 .showcase-pane {
-	-fx-background-color: white;
-	-fx-pref-width: 725px;
+	/*-fx-background-color: white;
+	-fx-pref-width: 725px;*/
 	/*-fx-pref-height: 350px;*/
-	-fx-padding: 10 20 10 20;
+    -fx-alignment: center;
+	/*-fx-padding: 10 20 10 20;*/
     -fx-pref-tile-height: 100;
     -fx-pref-tile-width: 100;
 }
@@ -129,11 +140,11 @@
 
 .showcase-scroll {
 	-fx-background-color: white;
-	-fx-pref-width: 725px;
+	/*-fx-pref-width: 725px;
 	-fx-pref-height: 350px;
 	-fx-min-width: 725px;
 	-fx-min-height: 350px;
 	-fx-max-width: 725px;
-	-fx-max-height: 350px;
+	-fx-max-height: 350px;*/
 	-fx-padding: 0 0 0 0;
 }

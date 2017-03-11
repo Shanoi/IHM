@@ -73,16 +73,16 @@ public class SavoirPlusController {
         jobOfferParser = new JobOfferParser();
         selectionModel = spreadsheet.getSelectionModel();
 
-        initEvents();
-        initShops();
-        initJobs();
+        fillEvents();
+        fillShop();
+        fillJobs();
     }
 
     public void setTabView(int index){
         selectionModel.select(index);
     }
 
-    private void initEvents(){
+    private void fillEvents(){
         ObservableList<Events> events = FXCollections.observableArrayList();
 
         events.addAll(eventParser.getEvents());
@@ -93,7 +93,7 @@ public class SavoirPlusController {
         eventsSpread.setItems(events);
     }
 
-    private void initShops(){
+    private void fillShop(){
         ObservableList<Shop> shops = FXCollections.observableArrayList();
 
         shops.addAll(shopParser.getShop());
@@ -105,7 +105,7 @@ public class SavoirPlusController {
         shopSpread.setItems(shops);
     }
 
-    private void initJobs(){
+    private void fillJobs(){
         ObservableList<JobOffer> jobs = FXCollections.observableArrayList();
 
         jobs.addAll(jobOfferParser.getJobOffers());
