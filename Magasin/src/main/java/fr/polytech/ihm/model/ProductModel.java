@@ -36,8 +36,8 @@ public class ProductModel {
     private ListView<Parent> currentPopularProductPromoView;
 
     public ProductModel() throws IOException {
-        produitsScientifique = new JSONParser().parse("data/produits_scientifiques.json");
-        produitsNeurologique = new JSONParser().parse("data/produits_neurologiques.json");
+        produitsScientifique = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifiques.json");
+        produitsNeurologique = new JSONParser().parse("src\\main\\resources\\data\\produits_neurologiques.json");
 
         currentScientificProductPromo = new ArrayList<>();
         currentNeurologicalProductPromo = new ArrayList<>();
