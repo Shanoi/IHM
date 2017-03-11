@@ -25,7 +25,7 @@
             </Label>
             <ImageView fitHeight="800.0" fitWidth="1460.0" layoutX="62.0" layoutY="95.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/plan_centre_commercial.jpg" />
+                  <Image url="/images/plan_centre_commercial.jpg" />
                </image>
             </ImageView>
          </children>
@@ -45,7 +45,7 @@
                      <children>
                         <ImageView fitHeight="88.0" fitWidth="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/arrival_icon.png" />
+                              <Image url="/images/arrival_icon.png" />
                            </image>
                            <HBox.margin>
                               <Insets />
@@ -75,7 +75,7 @@
                      <children>
                         <ImageView fitHeight="86.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/start_icon.png" />
+                              <Image url="/images/start_icon.png" />
                            </image>
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="320.0">

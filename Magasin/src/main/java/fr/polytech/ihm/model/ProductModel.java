@@ -1,6 +1,7 @@
 package fr.polytech.ihm.model;
 
 import fr.polytech.ihm.controller.ListViewProductController;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +54,7 @@ public class ProductModel {
     }
 
     private void initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
-        ObservableList<FXML> items;
+        ObservableList<Parent> items = FXCollections.observableArrayList();
         for (String str : currentNeurologicalProductPromo) {
             FXMLLoader loader = new FXMLLoader();
             Parent productView = loader.load(getClass().getResource("/fxml/listView_product_promo.fxml"));
@@ -62,7 +63,9 @@ public class ProductModel {
             Image image = new Image("/images/" + str);
             int price = neuroProduct.getInt("prix");
             ((ListViewProductController) loader.getController()).initializeProduct(name, image, price);
+            items.add(productView);
         }
+
     }
 
     private void initializeScientificProductPromoView() {
