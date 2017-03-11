@@ -16,6 +16,7 @@ public class MagasinApp extends Application {
         String fxml_admin = "/fxml/Admin/VueAdmin.fxml";
 
         Stage Admin_Stage = new Stage();
+        Admin_Stage.setTitle("Administrations");
 
         Loader loader = new Loader();
         loader.load(primaryStage, fxml_magasin);
