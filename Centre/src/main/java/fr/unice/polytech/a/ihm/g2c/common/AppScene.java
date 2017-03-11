@@ -16,7 +16,8 @@ public enum AppScene {
 
     INDEX("/fxml/index.fxml"),
     ADMIN("/fxml/administration.fxml"),
-    STORE("/fxml/store.fxml");
+    STORE("/fxml/store.fxml"),
+    INFORMATIONS("/fxml/informations.fxml");
 
     private String fxmlFile;
 

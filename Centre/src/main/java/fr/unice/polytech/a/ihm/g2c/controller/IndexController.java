@@ -109,7 +109,8 @@ public class IndexController {
 
     @FXML
     void info(MouseEvent event) {
-        logger.debug("info");
+        Stage stage = (Stage) rootPane.getScene().getWindow();
+        ControllerUtil.showScene(INFORMATIONS, stage);
     }
 
     private void addTile(TilePane pane, Store store) {

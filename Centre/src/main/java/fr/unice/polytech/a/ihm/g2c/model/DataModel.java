@@ -20,6 +20,7 @@ public class DataModel {
     private List<Category> categoryFilter = new ArrayList<>();
     private SortingType sortingType = SortingType.A_TO_Z;
     private String search = "";
+    private String informations = "";
 
     private DataModel() {
         if (instance != null)

@@ -18,13 +18,6 @@ public class MenuController extends AdminSceneController {
     @FXML
     private VBox rootPane;
 
-
-    @FXML
-    void initialize() {
-    }
-
-
-
     @FXML
     void addStore(MouseEvent event) {
         adminController.setAdminScene(STORE_ADD);
