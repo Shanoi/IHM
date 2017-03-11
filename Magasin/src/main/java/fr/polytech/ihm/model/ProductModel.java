@@ -1,11 +1,18 @@
 package fr.polytech.ihm.model;
 
-import javafx.collections.FXCollections;
+import fr.polytech.ihm.controller.ListViewProductController;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductModel {
@@ -23,15 +30,20 @@ public class ProductModel {
     private ListView<FXML> currentPopularProductPromoView;
 
     public ProductModel() {
-        produitsScientifique = new JSONObject("data/produits_scientifiques.json");
-        produitsNeurologique = new JSONObject("data/produits_neurologiques.json");
+        produitsScientifique = new JSONObject(new File("/data/produits_scientifiques.json"));
+        produitsNeurologique = new JSONObject(new File("/data/produits_neurologiques.json"));
+
+        currentScientificProductPromo = new ArrayList<>();
+        currentNeurologicalProductPromo = new ArrayList<>();
+        currentPopularProduct = new ArrayList<>();
+
         initializeScientificProductPromoList();
         initializeNeurologicalProductPromoList();
         initializePopularProductList();
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException, NoSuchFieldException {
         currentScientificProductPromoView = new ListView<>();
         currentNeurologicalProductPromoView = new ListView<>();
         currentPopularProductPromoView = new ListView<>();
@@ -40,11 +52,17 @@ public class ProductModel {
         initializePopularProductView();
     }
 
-    private void initializeNeurologicalProductPromoView() {
+    private void initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
+        ObservableList<FXML> items;
         for (String str : currentNeurologicalProductPromo) {
-
+            FXMLLoader loader = new FXMLLoader();
+            Parent productView = loader.load(getClass().getResource("/fxml/listView_product_promo.fxml"));
+            JSONObject neuroProduct = produitsNeurologique.getJSONObject(str);
+            String name = neuroProduct.getString("nom");
+            Image image = new Image("/images/" + str);
+            int price = neuroProduct.getInt("prix");
+            ((ListViewProductController) loader.getController()).initializeProduct(name, image, price);
         }
-        ObservableList<FXML> items = FXCollections.observableArrayList();
     }
 
     private void initializeScientificProductPromoView() {

@@ -13,7 +13,7 @@
     
   "patch_neurologique" : { "nom" : "Patch neurologique synthétique", "prix" : 49, "disponibilité" : "En stock", "description" : "Ce patch neurologique est synthétique et résorbable. Il est fabriqué avec un procédé enzyme-chimique pour retenir et prévenir des infections collagénique", "genre" : "neurologique" },
   
-  "neurostimulateur_implantable_spectra" : { "nom" : "Neurostimulateur implantable / médullaire", "prix" : 279.86, "disponibilité" : "En stock", "description" : "Precision Spectra est un appareil destiné a traiter les douleurs au niveau de la moelle épinière. Il a été designé pour apporter plus de contrôle, de flexibilité et d'ampleur.", "genre" : "neurologique" },
+  "neurostimulateur_spectra" : { "nom" : "Neurostimulateur implantable / médullaire", "prix" : 279.86, "disponibilité" : "En stock", "description" : "Precision Spectra est un appareil destiné a traiter les douleurs au niveau de la moelle épinière. Il a été designé pour apporter plus de contrôle, de flexibilité et d'ampleur.", "genre" : "neurologique" },
   
   "unité_programmation" : { "nom" : "Unité de programmation pour neurostimulateurs implantables", "prix" : 80, "disponibilité" : "En stock", "description" : "Cette unité de programmation est aussi destinée pour la stimulation du sphincter œsophagien inférieur. Il est équipé d'une tige programmable et d'une technologie de communication sans-fil.", "genre" : "neurologique" },
   
