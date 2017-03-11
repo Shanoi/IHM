@@ -35,6 +35,7 @@ public class ListViewProductController {
     public void initializeProduct(String name, Image image, int price) {
         productName.setText(name);
         this.productImage.setImage(image);
+        this.price.setText(Integer.toString(price));
     }
 
     @FXML
