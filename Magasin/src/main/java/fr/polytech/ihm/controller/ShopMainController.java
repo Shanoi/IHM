@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,9 +29,9 @@ public class ShopMainController {
 
     }
 
-    public void initialize() {
+    public void initialize() throws IOException, NoSuchFieldException {
         productModel = new ProductModel();
-
+        productModel.initializeListView();
     }
 
     @FXML
