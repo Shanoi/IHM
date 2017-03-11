@@ -5,19 +5,16 @@ import fr.polytech.ihm.data.Shop;
 import fr.polytech.ihm.kernel.InsertApp;
 import fr.polytech.ihm.kernel.ProductsParser;
 import fr.polytech.ihm.kernel.ShopParser;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,7 @@ public class AdminPanelController {
     private InsertApp insertApp;
 
     private List<TextField> shopTextFields;
+    private List<TextField> productTextFields;
 
     @FXML
     private TableView<Product> productList;
@@ -88,20 +86,56 @@ public class AdminPanelController {
     private TextField costShopField;
 
     @FXML
+    private TextField nameProductField;
+
+    @FXML
+    private TextField imageProductField;
+
+    @FXML
+    private TextField brandProductField;
+
+    @FXML
+    private TextField catProductField;
+
+    @FXML
+    private TextField catNameField;
+
+    @FXML
+    private TextArea descProductField;
+
+    @FXML
     private Label resultLabel;
 
-    public void initialize() {
+    @FXML
+    private Label resultLabelProduct;
+
+    public void initialize(){
         shopParser = new ShopParser();
         productsParser = new ProductsParser();
         insertApp = new InsertApp();
 
+        catProductField.textProperty().addListener((observable, oldValue, newValue) -> {
+            checkCategory();
+        });
+
         initShopFields();
+        initProductFields();
 
         fillShop();
         fillProducts();
     }
 
-    private void initShopFields() {
+    private void initProductFields(){
+        this.productTextFields = new ArrayList<>();
+
+        productTextFields.add(nameProductField);
+        productTextFields.add(imageProductField);
+        productTextFields.add(brandProductField);
+        productTextFields.add(catProductField);
+        productTextFields.add(catNameField);
+    }
+
+    private void initShopFields(){
         this.shopTextFields = new ArrayList<>();
 
         shopTextFields.add(nameShopField);
@@ -115,7 +149,7 @@ public class AdminPanelController {
         shopTextFields.add(costShopField);
     }
 
-    private void fillProducts() {
+    private void fillProducts(){
         ObservableList<Product> products = FXCollections.observableArrayList();
 
         products.addAll(productsParser.getProducts());
@@ -129,7 +163,7 @@ public class AdminPanelController {
 
     }
 
-    private void fillShop() {
+    private void fillShop(){
         ObservableList<Shop> shops = FXCollections.observableArrayList();
 
         shops.addAll(shopParser.getShop());
@@ -142,8 +176,25 @@ public class AdminPanelController {
     }
 
     @FXML
-    public void addShop() {
-        if (allFieldAreCompleted()) {
+    public void addProduct(){
+        if(allFieldAreCompleted(productTextFields) && !descProductField.getText().isEmpty()){
+            insertApp.insertProduct(nameShopField.getText(),
+                    descProductField.getText(),
+                    Integer.parseInt(brandProductField.getText()),
+                    imageProductField.getText(),
+                    catProductField.getText());
+
+            clearAllField();
+            catNameField.clear();
+            resultLabelProduct.setText("Effectué");
+        } else {
+            resultLabelProduct.setText("Invalide");
+        }
+    }
+
+    @FXML
+    public void addShop(){
+        if(allFieldAreCompleted(shopTextFields)){
             insertApp.insertMagasin(nameShopField.getText(),
                     adressShopField.getText(),
                     Double.parseDouble(latShopField.getText()),
@@ -163,8 +214,17 @@ public class AdminPanelController {
         }
     }
 
-    public boolean ifCatExists(String category){
-        
+    public void checkCategory(){
+        if (catAlreadyExists(catProductField.getText())){
+            catNameField.setDisable(true);
+            catNameField.clear();
+        } else {
+            catNameField.setDisable(false);
+        }
+    }
+
+    private boolean catAlreadyExists(String category){
+
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -178,37 +238,37 @@ public class AdminPanelController {
 
             String query = "select COUNT(*) AS nbL "
                     + "from category "
-                    + "WHERE category = " + category;
-            
+                    + "WHERE category = \'" + category + "\'";
+
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
 
             return rs.getInt("nbL") != 0;
-            
+
 
         } catch (Exception e) {
 
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
 
         }
-        
+
         return false;
-        
+
     }
-    
-    private boolean allFieldAreCompleted() {
-        for (TextField textField
-                : shopTextFields) {
-            if (!textField.isDisable() && textField.getText().isEmpty()) {
+
+    private boolean allFieldAreCompleted(List<TextField> textFields) {
+        for (TextField textField :
+                textFields) {
+            if (!textField.isDisable() && textField.getText().isEmpty()){
                 return false;
             }
         }
         return true;
     }
 
-    private void clearAllField() {
-        for (TextField textField
-                : shopTextFields) {
+    private void clearAllField(){
+        for (TextField textField :
+                shopTextFields) {
             textField.clear();
         }
     }
