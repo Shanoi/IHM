@@ -129,9 +129,6 @@ public class AdminPanelController {
             int productTab = 0;
             int shopTab = 2;
 
-            System.out.println(oldValue);
-            System.out.println(newValue);
-
             if (newValue.intValue() == productTab){
                 fillProducts();
             }
