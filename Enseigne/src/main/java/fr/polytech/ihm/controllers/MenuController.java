@@ -13,6 +13,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 
 /**
  * Created by Enzo on 08/03/2017.
@@ -20,7 +23,7 @@ import java.io.IOException;
  * Ajouter l'image des catégories dans la BD
  *
  */
-public class MenuController {
+public class MenuController implements Initializable {
     @FXML
     private ImageView logoCompany;
 
@@ -36,6 +39,11 @@ public class MenuController {
     @FXML
     private ImageView cd;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+    
     @FXML
     void clickedOnLogo(MouseEvent event) throws IOException {
         Stage stage;
@@ -123,4 +131,6 @@ public class MenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    
 }

@@ -5,6 +5,10 @@ import fr.polytech.ihm.data.Shop;
 import fr.polytech.ihm.kernel.InsertApp;
 import fr.polytech.ihm.kernel.ProductsParser;
 import fr.polytech.ihm.kernel.ShopParser;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,7 +90,7 @@ public class AdminPanelController {
     @FXML
     private Label resultLabel;
 
-    public void initialize(){
+    public void initialize() {
         shopParser = new ShopParser();
         productsParser = new ProductsParser();
         insertApp = new InsertApp();
@@ -97,7 +101,7 @@ public class AdminPanelController {
         fillProducts();
     }
 
-    private void initShopFields(){
+    private void initShopFields() {
         this.shopTextFields = new ArrayList<>();
 
         shopTextFields.add(nameShopField);
@@ -111,7 +115,7 @@ public class AdminPanelController {
         shopTextFields.add(costShopField);
     }
 
-    private void fillProducts(){
+    private void fillProducts() {
         ObservableList<Product> products = FXCollections.observableArrayList();
 
         products.addAll(productsParser.getProducts());
@@ -125,7 +129,7 @@ public class AdminPanelController {
 
     }
 
-    private void fillShop(){
+    private void fillShop() {
         ObservableList<Shop> shops = FXCollections.observableArrayList();
 
         shops.addAll(shopParser.getShop());
@@ -138,8 +142,8 @@ public class AdminPanelController {
     }
 
     @FXML
-    public void addShop(){
-        if(allFieldAreCompleted()){
+    public void addShop() {
+        if (allFieldAreCompleted()) {
             insertApp.insertMagasin(nameShopField.getText(),
                     adressShopField.getText(),
                     Double.parseDouble(latShopField.getText()),
@@ -159,19 +163,52 @@ public class AdminPanelController {
         }
     }
 
+    public boolean ifCatExists(String category){
+        
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            String query = "select COUNT(*) AS nbL "
+                    + "from category "
+                    + "WHERE category = " + category;
+            
+            ResultSet rs = lien.executeQuery(query);
+            System.out.println("Requête Effectuée");
+
+            return rs.getInt("nbL") != 0;
+            
+
+        } catch (Exception e) {
+
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+        
+        return false;
+        
+    }
+    
     private boolean allFieldAreCompleted() {
-        for (TextField textField :
-                shopTextFields) {
-            if (!textField.isDisable() && textField.getText().isEmpty()){
+        for (TextField textField
+                : shopTextFields) {
+            if (!textField.isDisable() && textField.getText().isEmpty()) {
                 return false;
             }
         }
         return true;
     }
 
-    private void clearAllField(){
-        for (TextField textField :
-                shopTextFields) {
+    private void clearAllField() {
+        for (TextField textField
+                : shopTextFields) {
             textField.clear();
         }
     }
