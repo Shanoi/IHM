@@ -136,6 +136,12 @@ public class IndexController {
 
     private void refreshStoresList() {
         logger.debug("Refreshing store list");
+
+        // Clear
+        storesList.getChildren().clear();
+        storeSelection.getChildren().clear();
+
+        // Stores
         List<Store> storesToDisplay = DataModel.getInstance().getStoreList();
         if (!data.getCategoryFilter().isEmpty())
             storesToDisplay = storesToDisplay.stream()
@@ -150,12 +156,26 @@ public class IndexController {
                     .collect(Collectors.toList());
         storesToDisplay.sort(data.getSortingType().getComparator());
         logger.debug("Stores to display: " + storesToDisplay);
-        storesList.getChildren().clear();
-        storesToDisplay.forEach(store -> addTile(storesList, store));
+        if (storesToDisplay.isEmpty())
+            storesList.getChildren().add(noResult());
+        else
+            storesToDisplay.forEach(store -> addTile(storesList, store));
+
+        // Selection
         List<Store> storeSelectionToDisplay = DataModel.getInstance().getStoreSelectionList();
-        storeSelection.getChildren().clear();
-        storeSelectionToDisplay.stream().filter(storesToDisplay::contains)
-                .forEach(store -> addTile(storeSelection, store));
+        storeSelectionToDisplay = storeSelectionToDisplay.stream()
+                .filter(storesToDisplay::contains)
+                .collect(Collectors.toList());
+        if (storeSelectionToDisplay.isEmpty())
+            storeSelection.getChildren().add(noResult());
+        else
+            storeSelectionToDisplay.forEach(store -> addTile(storesList, store));
+    }
+
+    private Label noResult() {
+        Label lbl = new Label("Pas de résultat");
+        lbl.getStyleClass().add("button-label");
+        return lbl;
     }
 
 }
