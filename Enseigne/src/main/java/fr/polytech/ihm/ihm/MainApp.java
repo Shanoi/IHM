@@ -27,16 +27,16 @@ public class MainApp extends Application {
 
         log.info("Starting Hello JavaFX and Maven demonstration application");
 
-        String fxmlFile = "/fxml/MainPage.fxml";
+        String fxmlFile = "/fxml/AdminPanel.fxml";
         log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
         Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
         log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 1920, 1080);
+        Scene scene = new Scene(rootNode, 800, 533);
         scene.getStylesheets().add("/styles/styles.css");
 
-        stage.setTitle("To be or To Have");
+        stage.setTitle("To Be Or To Have - Admin panel");
         stage.setScene(scene);
         stage.show();
     }

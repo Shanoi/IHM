@@ -1,7 +1,7 @@
 package fr.polytech.ihm.controllers;
 
 
-import fr.polytech.ihm.kernel.MainProducts;
+import fr.polytech.ihm.kernel.ProductsParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,9 +10,9 @@ import javafx.scene.layout.AnchorPane;
 
 public class CatalogController {
 
-    private static final int MINPRICE = 0;
+    private static int MINPRICE = 0;
 
-    private static final int MAXPRICE= 5000;
+    private static int MAXPRICE = 5000;
 
     @FXML
     private Label priceMinDisplay;
@@ -60,7 +60,7 @@ public class CatalogController {
     private ListView<?> itemList;
 
 
-    private MainProducts mainProds;
+    private ProductsParser mainProds;
 
     public void initialize(){
         initSliders();

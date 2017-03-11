@@ -5,28 +5,28 @@
  */
 package fr.polytech.ihm.controllers;
 
-import fr.polytech.ihm.data.Product;
-import fr.polytech.ihm.kernel.MainProducts;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+    import fr.polytech.ihm.data.Product;
+    import fr.polytech.ihm.kernel.ProductsParser;
+    import javafx.animation.AnimationTimer;
+    import javafx.animation.FadeTransition;
+    import javafx.animation.ParallelTransition;
+    import javafx.fxml.FXML;
+    import javafx.fxml.FXMLLoader;
+    import javafx.fxml.Initializable;
+    import javafx.scene.Parent;
+    import javafx.scene.Scene;
+    import javafx.scene.control.Label;
+    import javafx.scene.image.Image;
+    import javafx.scene.image.ImageView;
+    import javafx.scene.input.MouseEvent;
+    import javafx.stage.Stage;
+    import javafx.util.Duration;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+
+    import java.io.IOException;
+    import java.net.URL;
+    import java.util.ResourceBundle;
 
 
 public class MainPageController implements Initializable {
@@ -42,7 +42,7 @@ public class MainPageController implements Initializable {
     @FXML
     private Label prixPhare;
 
-    private MainProducts mainProds;
+    private ProductsParser mainProds;
 
     private final String pathToImageSortBy = "nameOfProject/resources/testDataIcons/";
 
@@ -64,7 +64,7 @@ public class MainPageController implements Initializable {
         // TODO
 
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
-        mainProds = new MainProducts();
+        mainProds = new ProductsParser();
 
         changeMainProd(mainProds.getCurrentProduct());
 
