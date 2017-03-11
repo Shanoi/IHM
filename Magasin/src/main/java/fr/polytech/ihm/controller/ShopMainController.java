@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.model.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,12 +22,14 @@ public class ShopMainController {
     private BorderPane parentNode;
     @FXML
     private ListView<FXML> scienceProductPromo;
+    private ProductModel productModel;
 
     public ShopMainController() {
 
     }
 
     public void initialize() {
+        productModel = new ProductModel();
 
     }
 

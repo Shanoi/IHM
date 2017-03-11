@@ -1,11 +1,14 @@
 package fr.polytech.ihm.model;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ProductModel {
@@ -31,7 +34,7 @@ public class ProductModel {
     }
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException, NoSuchFieldException {
         currentScientificProductPromoView = new ListView<>();
         currentNeurologicalProductPromoView = new ListView<>();
         currentPopularProductPromoView = new ListView<>();
@@ -40,11 +43,13 @@ public class ProductModel {
         initializePopularProductView();
     }
 
-    private void initializeNeurologicalProductPromoView() {
+    private void initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
+        ObservableList<FXML> items;
         for (String str : currentNeurologicalProductPromo) {
-
+            Parent productView = FXMLLoader.load(getClass().getResource("/fxml/listView_product_promo.fxml"));
+            JSONObject neuroProduct = produitsNeurologique.getJSONObject(str);
+            String name = neuroProduct.getString("nom");
         }
-        ObservableList<FXML> items = FXCollections.observableArrayList();
     }
 
     private void initializeScientificProductPromoView() {
