@@ -31,14 +31,14 @@ public class MainApp extends Application {
     public void init() throws Exception {
         DataModel data = DataModel.getInstance();
         data.setHighlight("Les soldes arrivent !! Jusqu'à -70% dans tous les magasins");
-        data.addStore(new Store("Fnac", "salut", "src/main/resources/images/stores/fnac.jpg", HIGH_TECH));
-        data.addStore(new Store("Armani", "salut", "src/main/resources/images/stores/armani.jpg", FASHION_MAN));
-        data.addStore(new Store("Zara", "salut", "src/main/resources/images/stores/zara.png", FASHION_WOMAN));
-        data.addStore(new Store("The Hipster Label", "salut", "src/main/resources/images/stores/hipster.png", FASHION_MAN));
-        data.addStore(new Store("Orange", "salut", "src/main/resources/images/stores/orange.jpg", TELECOM));
-        data.addStore(new Store("Hugo Boss", "salut", "src/main/resources/images/stores/hugoboss.jpg", FASHION_MAN));
-        data.addStore(new Store("Sephora", "salut", "src/main/resources/images/stores/sephora.png", COSMETIC));
-        data.addStore(new Store("To be or to have", "salut", "src/main/resources/images/stores/to_be_or_to_have.png", HIGH_TECH));
+        data.addStore(new Store("Fnac", "salut", "src/main/resources/images/stores/fnac.jpg", HIGH_TECH, true));
+        data.addStore(new Store("Armani", "salut", "src/main/resources/images/stores/armani.jpg", FASHION_MAN, true));
+        data.addStore(new Store("Zara", "salut", "src/main/resources/images/stores/zara.png", FASHION_WOMAN, true));
+        data.addStore(new Store("The Hipster Label", "salut", "src/main/resources/images/stores/hipster.png", FASHION_MAN, false));
+        data.addStore(new Store("Orange", "salut", "src/main/resources/images/stores/orange.jpg", TELECOM, true));
+        data.addStore(new Store("Hugo Boss", "salut", "src/main/resources/images/stores/hugoboss.jpg", FASHION_MAN, true));
+        data.addStore(new Store("Sephora", "salut", "src/main/resources/images/stores/sephora.png", COSMETIC, true));
+        data.addStore(new Store("To be or to have", "salut", "src/main/resources/images/stores/to_be_or_to_have.png", HIGH_TECH, true));
     }
 
     @Override

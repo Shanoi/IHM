@@ -80,7 +80,7 @@
                         <Label styleClass="h1" text="Toutes les boutiques" />
                         <Label styleClass="button-label" text="Trier par">
                            <HBox.margin>
-                              <Insets left="290.0" />
+                              <Insets left="280.0" />
                            </HBox.margin>
                         </Label>
                         <ChoiceBox fx:id="sortTypeChooser" prefWidth="80.0" />
