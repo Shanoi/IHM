@@ -16,6 +16,7 @@ public class DirectionsCommonController {
 
     @FXML
     public void initialize(){
+
     }
 
     @FXML
@@ -23,20 +24,12 @@ public class DirectionsCommonController {
 
     @FXML
     void directionsPage() throws IOException {
-        directionView((Stage) seDirigerBouton.getScene().getWindow());
+        directionView();
     }
 
-    public void directionView(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/directions.fxml"));
-        Scene scene = new Scene(root);
-        setPrimaryStageProperty(primaryStage, scene);
-    }
-
-    public void setPrimaryStageProperty(Stage primaryStage, Scene scene) {
-        new AppController(primaryStage, scene);
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.setFullScreen(true);
-        primaryStage.show();
+    public void directionView() throws IOException {
+        Stage stage = (Stage) seDirigerBouton.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/directions.fxml");
     }
 }

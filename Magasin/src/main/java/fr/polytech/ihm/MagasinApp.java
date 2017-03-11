@@ -1,6 +1,5 @@
 package fr.polytech.ihm;
 
-import fr.polytech.ihm.controller.AppController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +34,6 @@ public class MagasinApp extends Application {
         //scene.getStylesheets().add("/styles/styles.css");
 
         //allow main app command
-        //new AppController(stage, scene);
         stage.setTitle("Magasin");
         stage.setFullScreen(true);
         stage.setScene(scene);

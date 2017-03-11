@@ -14,12 +14,12 @@ import java.util.function.Consumer;
  *          Represents the main application controller class. It allows to binds
  *          specifics actions to specifics keys for example.
  */
-public class AppController {
+public class CommonController {
 
     private Stage primaryStage;
     private Map<KeyCode, Consumer<Void>> mapKeyToActions;
 
-    public AppController(Stage primaryStage, Scene currentScene) {
+    public CommonController(Stage primaryStage, Scene currentScene) {
         this.primaryStage = primaryStage;
         mapKeyToActions = new HashMap<>();
         initializeKeyMap();

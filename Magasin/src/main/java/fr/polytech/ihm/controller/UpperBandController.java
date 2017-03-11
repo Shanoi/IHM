@@ -21,28 +21,16 @@ public class UpperBandController {
     }
 
     @FXML
-    private ImageView homePicture;
-    @FXML
     private Label homeLabel;
 
     @FXML
-    void goHome(MouseEvent event) throws IOException {
-        if (event.getSource() instanceof ImageView) {
-            homeView((Stage) homePicture.getScene().getWindow());
-        } else homeView((Stage) homeLabel.getScene().getWindow());
+    void goHome() throws IOException {
+        homeView();
     }
 
-    public void homeView(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/shopMain.fxml"));
-        Scene scene = new Scene(root);
-        setPrimaryStageProperty(primaryStage, scene);
-    }
-
-    public void setPrimaryStageProperty(Stage primaryStage, Scene scene) {
-        new AppController(primaryStage, scene);
-        primaryStage.setScene(scene);
-        primaryStage.setFullScreenExitHint("");
-        primaryStage.setFullScreen(true);
-        primaryStage.show();
+    public void homeView() throws IOException {
+        Stage stage = (Stage) homeLabel.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/shopMain.fxml");
     }
 }
