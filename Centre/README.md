@@ -15,7 +15,6 @@
     * Vue / Controller pour les informations
     * S'occuper de l'exception dans AddStore#sumbit ?
 * Index
-    * Afficher la description des magasins
     * Mettre "pas de resultat"
 * Info
     * Mettre les informations

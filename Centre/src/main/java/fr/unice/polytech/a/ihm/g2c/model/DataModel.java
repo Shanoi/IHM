@@ -1,5 +1,8 @@
 package fr.unice.polytech.a.ihm.g2c.model;
 
+import fr.unice.polytech.a.ihm.g2c.common.Category;
+import fr.unice.polytech.a.ihm.g2c.common.SortingType;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +17,9 @@ public class DataModel {
     private List<Store> storeList = new ArrayList<>();
     private List<Store> storeSelectionList = new ArrayList<>();
     private String highlight;
+    private List<Category> categoryFilter = new ArrayList<>();
+    private SortingType sortingType = SortingType.A_TO_Z;
+    private String search = "";
 
     private DataModel() {
         if (instance != null)
@@ -50,5 +56,25 @@ public class DataModel {
 
     public void setHighlight(String highlight) {
         this.highlight = highlight;
+    }
+
+    public List<Category> getCategoryFilter() {
+        return categoryFilter;
+    }
+
+    public SortingType getSortingType() {
+        return sortingType;
+    }
+
+    public void setSortingType(SortingType sortingType) {
+        this.sortingType = sortingType;
+    }
+
+    public String getSearch() {
+        return search;
+    }
+
+    public void setSearch(String search) {
+        this.search = search;
     }
 }

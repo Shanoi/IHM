@@ -4,6 +4,7 @@ import fr.polytech.ihm.model.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -22,7 +23,11 @@ public class ShopMainController {
     @FXML
     private BorderPane parentNode;
     @FXML
-    private ListView<FXML> scienceProductPromo;
+    private ListView<Parent> listViewPopularProducts;
+    @FXML
+    private ListView<Parent> listViewNeuroProductsPromo;
+    @FXML
+    private ListView<Parent> listViewScienceProductsPromo;
     private ProductModel productModel;
 
     public ShopMainController() {
@@ -31,7 +36,7 @@ public class ShopMainController {
 
     public void initialize() throws IOException, NoSuchFieldException {
         productModel = new ProductModel();
-        productModel.initializeListView();
+        productModel.initializeNeurologicalProductPromoView(listViewNeuroProductsPromo);
     }
 
     @FXML
