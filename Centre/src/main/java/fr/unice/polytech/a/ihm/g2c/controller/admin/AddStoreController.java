@@ -13,6 +13,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class AddStoreController extends AdminSceneController {
 
@@ -35,14 +39,21 @@ public class AddStoreController extends AdminSceneController {
 
     @FXML
     void browse(MouseEvent event) {
-
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        File f = fileChooser.showOpenDialog(imgPath.getScene().getWindow());
+        imgPath.setText(f.getAbsolutePath());
     }
 
     @FXML
     void submit(MouseEvent event) {
-        Store store = new Store(name.getText(), description.getText(), imgPath.getText(), category.getValue());
-        DataModel.getInstance().addStore(store);
-        adminController.setAdminScene(AdminScene.MENU);
+        try {
+            Store store = new Store(name.getText(), description.getText(), imgPath.getText(), category.getValue());
+            DataModel.getInstance().addStore(store);
+            adminController.setAdminScene(AdminScene.MENU);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

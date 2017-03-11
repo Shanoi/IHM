@@ -9,12 +9,14 @@
 
 ## TODO
 
-* Vue / Controller pour les informations
-* Browser pour les image du magasins
-* Controller enlever magasins
-* Controller ordre des magasins
-* Faire la liste des magasins
-* Regler le probleme de police
-* Voir pour mettre en plein ecran
-* Extension
-* Renommer le css
+* Admin
+    * Vue / Controller pour les informations
+    * Controller ordre des magasins
+* Index
+    * Mettre un system de trie pour les magasins dans l'index
+    * Mettre le highlight centré
+* Divers
+    * Regler le probleme de police qui change
+    * Voir pour mettre en plein ecran
+    * Extension
+    * Renommer le css

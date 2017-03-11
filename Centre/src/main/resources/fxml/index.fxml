@@ -7,13 +7,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
@@ -54,7 +53,7 @@
    <left>
       <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="100.0" prefWidth="50.0" styleClass="nav">
+            <VBox fx:id="menuList" prefHeight="100.0" prefWidth="50.0" styleClass="nav">
                <children>
                   <TextField promptText="Recherche..." />
                   <Label styleClass="h1" text="Catégories" />
@@ -70,24 +69,6 @@
                <children>
                   <Label id="highlight" fx:id="highlight" maxWidth="600.0" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" minHeight="250.0" prefTileHeight="100.0" prefTileWidth="100.0" vgap="12.0">
-                     <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="610.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="810.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="1010.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="482.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="706.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="930.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                        <AnchorPane layoutX="1154.0" layoutY="258.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" />
-                     </children>
                      <padding>
                         <Insets left="12.0" top="12.0" />
                      </padding>

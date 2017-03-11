@@ -3,6 +3,9 @@ package fr.unice.polytech.a.ihm.g2c.model;
 import fr.unice.polytech.a.ihm.g2c.common.Category;
 import javafx.scene.image.Image;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 /**
  * Created by user on 08/03/2017.
  */
@@ -13,10 +16,10 @@ public class Store {
     private Image img;
     private Category category;
 
-    public Store(String name, String description, String imgPath, Category category) {
+    public Store(String name, String description, String imgPath, Category category) throws FileNotFoundException {
         this.name = name;
         this.description = description;
-        //this.img = new Image(getClass().getResourceAsStream(imgPath));
+        this.img = new Image(new FileInputStream(imgPath));
         this.category = category;
     }
 
@@ -38,12 +41,6 @@ public class Store {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Store{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", img=").append(img);
-        sb.append(", category=").append(category);
-        sb.append('}');
-        return sb.toString();
+        return name;
     }
 }

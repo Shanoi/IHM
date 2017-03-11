@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -26,12 +27,12 @@ public class DataModel {
         storeList.add(store);
     }
 
-    public void removeScene(Store store) {
+    public void removeStore(Store store) {
         storeList.remove(store);
     }
 
     public List<Store> getStoreList() {
-        return storeList;
+        return new LinkedList<>(storeList);
     }
 
     public String getHighlight() {
