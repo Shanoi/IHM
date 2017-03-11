@@ -32,6 +32,9 @@ public class AdminPanelController {
     private List<TextField> productTextFields;
 
     @FXML
+    private TabPane adminPanel;
+
+    @FXML
     private TableView<Product> productList;
 
     @FXML
@@ -114,15 +117,29 @@ public class AdminPanelController {
         productsParser = new ProductsParser();
         insertApp = new InsertApp();
 
-        catProductField.textProperty().addListener((observable, oldValue, newValue) -> {
-            checkCategory();
-        });
+        catProductField.textProperty().addListener((observable, oldValue, newValue) -> checkCategory());
 
         initShopFields();
         initProductFields();
 
         fillShop();
         fillProducts();
+
+        adminPanel.getSelectionModel().selectedIndexProperty().addListener((ov, oldValue, newValue) -> {
+            int productTab = 0;
+            int shopTab = 2;
+
+            System.out.println(oldValue);
+            System.out.println(newValue);
+
+            if (newValue.intValue() == productTab){
+                fillProducts();
+            }
+
+            if (newValue.intValue() == shopTab){
+                fillShop();
+            }
+        });
     }
 
     private void initProductFields(){
@@ -178,14 +195,14 @@ public class AdminPanelController {
     @FXML
     public void addProduct(){
         if(allFieldAreCompleted(productTextFields) && !descProductField.getText().isEmpty()){
-            insertApp.insertProduct(nameShopField.getText(),
+            insertApp.insertProduct(nameProductField.getText(),
                     descProductField.getText(),
                     Integer.parseInt(brandProductField.getText()),
                     imageProductField.getText(),
                     catProductField.getText());
 
-            clearAllField();
-            catNameField.clear();
+            clearAllField(productTextFields);
+            descProductField.clear();
             resultLabelProduct.setText("Effectué");
         } else {
             resultLabelProduct.setText("Invalide");
@@ -207,7 +224,7 @@ public class AdminPanelController {
                     webShopField.getText(),
                     0);
 
-            clearAllField();
+            clearAllField(shopTextFields);
             resultLabel.setText("Effectué");
         } else {
             resultLabel.setText("Invalide");
@@ -272,9 +289,9 @@ public class AdminPanelController {
         return true;
     }
 
-    private void clearAllField(){
+    private void clearAllField(List<TextField> textFields){
         for (TextField textField :
-                shopTextFields) {
+                textFields) {
             textField.clear();
         }
     }
