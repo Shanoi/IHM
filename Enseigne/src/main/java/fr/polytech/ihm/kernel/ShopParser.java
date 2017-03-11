@@ -23,6 +23,12 @@ public class ShopParser {
 
         shops = new ArrayList<>();
 
+        extractShops();
+    }
+
+    public void extractShops(){
+        shops.clear();
+
         try {
             Class.forName("org.sqlite.JDBC").newInstance();
 
@@ -49,13 +55,14 @@ public class ShopParser {
             rs.close();
             lien.close();
             cnx.close();
-            
+
         } catch (Exception e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
 
     public List<Shop> getShop(){
+        extractShops();
         return shops;
     }
 

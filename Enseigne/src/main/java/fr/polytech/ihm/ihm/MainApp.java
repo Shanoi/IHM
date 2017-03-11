@@ -14,13 +14,6 @@ public class MainApp extends Application {
 
     public static void main(String[] args) throws Exception {
         launch(args);
-        /*
-        InsertApp app = new InsertApp();
-        
-        app.insertMagasin("Ville 5", "Adresse 5", 95, 56, 
-                "0505050505", "m5@yopmail.com", 66666, 14, 
-                2048, "www.m5.com", 3);
-        */
     }
 
     public void start(Stage stage) throws Exception {

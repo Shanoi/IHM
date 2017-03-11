@@ -21,8 +21,13 @@ public class ProductsParser {
     private int currentIndex = 0;
 
     public ProductsParser() {
-
         products = new ArrayList<>();
+
+        extractProducts();
+    }
+
+    private void extractProducts(){
+        products.clear();
 
         try {
 
@@ -35,19 +40,20 @@ public class ProductsParser {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            ResultSet rs = lien.executeQuery("select * from products "
-                    + "NATURAL JOIN sell");
+            ResultSet rs = lien.executeQuery("select * from products ");
+
             System.out.println("Requête Effectuée");
 
             while (rs.next()) {
 
-                products.add(new Product(rs.getFloat("priceSell"),
+                products.add(new Product(500,
                         rs.getString("productName"),
                         rs.getString("picture"),
                         rs.getString("description"),
                         rs.getString("category"),
                         rs.getInt("idMarque"),
-                        rs.getInt("nbSell")));
+                        rs.getInt("nbSell"),
+                        rs.getInt("idProduct")));
                 System.out.println("RES : " + rs.getString("category"));
 
             }
@@ -55,13 +61,12 @@ public class ProductsParser {
             rs.close();
             lien.close();
             cnx.close();
-            
+
         } catch (Exception e) {
 
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
 
         }
-
     }
 
     public int getNbMainProds() {
@@ -109,6 +114,7 @@ public class ProductsParser {
     }
 
     public List<Product> getProducts(){
+        extractProducts();
         return products;
     }
 }

@@ -15,7 +15,6 @@
     * Vue / Controller pour les informations
     * S'occuper de l'exception dans AddStore#sumbit ?
 * Index
-    * Conserver les critères de recherche
     * Mettre "pas de resultat"
 * Info
     * Mettre les informations
