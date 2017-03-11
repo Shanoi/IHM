@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.StoreController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +31,7 @@
                   <Insets left="240.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#info" styleClass="button-back" text="Retour">
+            <Button mnemonicParsing="false" onMouseClicked="#back" styleClass="button-back" text="Retour">
                <HBox.margin>
                   <Insets left="210.0" />
                </HBox.margin>
@@ -44,25 +44,20 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="logo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/stores/fnac.jpg" />
+                        <Image url="@/images/stores/fnac.jpg" />
                      </image>
                   </ImageView>
                   <VBox alignment="CENTER" prefHeight="200.0" spacing="15.0">
                      <children>
-                        <Label styleClass="h1" text="FNAC" />
-                        <Label styleClass="button-label" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Label fx:id="name" styleClass="h1" text="FNAC" />
+                        <Label fx:id="description" styleClass="button-label" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" spacing="40.0">
-               <children>
-                  <Button mnemonicParsing="false" styleClass="button2" text="Voir la page de l'enseigne" />
-                  <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" styleClass="button2" text="Voir la page du magasin" />
-               </children>
-            </HBox>
+            <HBox fx:id="buttons" alignment="CENTER" spacing="40.0" />
          </children>
       </VBox>
    </center>

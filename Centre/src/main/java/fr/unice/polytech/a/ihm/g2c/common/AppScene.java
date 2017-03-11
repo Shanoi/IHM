@@ -15,7 +15,8 @@ import java.io.IOException;
 public enum AppScene {
 
     INDEX("/fxml/index.fxml"),
-    ADMIN("/fxml/administration.fxml");
+    ADMIN("/fxml/administration.fxml"),
+    STORE("/fxml/store.fxml");
 
     private String fxmlFile;
 

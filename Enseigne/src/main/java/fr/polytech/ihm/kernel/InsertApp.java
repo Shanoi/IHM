@@ -49,10 +49,8 @@ public class InsertApp {
             pstmt.setInt(12, prodRenvoyes);
             pstmt.executeUpdate();
 
-            System.out.println("Requête Effectuée");
+            System.out.println("Requête d'insertion Effectuée");
 
-            pstmt.close();
-            conn.close();
 
         } catch (SQLException e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
@@ -74,10 +72,8 @@ public class InsertApp {
             pstmt.setString(7, catProduct);
             pstmt.executeUpdate();
 
-            System.out.println("Requête Effectuée");
+            System.out.println("Requête d'insertion Effectuée");
 
-            pstmt.close();
-            conn.close();
             
         } catch (SQLException e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
