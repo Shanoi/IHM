@@ -6,17 +6,21 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Product;
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 
-public class mainProducts {
+public class MainProducts {
 
     private ArrayList<Product> products;
 
     private int currentIndex = 0;
 
-    public mainProducts() {
+    public MainProducts() {
 
         products = new ArrayList<>();
         

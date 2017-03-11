@@ -28,14 +28,6 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></CheckBox>
-                        <CheckBox mnemonicParsing="false" text="Vente Flash">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></CheckBox>
-                        <CheckBox mnemonicParsing="false" text="Autre">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></CheckBox>
                      </children></VBox>
                   <VBox prefHeight="217.0" prefWidth="138.0">
                      <children>

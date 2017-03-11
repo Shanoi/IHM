@@ -5,30 +5,23 @@
  */
 package fr.polytech.ihm.controllers;
 
-import fr.polytech.ihm.data.Product;
-import fr.polytech.ihm.kernel.mainProducts;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.ParallelTransition;
-import javafx.animation.Timeline;
-import javafx.concurrent.ScheduledService;
-import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+    import fr.polytech.ihm.data.Product;
+    import fr.polytech.ihm.kernel.MainProducts;
+    import javafx.animation.AnimationTimer;
+    import javafx.animation.FadeTransition;
+    import javafx.animation.ParallelTransition;
+    import javafx.fxml.FXML;
+    import javafx.fxml.Initializable;
+    import javafx.scene.control.Label;
+    import javafx.scene.image.Image;
+    import javafx.scene.image.ImageView;
+    import javafx.scene.input.MouseEvent;
+    import javafx.util.Duration;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+
+    import java.net.URL;
+    import java.util.ResourceBundle;
 
 public class PAController implements Initializable {
 
@@ -43,7 +36,7 @@ public class PAController implements Initializable {
     @FXML
     private Label prixPhare;
 
-    private mainProducts mainProds;
+    private MainProducts mainProds;
 
     private final String pathToImageSortBy = "nameOfProject/resources/testDataIcons/";
 
@@ -65,7 +58,7 @@ public class PAController implements Initializable {
         // TODO
 
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
-        mainProds = new mainProducts();
+        mainProds = new MainProducts();
 
         changeMainProd(mainProds.getCurrentProduct());
 
