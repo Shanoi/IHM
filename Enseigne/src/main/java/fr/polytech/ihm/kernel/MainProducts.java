@@ -6,11 +6,7 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Product;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 
@@ -41,7 +37,7 @@ public class MainProducts {
 
             while (rs.next()) {
 
-                products.add(new Product(rs.getFloat("priceSell"), rs.getString("productName"), rs.getString("picture")));
+                products.add(new Product(rs.getFloat("priceSell"), rs.getString("productName"), rs.getString("picture"), rs.getString("description")));
                 System.out.println("RES : " + rs.getFloat("priceSell"));
 
             }

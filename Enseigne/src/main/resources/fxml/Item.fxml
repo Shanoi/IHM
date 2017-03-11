@@ -1,108 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1133.0">
-         <children>
-            <ImageView fitHeight="551.0" fitWidth="981.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@e-640x457.png" />
-               </image>
-            </ImageView>
-            <Label prefHeight="169.0" prefWidth="407.0" text="Description">
-               <font>
-                  <Font size="42.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="788.0">
-         <children>
-            <Label prefHeight="378.0" prefWidth="155.0" text="Prix">
-               <font>
-                  <Font size="96.0" />
-               </font>
-            </Label>
-            <Label text="Disponibilité">
-               <font>
-                  <Font size="34.0" />
-               </font>
-            </Label>
-            <ScrollPane prefHeight="702.0" prefWidth="788.0">
-               <content>
-                  <GridPane prefHeight="1042.0" prefWidth="770.0">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@f532.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@e-640x457.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-                           <image>
-                              <Image url="@0226000008254188-photo-asus-rog-g7521.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
-                           <image>
-                              <Image url="@rzrblade14-16__store_gallery.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
-                           <image>
-                              <Image url="@f532.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
-                           <image>
-                              <Image url="@f532.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
-                           <image>
-                              <Image url="@rzrblade14-16__store_gallery.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Prix" GridPane.columnIndex="1" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="Prix" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                     </children>
-                  </GridPane>
-               </content>
-            </ScrollPane>
-         </children>
-      </VBox>
-   </children>
-</HBox>
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.ItemController">
+           
+    <left>
+        <fx:include source="/fxml/MenuG.fxml"/>
+    </left>
+    
+    <right>
+        <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="788.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="priceProd" prefHeight="378.0" prefWidth="155.0" text="Prix">
+                    <font>
+                        <Font size="96.0" />
+                    </font>
+                </Label>
+                <Label fx:id="dispoProd" text="Disponibilité">
+                    <font>
+                        <Font size="34.0" />
+                    </font>
+                </Label>
+                <ScrollPane prefHeight="702.0" prefWidth="788.0">
+                    <content>
+                        <ListView fx:id="listItem" prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </right>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1133.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="imgProd" fitHeight="551.0" fitWidth="981.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/e-640x457.png" />
+                    </image>
+                </ImageView>
+            
+                <Label fx:id="nomProd" prefHeight="169.0" prefWidth="407.0" text="Nom">
+                    <font>
+                        <Font size="50.0" />
+                    </font>
+                </Label>
+            
+                <Label fx:id="descrProd" prefHeight="169.0" prefWidth="407.0" text="Description">
+                    <font>
+                        <Font size="42.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
