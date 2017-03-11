@@ -1,13 +1,8 @@
 package fr.polytech.ihm.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * Created by Thoma on 3/9/2017.

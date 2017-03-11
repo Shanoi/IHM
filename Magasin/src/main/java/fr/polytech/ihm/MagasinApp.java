@@ -3,8 +3,6 @@ package fr.polytech.ihm;
 import fr.polytech.ihm.controller.Loader;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MagasinApp extends Application {
 
