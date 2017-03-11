@@ -23,13 +23,10 @@ public class DirectionsCommonController {
     private Button seDirigerBouton;
 
     @FXML
-    void directionsPage() throws IOException {
-        directionView();
-    }
-
-    public void directionView() throws IOException {
+    void directionsPage() throws Exception {
         Stage stage = (Stage) seDirigerBouton.getScene().getWindow();
         Loader loader = new Loader();
         loader.load(stage, "/fxml/directions.fxml");
     }
+
 }

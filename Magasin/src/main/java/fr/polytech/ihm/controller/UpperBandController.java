@@ -24,13 +24,10 @@ public class UpperBandController {
     private Label homeLabel;
 
     @FXML
-    void goHome() throws IOException {
-        homeView();
-    }
-
-    public void homeView() throws IOException {
+    void goHome() throws Exception {
         Stage stage = (Stage) homeLabel.getScene().getWindow();
         Loader loader = new Loader();
         loader.load(stage, "/fxml/shopMain.fxml");
     }
+
 }
