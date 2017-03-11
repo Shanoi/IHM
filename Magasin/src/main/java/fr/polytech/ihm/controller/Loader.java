@@ -16,6 +16,10 @@ public class Loader {
     private static final Logger log = LoggerFactory.getLogger(Loader.class);
 
     public void load(Stage stage, String fxml_file) throws Exception{
+        load(stage, fxml_file, true);
+    }
+
+    public void load(Stage stage, String fxml_file, boolean full_screen) throws Exception{
 
         log.info("Starting application");
         log.debug("Loading FXML for main view from: {}", fxml_file);
@@ -23,7 +27,7 @@ public class Loader {
         Parent root = FXMLLoader.load(getClass().getResource(fxml_file));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        stage.setFullScreen(full_screen);
         new CommonController(stage, scene);
 
         log.debug("Showing JFX scene");

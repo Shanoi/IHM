@@ -5,27 +5,33 @@
  */
 package fr.polytech.ihm.controllers;
 
-    import fr.polytech.ihm.data.Product;
-    import fr.polytech.ihm.kernel.MainProducts;
-    import javafx.animation.AnimationTimer;
-    import javafx.animation.FadeTransition;
-    import javafx.animation.ParallelTransition;
-    import javafx.fxml.FXML;
-    import javafx.fxml.Initializable;
-    import javafx.scene.control.Label;
-    import javafx.scene.image.Image;
-    import javafx.scene.image.ImageView;
-    import javafx.scene.input.MouseEvent;
-    import javafx.util.Duration;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
+import fr.polytech.ihm.data.Product;
+import fr.polytech.ihm.kernel.MainProducts;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    import java.net.URL;
-    import java.util.ResourceBundle;
 
-public class PAController implements Initializable {
+public class MainPageController implements Initializable {
 
-    private static final Logger log = LoggerFactory.getLogger(PAController.class);
+    private static final Logger log = LoggerFactory.getLogger(MainPageController.class);
 
     @FXML
     private Label accrochePhare;
@@ -48,7 +54,7 @@ public class PAController implements Initializable {
 
     private AnimationTimer tracker;
 
-    private Product product;
+    private Product currentProduct;
 
     /**
      * Initializes the controller class.
@@ -135,30 +141,32 @@ public class PAController implements Initializable {
     private void gauchePhare(MouseEvent event) {
         //tracker.start();
 
-        product = mainProds.prevProduct();
+        currentProduct = mainProds.prevProduct();
 
-        changeMainProd(product);
+        changeMainProd(currentProduct);
 
     }
 
     @FXML
     private void droitePhare(MouseEvent event) {
 
-        product = mainProds.nextProduct();
+        currentProduct = mainProds.nextProduct();
 
-        changeMainProd(product);
+        changeMainProd(currentProduct);
 
     }
 
     @FXML
     private void clickImgPhare(MouseEvent event){
         
-        
+        displayItem();
         
     }
     
     private void changeMainProd(Product product) {
 
+        currentProduct = product;
+        
         accrochePhare.setText(product.getNom());
 
         image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
@@ -167,6 +175,22 @@ public class PAController implements Initializable {
 
         prixPhare.setText(Float.toString(product.getPrix()));
 
+    }
+    private void displayItem() {
+        String fxmlFile = "/fxml/Item.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Stage stage = (Stage) imagePhare.getScene().getWindow();
+            Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+            Scene scene = new Scene(rootNode);
+            stage.setScene(scene);
+            log.info("Produit selectionné depuis la MainPage : " + currentProduct.getNom());
+            ((ItemController) loader.getController()).initItem(currentProduct);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

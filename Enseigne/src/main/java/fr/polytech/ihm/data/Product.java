@@ -5,17 +5,18 @@
  */
 package fr.polytech.ihm.data;
 
-
 public class Product {
 
     private final float prix;
     private final String nom;
     private final String image;
+    private final String description;
 
-    public Product(float prix, String nom, String image) {
+    public Product(float prix, String nom, String image, String description) {
         this.prix = prix;
         this.nom = nom;
         this.image = image;
+        this.description = description;
     }
 
     public float getPrix() {
@@ -29,7 +30,9 @@ public class Product {
     public String getImage() {
         return image;
     }
-    
-    
+
+    public String getDescription() {
+        return description;
+    }
 
 }
