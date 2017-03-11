@@ -17,7 +17,7 @@
   
   "unité_programmation" : { "nom" : "Unité de programmation pour neurostimulateurs implantables", "prix" : 80, "disponibilité" : "En stock", "description" : "Cette unité de programmation est aussi destinée pour la stimulation du sphincter œsophagien inférieur. Il est équipé d'une tige programmable et d'une technologie de communication sans-fil.", "genre" : "neurologique" },
   
-  "casque_neurologie_egg" : { "nom" : "Casque d'électroencéphalographie adulte", "prix" : 360, "disponibilité" : "En stock", "description" : "Éléctrodes EEG de bas niveau et des emplacements de fixations pour être attachées, ainsi qu'un plastique de couverture confortable (15 tailles au total – from 34 to 66) pour assurer un confort au patient et une qualité d'enregistrement EEG sans faille pendant de longue période d'étude", "genre" : "neurologique" },
+  "casque_neurologie_eeg" : { "nom" : "Casque d'électroencéphalographie adulte", "prix" : 360, "disponibilité" : "En stock", "description" : "Éléctrodes EEG de bas niveau et des emplacements de fixations pour être attachées, ainsi qu'un plastique de couverture confortable (15 tailles au total – from 34 to 66) pour assurer un confort au patient et une qualité d'enregistrement EEG sans faille pendant de longue période d'étude", "genre" : "neurologique" },
   
   "polysomnographe_ambulatoire" : { "nom" : "Polysomnographe ambulatoire YH-600A pro", "prix" : 89, "disponibilité" : "En stock", "description" : "Ce petit appareil d'étude de sommeil léger permet des résultats rentable et cohérent. Ses performances viennent avec des caractéristiques fonctionnelles agréables à utiliser.", "genre" : "neurologique" },
   

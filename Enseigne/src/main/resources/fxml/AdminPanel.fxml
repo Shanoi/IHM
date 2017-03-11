@@ -26,14 +26,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="idProductField" layoutX="44.0" layoutY="36.0" promptText="ID du produit" />
-                        <TextField fx:id="nameProductField" layoutX="44.0" layoutY="115.0" promptText="Nom du produit" />
+                        <TextField fx:id="nameProductField" layoutX="44.0" layoutY="36.0" promptText="Nom du produit" />
                         <TextArea fx:id="descProductField" layoutX="44.0" layoutY="195.0" prefHeight="242.0" prefWidth="322.0" promptText="Description" />
-                        <TextField fx:id="brandProductField" layoutX="439.0" layoutY="36.0" promptText="Nom de la marque" />
+                        <TextField fx:id="brandProductField" layoutX="439.0" layoutY="36.0" promptText="Id de la marque" />
                         <TextField fx:id="catProductField" layoutX="439.0" layoutY="115.0" promptText="Catégorie" />
-                        <TextField fx:id="imageProductField" layoutX="439.0" layoutY="232.0" promptText="Image de l'objet" />
+                        <TextField fx:id="imageProductField" layoutX="44.0" layoutY="115.0" promptText="Image de l'objet" />
                         <TextField fx:id="catNameField" disable="true" layoutX="439.0" layoutY="155.0" promptText="Image de la catégorie" />
-                        <Button fx:id="addProductButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" text="Ajouter" />
+                        <Button fx:id="addProductButton" layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onMousePressed="#addProduct" text="Ajouter" />
+                        <Label fx:id="resultLabelProduct" layoutX="706.0" layoutY="276.0" />
                      </children>
                   </AnchorPane>
             </content>

@@ -1,17 +1,16 @@
 package fr.polytech.ihm.model;
 
+import fr.polytech.ihm.JSONParser;
 import fr.polytech.ihm.controller.ListViewProductController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +23,15 @@ public class ProductModel {
     private List<String> currentNeurologicalProductPromo;
     private List<String> currentPopularProduct;
     @FXML
-    private ListView<FXML> currentScientificProductPromoView;
+    private ListView<Parent> currentScientificProductPromoView;
     @FXML
-    private ListView<FXML> currentNeurologicalProductPromoView;
+    private ListView<Parent> currentNeurologicalProductPromoView;
     @FXML
-    private ListView<FXML> currentPopularProductPromoView;
+    private ListView<Parent> currentPopularProductPromoView;
 
-    public ProductModel() {
-        produitsScientifique = new JSONObject(new File("/data/produits_scientifiques.json"));
-        produitsNeurologique = new JSONObject(new File("/data/produits_neurologiques.json"));
+    public ProductModel() throws IOException {
+        produitsScientifique = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifiques.json");
+        produitsNeurologique = new JSONParser().parse("src\\main\\resources\\data\\produits_neurologiques.json");
 
         currentScientificProductPromo = new ArrayList<>();
         currentNeurologicalProductPromo = new ArrayList<>();
@@ -43,8 +42,7 @@ public class ProductModel {
         initializePopularProductList();
     }
 
-    @FXML
-    public void initialize() throws IOException, NoSuchFieldException {
+    public void initializeListView() throws IOException, NoSuchFieldException {
         currentScientificProductPromoView = new ListView<>();
         currentNeurologicalProductPromoView = new ListView<>();
         currentPopularProductPromoView = new ListView<>();
@@ -56,16 +54,17 @@ public class ProductModel {
     private void initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
         ObservableList<Parent> items = FXCollections.observableArrayList();
         for (String str : currentNeurologicalProductPromo) {
-            FXMLLoader loader = new FXMLLoader();
-            Parent productView = loader.load(getClass().getResource("/fxml/listView_product_promo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product.fxml"));
+            Parent productView = (Parent) loader.load();
+            ListViewProductController listViewcontroller = loader.getController();
             JSONObject neuroProduct = produitsNeurologique.getJSONObject(str);
             String name = neuroProduct.getString("nom");
-            Image image = new Image("/images/" + str);
+            Image image = new Image("/images/product_neuro/" + str + ".jpg");
             int price = neuroProduct.getInt("prix");
-            ((ListViewProductController) loader.getController()).initializeProduct(name, image, price);
+            listViewcontroller.initializeProduct(name, image, price);
             items.add(productView);
         }
-
+        currentNeurologicalProductPromoView.setItems(items);
     }
 
     private void initializeScientificProductPromoView() {
@@ -98,7 +97,5 @@ public class ProductModel {
         currentPopularProduct.add("microscope_opératoire");
         currentPopularProduct.add("mini_microscope");
     }
-
-
 
 }
