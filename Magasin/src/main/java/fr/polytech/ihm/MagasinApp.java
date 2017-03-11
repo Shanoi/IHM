@@ -12,13 +12,13 @@ public class MagasinApp extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Magasin");
-        String fxml_magasin = "/fxml/shopMain.fxml";
+        String fxml_magasin = "/fxml/shopMain_listView.fxml";
         String fxml_admin = "/fxml/VueAdmin.fxml";
 
         Stage Admin_Stage = new Stage();
 
         Loader loader = new Loader();
-        loader.load(primaryStage, fxml_magasin);
+        loader.load(primaryStage, fxml_magasin, true);
         loader.load(Admin_Stage, fxml_admin, false);
     }
 
