@@ -9,16 +9,22 @@ import fr.polytech.ihm.custom.ProductListCell;
 import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.kernel.CategoryProduct;
 import static fr.polytech.ihm.kernel.CategoryProduct.getCategoryProduct;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +67,7 @@ public class ItemController implements Initializable {
         productObservableList.addAll(getCategoryProduct(product.getCategory()));
 
         System.out.println("LIST : " + getCategoryProduct(product.getCategory()));
-        
+
         listItem.setItems(productObservableList);
         listItem.setCellFactory(studentListView -> new ProductListCell());
 
@@ -75,6 +81,35 @@ public class ItemController implements Initializable {
 
         descrProd.setText(product.getDescription());
 
+    }
+
+    @FXML
+    private void clickListItem(MouseEvent event) {
+
+        Product prod = (Product) listItem.getSelectionModel().getSelectedItem();
+        
+        System.out.println(prod.getNom());
+        
+        displayItem(prod);
+        
+    }
+    
+    private void displayItem(Product product) {
+        
+        String fxmlFile = "/fxml/Item.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Stage stage = (Stage) listItem.getScene().getWindow();
+            Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+            Scene scene = new Scene(rootNode);
+            stage.setScene(scene);
+            log.info("Produit selectionné depuis la page Item : " + product.getNom());
+            ((ItemController) loader.getController()).initItem(product);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
