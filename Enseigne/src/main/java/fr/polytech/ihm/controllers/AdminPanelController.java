@@ -243,7 +243,13 @@ public class AdminPanelController {
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
 
-            return rs.getInt("nbL") != 0;
+            boolean isTrue = rs.getInt("nbL") != 0;
+            
+            rs.close();
+            lien.close();
+            cnx.close();
+            
+            return isTrue;
 
 
         } catch (Exception e) {

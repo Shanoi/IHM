@@ -48,9 +48,12 @@ public class InsertApp {
             pstmt.setString(11, pageWeb);
             pstmt.setInt(12, prodRenvoyes);
             pstmt.executeUpdate();
-            
+
             System.out.println("Requête Effectuée");
-            
+
+            pstmt.close();
+            conn.close();
+
         } catch (SQLException e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
@@ -62,7 +65,7 @@ public class InsertApp {
                 + "VALUES($next_id,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(2, name);
             pstmt.setString(3, desc);
             pstmt.setDouble(4, brandID);
@@ -73,6 +76,9 @@ public class InsertApp {
 
             System.out.println("Requête Effectuée");
 
+            pstmt.close();
+            conn.close();
+            
         } catch (SQLException e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }

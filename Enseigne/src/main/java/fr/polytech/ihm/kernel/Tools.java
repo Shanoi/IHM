@@ -56,6 +56,10 @@ public class Tools {
 
             }
 
+            rs.close();
+            lien.close();
+            cnx.close();
+
         } catch (Exception e) {
 
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
@@ -95,8 +99,12 @@ public class Tools {
                         rs.getString("imageCategory")));
 
                 System.out.println("Catégories : " + rs.getString("category"));
-                
+
             }
+
+            rs.close();
+            lien.close();
+            cnx.close();
 
         } catch (Exception e) {
 

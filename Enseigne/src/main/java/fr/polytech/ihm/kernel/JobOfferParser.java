@@ -39,6 +39,11 @@ public class JobOfferParser {
                         rs.getString("dateBegin"),
                         rs.getInt("idMagasin")));
             }
+            
+            rs.close();
+            lien.close();
+            cnx.close();
+            
         } catch (Exception e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
