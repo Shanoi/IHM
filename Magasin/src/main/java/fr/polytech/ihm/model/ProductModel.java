@@ -1,10 +1,8 @@
 package fr.polytech.ihm.model;
 
 import fr.polytech.ihm.JSONParser;
-import fr.polytech.ihm.controller.ListViewProductController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -59,25 +57,23 @@ public class ProductModel {
         currentPopularProduct.add("mini_microscope");
     }
 
-    public void initializeNeurologicalProductPromoView(ListView<Parent> listView) throws IOException, NoSuchFieldException {
+    public void initializeNeurologicalProductPromoView(ListView<ProductListView> listView) throws IOException, NoSuchFieldException {
         listView.setItems(initializeListViewPromo(currentNeurologicalProductPromo, produitsNeurologique, "neuro"));
+        listView.setCellFactory(lv -> new ProductListViewCell());
     }
 
-    private void initializeScientificProductPromoView(ListView<Parent> listView) throws IOException {
+    private void initializeScientificProductPromoView(ListView<ProductListView> listView) throws IOException {
         listView.setItems(initializeListViewPromo(currentScientificProductPromo, produitsScientifique, "science"));
     }
 
-    private void initializePopularProductView(ListView<Parent> listView) throws IOException {
+    private void initializePopularProductView(ListView<ProductListView> listView) throws IOException {
         listView.setItems(initializeListView(currentPopularProduct, produitsScientifique, produitsNeurologique));
     }
 
-    private ObservableList<Parent> initializeListView(List<String> listOfProducts, JSONObject... data) throws IOException {
-        ObservableList<Parent> items = FXCollections.observableArrayList();
+    private ObservableList<ProductListView> initializeListView(List<String> listOfProducts, JSONObject... data) throws IOException {
+        ObservableList<ProductListView> items = FXCollections.observableArrayList();
         String fileName;
         for (String str : listOfProducts) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product.fxml"));
-            Parent productView = (Parent) loader.load();
-            ListViewProductController listViewcontroller = loader.getController();
             JSONObject product = new JSONObject();
             for (JSONObject productData : data) {
                 if (productData.has(str))
@@ -89,25 +85,24 @@ public class ProductModel {
                 image.setImage(new Image("/images/product_neuro/" + str + ".jpg"));
             else image.setImage(new Image("/images/product_science/" + str + ".jpg"));
             int price = product.getInt("prix");
-            listViewcontroller.initializeProduct(name, image, price);
-            items.add(productView);
+            ProductListView plv = new ProductListView(false);
+            plv.initializeProduct(name, image, price);
+            items.add(plv);
         }
         return items;
     }
 
-    private ObservableList<Parent> initializeListViewPromo(List<String> listOfProducts, JSONObject data, String dataFolder) throws IOException {
-        ObservableList<Parent> items = FXCollections.observableArrayList();
+    private ObservableList<ProductListView> initializeListViewPromo(List<String> listOfProducts, JSONObject data, String dataFolder) throws IOException {
+        ObservableList<ProductListView> items = FXCollections.observableArrayList();
         for (String str : listOfProducts) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product_promo.fxml"));
-            Parent productView = (Parent) loader.load();
-            ListViewProductController listViewcontroller = loader.getController();
             JSONObject product = data.getJSONObject(str);
             String name = product.getString("nom");
             ImageView image = new ImageView();
             image.setImage(new Image("/images/product_" + dataFolder + "/" + str + ".jpg"));
             int price = product.getInt("prix");
-            listViewcontroller.initializeProductPromo(name, image, price);
-            items.add(productView);
+            ProductListView plv = new ProductListView(true);
+            plv.initializeProductPromo(name, image, price);
+            items.add(plv);
         }
         return items;
     }
