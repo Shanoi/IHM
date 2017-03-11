@@ -12,6 +12,11 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
 import static fr.unice.polytech.a.ihm.g2c.common.Category.*;
 
@@ -31,6 +36,7 @@ public class MainApp extends Application {
     public void init() throws Exception {
         DataModel data = DataModel.getInstance();
         data.setHighlight("Les soldes arrivent !! Jusqu'à -70% dans tous les magasins");
+
         data.addStore(new Store("Fnac", "salut", "src/main/resources/images/stores/fnac.jpg", HIGH_TECH, true));
         data.addStore(new Store("Armani", "salut", "src/main/resources/images/stores/armani.jpg", FASHION_MAN, true));
         data.addStore(new Store("Zara", "salut", "src/main/resources/images/stores/zara.png", FASHION_WOMAN, true));
@@ -39,6 +45,11 @@ public class MainApp extends Application {
         data.addStore(new Store("Hugo Boss", "salut", "src/main/resources/images/stores/hugoboss.jpg", FASHION_MAN, true));
         data.addStore(new Store("Sephora", "salut", "src/main/resources/images/stores/sephora.png", COSMETIC, true));
         data.addStore(new Store("To be or to have", "salut", "src/main/resources/images/stores/to_be_or_to_have.png", HIGH_TECH, true));
+
+        data.setInformations("Situé en plein coeur de Sophia-Antipolis, Cap Sophia est un concept inédit qui mêle les univers shopping mode et premium, l'art contemporain et le divertissement.\n" +
+                "Avec plus de XX magasins répartis sur 12000m², Cap Sophia vous propose une expérience inoubliable au coeur de la Mode et du chic de la Côte d'Azur et offre l’opportunité de retrouver en une seule adresse les dernières tendances au travers d’une sélection des plus belles marques françaises et internationales.\n" +
+                "Pour sa clientèle internationale, le Printemps offre des services personnalisés tels que l'accompagnement d'achat bilingue.\n" +
+                "Restaurants du monde, service à table ou sur le pouce, instants gourmands et pause-café: Venez profiter de nos espaces de restauration, qui répondent à toutes les envies, à tous les moments de la journée, dans une atmosphère accueillante et chaleureuse.");
     }
 
     @Override

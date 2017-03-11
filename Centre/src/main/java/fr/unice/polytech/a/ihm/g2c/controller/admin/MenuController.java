@@ -30,7 +30,7 @@ public class MenuController extends AdminSceneController {
 
     @FXML
     void changeInfo(MouseEvent event) {
-
+        adminController.setAdminScene(INFO);
     }
 
     @FXML

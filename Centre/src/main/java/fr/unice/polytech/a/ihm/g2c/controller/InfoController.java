@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.controller.ControllerUtil;
+import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static fr.unice.polytech.a.ihm.g2c.common.AppScene.INDEX;
 import static fr.unice.polytech.a.ihm.g2c.common.AppScene.INFORMATIONS;
 
 /**
@@ -36,10 +38,10 @@ public class InfoController {
 
     @FXML
     public void initialize() {
+        description.setText(DataModel.getInstance().getInformations());
         baseHeight = scrollMap.getPrefHeight();
         baseWidth = scrollMap.getPrefWidth();
         logger.debug("baseWidth " + baseWidth + ", baseHeight " + baseHeight);
-
         refreshMapSize();
     }
 
@@ -52,7 +54,7 @@ public class InfoController {
     @FXML
     void back(MouseEvent mouseEvent) {
         Stage stage = (Stage) map.getScene().getWindow();
-        ControllerUtil.showScene(INFORMATIONS, stage);
+        ControllerUtil.showScene(INDEX, stage);
     }
 
     @FXML

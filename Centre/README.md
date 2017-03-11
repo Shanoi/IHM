@@ -12,13 +12,11 @@
 ## TODO
 
 * Admin
-    * Vue / Controller pour les informations
     * S'occuper de l'exception dans AddStore#sumbit ?
 * Index
-    * Mettre "pas de resultat"
+    * Ajouter des magasins
 * Info
-    * Mettre les informations
-    * Carte du centre
+    * Mettre les magasins sur la carte
 * Divers
     * Regler le probleme de police qui change
     * Extension
@@ -30,3 +28,4 @@
 * Localiser un magasin choisi dans l'index
 * Voir pour mettre en plein ecran
 * S'occuper des exceptions ?
+* Zoom sur la carte du centre

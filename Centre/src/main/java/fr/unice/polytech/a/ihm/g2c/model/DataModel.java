@@ -78,4 +78,12 @@ public class DataModel {
     public void setSearch(String search) {
         this.search = search;
     }
+
+    public String getInformations() {
+        return informations;
+    }
+
+    public void setInformations(String informations) {
+        this.informations = informations;
+    }
 }
