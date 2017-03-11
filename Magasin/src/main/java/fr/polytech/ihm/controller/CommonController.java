@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 /**
- * @author Kovox
+ * @author Jérémy LARA
  * @version 1.0
  *          Represents the main application controller class. It allows to binds
  *          specifics actions to specifics keys for example.

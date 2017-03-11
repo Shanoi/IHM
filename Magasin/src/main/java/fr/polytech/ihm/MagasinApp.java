@@ -12,8 +12,8 @@ public class MagasinApp extends Application {
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Magasin");
-        String fxml_magasin = "/fxml/shopMain.fxml";
-        String fxml_admin = "/fxml/VueAdmin.fxml";
+        String fxml_magasin = "/fxml/Client/shopMain_listView.fxml";
+        String fxml_admin = "/fxml/Admin/VueAdmin.fxml";
 
         Stage Admin_Stage = new Stage();
 

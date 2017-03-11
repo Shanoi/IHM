@@ -1,26 +1,24 @@
 package fr.polytech.ihm.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 /**
- * Created by Thoma on 3/9/2017.
+ * @author Thomas
+ * @version 1.0
+ *          Represents the main lower band (directionsCommon) controller class.
+ *          It allows to go on the directions page and handle directions button.
  */
 public class DirectionsCommonController {
 
     @FXML
-    public void initialize(){
-
-    }
+    private Button seDirigerBouton;
 
     @FXML
-    private Button seDirigerBouton;
+    public void initialize() {
+
+    }
 
     @FXML
     void directionsPage() throws Exception {

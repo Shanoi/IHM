@@ -15,14 +15,14 @@
    <top>
       <HBox prefHeight="160.0" BorderPane.alignment="CENTER">
          <children>
-            <fx:include source="/fxml/upperBand.fxml" />
+            <fx:include source="upperBand.fxml" />
          </children>
       </HBox>
    </top>
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <fx:include source="/fxml/directionscommon.fxml" />
+            <fx:include source="directionscommon.fxml" />
          </children>
       </HBox>
    </bottom>
@@ -62,7 +62,7 @@
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
+                                          <Image url="/images/product_neuro/casque_neurologie_eeg.jpg" />
                                        </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -214,9 +214,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -256,9 +253,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -298,9 +292,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -340,9 +331,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -480,9 +468,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -633,9 +618,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -675,9 +657,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -717,9 +696,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -759,9 +735,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -827,9 +800,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -980,9 +950,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -1022,9 +989,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -1064,9 +1028,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
@@ -1106,9 +1067,6 @@
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/images/neuropsychologieDuLangage.jpg" />
-                                       </image>
                                     </ImageView>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                        <children>
