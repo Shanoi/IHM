@@ -24,7 +24,7 @@ public class DirectionsCommonController {
     void directionsPage() throws Exception {
         Stage stage = (Stage) seDirigerBouton.getScene().getWindow();
         Loader loader = new Loader();
-        loader.load(stage, "/fxml/directions.fxml");
+        loader.load(stage, "/fxml/Client/directions.fxml");
     }
 
 }

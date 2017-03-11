@@ -9,6 +9,6 @@ public class AdminController {
 
     @FXML
     public void initialize(){
-        
+
     }
 }
