@@ -5,6 +5,9 @@ import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -18,6 +21,7 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -98,10 +102,25 @@ public class IndexController {
         logger.debug("info");
     }
 
-    private void addTile(TilePane pane, Image img) {
-        ImageView tile = new ImageView(img);
+    private void addTile(TilePane pane, Store store) {
+        logger.debug("Add store: " + store);
+        ImageView tile = new ImageView(store.getImg());
         tile.setFitWidth(tileWidth);
         tile.setFitHeight(tileHeight);
+        tile.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            logger.debug("Clicked on " + store);
+            Stage stage = (Stage) tile.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
+            try {
+                Parent rootNode = loader.load(ControllerUtil.class.getResourceAsStream(STORE.getFxmlFile()));
+                ((StoreController)loader.getController()).initStore(store);
+                Scene scene = new Scene(rootNode);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         pane.getChildren().add(tile);
     }
 
@@ -113,10 +132,10 @@ public class IndexController {
         storesToDisplay.sort(sortingType.getComparator());
         logger.debug("Stores to display: " + storesToDisplay);
         storesList.getChildren().clear();
-        storesToDisplay.forEach(store -> addTile(storesList, store.getImg()));
+        storesToDisplay.forEach(store -> addTile(storesList, store));
         List<Store> storeSelectionToDisplay = DataModel.getInstance().getStoreSelectionList();
         storeSelection.getChildren().clear();
-        storeSelectionToDisplay.stream().filter(storesToDisplay::contains).forEach(store -> addTile(storeSelection, store.getImg()));
+        storeSelectionToDisplay.stream().filter(storesToDisplay::contains).forEach(store -> addTile(storeSelection, store));
     }
 
 }
