@@ -70,6 +70,9 @@
 
 /* Component specific styles */
 
+.choice-box .label {
+    -fx-font-size: 10px;
+}
 
 .main-panel {
     -fx-background-image: url("../images/background-test.jpg");
@@ -111,6 +114,17 @@
 	-fx-pref-width: 725px;
 	/*-fx-pref-height: 350px;*/
 	-fx-padding: 10 20 10 20;
+    -fx-pref-tile-height: 100;
+    -fx-pref-tile-width: 100;
+}
+
+.showcase-tile {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
 }
 
 .showcase-scroll {

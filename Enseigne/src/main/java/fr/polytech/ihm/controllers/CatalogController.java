@@ -1,7 +1,7 @@
 package fr.polytech.ihm.controllers;
 
 
-import fr.polytech.ihm.kernel.mainProducts;
+import fr.polytech.ihm.kernel.MainProducts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -60,7 +60,7 @@ public class CatalogController {
     private ListView<?> itemList;
 
 
-    private mainProducts mainProds;
+    private MainProducts mainProds;
 
     public void initialize(){
         initSliders();

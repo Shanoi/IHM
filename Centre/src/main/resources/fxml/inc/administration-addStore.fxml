@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="40.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="40.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
    <children>
       <Label styleClass="h1" text="Ajout d'un magasin" />
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="30.0">
@@ -40,7 +40,7 @@
                         <Button mnemonicParsing="false" onMouseClicked="#browse" prefWidth="95.0" styleClass="button-file" text="Parcourir" />
                      </children>
                   </HBox>
-                  <ChoiceBox fx:id="category" prefWidth="150.0" />
+                  <ChoiceBox fx:id="category" minHeight="20.0" prefWidth="200.0" />
                </children>
             </VBox>
          </children>

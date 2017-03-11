@@ -47,7 +47,7 @@ public class MenuController extends AdminSceneController {
 
     @FXML
     void removeStore(MouseEvent event) {
-
+        adminController.setAdminScene(STORE_REMOVE);
     }
 
 }
