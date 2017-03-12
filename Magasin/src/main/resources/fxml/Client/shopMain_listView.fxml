@@ -99,12 +99,12 @@
                               </VBox>
                               <VBox fx:id="newProductSciences2" alignment="CENTER" fillWidth="false" onMouseClicked="#goProductPage" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                    <Label fx:id="productName1" text="Petit ondamania" underline="true">
+                                    <Label text="Petit ondamania" underline="true">
                                        <font>
                                           <Font name="Calibri" size="16.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fx:id="imageProduct1" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../images/product_science/petit_ondamania.jpg" />
                                        </image>
