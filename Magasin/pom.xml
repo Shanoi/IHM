@@ -98,7 +98,14 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
-
+		
+		<!-- CSS  -->
+		
+		<dependency>
+			<groupId>com.aquafx-project</groupId>
+			<artifactId>aquafx</artifactId>
+			<version>0.1</version>
+		</dependency>
     </dependencies>
 
 </project>

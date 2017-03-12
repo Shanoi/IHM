@@ -1,5 +1,6 @@
 package fr.polytech.ihm;
 
+import com.aquafx_project.AquaFx;
 import fr.polytech.ihm.controller.Loader;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -11,6 +12,8 @@ public class MagasinApp extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
+        //AquaFx.style();
+
         primaryStage.setTitle("Magasin");
         String fxml_magasin = "/fxml/Client/shopMain_listView.fxml";
         String fxml_admin = "/fxml/Admin/VueAdmin.fxml";
