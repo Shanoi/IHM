@@ -55,7 +55,7 @@ public class ListViewProductController {
 
     @FXML
     void goProductPage(MouseEvent event) throws Exception {
-        Stage stage = (Stage) price.getScene().getWindow();
+        Stage stage = (Stage) productName.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
         Parent root = loader.load();
         ((ProductMainController) loader.getController()).initProduct(productTemp);
