@@ -23,6 +23,13 @@ public class EventParser {
 
         events = new ArrayList<>();
 
+        extractEvents();
+
+    }
+
+    private void extractEvents(){
+        events.clear();
+
         try {
             Class.forName("org.sqlite.JDBC").newInstance();
 
@@ -39,17 +46,18 @@ public class EventParser {
                         rs.getString("dateEvent"),
                         rs.getString("descriptionEvent")));
             }
-            
+
             rs.close();
             lien.close();
             cnx.close();
-            
+
         } catch (Exception e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
 
     public List<Events> getEvents(){
+        extractEvents();
         return events;
     }
 
