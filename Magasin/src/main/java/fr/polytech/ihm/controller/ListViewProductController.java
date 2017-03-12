@@ -3,6 +3,9 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.model.ProductInListView;
 import fr.polytech.ihm.model.ProductModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -41,8 +44,6 @@ public class ListViewProductController {
     @FXML
     private Label reduction;
 
-    private ProductModel productModel;
-
     private int[] reduc = {15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70};
 
     @FXML
@@ -50,20 +51,29 @@ public class ListViewProductController {
 
     }
 
+    private ProductInListView productTemp;
+
     @FXML
     void goProductPage(MouseEvent event) throws Exception {
-        Stage stage = (Stage) productListView.getScene().getWindow();
-        Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/produitMain.fxml");
+        Stage stage = (Stage) price.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
+        Parent root = loader.load();
+        ((ProductMainController) loader.getController()).initProduct(productTemp);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        new CommonController(stage, scene);
+        stage.show();
     }
 
     public void initializeProduct(ProductInListView product) {
+        productTemp = product;
         productName.setText(product.getName().getValue());
         productImage = new ImageView(product.getImage());
         this.price.setText(Integer.toString(product.getPrice()) + "€");
     }
 
     public void initializeProductPromo(ProductInListView product) {
+        productTemp = product;
         productName.setText(product.getName().getValue());
         productImage = new ImageView(product.getImage());
         Random r = new Random();
