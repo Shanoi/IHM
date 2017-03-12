@@ -57,7 +57,6 @@ public class UpdateApp {
 
             System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
 
-
         } catch (SQLException e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
