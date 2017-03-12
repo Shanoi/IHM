@@ -6,10 +6,14 @@ import fr.polytech.ihm.model.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -29,6 +33,14 @@ public class ShopMainController {
     private ListView<ProductInListView> listViewNeuroProductsPromo;
     @FXML
     private ListView<ProductInListView> listViewScienceProductsPromo;
+    @FXML
+    private VBox newProductSciences1;
+    @FXML
+    private Label productName;
+    @FXML
+    private ImageView imageProduct;
+    @FXML
+
 
     private ObservableList observableList = FXCollections.observableArrayList();
     private ProductModel productModel;
@@ -56,6 +68,14 @@ public class ShopMainController {
         productsList.setItems(observableList); //TODO
         productsList.setCellFactory(listView -> new ProductListViewCell());
     }
+
+    @FXML
+    void goProductPageNew1(MouseEvent event) throws Exception {
+        Stage stage = (Stage) newProductSciences1.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/Client/directions.fxml");
+    }
+
 
 }
 
