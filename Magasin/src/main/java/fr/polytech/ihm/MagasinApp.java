@@ -20,6 +20,7 @@ public class MagasinApp extends Application {
 
         Stage Admin_Stage = new Stage();
         Admin_Stage.setTitle("Administration");
+        Admin_Stage.setResizable(false);
 
         Loader loader = new Loader();
         loader.load(primaryStage, fxml_magasin);
