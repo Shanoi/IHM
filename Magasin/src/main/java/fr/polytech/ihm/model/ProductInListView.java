@@ -22,16 +22,8 @@ public class ProductInListView {
         return productDescription.get();
     }
 
-    public StringProperty productDescriptionProperty() {
-        return productDescription;
-    }
-
     public String getDisponible() {
         return disponible.get();
-    }
-
-    public StringProperty disponibleProperty() {
-        return disponible;
     }
 
     public ProductInListView(boolean inPromo) {
@@ -53,8 +45,8 @@ public class ProductInListView {
         return inPromo;
     }
 
-    public StringProperty getName() {
-        return productName;
+    public String getName() {
+        return productName.get();
     }
 
     public Image getImage() {

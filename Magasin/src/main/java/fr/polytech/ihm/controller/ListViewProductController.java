@@ -67,14 +67,14 @@ public class ListViewProductController {
 
     public void initializeProduct(ProductInListView product) {
         productTemp = product;
-        productName.setText(product.getName().getValue());
+        productName.setText(product.getName());
         productImage = new ImageView(product.getImage());
         this.price.setText(Integer.toString(product.getPrice()) + "€");
     }
 
     public void initializeProductPromo(ProductInListView product) {
         productTemp = product;
-        productName.setText(product.getName().getValue());
+        productName.setText(product.getName());
         productImage = new ImageView(product.getImage());
         Random r = new Random();
         double reductionNb = reduc[r.nextInt(reduc.length)];
