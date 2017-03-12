@@ -37,6 +37,7 @@ public class ShopMainController {
 
     }
 
+    @FXML
     public void initialize() throws IOException, NoSuchFieldException {
         productModel = new ProductModel();
         setListView(listViewNeuroProductsPromo, productModel.initializeNeurologicalProductPromoView());
@@ -52,7 +53,7 @@ public class ShopMainController {
     public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products){
         observableList = FXCollections.observableArrayList();
         observableList.addAll(products);
-        productsList.setItems(observableList);
+        productsList.setItems(observableList); //TODO
         productsList.setCellFactory(listView -> new ProductListViewCell());
     }
 

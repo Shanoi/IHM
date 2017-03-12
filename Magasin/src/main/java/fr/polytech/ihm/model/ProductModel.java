@@ -77,13 +77,15 @@ public class ProductModel {
                     product = productData.getJSONObject(str);
             }
             String name = product.getString("nom");
+            String description = product.getString("description");
+            String disponible = product.getString("disponibilité");
             Image image;
-            if ("neurologique".equals(product.get("genre")))
+            if ("neurologique".equals(product.get("genre"))) //Ou getString("genre")
                 image = new Image("/images/product_neuro/" + str + ".jpg");
             else image = new Image("/images/product_science/" + str + ".jpg");
             int price = product.getInt("prix");
             ProductInListView plv = new ProductInListView(false);
-            plv.initializeProduct(name, image, price);
+            plv.initializeProduct(name, image, price, disponible, description);
             items.add(plv);
         }
         return items;
@@ -96,8 +98,10 @@ public class ProductModel {
             String name = product.getString("nom");
             Image image = new Image("/images/product_" + dataFolder + "/" + str + ".jpg");
             int price = product.getInt("prix");
+            String description = product.getString("description");
+            String disponible = product.getString("disponibilité");
             ProductInListView plv = new ProductInListView(true);
-            plv.initializeProduct(name, image, price);
+            plv.initializeProduct(name, image, price, disponible, description);
             items.add(plv);
         }
         return items;

@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
 public class ProductInListView {
 
     private StringProperty productName;
+    private StringProperty productDescription;
+    private StringProperty disponible;
     private Image productImage;
     private int price;
     private boolean inPromo;
@@ -19,12 +21,16 @@ public class ProductInListView {
     public ProductInListView(boolean inPromo) {
         this.inPromo = inPromo;
         productName = new SimpleStringProperty();
+        productDescription = new SimpleStringProperty();
+        disponible = new SimpleStringProperty();
     }
 
-    public void initializeProduct(String name, Image image, int price) {
+    public void initializeProduct(String name, Image image, int price, String disponible, String description) {
         productName.setValue(name);
         productImage = image;
         this.price = price;
+        this.disponible.setValue(disponible);
+        productDescription.setValue(description);
     }
 
     public boolean isPromo() {
