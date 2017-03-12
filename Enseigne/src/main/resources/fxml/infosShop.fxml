@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="457.0" prefWidth="662.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.InfosShopController">
+   <children>
+      <TextField fx:id="adressShop" layoutX="40.0" layoutY="71.0" prefHeight="31.0" prefWidth="250.0" promptText="Adresse du magasin" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="71.0" />
+      <TextField fx:id="websiteShop" layoutX="372.0" layoutY="71.0" prefHeight="31.0" prefWidth="250.0" promptText="Site du magasin" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="71.0" />
+      <TextField fx:id="latShop" layoutX="40.0" layoutY="135.0" prefHeight="31.0" prefWidth="250.0" promptText="Latitude" />
+      <TextField fx:id="caShop" layoutX="372.0" layoutY="135.0" prefHeight="31.0" prefWidth="250.0" promptText="Chiffre d'affaire du magasin" />
+      <TextField fx:id="longShop" layoutX="40.0" layoutY="198.0" prefHeight="31.0" prefWidth="250.0" promptText="Longitude" />
+      <TextField fx:id="nbEmpShop" layoutX="372.0" layoutY="198.0" prefHeight="31.0" prefWidth="250.0" promptText="Nombre d'employés du magasin" />
+      <TextField fx:id="phoneShop" layoutX="40.0" layoutY="264.0" prefHeight="31.0" prefWidth="250.0" promptText="Téléphone du magasin" />
+      <TextField fx:id="mailShop" layoutX="40.0" layoutY="329.0" prefHeight="31.0" prefWidth="250.0" promptText="E-mail du magasin" />
+      <TextField fx:id="nameShop" layoutX="206.0" layoutY="14.0" prefHeight="31.0" prefWidth="250.0" promptText="Nom du magasin" />
+      <TextField fx:id="costShop" layoutX="372.0" layoutY="264.0" prefHeight="31.0" prefWidth="250.0" promptText="Coût de maintenance du magasin" />
+      <TextField fx:id="prodBackShop" layoutX="372.0" layoutY="329.0" prefHeight="31.0" prefWidth="250.0" promptText="Nombre de produit revenu" />
+      <Button layoutX="298.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveChanges" text="Valider" />
+      <Label fx:id="confirmLabel" layoutX="305.0" layoutY="415.0" />
+   </children>
+</AnchorPane>
