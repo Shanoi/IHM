@@ -53,25 +53,27 @@ public class StatistiquesController {
         Stage stage = new Stage();
         Scene scene = new Scene(new Group());
         stage.setTitle("Statistiques");
-        stage.setWidth(800);
-        stage.setHeight(600);
+        stage.setResizable(false);
 
 
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
+        xAxis.setLabel("Mois");
         LineChart<String,Number> chart = new LineChart<>(xAxis,yAxis);
-        chart.setTitle("Statistiques par mois");
+        chart.setTitle("Statistiques mois par mois");
 
-        XYChart.Series total_series = create_linechart_data();
-        chart.getData().addAll(total_series);
+        XYChart.Series data_affaire = create_linechart_data_affaire();
+        XYChart.Series data_renvoye = create_linechart_data_renvoye();
+        XYChart.Series data_solde = create_linechart_data_solde();
+        chart.getData().addAll(data_affaire, data_renvoye, data_solde);
 
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);
         stage.show();
     }
 
-    private XYChart.Series create_linechart_data() {
+
+    private XYChart.Series create_linechart_data_affaire() {
         XYChart.Series series = new XYChart.Series();
 
         series.getData().add(new Data("JAN 16", 15));
@@ -89,25 +91,54 @@ public class StatistiquesController {
         series.getData().add(new Data("JAN 17", 16));
         series.getData().add(new Data("FEB 17", 20));
 
-        series.setName("Benefices totaux");
+        series.setName("Chiffres daffaires (k€)");
 
         return series;
     }
 
-    /*private XYChart.Series create_linechart_sciences_data(XYChart.Series series) {
-        XYChart.Series res = new XYChart.Series();
+    private XYChart.Series create_linechart_data_renvoye() {
+        XYChart.Series series = new XYChart.Series();
 
-        Object[] array_series = series.getData().toArray();
+        series.getData().add(new Data("JAN 16", 10));
+        series.getData().add(new Data("FEB 16", 1));
+        series.getData().add(new Data("MARS 16", 2));
+        series.getData().add(new Data("AVR 16", 1));
+        series.getData().add(new Data("MAI 16", 1));
+        series.getData().add(new Data("JUN 16", 2));
+        series.getData().add(new Data("JUL 16", 3));
+        series.getData().add(new Data("AOUT 16", 7));
+        series.getData().add(new Data("SEP 16", 1));
+        series.getData().add(new Data("OCT 16", 1));
+        series.getData().add(new Data("NOV 16", 2));
+        series.getData().add(new Data("DEC 16", 2));
+        series.getData().add(new Data("JAN 17", 9));
+        series.getData().add(new Data("FEB 17", 3));
 
-        Data data;
-        for(int i = 0; i < array_series.length; i++){
-            data = (Data) array_series[i];
-            data.setYValue((int) data.getYValue() * sciences / (sciences + neurologies));
-            res.getData().add(data);
-        }
+        series.setName("Produits renvoyes (%)");
 
-        res.setName("Benefices sciences");
+        return series;
+    }
 
-        return res;
-    } */
+    private XYChart.Series create_linechart_data_solde() {
+        XYChart.Series series = new XYChart.Series();
+
+        series.getData().add(new Data("JAN 16", 1));
+        series.getData().add(new Data("FEB 16", 2));
+        series.getData().add(new Data("MARS 16", 3));
+        series.getData().add(new Data("AVR 16", 1));
+        series.getData().add(new Data("MAI 16", 1));
+        series.getData().add(new Data("JUN 16", 5));
+        series.getData().add(new Data("JUL 16", 5));
+        series.getData().add(new Data("AOUT 16", 2));
+        series.getData().add(new Data("SEP 16", 2));
+        series.getData().add(new Data("OCT 16", 2));
+        series.getData().add(new Data("NOV 16", 5));
+        series.getData().add(new Data("DEC 16", 15));
+        series.getData().add(new Data("JAN 17", 1));
+        series.getData().add(new Data("FEB 17", 2));
+
+        series.setName("Produits soldés (%)");
+
+        return series;
+    }
 }
