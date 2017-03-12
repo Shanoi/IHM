@@ -3,7 +3,9 @@ package fr.polytech.ihm.model;
 import fr.polytech.ihm.controller.ListViewProductController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.ImageView;
 
 /**
  * @author Kovox
@@ -11,6 +13,10 @@ import javafx.scene.control.ListCell;
  *          This class defines a particular ListCell for products in listview.
  */
 public class ProductListViewCell extends ListCell<ProductInListView> {
+
+    public ProductListViewCell() {
+
+    }
 
     @Override
     public void updateItem(ProductInListView product, boolean empty) {

@@ -2,7 +2,7 @@ package fr.polytech.ihm.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
 
 /**
  * @author Kovox
@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 public class ProductInListView {
 
     private StringProperty productName;
-    private ImageView productImage;
+    private Image productImage;
     private int price;
     private boolean inPromo;
 
@@ -21,7 +21,7 @@ public class ProductInListView {
         productName = new SimpleStringProperty();
     }
 
-    public void initializeProduct(String name, ImageView image, int price) {
+    public void initializeProduct(String name, Image image, int price) {
         productName.setValue(name);
         productImage = image;
         this.price = price;
@@ -35,7 +35,7 @@ public class ProductInListView {
         return productName;
     }
 
-    public ImageView getImage() {
+    public Image getImage() {
         return productImage;
     }
 

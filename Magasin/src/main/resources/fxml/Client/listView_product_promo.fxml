@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -18,7 +19,10 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </Label>
-            <ImageView fx:id="imageProduct" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageProduct" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/images/camera-icon.png"/>
+               </image></ImageView>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Text fx:id="oldPrice" strikethrough="true" strokeType="OUTSIDE" strokeWidth="0.0" text="24,99€">

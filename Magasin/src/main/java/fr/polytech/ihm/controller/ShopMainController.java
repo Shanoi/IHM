@@ -40,6 +40,8 @@ public class ShopMainController {
     public void initialize() throws IOException, NoSuchFieldException {
         productModel = new ProductModel();
         setListView(listViewNeuroProductsPromo, productModel.initializeNeurologicalProductPromoView());
+        setListView(listViewScienceProductsPromo, productModel.initializeScientificProductPromoView());
+        setListView(listViewPopularProducts, productModel.initializePopularProductView());
     }
 
     @FXML
@@ -48,7 +50,8 @@ public class ShopMainController {
     }
 
     public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products){
-        observableList = products;
+        observableList = FXCollections.observableArrayList();
+        observableList.addAll(products);
         productsList.setItems(observableList);
         productsList.setCellFactory(listView -> new ProductListViewCell());
     }

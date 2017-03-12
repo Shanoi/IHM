@@ -59,19 +59,19 @@ public class ListViewProductController {
 
     public void initializeProduct(ProductInListView product) {
         productName.setText(product.getName().getValue());
-        this.productImage = product.getImage();
-        this.price.setText(Integer.toString(product.getPrice()));
+        productImage = new ImageView(product.getImage());
+        this.price.setText(Integer.toString(product.getPrice()) + "€");
     }
 
     public void initializeProductPromo(ProductInListView product) {
         productName.setText(product.getName().getValue());
-        this.productImage = product.getImage();
+        productImage = new ImageView(product.getImage());
         Random r = new Random();
-        int reductionNb = reduc[r.nextInt(reduc.length)];
-        oldPrice.setText(Integer.toString(product.getPrice()));
+        double reductionNb = reduc[r.nextInt(reduc.length)];
+        oldPrice.setText(Integer.toString(product.getPrice()) + "€");
         oldPrice.setStrikethrough(true);
-        newPrice.setText(Integer.toString((1 - reductionNb / 100)*product.getPrice()));
-        reduction.setText("-" + Integer.toString(reductionNb) + "%");
+        newPrice.setText(Integer.toString((int) ((1 - (reductionNb / 100)) * product.getPrice())));
+        reduction.setText("-" + Double.toString(reductionNb) + "%");
     }
 
 }

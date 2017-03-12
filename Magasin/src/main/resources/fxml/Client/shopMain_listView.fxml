@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -46,7 +47,11 @@
                   </Label>
                </top>
                <center>
-                  <ListView id="les_populaires" fx:id="listViewPopularProducts" editable="true" fixedCellSize="6.0" orientation="HORIZONTAL" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                     <content>
+                        <ListView id="les_populaires" fx:id="listViewPopularProducts" orientation="HORIZONTAL" prefHeight="239.0" prefWidth="1079.0" />
+                     </content>
+                  </ScrollPane>
                </center>
             </BorderPane>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -122,7 +127,11 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <ListView id="les_neurologiques" fx:id="listViewNeuroProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                     <content>
+                        <ListView id="les_neurologiques" fx:id="listViewNeuroProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                     </content>
+                  </ScrollPane>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -135,7 +144,11 @@
                         <Font name="Calibri Bold" size="25.0" />
                      </font>
                   </Label>
-                  <ListView id="les sciences" fx:id="listViewScienceProductsPromo" fixedCellSize="6.0" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                     <content>
+                        <ListView id="les sciences" fx:id="listViewScienceProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                     </content>
+                  </ScrollPane>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />

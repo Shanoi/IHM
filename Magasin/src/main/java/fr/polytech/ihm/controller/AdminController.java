@@ -52,6 +52,11 @@ public class AdminController {
     private TextField modifPromoCurrentAmount;
 
     @FXML
+    public void initialize() {
+
+    }
+
+    @FXML
     void addPromo(ActionEvent event) {
 
     }

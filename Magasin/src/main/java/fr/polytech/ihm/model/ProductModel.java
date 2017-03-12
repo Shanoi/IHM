@@ -42,7 +42,7 @@ public class ProductModel {
 
     private void initializeScientificProductPromoList() {
         currentScientificProductPromo.add("balance_industrielle");
-        currentScientificProductPromo.add("chronometre_quartz");
+        currentScientificProductPromo.add("chronomètre_quartz");
         currentScientificProductPromo.add("horloge_orbite");
         currentScientificProductPromo.add("la_magie_du_cosmos");
     }
@@ -56,15 +56,15 @@ public class ProductModel {
         currentPopularProduct.add("mini_microscope");
     }
 
-    public ObservableList<ProductInListView> initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
+    public ObservableList<ProductInListView> initializeNeurologicalProductPromoView() throws IOException {
         return initializeListViewPromo(currentNeurologicalProductPromo, produitsNeurologique, "neuro");
     }
 
-    private ObservableList<ProductInListView> initializeScientificProductPromoView() throws IOException {
+    public ObservableList<ProductInListView> initializeScientificProductPromoView() throws IOException {
         return initializeListViewPromo(currentScientificProductPromo, produitsScientifique, "science");
     }
 
-    private ObservableList<ProductInListView> initializePopularProductView() throws IOException {
+    public ObservableList<ProductInListView> initializePopularProductView() throws IOException {
         return initializeListView(currentPopularProduct, produitsScientifique, produitsNeurologique);
     }
 
@@ -77,10 +77,10 @@ public class ProductModel {
                     product = productData.getJSONObject(str);
             }
             String name = product.getString("nom");
-            ImageView image = new ImageView();
+            Image image;
             if ("neurologique".equals(product.get("genre")))
-                image.setImage(new Image("/images/product_neuro/" + str + ".jpg"));
-            else image.setImage(new Image("/images/product_science/" + str + ".jpg"));
+                image = new Image("/images/product_neuro/" + str + ".jpg");
+            else image = new Image("/images/product_science/" + str + ".jpg");
             int price = product.getInt("prix");
             ProductInListView plv = new ProductInListView(false);
             plv.initializeProduct(name, image, price);
@@ -94,11 +94,7 @@ public class ProductModel {
         for (String str : listOfProducts) {
             JSONObject product = data.getJSONObject(str);
             String name = product.getString("nom");
-            ImageView image = new ImageView();
-            Image imageContent = new Image("/images/product_" + dataFolder + "/" + str + ".jpg");
-            image.setFitWidth(200);
-            image.setFitHeight(150);
-            image.setImage(imageContent);
+            Image image = new Image("/images/product_" + dataFolder + "/" + str + ".jpg");
             int price = product.getInt("prix");
             ProductInListView plv = new ProductInListView(true);
             plv.initializeProduct(name, image, price);
