@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.common.Category;
+import fr.unice.polytech.a.ihm.g2c.common.Language;
 import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
@@ -8,10 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
@@ -27,6 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 /**
@@ -57,6 +56,18 @@ public class IndexController {
     public ChoiceBox<SortingType> sortTypeChooser;
     @FXML
     public TextField searchField;
+    @FXML
+    public Button aboutButton;
+    @FXML
+    public ImageView flag;
+    @FXML
+    public Label categoryLabel;
+    @FXML
+    public Label selectionLabel;
+    @FXML
+    public Label storesLabel;
+    @FXML
+    public Label sortBy;
 
 
 
@@ -99,6 +110,12 @@ public class IndexController {
         // Stores
         highlight.setText(data.getHighlight());
         refreshStoresList();
+
+        // Flag
+        flag.setImage(new Image(getClass().getResourceAsStream(data.getLang().getNext().getImgPath())));
+
+        // Translation
+        refreshText();
     }
 
     @FXML
@@ -111,6 +128,12 @@ public class IndexController {
     void info(MouseEvent event) {
         Stage stage = (Stage) rootPane.getScene().getWindow();
         ControllerUtil.showScene(INFORMATIONS, stage);
+    }
+
+    public void changeLang(MouseEvent mouseEvent) {
+        data.setLang(data.getLang().getNext());
+        flag.setImage(new Image(getClass().getResourceAsStream(data.getLang().getNext().getImgPath())));
+        refreshText();
     }
 
     private void addTile(TilePane pane, Store store) {
@@ -174,9 +197,20 @@ public class IndexController {
     }
 
     private Label noResult() {
-        Label lbl = new Label("Pas de résultat");
+        Label lbl = new Label(data.getLangBundle().getString("no.result"));
         lbl.getStyleClass().add("button-label");
         return lbl;
+    }
+
+    private void refreshText() {
+        ResourceBundle langBundle = data.getLangBundle();
+        aboutButton.setText(langBundle.getString("about"));
+        categoryLabel.setText(langBundle.getString("category"));
+        selectionLabel.setText(langBundle.getString("to.discover"));
+        storesLabel.setText(langBundle.getString("all.shops"));
+        sortBy.setText(langBundle.getString("sort.by"));
+
+        refreshStoresList();
     }
 
 }
