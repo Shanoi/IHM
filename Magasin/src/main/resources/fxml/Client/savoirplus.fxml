@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.SavoirPlusController">
    <children>
       <fx:include source="upperBand.fxml" />
       <HBox prefHeight="193.0" prefWidth="1920.0">
@@ -22,7 +22,7 @@
                   <HBox layoutX="896.0" layoutY="50.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                      <children>
                         <Pane prefHeight="153.0" prefWidth="100.0" />
-                        <TextArea editable="false" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="1344.0" text="To be or to have est une société spécialisée dans.............">
+                        <TextArea editable="false" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="143.0" prefWidth="1336.0" text="To Be Or To Have est une enseigne spécialisée dans la vente de produits au détail.&#10;Que ce soit via la vente par Internet ou son réseau de magasin présent à travers la France entière.&#10;To Be Or To Have a su se hisser au sommet des magasins de la grande distribution, grâce à vous.&#10;" wrapText="true">
                            <font>
                               <Font size="32.0" />
                            </font>
@@ -33,42 +33,19 @@
             </AnchorPane>
          </children>
       </HBox>
-      <HBox prefHeight="878.0" prefWidth="1920.0">
+      <HBox maxWidth="-Infinity" prefHeight="757.0" prefWidth="1920.0">
          <children>
-            <Pane prefHeight="878.0" prefWidth="100.0" />
-            <AnchorPane maxHeight="1.7976931348623157E308" minHeight="420.0" minWidth="1120.0" prefHeight="798.0" prefWidth="1384.0">
+            <AnchorPane maxHeight="1.7976931348623157E308" minHeight="420.0" minWidth="1120.0" prefHeight="747.0" prefWidth="1475.0">
                <children>
-                  <TabPane layoutX="468.0" layoutY="336.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                  <TabPane fx:id="spreadsheet" layoutX="468.0" layoutY="61.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="1201.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                      <tabs>
-                        <Tab closable="false" text="Evenements">
+                        <Tab fx:id="magasinsTab" closable="false" text="Les autres magasins de la franchise">
                            <content>
-                              <TableView prefHeight="200.0" prefWidth="200.0">
+                              <TableView fx:id="magasinTableView" prefHeight="200.0" prefWidth="1454.0">
                                  <columns>
-                                    <TableColumn prefWidth="245.0" text="Date" />
-                                    <TableColumn prefWidth="1099.0" text="Description" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </Tab>
-                        <Tab text="Magasins">
-                           <content>
-                              <TableView prefHeight="200.0" prefWidth="200.0">
-                                 <columns>
-                                    <TableColumn prefWidth="287.66668701171875" text="Nom" />
-                                    <TableColumn prefWidth="820.3333129882812" text="Adresse" />
-                                    <TableColumn prefWidth="236.99993896484375" text="Distance" />
-                                 </columns>
-                              </TableView>
-                           </content>
-                        </Tab>
-                        <Tab closable="false" text="Offre d'emploi">
-                           <content>
-                              <TableView prefHeight="200.0" prefWidth="200.0">
-                                 <columns>
-                                    <TableColumn minWidth="0.0" prefWidth="364.3333435058594" text="Nom du poste" />
-                                    <TableColumn minWidth="0.0" prefWidth="523.3333129882812" resizable="false" text="Fonction" />
-                                    <TableColumn maxWidth="548.6666870117188" minWidth="0.0" prefWidth="248.6666259765625" resizable="false" text="Localisation" />
-                                    <TableColumn maxWidth="522.0" minWidth="120.0" prefWidth="211.3333740234375" resizable="false" text="Postée le" />
+                                    <TableColumn fx:id="nomMagasin" prefWidth="351.0000305175781" resizable="false" text="Nom" />
+                                    <TableColumn fx:id="adresseMagasin" prefWidth="882.0" resizable="false" text="Adresse" />
+                                    <TableColumn fx:id="distMagasin" prefWidth="202.0" resizable="false" text="Distance" />
                                  </columns>
                               </TableView>
                            </content>
@@ -77,26 +54,41 @@
                   </TabPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="680.0" prefWidth="400.0">
+            <AnchorPane prefHeight="671.0" prefWidth="407.0">
                <children>
-                  <VBox layoutX="150.0" layoutY="340.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                  <VBox layoutX="150.0" layoutY="19.0" prefHeight="718.0" prefWidth="381.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="20.0">
                      <children>
-                        <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="41.0" prefWidth="360.0" text="Contactez nous">
+                        <Label fx:id="contact" alignment="TOP_LEFT" contentDisplay="BOTTOM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="65.0" prefWidth="360.0" text="Contactez nous" wrapText="true">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Trebuchet MS" size="36.0" />
                            </font>
                         </Label>
-                        <TextArea editable="false" prefHeight="189.0" prefWidth="360.0" text="To be or to have&#10;123 avenue de France&#10;France, PARIS 75000&#10;06.07.08.09.10&#10;">
+                        <Label prefHeight="42.0" prefWidth="360.0" text=" To Be Or To Have">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="adress" editable="false" prefHeight="154.0" prefWidth="265.0" text="123 avenue de France&#10;France, PARIS 75000&#10;06.07.08.09.10&#10;">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextArea>
-                        <TextArea editable="false" prefHeight="155.0" prefWidth="339.0" text="ToBeOrToHave.com&#10;Visitez ToBeOrToHave.com&#10;Ou appelez le 06.06.06.06.06&#10;">
+                        <Label prefHeight="42.0" prefWidth="259.0" text=" ToBeOrToHave.com">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="website" editable="false" prefHeight="121.0" prefWidth="360.0" text="Visiter ToBeOrToHave.com&#10;Ou appeler le 06.06.06.06.06&#10;">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextArea>
-                        <TextArea editable="false" prefHeight="156.0" prefWidth="339.0" text="Support après vente&#10;Ecrivez à SAV@TBOTH.com&#10;Ou appelez le 06.07.07.07.07&#10;">
+                        <Label prefHeight="42.0" prefWidth="264.0" text=" Support après vente">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="support" editable="false" prefHeight="156.0" prefWidth="339.0" text="Support après vente&#10;Ecriver à SAV@TBOTH.com&#10;Ou appeler le 06.07.07.07.07&#10;">
                            <font>
                               <Font size="24.0" />
                            </font>

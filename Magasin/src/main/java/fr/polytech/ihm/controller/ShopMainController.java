@@ -7,14 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.io.IOException;
 
@@ -62,7 +60,7 @@ public class ShopMainController {
         parentNode.requestFocus();
     }
 
-    public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products){
+    public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products) {
         observableList = FXCollections.observableArrayList();
         observableList.addAll(products);
         productsList.setItems(observableList);
@@ -75,14 +73,6 @@ public class ShopMainController {
         Loader loader = new Loader();
         loader.load(stage, "/fxml/Client/produitMain.fxml");
     }
-
-    @FXML
-    void goProductPageNew1(MouseEvent event) throws Exception {
-        Stage stage = (Stage) newProductSciences1.getScene().getWindow();
-        Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/directions.fxml");
-    }
-
 
 }
 
