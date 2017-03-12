@@ -65,8 +65,15 @@ public class ShopMainController {
     public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products){
         observableList = FXCollections.observableArrayList();
         observableList.addAll(products);
-        productsList.setItems(observableList); //TODO
+        productsList.setItems(observableList);
         productsList.setCellFactory(listView -> new ProductListViewCell());
+    }
+
+    @FXML
+    void goProductPage(MouseEvent event) throws Exception {
+        Stage stage = (Stage) newProductSciences1.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/Client/produitMain.fxml");
     }
 
     @FXML
