@@ -1,18 +1,24 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.JSONParser;
 import fr.polytech.ihm.model.ProductInListView;
 import fr.polytech.ihm.model.ProductListViewCell;
 import fr.polytech.ihm.model.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -69,9 +75,26 @@ public class ShopMainController {
 
     @FXML
     void goProductPage(MouseEvent event) throws Exception {
-        Stage stage = (Stage) newProductSciences1.getScene().getWindow();
-        Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/produitMain.fxml");
+        Stage stage = (Stage) productName.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
+        Parent root = loader.load();
+        JSONObject staticProductInfo = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifiques.json");
+        ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_condictivité")));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        new CommonController(stage, scene);
+        stage.show();
+    }
+
+    public ProductInListView initializeProduct(JSONObject product) {
+        String name = product.getString("nom");
+        Image image = new Image("/images/product_science/tablette_conductivite.jpg");
+        int price = product.getInt("prix");
+        String description = product.getString("description");
+        String disponible = product.getString("disponibilité");
+        ProductInListView plv = new ProductInListView(true);
+        plv.initializeProduct(name, image, price, disponible, description);
+        return plv;
     }
 
 }

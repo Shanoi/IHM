@@ -8,7 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 /**
- * Created by Kovox on 12/03/2017.
+ * @author Jérémy Lara
+ * @version 1.0
+ *          Controller of savoirplus.fxml view
  */
 public class SavoirPlusController {
 

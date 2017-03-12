@@ -21,7 +21,7 @@ public class ProductMainController {
 
     public void initProduct(ProductInListView product){
         this.NomProduit.setText(product.getName().toString());
-        this.PrixProduit.setText(Integer.toString(product.getPrice()));
+        this.PrixProduit.setText(Integer.toString(product.getPrice()) + "€");
         this.Disponible.setText(product.getDisponible());
         this.DescriptionProduit.setText(product.getProductDescription());
     }

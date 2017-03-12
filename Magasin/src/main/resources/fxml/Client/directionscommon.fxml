@@ -26,7 +26,7 @@
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label text="06.07.08.09.10">
+                        <Label fx:id="telMagasin" text="06.07.08.09.10">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -43,7 +43,7 @@
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label text="123 avenue de France France, PARIS 75000" textAlignment="CENTER">
+                        <Label fx:id="adresseMagasin" text="123 avenue de France France, PARIS 75000" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -63,7 +63,7 @@
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label text="www.ToBeOrToHave.com">
+                        <Label fx:id="siteWebMagasin" text="www.ToBeOrToHave.com">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>

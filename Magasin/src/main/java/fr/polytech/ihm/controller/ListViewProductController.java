@@ -1,7 +1,6 @@
 package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.model.ProductInListView;
-import fr.polytech.ihm.model.ProductModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

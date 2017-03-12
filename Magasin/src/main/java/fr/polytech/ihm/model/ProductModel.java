@@ -3,9 +3,7 @@ package fr.polytech.ihm.model;
 import fr.polytech.ihm.JSONParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import org.json.JSONObject;
 
 import java.io.IOException;
