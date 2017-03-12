@@ -1,11 +1,15 @@
 package fr.polytech.ihm.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -80,7 +84,12 @@ public class AdminController {
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader("src\\main\\resources\\data\\magasins_data.json"));
         JSONObject newData = (JSONObject) obj;
-        checkEmpty();
+        if(checkEmpty()) {
+            Timeline timeline = new Timeline();
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), new KeyValue(applyNotif.textProperty(), "")));
+            timeline.play();
+            return;
+        }
         if (!changeAdresse.getText().isEmpty()) {
             newData.put("adresse", changeAdresse.getText());
         }
@@ -92,8 +101,9 @@ public class AdminController {
         }
         applyNotif.setText("Changements appliqués.");
         writeFile(newData);
-        TimeUnit.SECONDS.sleep(1);
-        applyNotif.setText(null);
+        Timeline timeline = new Timeline();
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), new KeyValue(applyNotif.textProperty(), null)));
+        timeline.play();
     }
 
     @FXML
@@ -106,11 +116,12 @@ public class AdminController {
 
     }
 
-    public void checkEmpty() {
-        if (changeNum.getText().isEmpty() &&
-                changeAdresse.getText().isEmpty() &&
-                changeSite.getText().isEmpty())
-            applyModif.setText("Aucun changement mentionné.");
+    public boolean checkEmpty() throws InterruptedException {
+        if (changeNum.getText().isEmpty() && changeAdresse.getText().isEmpty() && changeSite.getText().isEmpty()) {
+            applyNotif.setText("Aucun changement mentionné.");
+            return true;
+        }
+        return false;
     }
 
     public void writeFile(JSONObject data) {

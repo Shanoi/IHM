@@ -38,8 +38,6 @@ public class ShopMainController {
     @FXML
     private ListView<ProductInListView> listViewScienceProductsPromo;
     @FXML
-    private VBox newProductSciences1;
-    @FXML
     private Label productName;
     @FXML
     private ImageView imageProduct;
