@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionsCommonController">
+<HBox prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionsCommonController">
    <children>
       <VBox alignment="CENTER" prefHeight="160.0" prefWidth="1100.0">
          <children>
@@ -17,7 +17,7 @@
                   <Font name="Calibri" size="30.0" />
                </font>
             </Label>
-            <VBox fillWidth="false">
+            <VBox fillWidth="false" prefWidth="695.0">
                <children>
                   <HBox alignment="CENTER">
                      <children>
@@ -43,7 +43,7 @@
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label text="A définir (random)" textAlignment="CENTER">
+                        <Label text="123 avenue de France France, PARIS 75000" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -63,7 +63,7 @@
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label text="www.ToBeorToHave.com">
+                        <Label text="www.ToBeOrToHave.com">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -75,7 +75,7 @@
                   </HBox>
                </children>
                <VBox.margin>
-                  <Insets left="300.0" right="100.0" />
+                  <Insets left="300.0" />
                </VBox.margin>
             </VBox>
          </children>

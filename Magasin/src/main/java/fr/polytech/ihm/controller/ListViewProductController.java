@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.model.ProductInListView;
 import fr.polytech.ihm.model.ProductModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -7,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.util.Random;
 
 /**
  * @author Jérémy LARA
@@ -39,14 +43,35 @@ public class ListViewProductController {
 
     private ProductModel productModel;
 
+    private int[] reduc = {15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70};
+
     @FXML
     public void initialize() {
 
     }
 
     @FXML
-    void goProductPage(MouseEvent event) {
+    void goProductPage(MouseEvent event) throws Exception {
+        Stage stage = (Stage) productListView.getScene().getWindow();
+        Loader loader = new Loader();
+        loader.load(stage, "/fxml/Client/produitMain.fxml");
+    }
 
+    public void initializeProduct(ProductInListView product) {
+        productName.setText(product.getName().getValue());
+        this.productImage = product.getImage();
+        this.price.setText(Integer.toString(product.getPrice()));
+    }
+
+    public void initializeProductPromo(ProductInListView product) {
+        productName.setText(product.getName().getValue());
+        this.productImage = product.getImage();
+        Random r = new Random();
+        int reductionNb = reduc[r.nextInt(reduc.length)];
+        oldPrice.setText(Integer.toString(product.getPrice()));
+        oldPrice.setStrikethrough(true);
+        newPrice.setText(Integer.toString((1 - reductionNb / 100)*product.getPrice()));
+        reduction.setText("-" + Integer.toString(reductionNb) + "%");
     }
 
 }

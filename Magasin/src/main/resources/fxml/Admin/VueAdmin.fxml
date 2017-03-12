@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.AdminController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.AdminController">
    <children>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Modifier les données" />
-            <Tab text="Gérer les promotions" />
+          <Tab text="Modifier les données">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="201.0" layoutY="136.0" prefHeight="31.0" prefWidth="387.0" promptText="Changer le numéro de téléphone" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0" />
+                        <TextField layoutX="494.0" layoutY="29.0" prefHeight="31.0" prefWidth="388.0" promptText="Changer l'adresse" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0" />
+                        <TextArea layoutX="27.0" layoutY="31.0" prefHeight="367.0" prefWidth="384.0" promptText="Changer la description" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+                        <TextField layoutX="524.0" layoutY="124.0" prefHeight="31.0" prefWidth="388.0" promptText="Changer l'adresse du site internet" AnchorPane.leftAnchor="425.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="150.0" />
+                        <Button fx:id="shopChange" alignment="CENTER" contentDisplay="CENTER" layoutX="536.0" layoutY="258.0" mnemonicParsing="false" onAction="#applyChangements" prefHeight="96.0" prefWidth="183.0" text="Valider changements" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Gérer les promotions">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="addPromoAmount" layoutX="75.0" layoutY="75.0" prefWidth="200.0" promptText="Montant de la promotion" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="75.0" />
+                        <ComboBox fx:id="productListAdd" editable="true" layoutX="75.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="185.0" />
+                        <Button fx:id="applyAdd" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="295.0" mnemonicParsing="false" onAction="#addPromo" text="Ajouter Promotion" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="295.0" />
+                        <ComboBox fx:id="productListSupp" editable="true" layoutX="578.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="185.0" />
+                        <Button fx:id="applySupp" alignment="CENTER" contentDisplay="CENTER" layoutX="599.0" layoutY="295.0" mnemonicParsing="false" onAction="#suppPromo" text="Supprimer Promotion" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="295.0" />
+                        <TextField fx:id="suppPromoCurrentAmont" editable="false" layoutX="578.0" layoutY="75.0" prefWidth="200.0" promptText="Promotion Actuelle" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="75.0" />
+                        <TextField fx:id="modifPromoAmount" layoutX="327.0" layoutY="75.0" prefWidth="200.0" promptText="Montant de la promotion" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="75.0" />
+                        <ComboBox fx:id="productListModif" editable="true" layoutX="327.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="185.0" />
+                        <Button fx:id="applyModif" alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="295.0" mnemonicParsing="false" onAction="#modifyPromo" text="Modifier Promotion" AnchorPane.bottomAnchor="115.0" AnchorPane.rightAnchor="355.0" AnchorPane.topAnchor="295.0" />
+                        <Label fx:id="addNotif" alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="358.0" text="ApplyNotif" textAlignment="CENTER" AnchorPane.leftAnchor="135.0" />
+                        <Label fx:id="modifNotif" layoutX="387.0" layoutY="358.0" text="ApplyNotif" AnchorPane.leftAnchor="387.0" />
+                        <Label fx:id="suppNotif" layoutX="645.0" layoutY="357.0" text="ApplyNotif" AnchorPane.leftAnchor="645.0" />
+                        <TextField fx:id="modifPromoCurrentAmount" editable="false" layoutX="327.0" layoutY="128.0" prefWidth="200.0" promptText="Promotion actuelle" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="128.0" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
           <Tab text="Statistiques">
                <content>
                   <fx:include source="Statistiques.fxml" />

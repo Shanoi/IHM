@@ -1,18 +1,18 @@
 package fr.polytech.ihm.controller;
 
-import fr.polytech.ihm.model.ProductListView;
+import fr.polytech.ihm.model.ProductInListView;
+import fr.polytech.ihm.model.ProductListViewCell;
 import fr.polytech.ihm.model.ProductModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import org.json.JSONObject;
+import javafx.util.Callback;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author Jérémy LARA
@@ -24,11 +24,13 @@ public class ShopMainController {
     @FXML
     private BorderPane parentNode;
     @FXML
-    private ListView<ProductListView> listViewPopularProducts;
+    private ListView<ProductInListView> listViewPopularProducts;
     @FXML
-    private ListView<ProductListView> listViewNeuroProductsPromo;
+    private ListView<ProductInListView> listViewNeuroProductsPromo;
     @FXML
-    private ListView<ProductListView> listViewScienceProductsPromo;
+    private ListView<ProductInListView> listViewScienceProductsPromo;
+
+    private ObservableList observableList = FXCollections.observableArrayList();
     private ProductModel productModel;
 
     public ShopMainController() {
@@ -37,12 +39,18 @@ public class ShopMainController {
 
     public void initialize() throws IOException, NoSuchFieldException {
         productModel = new ProductModel();
-        productModel.initializeNeurologicalProductPromoView(listViewNeuroProductsPromo);
+        setListView(listViewNeuroProductsPromo, productModel.initializeNeurologicalProductPromoView());
     }
 
     @FXML
     void takeFocus(MouseEvent event) {
         parentNode.requestFocus();
+    }
+
+    public void setListView(ListView<ProductInListView> productsList, ObservableList<ProductInListView> products){
+        observableList = products;
+        productsList.setItems(observableList);
+        productsList.setCellFactory(listView -> new ProductListViewCell());
     }
 
 }

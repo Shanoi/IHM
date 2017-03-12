@@ -3,7 +3,6 @@ package fr.polytech.ihm.model;
 import fr.polytech.ihm.JSONParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,22 +56,20 @@ public class ProductModel {
         currentPopularProduct.add("mini_microscope");
     }
 
-    public void initializeNeurologicalProductPromoView(ListView<ProductListView> listView) throws IOException, NoSuchFieldException {
-        listView.setItems(initializeListViewPromo(currentNeurologicalProductPromo, produitsNeurologique, "neuro"));
-        listView.setCellFactory(lv -> new ProductListViewCell());
+    public ObservableList<ProductInListView> initializeNeurologicalProductPromoView() throws IOException, NoSuchFieldException {
+        return initializeListViewPromo(currentNeurologicalProductPromo, produitsNeurologique, "neuro");
     }
 
-    private void initializeScientificProductPromoView(ListView<ProductListView> listView) throws IOException {
-        listView.setItems(initializeListViewPromo(currentScientificProductPromo, produitsScientifique, "science"));
+    private ObservableList<ProductInListView> initializeScientificProductPromoView() throws IOException {
+        return initializeListViewPromo(currentScientificProductPromo, produitsScientifique, "science");
     }
 
-    private void initializePopularProductView(ListView<ProductListView> listView) throws IOException {
-        listView.setItems(initializeListView(currentPopularProduct, produitsScientifique, produitsNeurologique));
+    private ObservableList<ProductInListView> initializePopularProductView() throws IOException {
+        return initializeListView(currentPopularProduct, produitsScientifique, produitsNeurologique);
     }
 
-    private ObservableList<ProductListView> initializeListView(List<String> listOfProducts, JSONObject... data) throws IOException {
-        ObservableList<ProductListView> items = FXCollections.observableArrayList();
-        String fileName;
+    private ObservableList<ProductInListView> initializeListView(List<String> listOfProducts, JSONObject... data) throws IOException {
+        ObservableList<ProductInListView> items = FXCollections.observableArrayList();
         for (String str : listOfProducts) {
             JSONObject product = new JSONObject();
             for (JSONObject productData : data) {
@@ -85,23 +82,26 @@ public class ProductModel {
                 image.setImage(new Image("/images/product_neuro/" + str + ".jpg"));
             else image.setImage(new Image("/images/product_science/" + str + ".jpg"));
             int price = product.getInt("prix");
-            ProductListView plv = new ProductListView(false);
+            ProductInListView plv = new ProductInListView(false);
             plv.initializeProduct(name, image, price);
             items.add(plv);
         }
         return items;
     }
 
-    private ObservableList<ProductListView> initializeListViewPromo(List<String> listOfProducts, JSONObject data, String dataFolder) throws IOException {
-        ObservableList<ProductListView> items = FXCollections.observableArrayList();
+    private ObservableList<ProductInListView> initializeListViewPromo(List<String> listOfProducts, JSONObject data, String dataFolder) throws IOException {
+        ObservableList<ProductInListView> items = FXCollections.observableArrayList();
         for (String str : listOfProducts) {
             JSONObject product = data.getJSONObject(str);
             String name = product.getString("nom");
             ImageView image = new ImageView();
-            image.setImage(new Image("/images/product_" + dataFolder + "/" + str + ".jpg"));
+            Image imageContent = new Image("/images/product_" + dataFolder + "/" + str + ".jpg");
+            image.setFitWidth(200);
+            image.setFitHeight(150);
+            image.setImage(imageContent);
             int price = product.getInt("prix");
-            ProductListView plv = new ProductListView(true);
-            plv.initializeProductPromo(name, image, price);
+            ProductInListView plv = new ProductInListView(true);
+            plv.initializeProduct(name, image, price);
             items.add(plv);
         }
         return items;
