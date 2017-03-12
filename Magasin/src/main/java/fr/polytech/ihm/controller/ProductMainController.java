@@ -1,6 +1,6 @@
 package fr.polytech.ihm.controller;
 
-import javafx.beans.property.StringProperty;
+import fr.polytech.ihm.model.ProductInListView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
@@ -19,10 +19,10 @@ public class ProductMainController {
     @FXML
     private Text DescriptionProduit;
 
-    public void initProduct(String NomProduit, double PrixProduit, String Disponible, String DescriptionProduit){
-        this.NomProduit.setText(NomProduit);
-        this.PrixProduit.setText(Double.toString(PrixProduit));
-        this.Disponible.setText(Disponible);
-        this.DescriptionProduit.setText(DescriptionProduit);
+    public void initProduct(ProductInListView product){
+        this.NomProduit.setText(product.getName().toString());
+        this.PrixProduit.setText(Integer.toString(product.getPrice()));
+        this.Disponible.setText(product.getDisponible());
+        this.DescriptionProduit.setText(product.getProductDescription());
     }
 }

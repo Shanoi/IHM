@@ -18,6 +18,22 @@ public class ProductInListView {
     private int price;
     private boolean inPromo;
 
+    public String getProductDescription() {
+        return productDescription.get();
+    }
+
+    public StringProperty productDescriptionProperty() {
+        return productDescription;
+    }
+
+    public String getDisponible() {
+        return disponible.get();
+    }
+
+    public StringProperty disponibleProperty() {
+        return disponible;
+    }
+
     public ProductInListView(boolean inPromo) {
         this.inPromo = inPromo;
         productName = new SimpleStringProperty();
