@@ -67,12 +67,12 @@ public class AdminController {
     private ProductInListView currentModifName;
     private ProductInListView currentSuppName;
     private static final String NO_PRODUCT = "Aucun produit spécifié";
-    private static final String PATH = "src\\main\\resources\\data\\produits_";
+    private static final String PATH = "src/main/resources/data/produits_";
 
     @FXML
     public void initialize() throws IOException, ParseException {
-        produitsScientifiques = (JSONObject) new JSONParser().parse(new FileReader("src\\main\\resources\\data\\produits_scientifique.json"));
-        produitsNeurologiques = (JSONObject) new JSONParser().parse(new FileReader("src\\main\\resources\\data\\produits_neurologique.json"));
+        produitsScientifiques = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/data/produits_scientifique.json"));
+        produitsNeurologiques = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/data/produits_neurologique.json"));
         applyNotif.setText(null);
         addNotif.setText(null);
         modifNotif.setText(null);
@@ -177,7 +177,7 @@ public class AdminController {
     @FXML
     void applyChangements(ActionEvent event) throws IOException, ParseException, InterruptedException {
         JSONParser parser = new JSONParser();
-        String url = "src\\main\\resources\\data\\magasins_data.json";
+        String url = "src/main/resources/data/magasins_data.json";
         Object obj = parser.parse(new FileReader(url));
         JSONObject newData = (JSONObject) obj;
         if (checkEmpty()) {
