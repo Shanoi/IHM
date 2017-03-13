@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
 public class ProductMainController {
@@ -17,6 +19,8 @@ public class ProductMainController {
     private Label Disponible;
     @FXML
     private ImageView productImage;
+    @FXML
+    private BorderPane productParent;
 
     @FXML
     private Text DescriptionProduit;
@@ -31,6 +35,11 @@ public class ProductMainController {
         } else this.PrixProduit.setText(Integer.toString(product.getPrice()) + "€");
         this.Disponible.setText(product.getDisponible());
         this.DescriptionProduit.setText(product.getProductDescription());
+    }
+
+    @FXML
+    void requestFocus(MouseEvent event) {
+        productParent.requestFocus();
     }
 
 }

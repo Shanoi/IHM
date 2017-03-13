@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 /**
  * @author Jérémy Lara
@@ -22,6 +24,8 @@ public class SavoirPlusController {
     private TableColumn<Magasin, String> adresseMagasin;
     @FXML
     private TableColumn<Magasin, String> distMagasin;
+    @FXML
+    private VBox savoirPlusParent;
 
     @FXML
     public void initialize() {
@@ -41,6 +45,11 @@ public class SavoirPlusController {
         distMagasin.setCellValueFactory(cellData -> cellData.getValue().getDistMagasin());
 
         magasinTableView.setItems(shops);
+    }
+
+    @FXML
+    void requestFocus(MouseEvent event) {
+        savoirPlusParent.requestFocus();
     }
 
 }
