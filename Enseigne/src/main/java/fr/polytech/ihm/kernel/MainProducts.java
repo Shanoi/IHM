@@ -6,7 +6,6 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Product;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,17 +13,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductsParser {
-
+/**
+ *
+ * @author Olivier
+ */
+public class MainProducts {
+    
     private List<Product> products;
 
-    public ProductsParser() {
+    private int currentIndex = 0;
+
+    public MainProducts() {
         products = new ArrayList<>();
 
         extractProducts();
     }
 
-    private void extractProducts() {
+    private void extractProducts(){
         products.clear();
 
         try {
@@ -67,8 +72,53 @@ public class ProductsParser {
         }
     }
 
-    public List<Product> getProducts() {
+    public int getNbMainProds() {
+
+        return products.size();
+
+    }
+
+    public Product getCurrentProduct() {
+
+        return products.get(currentIndex);
+
+    }
+
+    public Product nextProduct() {
+
+        if (currentIndex == products.size() - 1) {
+
+            currentIndex = 0;
+
+        } else {
+
+            currentIndex++;
+
+        }
+
+        return products.get(currentIndex);
+
+    }
+
+    public Product prevProduct() {
+
+        if (currentIndex == 0) {
+
+            currentIndex = products.size() - 1;
+
+        } else {
+
+            currentIndex--;
+
+        }
+
+        return products.get(currentIndex);
+
+    }
+
+    public List<Product> getProducts(){
         extractProducts();
         return products;
     }
+    
 }

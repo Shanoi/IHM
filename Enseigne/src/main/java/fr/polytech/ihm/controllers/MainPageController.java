@@ -6,6 +6,7 @@
 package fr.polytech.ihm.controllers;
 
     import fr.polytech.ihm.data.Product;
+import fr.polytech.ihm.kernel.MainProducts;
     import fr.polytech.ihm.kernel.ProductsParser;
     import javafx.animation.AnimationTimer;
     import javafx.animation.FadeTransition;
@@ -42,7 +43,7 @@ public class MainPageController implements Initializable {
     @FXML
     private Label prixPhare;
 
-    private ProductsParser mainProds;
+    private MainProducts mainProds;
 
     private final String pathToImageSortBy = "nameOfProject/resources/testDataIcons/";
 
@@ -64,7 +65,7 @@ public class MainPageController implements Initializable {
         // TODO
 
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
-        mainProds = new ProductsParser();
+        mainProds = new MainProducts();
 
         changeMainProd(mainProds.getCurrentProduct());
 
@@ -176,6 +177,7 @@ public class MainPageController implements Initializable {
         prixPhare.setText(Float.toString(product.getPrix()));
 
     }
+    
     private void displayItem() {
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();
