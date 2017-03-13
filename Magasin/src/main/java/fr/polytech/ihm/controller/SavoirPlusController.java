@@ -16,13 +16,10 @@ public class SavoirPlusController {
 
     @FXML
     private TableView<Magasin> magasinTableView;
-
     @FXML
     private TableColumn<Magasin, String> nomMagasin;
-
     @FXML
     private TableColumn<Magasin, String> adresseMagasin;
-
     @FXML
     private TableColumn<Magasin, String> distMagasin;
 

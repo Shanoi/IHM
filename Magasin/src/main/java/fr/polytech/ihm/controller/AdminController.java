@@ -9,7 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,7 +17,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,8 +31,6 @@ public class AdminController {
     @FXML
     private TextField changeSite;
     @FXML
-    private Button shopChange;
-    @FXML
     private Label applyNotif;
 
     //Ajouter promo
@@ -43,8 +39,6 @@ public class AdminController {
     @FXML
     private ComboBox<ProductInListView> productListAdd;
     @FXML
-    private Button applyAdd;
-    @FXML
     private Label addNotif;
 
     //Supprimer promo
@@ -52,8 +46,6 @@ public class AdminController {
     private ComboBox<ProductInListView> productListSupp;
     @FXML
     private TextField suppPromoCurrentAmount;
-    @FXML
-    private Button applySupp;
     @FXML
     private Label suppNotif;
 
@@ -65,9 +57,6 @@ public class AdminController {
     @FXML
     private ComboBox<ProductInListView> productListModif;
     @FXML
-    private Button applyModif;
-
-    @FXML
     private Label modifNotif;
 
     private ObservableList<ProductInListView> productListInPromo = FXCollections.observableArrayList();
@@ -77,9 +66,8 @@ public class AdminController {
     private ProductInListView currentAddName;
     private ProductInListView currentModifName;
     private ProductInListView currentSuppName;
-
-    public AdminController() throws IOException {
-    }
+    private static final String NO_PRODUCT = "Aucun produit spécifié";
+    private static final String PATH = "src\\main\\resources\\data\\produits";
 
     @FXML
     public void initialize() throws IOException, ParseException {
@@ -112,18 +100,18 @@ public class AdminController {
     @FXML
     void addPromo(ActionEvent event) throws IOException, ParseException {
         if (productListAdd.getValue() == null) {
-            addNotif.setText("Aucun produit spécifié");
+            addNotif.setText(NO_PRODUCT);
             makeTimeLine(addNotif, 5);
             return;
         }
         if ("".equals(addPromoAmount.getText()) || checkBound(addPromoAmount.getText())) {
             addNotif.setText("Valeur entre 15 et 75 uniquement");
-            makeTimeLine(addNotif, 5);
+            makeTimeLine(addNotif, 10);
             return;
         }
         String genre = currentAddName.getGenre();
         JSONParser parser = new JSONParser();
-        String url = "src\\main\\resources\\data\\produits_" + genre + ".json";
+        String url = PATH + genre + ".json";
         Object obj = parser.parse(new FileReader(url));
         JSONObject newData = (JSONObject) obj;
         JSONObject product = (JSONObject) newData.get(currentAddName.getProductID());
@@ -139,18 +127,18 @@ public class AdminController {
     @FXML
     void modifyPromo(ActionEvent event) throws IOException, ParseException {
         if (productListModif.getValue() == null) {
-            modifNotif.setText("Aucun produit spécifié");
+            modifNotif.setText(NO_PRODUCT);
             makeTimeLine(modifNotif, 5);
             return;
         }
         if ("".equals(modifPromoAmount.getText()) || checkBound(modifPromoAmount.getText())) {
             modifNotif.setText("Valeur entre 15 et 75 uniquement");
-            makeTimeLine(modifNotif, 5);
+            makeTimeLine(modifNotif, 10);
             return;
         }
         String genre = currentModifName.getGenre();
         JSONParser parser = new JSONParser();
-        String url = "src\\main\\resources\\data\\produits_" + genre + ".json";
+        String url = PATH + genre + ".json";
         Object obj = parser.parse(new FileReader(url));
         JSONObject newData = (JSONObject) obj;
         JSONObject product = (JSONObject) newData.get(currentModifName.getProductID());
@@ -167,13 +155,13 @@ public class AdminController {
     @FXML
     void suppPromo(ActionEvent event) throws IOException, ParseException {
         if (productListSupp.getValue() == null) {
-            suppNotif.setText("Aucun produit spécifié");
+            suppNotif.setText(NO_PRODUCT);
             makeTimeLine(suppNotif, 5);
             return;
         }
         String genre = currentSuppName.getGenre();
         JSONParser parser = new JSONParser();
-        String url = "src\\main\\resources\\data\\produits_" + genre + ".json";
+        String url = PATH + genre + ".json";
         Object obj = parser.parse(new FileReader(url));
         JSONObject newData = (JSONObject) obj;
         JSONObject product = (JSONObject) newData.get(currentSuppName.getProductID());
@@ -218,12 +206,10 @@ public class AdminController {
         return false;
     }
 
-    public void writeFile(JSONObject data, String url) {
+    public void writeFile(JSONObject data, String url) throws IOException {
         try (FileWriter file = new FileWriter(url)) {
             file.write(data.toJSONString());
             file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -240,12 +226,8 @@ public class AdminController {
     }
 
     public boolean checkBound(String promoAmount) {
-
         int promo = Integer.parseInt(promoAmount);
-        if ((promo <= 15) || (promo >= 70)) {
-            return true;
-        }
-        return false;
+        return (promo <= 15) || (promo >= 70);
     }
 
     public void makeTimeLine(Label label, int seconds) {

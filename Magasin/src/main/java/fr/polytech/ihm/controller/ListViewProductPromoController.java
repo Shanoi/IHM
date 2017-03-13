@@ -12,30 +12,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * Created by Kovox on 13/03/2017.
- */
 public class ListViewProductPromoController {
 
     @FXML
     private Label productName;
-
     @FXML
     private ImageView imageProductPromo;
-
     @FXML
     private Text oldPrice;
-
     @FXML
     private Label newPrice;
-
     @FXML
     private Label reduction;
-
-    @FXML
-    public void initialize() {
-
-    }
 
     private ProductInListView productTemp;
 
@@ -62,4 +50,5 @@ public class ListViewProductPromoController {
         newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
         reduction.setText("-" + Double.toString(product.getPromo()) + "%");
     }
+
 }

@@ -13,10 +13,6 @@ import javafx.scene.control.ListCell;
  */
 public class ProductListViewCell extends ListCell<ProductInListView> {
 
-    public ProductListViewCell() {
-
-    }
-
     @Override
     public void updateItem(ProductInListView product, boolean empty) {
         super.updateItem(product, empty);

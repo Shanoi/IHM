@@ -12,8 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -39,16 +37,9 @@ public class ShopMainController {
     private ListView<ProductInListView> listViewScienceProductsPromo;
     @FXML
     private Label productName;
-    @FXML
-    private ImageView imageProduct;
-    @FXML
 
     private ObservableList observableList = FXCollections.observableArrayList();
     private ProductModel productModel;
-
-    public ShopMainController() {
-
-    }
 
     @FXML
     public void initialize() throws IOException, NoSuchFieldException, ParseException {
@@ -84,7 +75,7 @@ public class ShopMainController {
         stage.show();
     }
 
-    public ProductInListView initializeProduct(JSONObject product) {
+    private ProductInListView initializeProduct(JSONObject product) {
         String name = product.getString("nom");
         String genre = product.getString("genre");
         String image = "/images/product_science/tablette_conductivité.jpg";

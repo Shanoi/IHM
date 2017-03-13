@@ -9,8 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -22,33 +20,11 @@ import javafx.stage.Stage;
 public class ListViewProductController {
 
     @FXML
-    private Pane productListView;
-
-    @FXML
     private Label productName;
-
     @FXML
     private ImageView productImage;
-
-    @FXML
-    private ImageView productImagePromo;
-
     @FXML
     private Label price;
-
-    @FXML
-    private Text oldPrice;
-
-    @FXML
-    private Label newPrice;
-
-    @FXML
-    private Label reduction;
-
-    @FXML
-    public void initialize() {
-
-    }
 
     private ProductInListView productTemp;
 
@@ -69,16 +45,8 @@ public class ListViewProductController {
         productTemp = product;
         productName.setText(product.getName());
         Image image = new Image(getClass().getResource(product.getImage()).toExternalForm());
-        if (product.isPromo()) {
-            productImagePromo = new ImageView(image);
-            oldPrice.setText(Integer.toString(product.getPrice()) + "€");
-            oldPrice.setStrikethrough(true);
-            newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
-            reduction.setText("-" + Double.toString(product.getPromo()) + "%");
-        } else {
-            productImage.setImage(image);
-            this.price.setText(Integer.toString(product.getPrice()) + "€");
-        }
+        productImage.setImage(image);
+        price.setText(Integer.toString(product.getPrice()) + "€");
     }
 
 }

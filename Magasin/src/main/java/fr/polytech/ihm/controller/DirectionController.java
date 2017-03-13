@@ -6,7 +6,9 @@ import javafx.scene.control.Label;
 import org.json.JSONObject;
 
 /**
- * Created by Kovox on 12/03/2017.
+ * @author Jérémy Lara
+ * @version 1.0
+ *          Manages the direction page data
  */
 public class DirectionController {
 
@@ -22,7 +24,7 @@ public class DirectionController {
         loadData();
     }
 
-    public void loadData() {
+    private void loadData() {
         JSONObject shopData = new JSONParser().parse("src\\main\\resources\\data\\magasins_data.json");
         telMagasin.setText(shopData.getString("tel"));
         adresseMagasin.setText(shopData.getString("adresse"));

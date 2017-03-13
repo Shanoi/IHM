@@ -7,19 +7,20 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 /**
- * Created by Thoma on 3/11/2017.
+ * @author Thomas Gréaux
+ * @version 1.0
+ *          Automatic Loader to simplify new Scene / Stage loading
  */
 public class Loader {
 
     private static final Logger log = LoggerFactory.getLogger(Loader.class);
 
-    public void load(Stage stage, String fxml_file) throws Exception{
+    public void load(Stage stage, String fxml_file) throws Exception {
         load(stage, fxml_file, true);
     }
 
-    public void load(Stage stage, String fxml_file, boolean full_screen) throws Exception{
+    public void load(Stage stage, String fxml_file, boolean full_screen) throws Exception {
 
         log.info("Starting application");
         log.debug("Loading FXML for main view from: {}", fxml_file);
@@ -34,4 +35,5 @@ public class Loader {
 
         stage.show();
     }
+
 }

@@ -14,23 +14,23 @@ import java.util.function.Consumer;
  *          Represents the main application controller class. It allows to binds
  *          specifics actions to specifics keys for example.
  */
-public class CommonController {
+class CommonController {
 
     private Stage primaryStage;
     private Map<KeyCode, Consumer<Void>> mapKeyToActions;
 
-    public CommonController(Stage primaryStage, Scene currentScene) {
+    CommonController(Stage primaryStage, Scene currentScene) {
         this.primaryStage = primaryStage;
         mapKeyToActions = new HashMap<>();
         initializeKeyMap();
         currentScene.setOnKeyPressed(event -> checkKeyMap(event.getCode()));
     }
 
-    public void initializeKeyMap() {
+    private void initializeKeyMap() {
         mapKeyToActions.put(KeyCode.F1, (x) -> actionF1());
     }
 
-    public void checkKeyMap(KeyCode keyCode) {
+    private void checkKeyMap(KeyCode keyCode) {
         if (mapKeyToActions.containsKey(keyCode)) {
             mapKeyToActions.get(keyCode).accept(null);
         }
