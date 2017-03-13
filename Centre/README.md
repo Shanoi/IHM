@@ -18,6 +18,7 @@
 * Info
     * Mettre les magasins sur la carte
 * Divers
+    * Continuer la traduction
     * Regler le probleme de police qui change
     * Extension
     * Renommer le css

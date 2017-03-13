@@ -1,11 +1,10 @@
 package fr.unice.polytech.a.ihm.g2c.model;
 
 import fr.unice.polytech.a.ihm.g2c.common.Category;
+import fr.unice.polytech.a.ihm.g2c.common.Language;
 import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by user on 08/03/2017.
@@ -13,6 +12,9 @@ import java.util.List;
 public class DataModel {
 
     private static DataModel instance = new DataModel();
+
+    private Language lang;
+    private ResourceBundle langBundle;
 
     private List<Store> storeList = new ArrayList<>();
     private List<Store> storeSelectionList = new ArrayList<>();
@@ -25,6 +27,7 @@ public class DataModel {
     private DataModel() {
         if (instance != null)
             throw new IllegalStateException();
+        setLang(Language.FR);
     }
 
     public static DataModel getInstance() {
@@ -85,5 +88,18 @@ public class DataModel {
 
     public void setInformations(String informations) {
         this.informations = informations;
+    }
+
+    public Language getLang() {
+        return lang;
+    }
+
+    public void setLang(Language lang) {
+        this.lang = lang;
+        langBundle = ResourceBundle.getBundle("properties.lang", lang.getLocale());
+    }
+
+    public ResourceBundle getLangBundle() {
+        return langBundle;
     }
 }
