@@ -1,5 +1,6 @@
 package fr.polytech.ihm.ihm;
 
+import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

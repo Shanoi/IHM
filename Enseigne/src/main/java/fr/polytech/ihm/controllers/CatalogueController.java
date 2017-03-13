@@ -8,6 +8,7 @@ package fr.polytech.ihm.controllers;
 import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
+import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -56,7 +57,7 @@ public class CatalogueController implements Initializable {
 
     public void initCatalogue(ObservableList<Category> cats, String category) {
 
-        initSliders();
+        initSliders(category);
         initCategory(cats);
         initBrand(category);
 
@@ -84,11 +85,14 @@ public class CatalogueController implements Initializable {
         cbBoxMarque.setItems(catList);
     }
 
-    private void initSliders() {
-        sliderPriceMin.setMin(MINPRICE);
-        sliderPriceMax.setMin(MINPRICE);
-        sliderPriceMin.setMax(MAXPRICE);
-        sliderPriceMax.setMax(MAXPRICE);
+    private void initSliders(String category) {
+        
+        float max = getMaxPriceCategoryProduct(category);
+        
+        sliderPriceMin.setMin(0);
+        sliderPriceMax.setMin(0);
+        sliderPriceMin.setMax(max);
+        sliderPriceMax.setMax(max);
     }
 
     @FXML
