@@ -43,12 +43,12 @@
                         <TextField fx:id="modifPromoCurrentAmount" editable="false" layoutX="327.0" layoutY="128.0" prefWidth="200.0" promptText="Promotion actuelle" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="128.0" />
                         <ComboBox fx:id="productListModif" editable="true" layoutX="327.0" layoutY="185.0" onAction="#checkInBoxModif" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="185.0" />
                         <Button fx:id="applyModif" alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="295.0" mnemonicParsing="false" onAction="#modifyPromo" text="Modifier Promotion" AnchorPane.rightAnchor="355.0" AnchorPane.topAnchor="295.0" />
-                        <Label fx:id="addNotif" alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="358.0" text="ApplyNotif" textAlignment="CENTER" AnchorPane.leftAnchor="135.0" />
-                        <Label fx:id="modifNotif" layoutX="387.0" layoutY="358.0" text="ApplyNotif" AnchorPane.leftAnchor="387.0" />
+                        <Label fx:id="addNotif" alignment="CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="358.0" prefHeight="21.0" prefWidth="231.0" text="ApplyNotif" textAlignment="CENTER" AnchorPane.leftAnchor="57.0" />
+                        <Label fx:id="modifNotif" alignment="CENTER" layoutX="318.0" layoutY="358.0" prefHeight="21.0" prefWidth="230.0" text="ApplyNotif" AnchorPane.leftAnchor="318.0" />
                         <TextField fx:id="suppPromoCurrentAmount" editable="false" layoutX="578.0" layoutY="75.0" prefWidth="200.0" promptText="Promotion Actuelle" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="75.0" />
                         <ComboBox fx:id="productListSupp" editable="true" layoutX="578.0" layoutY="185.0" onAction="#checkInBoxSupp" prefWidth="200.0" promptText="Produit" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="185.0" />
                         <Button fx:id="applySupp" alignment="CENTER" contentDisplay="CENTER" layoutX="599.0" layoutY="295.0" mnemonicParsing="false" onAction="#suppPromo" text="Supprimer Promotion" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="295.0" />
-                        <Label fx:id="suppNotif" layoutX="645.0" layoutY="357.0" text="ApplyNotif" AnchorPane.leftAnchor="645.0" />
+                        <Label fx:id="suppNotif" alignment="CENTER" layoutX="570.0" layoutY="357.0" prefHeight="21.0" prefWidth="230.0" text="ApplyNotif" AnchorPane.leftAnchor="570.0" />
                      </children>
                   </AnchorPane>
                </content></Tab>

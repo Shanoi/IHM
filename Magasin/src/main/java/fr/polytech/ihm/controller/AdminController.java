@@ -227,7 +227,7 @@ public class AdminController {
 
     public boolean checkBound(String promoAmount) {
         int promo = Integer.parseInt(promoAmount);
-        return (promo <= 15) || (promo >= 70);
+        return (promo < 15) || (promo > 75);
     }
 
     public void makeTimeLine(Label label, int seconds) {
