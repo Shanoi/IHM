@@ -87,18 +87,7 @@ public class IndexController implements Translable {
         });
 
         // Menu
-        Arrays.stream(Category.values()).forEach(category ->  {
-            CheckBox cb = new CheckBox(category.toString());
-            cb.setSelected(data.getCategoryFilter().contains(category));
-            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue)
-                    data.getCategoryFilter().add(Category.valueOf(cb.getText()));
-                else
-                    data.getCategoryFilter().remove(Category.valueOf(cb.getText()));
-                refreshStoresList();
-            });
-            menuList.getChildren().add(cb);
-        });
+
 
         // Search field
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -201,6 +190,23 @@ public class IndexController implements Translable {
         return lbl;
     }
 
+    private void refreshCategories() {
+        menuList.getChildren().clear();
+        data.getCategoryFilter().clear();
+        Arrays.stream(Category.values()).forEach(category ->  {
+            CheckBox cb = new CheckBox(category.toString());
+            cb.setSelected(data.getCategoryFilter().contains(category));
+            cb.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue)
+                    data.getCategoryFilter().add(Category.valueOf(cb.getText()));
+                else
+                    data.getCategoryFilter().remove(Category.valueOf(cb.getText()));
+                refreshStoresList();
+            });
+            menuList.getChildren().add(cb);
+        });
+    }
+
     public void refreshText() {
         ResourceBundle langBundle = data.getLangBundle();
         aboutButton.setText(langBundle.getString("about"));
@@ -210,6 +216,7 @@ public class IndexController implements Translable {
         sortBy.setText(langBundle.getString("sort.by"));
 
         refreshStoresList();
+        refreshCategories();
     }
 
 }
