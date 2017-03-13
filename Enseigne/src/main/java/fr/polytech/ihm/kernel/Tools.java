@@ -55,7 +55,10 @@ public class Tools {
                         rs.getString("category"),
                         rs.getInt("idMarque"),
                         rs.getInt("nbSell"),
-                        rs.getInt("idProduct")));
+                        rs.getInt("idProduct"),
+                        (rs.getInt("produitPhare") == 1),
+                        (rs.getInt("enVente") == 1),
+                        rs.getInt("promo")));
                 System.out.println("RES : " + rs.getString("productName"));
 
             }
