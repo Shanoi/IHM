@@ -6,6 +6,7 @@
 package fr.polytech.ihm.kernel;
 
 import fr.polytech.ihm.data.Category;
+import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
 
 import java.sql.Connection;
@@ -116,6 +117,54 @@ public class Tools {
         }
 
         return categories;
+
+    }
+    
+    public static ArrayList<Marque> getAllMarque(String category) {
+
+        ArrayList<Marque> marques = new ArrayList<>();
+
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            String query = "SELECT DISTINCT marqueName, idMarque "
+                    + "FROM marque "
+                    + "NATURAL JOIN products "
+                    + "WHERE category = \'" + category + "\'";
+
+            System.out.println("Requête : " + query);
+
+            ResultSet rs = lien.executeQuery(query);
+            System.out.println("Requête Effectuée");
+
+            while (rs.next()) {
+
+                marques.add(new Marque(rs.getString("marqueName"),
+                        rs.getInt("idMarque")));
+
+                System.out.println("Marques : " + rs.getString("marqueName"));
+
+            }
+
+            rs.close();
+            lien.close();
+            cnx.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+
+        return marques;
 
     }
 

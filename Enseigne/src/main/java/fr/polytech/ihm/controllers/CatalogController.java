@@ -1,14 +1,17 @@
 package fr.polytech.ihm.controllers;
 
-
+import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.kernel.ProductsParser;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-public class CatalogController {
+public class CatalogController implements Initializable {
 
     private static int MINPRICE = 0;
 
@@ -59,17 +62,22 @@ public class CatalogController {
     @FXML
     private ListView<?> itemList;
 
-
     private ProductsParser mainProds;
 
-    public void initialize(){
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
+    
+    public void initCatalogue(ObservableList<Category> cats, String category) {
+        
         initSliders();
-        initCategory();
+        initCategory(cats);
         initBrand();
+        
     }
 
-
-    private void initSliders(){
+    private void initSliders() {
         sliderMinPrice.setMin(MINPRICE);
         sliderMaxPrice.setMin(MINPRICE);
         sliderMinPrice.setMax(MAXPRICE);
@@ -77,11 +85,11 @@ public class CatalogController {
     }
 
     @FXML
-    public void actuMinPrice(){
+    public void actuMinPrice() {
         int sliderMin = (int) sliderMinPrice.getValue();
         int sliderMax = (int) sliderMaxPrice.getValue();
 
-        if (sliderMin > sliderMax){
+        if (sliderMin > sliderMax) {
             sliderMaxPrice.setValue(sliderMin);
             priceMaxDisplay.setText(Integer.toString(sliderMin));
         }
@@ -89,27 +97,30 @@ public class CatalogController {
     }
 
     @FXML
-    public void actuMaxPrice(){
+    public void actuMaxPrice() {
         int sliderMin = (int) sliderMinPrice.getValue();
         int sliderMax = (int) sliderMaxPrice.getValue();
 
-        if (sliderMax < sliderMin){
+        if (sliderMax < sliderMin) {
             sliderMinPrice.setValue(sliderMax);
             priceMinDisplay.setText(Integer.toString(sliderMax));
         }
         priceMaxDisplay.setText(Integer.toString(sliderMax));
     }
 
-    private void initCategory(){
+    private void initCategory(ObservableList<Category> cats) {
         ObservableList<String> catList = FXCollections.observableArrayList();
 
-        catList.add("Ordinateur");
-        catList.add("DVD");
-        catList.add("Periphérique");
+        System.out.println("INIT CAT");
+        
+        cats.stream().forEach((cat) -> {
+            catList.add(cat.getCategory());
+        });
+
         categoryChoice.setItems(catList);
     }
 
-    private void initBrand(){
+    private void initBrand() {
         ObservableList<String> catList = FXCollections.observableArrayList();
 
         catList.add("Apple");
@@ -117,4 +128,5 @@ public class CatalogController {
         catList.add("IBM");
         brandChoice.setItems(catList);
     }
+
 }

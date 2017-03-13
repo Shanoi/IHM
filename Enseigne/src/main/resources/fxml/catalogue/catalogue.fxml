@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.CatalogueController">
+       
+    <left>
+        <fx:include source="/fxml/MenuG.fxml"/>
+    </left>
+    
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane prefWidth="1712.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Slider fx:id="sliderPriceMin" GridPane.rowIndex="1" onMouseDragged="#actuMinPrice" />
+                        <Slider fx:id="sliderPriceMax" GridPane.rowIndex="3" onMouseDragged="#actuMaxPrice" />
+                        <CheckBox fx:id="chkBPromo" mnemonicParsing="false" text="Promo" GridPane.rowIndex="4" />
+                        <Label text="prix max" GridPane.rowIndex="2" />
+                        <Label text="Prix min" />
+                        <Label fx:id="lblPMin" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="lblPMax" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Catégorie" GridPane.columnIndex="2" />
+                        <Label text="Marque" GridPane.columnIndex="3" />
+                        <ComboBox fx:id="cbBoxCat" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cbBoxMarque" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <ListView />
+            </children>
+        </VBox>
+    </center>
+
+</BorderPane>

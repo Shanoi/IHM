@@ -10,6 +10,7 @@ import fr.polytech.ihm.data.Category;
 import static fr.polytech.ihm.kernel.Tools.getAllCategory;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,6 +63,17 @@ public class MenuGNewController implements Initializable {
 
         listCat.setCellFactory(param -> new CategoryListCell());
 
+    }
+    
+    @FXML
+    private void clickListCat(MouseEvent event){
+        
+        Category cat = (Category) listCat.getSelectionModel().getSelectedItem();
+        
+        System.out.println(cat.getCategory());
+   
+        displayCatalogue(catObservableList, cat.getCategory());
+        
     }
 
     @FXML
@@ -122,23 +134,24 @@ public class MenuGNewController implements Initializable {
        
    }
 
-    private void lol() {
-
-       /* String fxmlFile = "/fxml/testSp.fxml";
+   private void displayCatalogue(ObservableList<Category> cats, String category) {
+        
+       
+       
+        String fxmlFile = "/fxml/catalogue/catalogue.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
-            Stage stage = (Stage) aboutUsButton.getScene().getWindow();
+            Stage stage = (Stage) listCat.getScene().getWindow();
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
             stage.setScene(scene);
-            log.info("Catégorie selectionné depuis le menu : " + currentProduct.getNom());
-            ((CatalogController) loader.getController()).initCata(currentProduct);
+
+            ((CatalogueController) loader.getController()).initCatalogue(cats, category);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-
+        }
     }
 
 }
