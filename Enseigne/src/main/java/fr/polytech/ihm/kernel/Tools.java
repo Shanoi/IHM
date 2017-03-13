@@ -38,7 +38,7 @@ public class Tools {
 
             String query = "select * "
                     + "FROM products "
-                    + "NATURAL JOIN sell "
+                    /*+ "NATURAL JOIN sell "*/
                     + "WHERE products.category = \'" + category + "\'";
 
             System.out.println("Requête : " + query);
@@ -48,7 +48,7 @@ public class Tools {
 
             while (rs.next()) {
 
-                products.add(new Product(rs.getFloat("priceSell"),
+                products.add(new Product(rs.getFloat("priceProduct"),
                         rs.getString("productName"),
                         rs.getString("picture"),
                         rs.getString("description"),
@@ -71,6 +71,52 @@ public class Tools {
         }
 
         return products;
+
+    }
+
+    public static float getMaxPriceCategoryProduct(String category) {
+
+        
+
+        float max = 5000;
+        
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            String query = "select max(priceProduct) AS maxPrice "
+                    + "FROM products "
+                    + "WHERE products.category = \'" + category + "\'";
+
+            System.out.println("Requête : " + query);
+
+            ResultSet rs = lien.executeQuery(query);
+            System.out.println("Requête Effectuée");
+
+            System.out.println("MAX : " + rs.getFloat("maxPrice"));
+
+            max = rs.getFloat("maxPrice");
+
+            rs.close();
+            lien.close();
+            cnx.close();
+
+            return max;
+            
+        } catch (Exception e) {
+
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+
+        return max;
 
     }
 
@@ -119,7 +165,7 @@ public class Tools {
         return categories;
 
     }
-    
+
     public static ArrayList<Marque> getAllMarque(String category) {
 
         ArrayList<Marque> marques = new ArrayList<>();
