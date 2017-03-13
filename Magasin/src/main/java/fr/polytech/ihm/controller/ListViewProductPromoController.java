@@ -9,32 +9,19 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * @author Jérémy LARA
- * @version 1.0
- *          Represents the main lower band (directionsCommon) controller class.
- *          It allows to go on the directions page and handle directions button.
+ * Created by Kovox on 13/03/2017.
  */
-public class ListViewProductController {
-
-    @FXML
-    private Pane productListView;
+public class ListViewProductPromoController {
 
     @FXML
     private Label productName;
 
     @FXML
-    private ImageView productImage;
-
-    @FXML
-    private ImageView productImagePromo;
-
-    @FXML
-    private Label price;
+    private ImageView imageProductPromo;
 
     @FXML
     private Text oldPrice;
@@ -69,16 +56,10 @@ public class ListViewProductController {
         productTemp = product;
         productName.setText(product.getName());
         Image image = new Image(getClass().getResource(product.getImage()).toExternalForm());
-        if (product.isPromo()) {
-            productImagePromo = new ImageView(image);
-            oldPrice.setText(Integer.toString(product.getPrice()) + "€");
-            oldPrice.setStrikethrough(true);
-            newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
-            reduction.setText("-" + Double.toString(product.getPromo()) + "%");
-        } else {
-            productImage.setImage(image);
-            this.price.setText(Integer.toString(product.getPrice()) + "€");
-        }
+        imageProductPromo.setImage(image);
+        oldPrice.setText(Integer.toString(product.getPrice()) + "€");
+        oldPrice.setStrikethrough(true);
+        newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
+        reduction.setText("-" + Double.toString(product.getPromo()) + "%");
     }
-
 }

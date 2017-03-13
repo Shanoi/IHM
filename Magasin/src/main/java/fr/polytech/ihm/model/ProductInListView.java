@@ -16,7 +16,7 @@ public class ProductInListView {
     private StringProperty productDescription;
     private StringProperty disponible;
     private StringProperty genre;
-    private Image productImage;
+    private String productImage;
     private boolean inPromo;
     private int price;
     private int promo;
@@ -30,7 +30,7 @@ public class ProductInListView {
         this.inPromo = inPromo;
     }
 
-    public void initializeProduct(String productID, String name, Image image, int price, int promo, String disponible, String description, String genre) {
+    public void initializeProduct(String productID, String name, String image, int price, int promo, String disponible, String description, String genre) {
         this.productID.setValue(productID);
         productName.setValue(name);
         productImage = image;
@@ -57,7 +57,7 @@ public class ProductInListView {
         return disponible.get();
     }
 
-    public Image getImage() {
+    public String getImage() {
         return productImage;
     }
 

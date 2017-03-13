@@ -87,7 +87,7 @@ public class ShopMainController {
     public ProductInListView initializeProduct(JSONObject product) {
         String name = product.getString("nom");
         String genre = product.getString("genre");
-        Image image = new Image("/images/product_science/tablette_conductivité.jpg");
+        String image = "/images/product_science/tablette_conductivité.jpg";
         int price = product.getInt("prix");
         int promo;
         if (product.get("promo") instanceof Double)

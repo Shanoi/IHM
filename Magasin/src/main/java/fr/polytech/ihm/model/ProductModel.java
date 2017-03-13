@@ -64,10 +64,10 @@ public class ProductModel {
             String description = (String) product.get("description");
             int price = checkCast("prix", product);
             int promo = checkCast("promo", product);
-            Image image;
+            String image;
             if ("neurologique".equals(product.get("genre")))
-                image = new Image("/images/product_neuro/" + id + ".jpg");
-            else image = new Image("/images/product_science/" + id + ".jpg");
+                image = "/images/product_neuro/" + id + ".jpg";
+            else image = "/images/product_science/" + id + ".jpg";
             if (promo == 0 && popularProductsID.contains(id)) {
                 plv = new ProductInListView(false);
                 plv.initializeProduct(id, name, image, price, promo, disponible, description, genre);
