@@ -5,7 +5,7 @@
  */
 package fr.polytech.ihm.data;
 
-public class Product {
+    public class Product {
 
     private int productID;
     private String nom;

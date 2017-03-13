@@ -19,19 +19,14 @@ import java.util.List;
  * @author Olivier
  */
 public class MainProducts {
-    
-    private List<Product> products;
+
+    private ArrayList<Product> products;
 
     private int currentIndex = 0;
 
     public MainProducts() {
+
         products = new ArrayList<>();
-
-        extractProducts();
-    }
-
-    private void extractProducts(){
-        products.clear();
 
         try {
 
@@ -44,13 +39,17 @@ public class MainProducts {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            ResultSet rs = lien.executeQuery("select * from products ");
-
+            String query = "SELECT * "
+                    + "FROM products "
+                    + "WHERE produitPhare = 1 "
+                    + "AND enVente = 1";
+            
+            ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
 
             while (rs.next()) {
-
-                products.add(new Product(500,
+                
+               products.add(new Product(rs.getFloat("priceProduct"),
                         rs.getString("productName"),
                         rs.getString("picture"),
                         rs.getString("description"),
@@ -61,19 +60,15 @@ public class MainProducts {
                         (rs.getInt("produitPhare") == 1),
                         (rs.getInt("enVente") == 1),
                         rs.getInt("promo")));
-                System.out.println("RES : " + rs.getString("category"));
 
             }
-
-            rs.close();
-            lien.close();
-            cnx.close();
 
         } catch (Exception e) {
 
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
 
         }
+
     }
 
     public int getNbMainProds() {
@@ -120,9 +115,4 @@ public class MainProducts {
 
     }
 
-    public List<Product> getProducts(){
-        extractProducts();
-        return products;
-    }
-    
 }

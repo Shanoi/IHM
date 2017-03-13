@@ -53,8 +53,6 @@ public class UpdateApp {
             pstmt.setInt(11, prodRenvoyes);
             pstmt.setInt(12, idMagasin);
 
-            System.out.println("QUERY :  " + pstmt.toString());
-
             System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
 
         } catch (SQLException e) {
@@ -72,8 +70,6 @@ public class UpdateApp {
                 + "idMarque = ?, nbSell = ?, picture = ?, category = ?, produitPhare = ?, enVente = ?, promo = ? "
                 + "WHERE idProduct = ?";
 
-        System.out.println("QUERY :  " + sql);
-
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, productName);
@@ -87,8 +83,6 @@ public class UpdateApp {
             pstmt.setInt(9, enVente);
             pstmt.setInt(10, promo);
             pstmt.setInt(11, idProduct);
-
-            System.out.println("QUERY :  " + pstmt.toString());
 
             System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
 

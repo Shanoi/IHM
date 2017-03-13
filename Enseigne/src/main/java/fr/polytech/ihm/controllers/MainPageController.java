@@ -5,30 +5,29 @@
  */
 package fr.polytech.ihm.controllers;
 
-    import fr.polytech.ihm.data.Product;
+import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.kernel.MainProducts;
-    import fr.polytech.ihm.kernel.ProductsParser;
-    import javafx.animation.AnimationTimer;
-    import javafx.animation.FadeTransition;
-    import javafx.animation.ParallelTransition;
-    import javafx.fxml.FXML;
-    import javafx.fxml.FXMLLoader;
-    import javafx.fxml.Initializable;
-    import javafx.scene.Parent;
-    import javafx.scene.Scene;
-    import javafx.scene.control.Label;
-    import javafx.scene.image.Image;
-    import javafx.scene.image.ImageView;
-    import javafx.scene.input.MouseEvent;
-    import javafx.stage.Stage;
-    import javafx.util.Duration;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
+import fr.polytech.ihm.kernel.ProductsParser;
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    import java.io.IOException;
-    import java.net.URL;
-    import java.util.ResourceBundle;
-
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
 
@@ -158,26 +157,49 @@ public class MainPageController implements Initializable {
     }
 
     @FXML
-    private void clickImgPhare(MouseEvent event){
-        
+    private void clickImgPhare(MouseEvent event) {
+
         displayItem();
-        
+
     }
-    
+
+    @FXML
+    private void clickPromo1(MouseEvent event) {
+
+    }
+
+    @FXML
+    private void clickPromo2(MouseEvent event) {
+
+    }
+
+    @FXML
+    private void clickPromo3(MouseEvent event) {
+
+    }
+
     private void changeMainProd(Product product) {
 
         currentProduct = product;
-        
+
         accrochePhare.setText(product.getNom());
 
         image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
         imagePhare.setImage(image);
 
-        prixPhare.setText(Float.toString(product.getPrix()));
+        if (product.getCurrentPromo() == 0) {
+
+            prixPhare.setText(Float.toString(product.getPrix()) + "€");
+
+        } else {
+
+            prixPhare.setText(Float.toString(product.getPrix()) + "€ Now : " + Float.toString(product.getPrix() * ((float) product.getCurrentPromo() / 100)) + "€");
+
+        }
 
     }
-    
+
     private void displayItem() {
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();

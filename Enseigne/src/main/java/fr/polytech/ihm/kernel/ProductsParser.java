@@ -55,7 +55,6 @@ public class ProductsParser {
                         (rs.getInt("produitPhare") == 1),
                         (rs.getInt("enVente") == 1),
                         rs.getInt("promo")));
-                System.out.println("RES : " + rs.getString("category"));
 
             }
 
@@ -69,7 +68,6 @@ public class ProductsParser {
 
         }
     }
-
 
     public List<Product> getProducts() {
         extractProducts();

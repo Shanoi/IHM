@@ -16,7 +16,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.MainPageController">
 
-    
+    <left>
+        <fx:include source="/fxml/MenuG.fxml"/>
+    </left>
 
     <center>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1708">
@@ -84,12 +86,12 @@
                             <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="135.0" valignment="CENTER" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Label" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <ImageView fx:id="imgPromo1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <ImageView fx:id="imgPromo2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <ImageView fx:id="imgPromo3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label fx:id="lblPromo1" onMouseClicked="#clickPromo1" text="Label" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPromo2" onMouseClicked="#clickPromo2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="lblPromo3" onMouseClicked="#clickPromo3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <ImageView fx:id="imgPromo1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo1" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <ImageView fx:id="imgPromo2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <ImageView fx:id="imgPromo3" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                            </children>
                         </GridPane>
                      </center>
