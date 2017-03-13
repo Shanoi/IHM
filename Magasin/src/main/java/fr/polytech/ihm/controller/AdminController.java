@@ -67,7 +67,7 @@ public class AdminController {
     private ProductInListView currentModifName;
     private ProductInListView currentSuppName;
     private static final String NO_PRODUCT = "Aucun produit spécifié";
-    private static final String PATH = "src\\main\\resources\\data\\produits";
+    private static final String PATH = "src\\main\\resources\\data\\produits_";
 
     @FXML
     public void initialize() throws IOException, ParseException {
