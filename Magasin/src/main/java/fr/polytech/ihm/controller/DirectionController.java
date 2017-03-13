@@ -3,6 +3,8 @@ package fr.polytech.ihm.controller;
 import fr.polytech.ihm.JSONParser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import org.json.JSONObject;
 
 /**
@@ -18,6 +20,8 @@ public class DirectionController {
     private Label adresseMagasin;
     @FXML
     private Label siteWebMagasin;
+    @FXML
+    private BorderPane directionParent;
 
     @FXML
     public void initialize() {
@@ -29,6 +33,11 @@ public class DirectionController {
         telMagasin.setText(shopData.getString("tel"));
         adresseMagasin.setText(shopData.getString("adresse"));
         siteWebMagasin.setText(shopData.getString("siteweb"));
+    }
+
+    @FXML
+    void requestFocus(MouseEvent event) {
+        directionParent.requestFocus();
     }
 
 }
