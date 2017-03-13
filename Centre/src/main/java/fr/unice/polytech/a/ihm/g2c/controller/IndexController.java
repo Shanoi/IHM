@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 
 import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
 
-public class IndexController {
+public class IndexController implements Translable {
 
     private static final Logger logger = LogManager.getLogger(IndexController.class);
 
@@ -53,21 +53,21 @@ public class IndexController {
     @FXML
     private VBox menuList;
     @FXML
-    public ChoiceBox<SortingType> sortTypeChooser;
+    private ChoiceBox<SortingType> sortTypeChooser;
     @FXML
-    public TextField searchField;
+    private TextField searchField;
     @FXML
-    public Button aboutButton;
+    private Button aboutButton;
     @FXML
-    public ImageView flag;
+    private ImageView flag;
     @FXML
-    public Label categoryLabel;
+    private Label categoryLabel;
     @FXML
-    public Label selectionLabel;
+    private Label selectionLabel;
     @FXML
-    public Label storesLabel;
+    private Label storesLabel;
     @FXML
-    public Label sortBy;
+    private Label sortBy;
 
 
 
@@ -112,7 +112,7 @@ public class IndexController {
         refreshStoresList();
 
         // Flag
-        flag.setImage(new Image(getClass().getResourceAsStream(data.getLang().getNext().getImgPath())));
+        setFlag(flag);
 
         // Translation
         refreshText();
@@ -130,10 +130,9 @@ public class IndexController {
         ControllerUtil.showScene(INFORMATIONS, stage);
     }
 
+    @FXML
     public void changeLang(MouseEvent mouseEvent) {
-        data.setLang(data.getLang().getNext());
-        flag.setImage(new Image(getClass().getResourceAsStream(data.getLang().getNext().getImgPath())));
-        refreshText();
+        changeLang(flag);
     }
 
     private void addTile(TilePane pane, Store store) {
@@ -202,7 +201,7 @@ public class IndexController {
         return lbl;
     }
 
-    private void refreshText() {
+    public void refreshText() {
         ResourceBundle langBundle = data.getLangBundle();
         aboutButton.setText(langBundle.getString("about"));
         categoryLabel.setText(langBundle.getString("category"));
