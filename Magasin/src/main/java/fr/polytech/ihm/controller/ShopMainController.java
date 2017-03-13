@@ -66,7 +66,7 @@ public class ShopMainController {
         Stage stage = (Stage) productName.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
         Parent root = loader.load();
-        JSONObject staticProductInfo = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifique.json");
+        JSONObject staticProductInfo = new JSONParser().parse("src/main/resources/data/produits_scientifique.json");
         ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_conductivité")));
         Scene scene = new Scene(root);
         stage.setScene(scene);

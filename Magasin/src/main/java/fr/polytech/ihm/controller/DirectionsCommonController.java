@@ -37,7 +37,7 @@ public class DirectionsCommonController {
     }
 
     public void loadData() {
-        JSONObject shopData = new JSONParser().parse("src\\main\\resources\\data\\magasins_data.json");
+        JSONObject shopData = new JSONParser().parse("src/main/resources/data/magasins_data.json");
         telMagasin.setText(shopData.getString("tel"));
         adresseMagasin.setText(shopData.getString("adresse"));
         siteWebMagasin.setText(shopData.getString("siteweb"));

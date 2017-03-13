@@ -22,8 +22,8 @@ public class ProductModel {
     private ObservableList<ProductInListView> popularProducts = FXCollections.observableArrayList();
 
     public ProductModel() throws IOException, ParseException {
-        produitsScientifique = (JSONObject) new JSONParser().parse(new FileReader("src\\main\\resources\\data\\produits_scientifique.json"));
-        produitsNeurologique = (JSONObject) new JSONParser().parse(new FileReader("src\\main\\resources\\data\\produits_neurologique.json"));
+        produitsScientifique = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/data/produits_scientifique.json"));
+        produitsNeurologique = (JSONObject) new JSONParser().parse(new FileReader("src/main/resources/data/produits_neurologique.json"));
         popularProductsID = new ArrayList<>();
 
         if (popularProducts.isEmpty())
