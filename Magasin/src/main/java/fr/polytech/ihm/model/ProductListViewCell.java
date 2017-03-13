@@ -1,6 +1,7 @@
 package fr.polytech.ihm.model;
 
 import fr.polytech.ihm.controller.ListViewProductController;
+import fr.polytech.ihm.controller.ListViewProductPromoController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.ListCell;
@@ -16,19 +17,21 @@ public class ProductListViewCell extends ListCell<ProductInListView> {
     public void updateItem(ProductInListView product, boolean empty) {
         super.updateItem(product, empty);
         if (product != null) {
-            FXMLLoader loader = new FXMLLoader();
+            FXMLLoader loader = null;
             Parent element = null;
             try {
-                if (product.isPromo())
-                    element = loader.load(getClass().getResourceAsStream("/fxml/Client/listView_product_promo.fxml"));
-                else element = loader.load(getClass().getResourceAsStream("/fxml/Client/listView_product.fxml"));
-                //loader.load();
+                if (product.isPromo()) {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product_promo.fxml"));
+                    element = loader.load();
+                    ((ListViewProductPromoController) loader.getController()).initializeProduct(product);
+                } else {
+                    loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product.fxml"));
+                    element = loader.load();
+                    ((ListViewProductController) loader.getController()).initializeProduct(product);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (product.isPromo())
-                ((ListViewProductController) loader.getController()).initializeProductPromo(product);
-            else ((ListViewProductController) loader.getController()).initializeProduct(product);
             setGraphic(element);
         }
     }

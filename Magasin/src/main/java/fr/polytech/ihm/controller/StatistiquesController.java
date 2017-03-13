@@ -5,16 +5,17 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
+import javafx.scene.chart.XYChart.Data;
 import javafx.stage.Stage;
 
 /**
  * Created by Thoma on 3/11/2017.
  */
 public class StatistiquesController {
+
+    private static final int sciences = 67;
+    private static final int neurologies = 33;
 
     @FXML
     public void initialize() {
@@ -41,8 +42,8 @@ public class StatistiquesController {
     }
 
     private ObservableList<PieChart.Data> create_piechart_data() {
-        PieChart.Data science = new PieChart.Data("Science", 67);
-        PieChart.Data neurologie = new PieChart.Data("Neurologie", 33);
+        PieChart.Data science = new PieChart.Data("Science", sciences);
+        PieChart.Data neurologie = new PieChart.Data("Neurologie", neurologies);
 
         return FXCollections.observableArrayList(science, neurologie);
     }
@@ -52,39 +53,93 @@ public class StatistiquesController {
         Stage stage = new Stage();
         Scene scene = new Scene(new Group());
         stage.setTitle("Statistiques");
-        stage.setWidth(800);
-        stage.setHeight(600);
+        stage.setResizable(false);
 
 
-        NumberAxis xAxis = new NumberAxis();
+        CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
-        LineChart<Number,Number> chart = new LineChart<>(xAxis,yAxis);
-        chart.setTitle("Statistiques par mois");
-        chart.getData().add(create_linechart_data());
+        xAxis.setLabel("Mois");
+        LineChart<String,Number> chart = new LineChart<>(xAxis,yAxis);
+        chart.setTitle("Statistiques mois par mois");
+
+        XYChart.Series data_affaire = create_linechart_data_affaire();
+        XYChart.Series data_renvoye = create_linechart_data_renvoye();
+        XYChart.Series data_solde = create_linechart_data_solde();
+        chart.getData().addAll(data_affaire, data_renvoye, data_solde);
+
         ((Group) scene.getRoot()).getChildren().add(chart);
         stage.setScene(scene);
         stage.show();
     }
 
-    private XYChart.Series create_linechart_data() {
-        XYChart.Series series = new XYChart.Series();
-        //populating the series with data
-        series.getData().add(new XYChart.Data(1, 15));
-        series.getData().add(new XYChart.Data(2, 18));
-        series.getData().add(new XYChart.Data(3, 20));
-        series.getData().add(new XYChart.Data(4, 19));
-        series.getData().add(new XYChart.Data(5, 19));
-        series.getData().add(new XYChart.Data(6, 22));
-        series.getData().add(new XYChart.Data(7, 21));
-        series.getData().add(new XYChart.Data(8, 12));
-        series.getData().add(new XYChart.Data(9, 20));
-        series.getData().add(new XYChart.Data(10, 18));
-        series.getData().add(new XYChart.Data(11, 25));
-        series.getData().add(new XYChart.Data(12, 30));
 
-        series.setName("Ventes par mois");
+    private XYChart.Series create_linechart_data_affaire() {
+        XYChart.Series series = new XYChart.Series();
+
+        series.getData().add(new Data("JAN 16", 15));
+        series.getData().add(new Data("FEB 16", 18));
+        series.getData().add(new Data("MARS 16", 20));
+        series.getData().add(new Data("AVR 16", 19));
+        series.getData().add(new Data("MAI 16", 19));
+        series.getData().add(new Data("JUN 16", 22));
+        series.getData().add(new Data("JUL 16", 21));
+        series.getData().add(new Data("AOUT 16", 12));
+        series.getData().add(new Data("SEP 16", 20));
+        series.getData().add(new Data("OCT 16", 18));
+        series.getData().add(new Data("NOV 16", 25));
+        series.getData().add(new Data("DEC 16", 30));
+        series.getData().add(new Data("JAN 17", 16));
+        series.getData().add(new Data("FEB 17", 20));
+
+        series.setName("Chiffres daffaires (k€)");
 
         return series;
     }
+
+    private XYChart.Series create_linechart_data_renvoye() {
+        XYChart.Series series = new XYChart.Series();
+
+        series.getData().add(new Data("JAN 16", 10));
+        series.getData().add(new Data("FEB 16", 1));
+        series.getData().add(new Data("MARS 16", 2));
+        series.getData().add(new Data("AVR 16", 1));
+        series.getData().add(new Data("MAI 16", 1));
+        series.getData().add(new Data("JUN 16", 2));
+        series.getData().add(new Data("JUL 16", 3));
+        series.getData().add(new Data("AOUT 16", 7));
+        series.getData().add(new Data("SEP 16", 1));
+        series.getData().add(new Data("OCT 16", 1));
+        series.getData().add(new Data("NOV 16", 2));
+        series.getData().add(new Data("DEC 16", 2));
+        series.getData().add(new Data("JAN 17", 9));
+        series.getData().add(new Data("FEB 17", 3));
+
+        series.setName("Produits renvoyes (%)");
+
+        return series;
+    }
+
+    private XYChart.Series create_linechart_data_solde() {
+        XYChart.Series series = new XYChart.Series();
+
+        series.getData().add(new Data("JAN 16", 1));
+        series.getData().add(new Data("FEB 16", 2));
+        series.getData().add(new Data("MARS 16", 3));
+        series.getData().add(new Data("AVR 16", 1));
+        series.getData().add(new Data("MAI 16", 1));
+        series.getData().add(new Data("JUN 16", 5));
+        series.getData().add(new Data("JUL 16", 5));
+        series.getData().add(new Data("AOUT 16", 2));
+        series.getData().add(new Data("SEP 16", 2));
+        series.getData().add(new Data("OCT 16", 2));
+        series.getData().add(new Data("NOV 16", 5));
+        series.getData().add(new Data("DEC 16", 15));
+        series.getData().add(new Data("JAN 17", 1));
+        series.getData().add(new Data("FEB 17", 2));
+
+        series.setName("Produits soldés (%)");
+
+        return series;
+    }
+
 }

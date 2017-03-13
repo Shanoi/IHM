@@ -20,19 +20,30 @@ public class MainApp extends Application {
         int widthAdmin = 800;
         int heightAdmin = 533;
 
-        log.info("Starting Hello JavaFX and Maven demonstration application");
+        String fxmlFileMain = "/fxml/MainPage.fxml";
+        String fxmlFileAdmin = "/fxml/AdminPanel.fxml";
 
-        String fxmlFile = "/fxml/MainPage.fxml";
-        log.debug("Loading FXML for main view from: {}", fxmlFile);
         FXMLLoader loader = new FXMLLoader();
-        Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+        FXMLLoader loaderAdmin = new FXMLLoader();
 
-        log.debug("Showing JFX scene");
-        Scene scene = new Scene(rootNode, 1920, 1080);
-        scene.getStylesheets().add("/styles/styles.css");
+        Parent rootNodeMain = loader.load(getClass().getResourceAsStream(fxmlFileMain));
+        Parent rootNodeAdmin = loaderAdmin.load(getClass().getResourceAsStream(fxmlFileAdmin));
 
-        stage.setTitle("To Be Or To Have - Admin panel");
-        stage.setScene(scene);
+        Stage stageAdmin = new Stage();
+
+        Scene sceneMain = new Scene(rootNodeMain, 1920, 1080);
+        Scene sceneAdmin = new Scene(rootNodeAdmin, widthAdmin, heightAdmin);
+
+        sceneMain.getStylesheets().add("/styles/styles.css");
+        sceneAdmin.getStylesheets().add("/styles/styles.css");
+
+        stage.setTitle("To Be Or To Have - Main Menu");
+        stageAdmin.setTitle("To Be Or To Have - Admin panel");
+
+        stage.setScene(sceneMain);
+        stageAdmin.setScene(sceneAdmin);
+
         stage.show();
+        stageAdmin.show();
     }
 }

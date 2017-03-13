@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="productParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#requestFocus" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ProductMainController">
    <bottom>
       <HBox prefHeight="160.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
          <children>
@@ -25,14 +25,14 @@
             <Insets bottom="12.0" left="10.0" right="10.0" top="12.0" />
          </padding>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Dopamine">
+            <Label fx:id="NomProduit" alignment="CENTER" contentDisplay="CENTER" prefHeight="146.0" prefWidth="820.0" text="Ce nom de produit est beaucoup trop grand pour rentrer sur une seule ligne" textAlignment="CENTER" wrapText="true">
                <font>
-                  <Font name="System Bold" size="60.0" />
+                  <Font name="System Bold" size="50.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="49.99€">
+                  <Label fx:id="PrixProduit" text="49.99€">
                      <font>
                         <Font size="55.0" />
                      </font>
@@ -42,7 +42,7 @@
                         <Font size="55.0" />
                      </font>
                   </Label>
-                  <Label text="Disponible">
+                  <Label fx:id="Disponible" text="Disponible">
                      <font>
                         <Font name="System Italic" size="55.0" />
                      </font>
@@ -54,7 +54,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
                <content>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" textAlignment="JUSTIFY" wrappingWidth="818.0">
+                  <Text fx:id="DescriptionProduit" strokeType="OUTSIDE" strokeWidth="0.0" text="Description text" textAlignment="JUSTIFY" wrappingWidth="818.0">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -75,7 +75,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
          <children>
-            <ImageView fitHeight="740.0" fitWidth="1040.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="productImage" fitHeight="740.0" fitWidth="1040.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <viewport>
                   <Rectangle2D />
                </viewport>

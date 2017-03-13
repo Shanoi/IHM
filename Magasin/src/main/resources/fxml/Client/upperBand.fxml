@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.UpperBandController">
@@ -27,27 +28,39 @@
             <Insets left="400.0" right="200.0" />
          </HBox.margin>
       </Label>
-      <HBox alignment="CENTER" prefWidth="400.0">
+      <VBox alignment="CENTER">
          <HBox.margin>
             <Insets right="80.0" />
          </HBox.margin>
          <children>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/images/search_icon.png" />
-               </image>
-            </ImageView>
-            <TextField focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
-               <HBox.margin>
-                  <Insets left="2.0" />
-               </HBox.margin>
+            <HBox alignment="CENTER" prefWidth="400.0">
+               <children>
+                  <ImageView fx:id="searchImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#searchProduct" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/images/search_icon.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Label fx:id="searchNotif" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="306.0" text="Search Notif" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Italic" size="15.0" />
                </font>
-            </TextField>
+            </Label>
          </children>
-      </HBox>
-      <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefWidth="375.0" text="En savoir plus" onMouseClicked="#enSavoirPlus">
+      </VBox>
+      <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#enSavoirPlus" prefWidth="375.0" text="En savoir plus">
          <font>
             <Font size="30.0" />
          </font>

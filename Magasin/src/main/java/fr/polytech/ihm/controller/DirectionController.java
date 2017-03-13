@@ -2,45 +2,42 @@ package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.JSONParser;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import org.json.JSONObject;
 
 /**
- * @author Thomas
+ * @author Jérémy Lara
  * @version 1.0
- *          Represents the main lower band (directionsCommon) controller class.
- *          It allows to go on the directions page and handle directions button.
+ *          Manages the direction page data
  */
-public class DirectionsCommonController {
+public class DirectionController {
 
-    @FXML
-    private Button seDirigerBouton;
     @FXML
     private Label telMagasin;
     @FXML
     private Label adresseMagasin;
     @FXML
     private Label siteWebMagasin;
+    @FXML
+    private BorderPane directionParent;
 
     @FXML
     public void initialize() {
         loadData();
     }
 
-    @FXML
-    void directionsPage() throws Exception {
-        Stage stage = (Stage) seDirigerBouton.getScene().getWindow();
-        Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/directions.fxml");
-    }
-
-    public void loadData() {
+    private void loadData() {
         JSONObject shopData = new JSONParser().parse("src/main/resources/data/magasins_data.json");
         telMagasin.setText(shopData.getString("tel"));
         adresseMagasin.setText(shopData.getString("adresse"));
         siteWebMagasin.setText(shopData.getString("siteweb"));
+    }
+
+    @FXML
+    void requestFocus(MouseEvent event) {
+        directionParent.requestFocus();
     }
 
 }

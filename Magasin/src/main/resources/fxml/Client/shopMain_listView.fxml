@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -46,53 +47,163 @@
                   </Label>
                </top>
                <center>
-                  <ListView id="les_populaires" fx:id="listViewPopularProducts" editable="true" fixedCellSize="6.0" orientation="HORIZONTAL" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                     <content>
+                        <ListView id="les_populaires" fx:id="listViewPopularProducts" orientation="HORIZONTAL" prefHeight="239.0" prefWidth="1079.0" />
+                     </content>
+                  </ScrollPane>
                </center>
             </BorderPane>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="500.0" prefWidth="1080.0">
                <children>
-                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="500.0">
-                     <top>
-                        <Label text="Nouveaux Produits - Neurologies" underline="true" BorderPane.alignment="CENTER">
+                  <VBox alignment="TOP_CENTER" prefHeight="420.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Nouveaux Produits - Sciences" underline="true">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                     </top>
-                     <center>
-                        <GridPane id="nouveaux_neurologiques" alignment="CENTER" BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                     </center>
-                  </BorderPane>
-                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="500.0">
-                     <top>
-                        <Label text="Nouveaux Produits - Sciences" underline="true" BorderPane.alignment="CENTER">
+                        <HBox alignment="CENTER" prefHeight="400.0" prefWidth="500.0">
+                           <children>
+                              <VBox fx:id="newProductSciences1" alignment="CENTER" fillWidth="false" onMouseClicked="#goProductPage" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label fx:id="productName" text="Tablette condictivité" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageProduct" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/product_science/tablette_conductivité.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="price" alignment="CENTER" contentDisplay="CENTER" text="750€" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="40.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox fx:id="newProductSciences2" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="Petit ondamania" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/product_science/petit_ondamania.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="price1" alignment="CENTER" contentDisplay="CENTER" text="3€" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="420.0" prefWidth="500.0">
+                     <children>
+                        <Label text="Nouveaux Produits - Neurologie" underline="true">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                     </top>
-                     <center>
-                        <GridPane id="nouveaux_sciences" alignment="CENTER" BorderPane.alignment="CENTER">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                        </GridPane>
-                     </center>
-                  </BorderPane>
+                        <HBox alignment="CENTER" prefHeight="400.0" prefWidth="500.0">
+                           <children>
+                              <VBox fx:id="newProductNeuro1" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label fx:id="productName1" text="Unité de programmation pour neurostimulateurs implantables" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageProduct1" fitHeight="150.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/product_neuro/unité_programmation.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <viewport>
+                                          <Rectangle2D height="150.0" width="200.0" />
+                                       </viewport>
+                                    </ImageView>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="price11" alignment="CENTER" contentDisplay="CENTER" text="80€" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets right="40.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox fx:id="newProductNeuro2" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label fx:id="productName11" text="Patch neurologique synthétique" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="imageProduct11" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../images/product_neuro/patch_neurologique.jpg" />
+                                       </image>
+                                       <viewport>
+                                          <Rectangle2D />
+                                       </viewport>
+                                    </ImageView>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label fx:id="price111" alignment="CENTER" contentDisplay="CENTER" text="49€" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Calibri Bold" size="25.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
          </children>
@@ -122,7 +233,11 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <ListView id="les_neurologiques" fx:id="listViewNeuroProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                     <content>
+                        <ListView id="les_neurologiques" fx:id="listViewNeuroProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                     </content>
+                  </ScrollPane>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -135,7 +250,11 @@
                         <Font name="Calibri Bold" size="25.0" />
                      </font>
                   </Label>
-                  <ListView id="les sciences" fx:id="listViewScienceProductsPromo" fixedCellSize="6.0" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" vbarPolicy="NEVER">
+                     <content>
+                        <ListView id="les sciences" fx:id="listViewScienceProductsPromo" orientation="HORIZONTAL" prefHeight="240.0" prefWidth="820.0" />
+                     </content>
+                  </ScrollPane>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
