@@ -76,6 +76,24 @@ public class SavoirPlusController {
         fillEvents();
         fillShop();
         fillJobs();
+
+        selectionModel.selectedIndexProperty().addListener((ov, oldValue, newValue) -> {
+            int eventTab = 0;
+            int shopTab = 1;
+            int joTab = 2;
+
+            if (newValue.intValue() == eventTab){
+                fillEvents();
+            }
+
+            if (newValue.intValue() == shopTab){
+                fillShop();
+            }
+
+            if (newValue.intValue() == joTab){
+                fillJobs();
+            }
+        });
     }
 
     public void setTabView(int index){

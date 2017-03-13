@@ -23,6 +23,12 @@ public class JobOfferParser {
 
         jobOffers = new ArrayList<>();
 
+        extractJobs();
+    }
+
+    private void extractJobs(){
+        jobOffers.clear();
+
         try {
             Class.forName("org.sqlite.JDBC").newInstance();
 
@@ -39,17 +45,18 @@ public class JobOfferParser {
                         rs.getString("dateBegin"),
                         rs.getInt("idMagasin")));
             }
-            
+
             rs.close();
             lien.close();
             cnx.close();
-            
+
         } catch (Exception e) {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
 
     public List<JobOffer> getJobOffers(){
+        extractJobs();
         return jobOffers;
     }
 

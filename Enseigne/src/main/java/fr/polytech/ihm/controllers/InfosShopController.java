@@ -1,13 +1,26 @@
 package fr.polytech.ihm.controllers;
 
 import fr.polytech.ihm.data.Shop;
+import fr.polytech.ihm.kernel.UpdateApp;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Enzo on 11/03/2017.
  */
 public class InfosShopController {
+
+    private List<TextField> textFieldList;
+    private UpdateApp updateApp;
+
+    private int idCurrentShop;
+
+    @FXML
+    private Label confirmLabel;
 
     @FXML
     private TextField nameShop;
@@ -43,6 +56,7 @@ public class InfosShopController {
     private TextField prodBackShop;
 
     public void initInfosShop(Shop shop){
+        idCurrentShop = shop.getIdShop();
         nameShop.setText(shop.getNameShop().get());
         adressShop.setText(shop.getAdressShop().get());
         latShop.setText(Double.toString(shop.getLatitudeShop()));
@@ -54,10 +68,58 @@ public class InfosShopController {
         nbEmpShop.setText(Integer.toString(shop.getNbEmployees()));
         costShop.setText(Double.toString(shop.getMaintenanceCost()));
         prodBackShop.setText(Integer.toString(shop.getProdBack()));
+
+        updateApp = new UpdateApp();
+
+        initShopFields();
+    }
+
+    private void initShopFields(){
+        textFieldList = new ArrayList<>();
+
+        textFieldList.add(nameShop);
+        textFieldList.add(adressShop);
+        textFieldList.add(latShop);
+        textFieldList.add(longShop);
+        textFieldList.add(phoneShop);
+        textFieldList.add(mailShop);
+        textFieldList.add(websiteShop);
+        textFieldList.add(caShop);
+        textFieldList.add(nbEmpShop);
+        textFieldList.add(costShop);
+        textFieldList.add(prodBackShop);
     }
 
     @FXML
     public void saveChanges(){
+        if (allFieldsAreFull()){
+            updateApp.upDateMagasin(idCurrentShop,
+                    nameShop.getText(),
+                    adressShop.getText(),
+                    Double.parseDouble(latShop.getText()),
+                    Double.parseDouble(longShop.getText()),
+                    phoneShop.getText(),
+                    mailShop.getText(),
+                    Double.parseDouble(caShop.getText()),
+                    Integer.parseInt(nbEmpShop.getText()),
+                    Double.parseDouble(costShop.getText()),
+                    websiteShop.getText(),
+                    Integer.parseInt(prodBackShop.getText())
+                    );
 
+            confirmLabel.setText("Effectué");
+        } else {
+            confirmLabel.setText("Invalide");
+        }
+    }
+
+    private boolean allFieldsAreFull(){
+        for (TextField textField :
+                textFieldList) {
+            if (textField.getText().isEmpty()){
+                return false;
+            }
+        }
+        return true;
     }
 }
