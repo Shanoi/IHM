@@ -4,8 +4,8 @@ import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.kernel.CheckerTool;
 import fr.polytech.ihm.kernel.UpdateApp;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -47,7 +47,7 @@ public class ProductInfosController {
     private TextField picCatProductField;
 
     @FXML
-    private Button confirmButton;
+    private Label confirmationLabel;
 
     @FXML
     private TextArea descProductArea;
@@ -122,9 +122,9 @@ public class ProductInfosController {
                     boolToInt(sellCheckBox.isSelected()),
                     Integer.parseInt(remiseProductField.getText()));
 
-            confirmButton.setText("Effectué");
+            confirmationLabel.setText("Effectué");
         } else {
-            confirmButton.setText("Invalide");
+            confirmationLabel.setText("Invalide");
         }
 
     }
