@@ -12,8 +12,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.Random;
-
 /**
  * @author Jérémy LARA
  * @version 1.0
@@ -43,8 +41,6 @@ public class ListViewProductController {
     @FXML
     private Label reduction;
 
-    private int[] reduc = {15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70};
-
     @FXML
     public void initialize() {
 
@@ -61,6 +57,7 @@ public class ListViewProductController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         new CommonController(stage, scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
@@ -75,12 +72,10 @@ public class ListViewProductController {
         productTemp = product;
         productName.setText(product.getName());
         productImage = new ImageView(product.getImage());
-        Random r = new Random();
-        double reductionNb = reduc[r.nextInt(reduc.length)];
         oldPrice.setText(Integer.toString(product.getPrice()) + "€");
         oldPrice.setStrikethrough(true);
-        newPrice.setText(Integer.toString((int) ((1 - (reductionNb / 100)) * product.getPrice())));
-        reduction.setText("-" + Double.toString(reductionNb) + "%");
+        newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
+        reduction.setText("-" + Double.toString(product.getPromo()) + "%");
     }
 
 }

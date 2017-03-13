@@ -1,0 +1,25 @@
+{
+  "cerveau_avec_artère" : { "nom" : "Coupe de cerveau détaillé", "prix" : 311.64, "disponibilité" : "En stock", "description" : "Pas moins de 49 annotations lettrées avec feuillet, avec une base d'exploitation et une dimension de 25*18*12cm, cette moitié droite de cerveau est un vrai modèle d'étude.", "genre" : "neurologique", "promo" : 25 },
+  
+  "neurologie_iecn" : { "nom" : "Ouvrage Neurologie iECN", "prix" : 39, "disponibilité" : "En stock", "description" : "Un ouvrage sur la neurologie en accord avec le programme de l'iECN. Écrit par Nicolas DANZIGER & Sonia ALAMOWITCH", "genre" : "neurologique", "promo" : 35 },
+  
+  "mayan_lunette_protection" : { "nom" : "Lunette de protection Mayan", "prix" : 8.58, "disponibilité" : "En stock", "description" : "Des lunettes qui protègent jusqu'à 99.9% des rayons UV nocifs. Des verres qui permettent une acuité visuelle maximale.", "genre" : "neurologique", "promo" : 50 },
+  
+  "microscope_opératoire" : { "nom" : "Microscope opératoire Zeiss", "prix" : 1560, "disponibilité" : "En stock", "description" : " Usage destiné à la microscope de neurochirurgie / microscope de chirurgie maxillo-faciale / microscope de chirurgie du rachis", "genre" : "neurologique", "promo" : 60 },
+  
+  "logiciel_denregistrement" : { "nom" : "Logiciel d'enregistrement et d'analyse", "prix" : 600, "disponibilité" : "En stock", "description" : "L'EMS Phoenix II System est un système multichannel pour l'acquisition EEG / EMG / ERP, l'analyse la recherche. L'amplificateur est designé pour enregistré des données de DC à 3000 Hz", "genre" : "neurologique", "promo" : 0 },
+    
+  "logiciel_neurovagination" : { "nom" : "Logiciel de neurovagination", "prix" : 850, "disponibilité" : "En stock", "description" : "La neuronavigation Brainlab s’associe à des dispositifs d’acquisition d’images échographiques pour les mises à jour peropératoires des données du patient en temps réel. Ce logiciel permet d'obtenir des images péropératoires en direct", "genre" : "neurologique", "promo" : 0 },
+    
+  "patch_neurologique" : { "nom" : "Patch neurologique synthétique", "prix" : 49, "disponibilité" : "En stock", "description" : "Ce patch neurologique est synthétique et résorbable. Il est fabriqué avec un procédé enzyme-chimique pour retenir et prévenir des infections collagénique", "genre" : "neurologique", "promo" : 0 },
+  
+  "neurostimulateur_spectra" : { "nom" : "Neurostimulateur implantable / médullaire", "prix" : 279.86, "disponibilité" : "En stock", "description" : "Precision Spectra est un appareil destiné a traiter les douleurs au niveau de la moelle épinière. Il a été designé pour apporter plus de contrôle, de flexibilité et d'ampleur.", "genre" : "neurologique", "promo" : 0 },
+  
+  "unité_programmation" : { "nom" : "Unité de programmation pour neurostimulateurs implantables", "prix" : 80, "disponibilité" : "En stock", "description" : "Cette unité de programmation est aussi destinée pour la stimulation du sphincter œsophagien inférieur. Il est équipé d'une tige programmable et d'une technologie de communication sans-fil.", "genre" : "neurologique", "promo" : 0 },
+  
+  "casque_neurologie_eeg" : { "nom" : "Casque d'électroencéphalographie adulte", "prix" : 360, "disponibilité" : "En stock", "description" : "Éléctrodes EEG de bas niveau et des emplacements de fixations pour être attachées, ainsi qu'un plastique de couverture confortable (15 tailles au total – from 34 to 66) pour assurer un confort au patient et une qualité d'enregistrement EEG sans faille pendant de longue période d'étude", "genre" : "neurologique", "promo" : 0 },
+  
+  "polysomnographe_ambulatoire" : { "nom" : "Polysomnographe ambulatoire YH-600A pro", "prix" : 89, "disponibilité" : "En stock", "description" : "Ce petit appareil d'étude de sommeil léger permet des résultats rentable et cohérent. Ses performances viennent avec des caractéristiques fonctionnelles agréables à utiliser.", "genre" : "neurologique", "promo" : 0 },
+  
+  "doppler_extracranien" : { "nom" : "Doppler périphérique / extracrânien / de poche / ITB", "prix" : 145.87, "disponibilité" : "En stock", "description" : "L'outil parfait pour vos sonographie doppler bidirectionnelle avec fonction de stockage. Une sonde de haute sensibilité aux ultrasons. Des modules ultrasons remplaçables et un stockage jusqu'à 100 examens.", "genre" : "neurologique", "promo" : 0 }
+}

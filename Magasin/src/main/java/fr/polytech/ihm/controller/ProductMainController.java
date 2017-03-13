@@ -21,7 +21,10 @@ public class ProductMainController {
 
     public void initProduct(ProductInListView product){
         this.NomProduit.setText(product.getName().toString());
-        this.PrixProduit.setText(Integer.toString(product.getPrice()) + "€");
+        if (product.isPromo()) {
+            this.PrixProduit.setText("-" + product.getPromo() + "%   "
+                    + Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
+        } else this.PrixProduit.setText(Integer.toString(product.getPrice()) + "€");
         this.Disponible.setText(product.getDisponible());
         this.DescriptionProduit.setText(product.getProductDescription());
     }

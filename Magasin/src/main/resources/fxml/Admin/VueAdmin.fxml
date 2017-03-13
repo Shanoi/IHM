@@ -37,16 +37,16 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="addPromoAmount" layoutX="75.0" layoutY="75.0" prefWidth="200.0" promptText="Montant de la promotion" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="75.0" />
-                        <ComboBox fx:id="productListAdd" editable="true" layoutX="75.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="185.0" />
+                        <ComboBox fx:id="productListAdd" editable="true" layoutX="75.0" layoutY="185.0" onAction="#checkInBoxAdd" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="185.0" />
                         <Button fx:id="applyAdd" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="295.0" mnemonicParsing="false" onAction="#addPromo" text="Ajouter Promotion" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="295.0" />
                         <TextField fx:id="modifPromoAmount" layoutX="327.0" layoutY="75.0" prefWidth="200.0" promptText="Montant de la promotion" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="75.0" />
                         <TextField fx:id="modifPromoCurrentAmount" editable="false" layoutX="327.0" layoutY="128.0" prefWidth="200.0" promptText="Promotion actuelle" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="128.0" />
-                        <ComboBox fx:id="productListModif" editable="true" layoutX="327.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="185.0" />
+                        <ComboBox fx:id="productListModif" editable="true" layoutX="327.0" layoutY="185.0" onAction="#checkInBoxModif" prefWidth="200.0" promptText="Produit" AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="185.0" />
                         <Button fx:id="applyModif" alignment="CENTER" contentDisplay="CENTER" layoutX="347.0" layoutY="295.0" mnemonicParsing="false" onAction="#modifyPromo" text="Modifier Promotion" AnchorPane.rightAnchor="355.0" AnchorPane.topAnchor="295.0" />
                         <Label fx:id="addNotif" alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="358.0" text="ApplyNotif" textAlignment="CENTER" AnchorPane.leftAnchor="135.0" />
                         <Label fx:id="modifNotif" layoutX="387.0" layoutY="358.0" text="ApplyNotif" AnchorPane.leftAnchor="387.0" />
-                        <TextField fx:id="suppPromoCurrentAmont" editable="false" layoutX="578.0" layoutY="75.0" prefWidth="200.0" promptText="Promotion Actuelle" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="75.0" />
-                        <ComboBox fx:id="productListSupp" editable="true" layoutX="578.0" layoutY="185.0" prefWidth="200.0" promptText="Produit" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="185.0" />
+                        <TextField fx:id="suppPromoCurrentAmount" editable="false" layoutX="578.0" layoutY="75.0" prefWidth="200.0" promptText="Promotion Actuelle" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="75.0" />
+                        <ComboBox fx:id="productListSupp" editable="true" layoutX="578.0" layoutY="185.0" onAction="#checkInBoxSupp" prefWidth="200.0" promptText="Produit" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="185.0" />
                         <Button fx:id="applySupp" alignment="CENTER" contentDisplay="CENTER" layoutX="599.0" layoutY="295.0" mnemonicParsing="false" onAction="#suppPromo" text="Supprimer Promotion" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="295.0" />
                         <Label fx:id="suppNotif" layoutX="645.0" layoutY="357.0" text="ApplyNotif" AnchorPane.leftAnchor="645.0" />
                      </children>

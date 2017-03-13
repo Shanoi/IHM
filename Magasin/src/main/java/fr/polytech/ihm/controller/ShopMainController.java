@@ -16,9 +16,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.json.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
@@ -43,7 +43,6 @@ public class ShopMainController {
     private ImageView imageProduct;
     @FXML
 
-
     private ObservableList observableList = FXCollections.observableArrayList();
     private ProductModel productModel;
 
@@ -52,11 +51,11 @@ public class ShopMainController {
     }
 
     @FXML
-    public void initialize() throws IOException, NoSuchFieldException {
+    public void initialize() throws IOException, NoSuchFieldException, ParseException {
         productModel = new ProductModel();
-        setListView(listViewNeuroProductsPromo, productModel.initializeNeurologicalProductPromoView());
-        setListView(listViewScienceProductsPromo, productModel.initializeScientificProductPromoView());
-        setListView(listViewPopularProducts, productModel.initializePopularProductView());
+        setListView(listViewNeuroProductsPromo, productModel.getPromoNeuroProducts());
+        setListView(listViewScienceProductsPromo, productModel.getPromoScienceProducts());
+        setListView(listViewPopularProducts, productModel.getPopularProducts());
     }
 
     @FXML
@@ -76,22 +75,30 @@ public class ShopMainController {
         Stage stage = (Stage) productName.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
         Parent root = loader.load();
-        JSONObject staticProductInfo = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifiques.json");
-        ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_condictivité")));
+        JSONObject staticProductInfo = new JSONParser().parse("src\\main\\resources\\data\\produits_scientifique.json");
+        ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_conductivité")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         new CommonController(stage, scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
     public ProductInListView initializeProduct(JSONObject product) {
         String name = product.getString("nom");
-        Image image = new Image("/images/product_science/tablette_conductivite.jpg");
+        String genre = product.getString("genre");
+        Image image = new Image("/images/product_science/tablette_conductivité.jpg");
         int price = product.getInt("prix");
+        int promo;
+        if (product.get("promo") instanceof Double)
+            promo = (int) ((double) product.get("promo"));
+        else if (product.get("promo") instanceof Long)
+            promo = (int) ((long) product.get("promo"));
+        else promo = (int) product.get("promo");
         String description = product.getString("description");
         String disponible = product.getString("disponibilité");
-        ProductInListView plv = new ProductInListView(true);
-        plv.initializeProduct(name, image, price, disponible, description);
+        ProductInListView plv = new ProductInListView(false);
+        plv.initializeProduct("tablette_conductivité", name, image, price, promo, disponible, description, genre);
         return plv;
     }
 
