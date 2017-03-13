@@ -97,7 +97,7 @@
                                     <Insets right="40.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox fx:id="newProductSciences2" alignment="CENTER" fillWidth="false" onMouseClicked="#goProductPage" prefHeight="200.0" prefWidth="200.0">
+                              <VBox fx:id="newProductSciences2" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Label text="Petit ondamania" underline="true">
                                        <font>
@@ -136,7 +136,7 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="400.0" prefWidth="500.0">
                            <children>
-                              <VBox fx:id="newProductNeuro1" alignment="CENTER" fillWidth="false" onMouseClicked="#goProductPage" prefHeight="200.0" prefWidth="200.0">
+                              <VBox fx:id="newProductNeuro1" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Label fx:id="productName1" text="Unité de programmation pour neurostimulateurs implantables" underline="true">
                                        <font>
@@ -171,7 +171,7 @@
                                     <Insets right="40.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox fx:id="newProductNeuro2" alignment="CENTER" fillWidth="false" onMouseClicked="#goProductPage" prefHeight="200.0" prefWidth="200.0">
+                              <VBox fx:id="newProductNeuro2" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
                                  <children>
                                     <Label fx:id="productName11" text="Patch neurologique synthétique" underline="true">
                                        <font>
