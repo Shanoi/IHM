@@ -18,9 +18,9 @@
                   <Image url="@/images/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="75.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="flag" fitHeight="75.0" fitWidth="45.0" onMouseClicked="#changeLang" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@/images/france.png" />
+                  <Image url="@/images/fr.png" />
                </image>
                <HBox.margin>
                   <Insets left="10.0" />
@@ -31,7 +31,7 @@
                   <Insets left="240.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#back" styleClass="button-back" text="Retour">
+            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#back" styleClass="button-back" text="Retour">
                <HBox.margin>
                   <Insets left="210.0" />
                </HBox.margin>

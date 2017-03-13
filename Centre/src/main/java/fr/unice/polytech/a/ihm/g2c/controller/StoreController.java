@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
+import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,9 +14,15 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class StoreController {
+import java.util.ResourceBundle;
+
+public class StoreController implements Translable{
 
     private static final Logger logger = LogManager.getLogger(StoreController.class);
+
+    private DataModel data = DataModel.getInstance();
+    private Button buttonSign;
+    private Button buttonStore;
     
     @FXML
     private BorderPane rootPane;
@@ -26,10 +33,14 @@ public class StoreController {
     @FXML
     private Label description;
     @FXML
-    public HBox buttons;
+    private HBox buttons;
+    @FXML
+    private ImageView flag;
+    @FXML
+    private Button backButton;
 
     @FXML
-    void initialyze() {
+    void initialize() {
 
     }
 
@@ -38,9 +49,13 @@ public class StoreController {
         name.setText(store.getName());
         description.setText(store.getDescription());
         logo.setImage(store.getImg());
+        buttonSign = createButton();
+        buttonStore = createButton();
         if (store.isSign())
-            buttons.getChildren().add(createButton("Voir la page de l'enseigne"));
-        buttons.getChildren().add(createButton("Voir la page du magasin"));
+            buttons.getChildren().add(buttonSign);
+        buttons.getChildren().add(buttonStore);
+        setFlag(flag);
+        refreshText();
     }
 
     @FXML
@@ -49,10 +64,23 @@ public class StoreController {
         ControllerUtil.showScene(AppScene.INDEX, stage);
     }
 
-    private Button createButton(String text) {
-        Button button = new Button(text);
+    @FXML
+    void changeLang(MouseEvent mouseEvent) {
+        changeLang(flag);
+    }
+
+    private Button createButton() {
+        Button button = new Button("");
         button.getStyleClass().add("button2");
         return button;
+    }
+
+    @Override
+    public void refreshText() {
+        ResourceBundle langBundle = data.getLangBundle();
+        buttonStore.setText(langBundle.getString("see.store.page"));
+        buttonSign.setText(langBundle.getString("see.sign.page"));
+        backButton.setText(langBundle.getString("back"));
     }
 
 }

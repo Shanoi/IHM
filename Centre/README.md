@@ -15,6 +15,7 @@
     * S'occuper de l'exception dans AddStore#sumbit ?
 * Index
     * Ajouter des magasins
+    * Traduction des categories
 * Info
     * Mettre les magasins sur la carte
 * Divers
