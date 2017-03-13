@@ -1,5 +1,6 @@
 package fr.unice.polytech.a.ihm.g2c.common;
 
+import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 
 import java.util.Comparator;
@@ -20,6 +21,11 @@ public enum SortingType {
 
     public Comparator<Store> getComparator() {
         return comparator;
+    }
+
+    @Override
+    public String toString() {
+        return DataModel.getInstance().getLangBundle().getString(super.toString().toLowerCase().replace("_", "."));
     }
 
 }
