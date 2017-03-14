@@ -24,6 +24,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -62,6 +63,8 @@ public class ItemController implements Initializable {
     final String[] families = {"System"};
 
     private ObservableList<Product> productObservableList;
+    @FXML
+    private GridPane gridPane;
 
     /**
      * Initializes the controller class.
@@ -88,17 +91,33 @@ public class ItemController implements Initializable {
 
         if (product.getCurrentPromo() > 0) {
 
-            final Text text = new Text(Float.toString(product.getPrixPromo()) + "€");
-            String st = "LOL";
+            Text text = new Text(Float.toString(product.getPrixPromo()) + "€");
 
             text.setFill(colors[1]);
             text.setFont(Font.font(families[0], 44));
-            //priceProd.add(text);
-            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+       
+            gridPane.add(text, 0, 0);
+            
+            text = new Text(Float.toString(product.getPrix()) + "€");
+            
+            text.setFill(colors[0]);
+            text.setFont(Font.font(families[0], 30));
+
+            gridPane.add(text, 0, 1);
+            
+            //priceProd.setText(Float.toString(product.getPrixPromo()) + "€");
+            //lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
 
         } else {
 
-            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+            Text text = new Text(Float.toString(product.getPrix()) + "€");
+
+            text.setFill(colors[0]);
+            text.setFont(Font.font(families[0], 44));
+       
+            gridPane.add(text, 0, 0);
+            
+            //lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
 
         }
 
