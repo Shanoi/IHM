@@ -192,23 +192,29 @@ public class MainPageController implements Initializable {
     @FXML
     private void clickImgPhare(MouseEvent event) {
 
-        displayItem();
+        displayItem(currentProduct);
 
     }
 
     @FXML
     private void clickPromo1(MouseEvent event) {
 
+        displayItem(currentPromos[0]);
+        
     }
 
     @FXML
     private void clickPromo2(MouseEvent event) {
 
+        displayItem(currentPromos[1]);
+        
     }
 
     @FXML
     private void clickPromo3(MouseEvent event) {
 
+        displayItem(currentPromos[2]);
+        
     }
 
     @FXML
@@ -277,7 +283,7 @@ public class MainPageController implements Initializable {
 
     }
 
-    private void displayItem() {
+    private void displayItem(Product product) {
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
@@ -286,8 +292,8 @@ public class MainPageController implements Initializable {
 
             Scene scene = new Scene(rootNode);
             stage.setScene(scene);
-            log.info("Produit selectionné depuis la MainPage : " + currentProduct.getNom());
-            ((ItemController) loader.getController()).initItem(currentProduct);
+            log.info("Produit selectionné depuis la MainPage : " + product.getNom());
+            ((ItemController) loader.getController()).initItem(product);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
