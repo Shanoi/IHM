@@ -23,7 +23,7 @@ public class InfoController implements Translable {
 
     private static final Logger logger = LogManager.getLogger(InfoController.class);
 
-    private static final int zoomStep = 25;
+    private static final int zoomStep = 100;
 
     private int zoom = 100;
     private double baseHeight;
@@ -94,8 +94,8 @@ public class InfoController implements Translable {
 
     private void refreshMapSize() {
         zoomLabel.setText("Zoom: " + zoom + "%");
-        map.setFitWidth(baseWidth * (zoom/100) * 0.99);
-        map.setFitHeight(baseHeight * (zoom/100) * 0.99);
+        map.setFitWidth(baseWidth * ((double)zoom/100) * 0.99);
+        map.setFitHeight(baseHeight * ((double)zoom/100) * 0.99);
     }
 
 }

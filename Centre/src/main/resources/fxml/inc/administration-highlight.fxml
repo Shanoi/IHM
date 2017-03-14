@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="100.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.HighlightController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="100.0" styleClass="admin-central-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.HighlightController">
    <children>
       <Label styleClass="h1" text="Modification de l'activité phare" />
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="30.0">
          <children>
-            <Label styleClass="button-label" text="Activité principale" />
+            <Label styleClass="h2" text="Activité principale" />
             <TextField fx:id="textField" prefHeight="20.0" prefWidth="300.0" />
          </children>
       </HBox>
       <VBox alignment="CENTER" maxHeight="50.0" prefHeight="100.0" prefWidth="100.0">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#submit" styleClass="button-done" text="Valider" />
+            <Button mnemonicParsing="false" onMouseClicked="#submit" styleClass="button-submit" text="Valider" />
          </children>
       </VBox>
    </children>

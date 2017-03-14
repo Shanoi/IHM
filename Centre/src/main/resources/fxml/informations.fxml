@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.InfoController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.InfoController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
+      <HBox id="header" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -32,7 +32,7 @@
                   <Insets left="240.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#back" styleClass="button-back" text="Retour">
+            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#back" styleClass="button-white" text="Retour">
                <HBox.margin>
                   <Insets left="210.0" />
                </HBox.margin>
@@ -41,12 +41,12 @@
       </HBox>
    </top>
    <center>
-      <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="store-central-pane" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
          <content>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" style="-fx-background-color: white;">
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="store-central-panel">
                <children>
                   <Label fx:id="informationLabel" styleClass="h1" text="Informations sur le centre" />
-                  <Label fx:id="description" styleClass="button-label" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textOverrun="CLIP" wrapText="true" />
+                  <Label fx:id="description" styleClass="h2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textOverrun="CLIP" wrapText="true" />
                   <Label fx:id="mapLabel" layoutX="30.0" layoutY="20.0" styleClass="h1" text="Plan du centre">
                      <VBox.margin>
                         <Insets />
@@ -66,8 +66,8 @@
                         <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" prefHeight="300.0" prefWidth="100.0">
                            <children>
                               <Label fx:id="zoomLabel" text="Zoom: 100%" />
-                              <Button mnemonicParsing="false" onMouseClicked="#zoomPlus" prefWidth="40.0" styleClass="button2" text="+" />
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#zoomMinus" prefWidth="40.0" styleClass="button2" text="-" />
+                              <Button mnemonicParsing="false" onMouseClicked="#zoomPlus" prefWidth="40.0" styleClass="button-black" text="+" />
+                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#zoomMinus" prefWidth="40.0" styleClass="button-black" text="-" />
                            </children>
                         </VBox>
                      </children>
