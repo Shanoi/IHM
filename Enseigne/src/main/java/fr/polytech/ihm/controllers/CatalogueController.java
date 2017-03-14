@@ -139,6 +139,8 @@ public class CatalogueController implements Initializable {
         sliderPriceMax.setMin(0);
         sliderPriceMin.setMax(max);
         sliderPriceMax.setMax(max);
+        sliderPriceMax.setValue(max);
+        lblPMax.setText((int) max + " €");
     }
 
     @FXML
@@ -197,16 +199,17 @@ public class CatalogueController implements Initializable {
 
         productObservableList.clear();
 
-        productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected()));
+        productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(),
+                cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected(), (int) sliderPriceMax.getValue(), (int) sliderPriceMin.getValue()));
 
         listItem.setItems(productObservableList);
         listItem.setCellFactory(productlistItem -> new ProductCataListCell());
 
         float max = getMaxPriceCategoryProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected());
-        
+
         sliderPriceMax.setMax(max);
         sliderPriceMin.setMax(max);
-        
+
     }
 
 }

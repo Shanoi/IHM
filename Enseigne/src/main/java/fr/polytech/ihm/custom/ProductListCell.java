@@ -62,8 +62,18 @@ public class ProductListCell extends ListCell<Product> {
             imgProd.setImage(img);
             
             nomProd.setText(product.getNom());
-            prixProd.setText(String.valueOf(product.getPrix()) + "€");
+            //prixProd.setText(String.valueOf(product.getPrix()) + "€");
 
+            if (product.getCurrentPromo() != 0) {
+
+                prixProd.setText(String.valueOf(product.getPrixPromo()) + "€ Was " + String.valueOf(product.getPrix()) + "€");
+
+            } else {
+
+                prixProd.setText(String.valueOf(product.getPrix()) + "€");
+
+            }
+            
             setText(null);
             setGraphic(gridPane);
         }

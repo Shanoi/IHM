@@ -78,7 +78,7 @@ public class Tools {
 
     }
 
-    public static ArrayList<Product> getSearchProduct(String category, String marque, boolean promo) {
+    public static ArrayList<Product> getSearchProduct(String category, String marque, boolean promo, int pMax, int pMin) {
 
         log.info("Marque : " + marque + " category : " + category);
 
@@ -97,35 +97,27 @@ public class Tools {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            query.append("SELECT * "
-                    + "FROM products "
-                    + "NATURAL JOIN marque ");
+            query.append("SELECT * " + "FROM products "
+                    + "NATURAL JOIN marque "
+                    + "WHERE priceProduct >= ")
+                    .append(pMin)
+                    .append(" AND priceProduct <= ")
+                    .append(pMax);
 
             if (!category.equals(All.toString())) {
 
-                query.append("WHERE products.category = \'").append(category).append("\'");
+                query.append(" AND products.category = \'").append(category).append("\'");
 
             }
 
-            if (!category.equals(All.toString()) && !marque.equals(All.toString())) {
+            if (!marque.equals(All.toString())) {
 
                 query.append(" AND marqueName = \'").append(marque).append("\'");
 
             }
 
-            if (category.equals(All.toString()) && !marque.equals(All.toString())) {
-
-                query.append("WHERE marqueName = \'").append(marque).append("\'");
-
-            }
-
-            if (promo && category.equals("All") && marque.equals(All.toString())) {
-
-                query.append("WHERE promo != 0");
-
-            } else if (promo) {
-
-                query.append("AND promo != 0");
+            if (promo) {
+                query.append(" AND promo != 0");
 
             }
 
@@ -239,7 +231,7 @@ public class Tools {
             lien.close();
             cnx.close();
 
-            return max;
+            return max + 1;
 
         } catch (Exception e) {
 
@@ -247,7 +239,7 @@ public class Tools {
 
         }
 
-        return max;
+        return max + 1;
 
     }
 
