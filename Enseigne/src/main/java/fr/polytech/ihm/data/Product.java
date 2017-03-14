@@ -5,19 +5,23 @@
  */
 package fr.polytech.ihm.data;
 
-public class Product {
+    public class Product {
 
-    private final float prix;
-    private final String nom;
-    private final String image;
-    private final String description;
-    private final String category;
+    private int productID;
+    private String nom;
+    private String description;
+    private float prix;
     private int idMarque;
     private int nbSell;
-    private int productID;
+    private String image;
+    private String category;
+    private boolean isProdPhare;
+    private boolean isInSell;
+    private int currentPromo;
 
     public Product(float prix, String nom, String image,
-                   String description, String category, int idMarque, int nbSell, int productID) {
+                   String description, String category, int idMarque, int nbSell, int productID,
+                   boolean isProdPhare, boolean isInSell, int currentPromo) {
         this.prix = prix;
         this.nom = nom;
         this.image = image;
@@ -26,6 +30,9 @@ public class Product {
         this.idMarque = idMarque;
         this.nbSell = nbSell;
         this.productID = productID;
+        this.isInSell = isInSell;
+        this.isProdPhare = isProdPhare;
+        this.currentPromo = currentPromo;
     }
 
     public float getPrix() {
@@ -59,4 +66,17 @@ public class Product {
     public int getProductID(){
         return productID;
     }
+
+    public boolean isInSell() {
+        return isInSell;
+    }
+
+    public boolean isProdPhare() {
+        return isProdPhare;
+    }
+
+    public int getCurrentPromo() {
+        return currentPromo;
+    }
 }
+

@@ -38,10 +38,7 @@ public class Tools {
 
             String query = "select * "
                     + "FROM products "
-                    /*+ "NATURAL JOIN sell "*/
                     + "WHERE products.category = \'" + category + "\'";
-
-            System.out.println("Requête : " + query);
 
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
@@ -55,9 +52,11 @@ public class Tools {
                         rs.getString("category"),
                         rs.getInt("idMarque"),
                         rs.getInt("nbSell"),
-                        rs.getInt("idProduct")));
-                System.out.println("RES : " + rs.getString("productName"));
-
+                        rs.getInt("idProduct"),
+                        (rs.getInt("produitPhare") == 1),
+                        (rs.getInt("enVente") == 1),
+                        rs.getInt("promo")));
+                
             }
 
             rs.close();
@@ -95,12 +94,8 @@ public class Tools {
                     + "FROM products "
                     + "WHERE products.category = \'" + category + "\'";
 
-            System.out.println("Requête : " + query);
-
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
-
-            System.out.println("MAX : " + rs.getFloat("maxPrice"));
 
             max = rs.getFloat("maxPrice");
 
@@ -138,8 +133,6 @@ public class Tools {
             String query = "select * "
                     + "FROM category ";
 
-            System.out.println("Requête : " + query);
-
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
 
@@ -147,8 +140,6 @@ public class Tools {
 
                 categories.add(new Category(rs.getString("category"),
                         rs.getString("imageCategory")));
-
-                System.out.println("Catégories : " + rs.getString("category"));
 
             }
 
@@ -186,8 +177,6 @@ public class Tools {
                     + "NATURAL JOIN products "
                     + "WHERE category = \'" + category + "\'";
 
-            System.out.println("Requête : " + query);
-
             ResultSet rs = lien.executeQuery(query);
             System.out.println("Requête Effectuée");
 
@@ -195,8 +184,6 @@ public class Tools {
 
                 marques.add(new Marque(rs.getString("marqueName"),
                         rs.getInt("idMarque")));
-
-                System.out.println("Marques : " + rs.getString("marqueName"));
 
             }
 

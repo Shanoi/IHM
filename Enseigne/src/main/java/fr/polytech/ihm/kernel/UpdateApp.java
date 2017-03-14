@@ -29,17 +29,17 @@ public class UpdateApp {
     }
     
     public void upDateMagasin(int idMagasin, String name, String adresse, double latitude, double longitude,
-            String tel, String mail, double ca, int nbEmployes, double coutMaintenance, String pageWeb, int prodRenvoyes) {
-        
-        
+                               String tel, String mail, double ca, int nbEmployes, double coutMaintenance, String pageWeb, int prodRenvoyes) {
+
+
         String sql = "UPDATE magasin SET magasinName = ?, adresseMagasin = ?, latitudeMagasin = ?, longitudeMagasin = ?,"
                 + "TelephoneMagasin = ?, mailMagasin = ?, CAMagasin = ?, nbEmployés = ?, coutMaintenance = ?, pageWeb = ?, prodRenvoyés = ? "
                 + "WHERE idMagasin = ?";
-        
+
         System.out.println("QUERY :  " + sql);
 
         try (Connection conn = this.connect();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, name);
             pstmt.setString(2, adresse);
             pstmt.setDouble(3, latitude);
@@ -52,8 +52,6 @@ public class UpdateApp {
             pstmt.setString(10, pageWeb);
             pstmt.setInt(11, prodRenvoyes);
             pstmt.setInt(12, idMagasin);
-            
-            System.out.println("QUERY :  " + pstmt.toString());
 
             System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
 
@@ -61,5 +59,35 @@ public class UpdateApp {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
-    
+
+
+    public void updateProduct(int idProduct, String productName, String description,
+                              float priceProduct, int idMarque, int nbSell, String picture, String category,
+                              int produitPhare, int enVente, int promo) {
+
+
+        String sql = "UPDATE products SET productName = ?, description = ?, priceProduct = ?,"
+                + "idMarque = ?, nbSell = ?, picture = ?, category = ?, produitPhare = ?, enVente = ?, promo = ? "
+                + "WHERE idProduct = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, productName);
+            pstmt.setString(2, description);
+            pstmt.setFloat(3, priceProduct);
+            pstmt.setInt(4, idMarque);
+            pstmt.setInt(5, nbSell);
+            pstmt.setString(6, picture);
+            pstmt.setString(7, category);
+            pstmt.setInt(8, produitPhare);
+            pstmt.setInt(9, enVente);
+            pstmt.setInt(10, promo);
+            pstmt.setInt(11, idProduct);
+
+            System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
+
+        } catch (SQLException e) {
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+        }
+    }
 }

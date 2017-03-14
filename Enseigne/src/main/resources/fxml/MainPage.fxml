@@ -16,7 +16,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.MainPageController">
 
-    
+    <left>
+        <fx:include source="/fxml/MenuG.fxml"/>
+    </left>
 
     <center>
         <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1708">
@@ -67,32 +69,72 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0">
                             <left>
-                                <Button mnemonicParsing="false" text="&lt;" BorderPane.alignment="CENTER" />
+                                <Button fx:id="leftPromo" mnemonicParsing="false" onMouseClicked="#clickLeftPromo" text="&lt;" BorderPane.alignment="CENTER" />
                             </left>
                             <right>
-                                <Button mnemonicParsing="false" text="&gt;" BorderPane.alignment="CENTER" />
+                                <Button fx:id="rightPromo" mnemonicParsing="false" onMouseClicked="#clickRightPromo" text="&gt;" BorderPane.alignment="CENTER" />
                             </right>
-                     <center>
-                        <GridPane BorderPane.alignment="CENTER">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints maxHeight="346.0" minHeight="40.0" prefHeight="346.0" valignment="CENTER" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="135.0" valignment="CENTER" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Label" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <ImageView fx:id="imgPromo1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <ImageView fx:id="imgPromo2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <ImageView fx:id="imgPromo3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                           </children>
-                        </GridPane>
-                     </center>
+                            <center>
+                                <GridPane BorderPane.alignment="CENTER">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="378.0" minHeight="40.0" prefHeight="368.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="63.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label fx:id="lblPromo1" onMouseClicked="#clickPromo1" text="Label" GridPane.rowIndex="1" />
+                                        <Label fx:id="lblPromo2" onMouseClicked="#clickPromo2" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label fx:id="lblPromo3" onMouseClicked="#clickPromo3" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                        <ImageView fx:id="imgPromo1" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo1" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                        <ImageView fx:id="imgPromo2" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo2" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                        <ImageView fx:id="imgPromo3" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#clickPromo3" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                        <GridPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="lblPrixP1" onMouseClicked="#clickPromo1" text="Label" />
+                                                <Label fx:id="lblPrixO1" onMouseClicked="#clickPromo1" text="Label" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="lblPrixP2" onMouseClicked="#clickPromo2" text="Label" />
+                                                <Label fx:id="lblPrixO2" onMouseClicked="#clickPromo2" text="Label" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label fx:id="lblPrixP3" onMouseClicked="#clickPromo3" text="Label" />
+                                                <Label fx:id="lblPrixO3" onMouseClicked="#clickPromo3" text="Label" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </GridPane>
+                            </center>
                         </BorderPane>
                     </items>
                 </SplitPane>

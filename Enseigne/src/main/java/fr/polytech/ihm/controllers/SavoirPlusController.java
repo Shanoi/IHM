@@ -14,9 +14,14 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class SavoirPlusController {
 
@@ -134,5 +139,23 @@ public class SavoirPlusController {
         dateJobs.setCellValueFactory(cellData -> cellData.getValue().getDateJO());
 
         jobSpread.setItems(jobs);
+    }
+
+    @FXML
+    public void goToMapsView(){
+        String fxmlFile = "/fxml/GMapView.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Stage stage = new Stage();
+            Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+            ((GMapsController)loader.getController()).initialise();
+
+            Scene scene = new Scene(rootNode);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

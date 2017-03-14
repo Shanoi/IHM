@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.ProductInfosController">
+   <children>
+      <TextField fx:id="nameProductField" layoutX="46.0" layoutY="45.0" prefHeight="31.0" prefWidth="250.0" promptText="Nom du produit" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0" />
+      <TextArea fx:id="descProductArea" layoutX="40.0" layoutY="194.0" prefHeight="250.0" prefWidth="250.0" promptText="Description du produit" AnchorPane.bottomAnchor="40.0" />
+      <TextField fx:id="brandProductField" layoutX="400.0" layoutY="40.0" prefHeight="31.0" prefWidth="250.0" promptText="Id de la marque" AnchorPane.rightAnchor="40.0" />
+      <TextField fx:id="pictureProductField" layoutX="40.0" layoutY="104.0" prefHeight="31.0" prefWidth="250.0" promptText="Image du produit" />
+      <TextField fx:id="priceProductField" layoutX="410.0" layoutY="104.0" prefHeight="31.0" prefWidth="250.0" promptText="Prix du produit" />
+      <TextField fx:id="catProductField" layoutX="410.0" layoutY="211.0" prefHeight="31.0" prefWidth="250.0" promptText="Catégorie du produit" />
+      <TextField fx:id="picCatProductField" disable="true" layoutX="410.0" layoutY="251.0" prefHeight="31.0" prefWidth="250.0" promptText="Image de la catégorie" />
+      <TextField fx:id="remiseProductField" layoutX="410.0" layoutY="145.0" prefHeight="31.0" prefWidth="250.0" promptText="Pourcentage de remise" />
+      <CheckBox fx:id="premiumCheckBox" layoutX="410.0" layoutY="324.0" mnemonicParsing="false" text="Produit phare" />
+      <CheckBox fx:id="sellCheckBox" layoutX="539.0" layoutY="324.0" mnemonicParsing="false" text="Mise en vente" />
+      <Button fx:id="confirmButton" layoutX="502.0" layoutY="384.0" mnemonicParsing="false" onAction="#saveChanges" text="Valider" />
+      <Label fx:id="confirmationLabel" layoutX="508.0" layoutY="426.0" />
+   </children>
+</AnchorPane>

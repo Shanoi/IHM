@@ -2,6 +2,7 @@ package fr.polytech.ihm.controllers;
 
 import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.data.Shop;
+import fr.polytech.ihm.kernel.CheckerTool;
 import fr.polytech.ihm.kernel.InsertApp;
 import fr.polytech.ihm.kernel.ProductsParser;
 import fr.polytech.ihm.kernel.ShopParser;
@@ -17,10 +18,6 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,7 @@ public class AdminPanelController {
     private ShopParser shopParser;
     private ProductsParser productsParser;
 
+    private CheckerTool checkerTool;
     private InsertApp insertApp;
 
     private List<TextField> shopTextFields;
@@ -122,6 +120,7 @@ public class AdminPanelController {
         shopParser = new ShopParser();
         productsParser = new ProductsParser();
         insertApp = new InsertApp();
+        checkerTool = new CheckerTool();
 
         catProductField.textProperty().addListener((observable, oldValue, newValue) -> checkCategory());
 
@@ -180,6 +179,30 @@ public class AdminPanelController {
         nbSold.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNbSell() + ""));
 
         productList.setItems(products);
+
+        productList.setRowFactory(tv -> {
+            TableRow<Product> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (! row.isEmpty() && event.getButton()== MouseButton.PRIMARY) {
+
+                    Product clickedRow = row.getItem();
+                    String fxmlFile = "/fxml/ProductInfos.fxml";
+                    FXMLLoader loader = new FXMLLoader();
+                    try {
+                        Stage stage = new Stage();
+                        Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+                        Scene scene = new Scene(rootNode);
+                        stage.setScene(scene);
+                        ((ProductInfosController)loader.getController()).initInfosProd(clickedRow);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return row ;
+        });
     }
 
     private void fillShop(){
@@ -258,51 +281,12 @@ public class AdminPanelController {
     }
 
     public void checkCategory(){
-        if (catAlreadyExists(catProductField.getText())){
+        if (checkerTool.catAlreadyExists(catProductField.getText())){
             catNameField.setDisable(true);
             catNameField.clear();
         } else {
             catNameField.setDisable(false);
         }
-    }
-
-    private boolean catAlreadyExists(String category){
-
-        try {
-
-            Class.forName("org.sqlite.JDBC").newInstance();
-            System.out.println("Chargement du Driver Réussie");
-
-            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
-            System.out.println("Connexion Réussie");
-
-            Statement lien = cnx.createStatement();
-            System.out.println("Lien Créé");
-
-            String query = "select COUNT(*) AS nbL "
-                    + "from category "
-                    + "WHERE category = \'" + category + "\'";
-
-            ResultSet rs = lien.executeQuery(query);
-            System.out.println("Requête Effectuée");
-
-            boolean isTrue = rs.getInt("nbL") != 0;
-            
-            rs.close();
-            lien.close();
-            cnx.close();
-            
-            return isTrue;
-
-
-        } catch (Exception e) {
-
-            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
-
-        }
-
-        return false;
-
     }
 
     private boolean allFieldAreCompleted(List<TextField> textFields) {
