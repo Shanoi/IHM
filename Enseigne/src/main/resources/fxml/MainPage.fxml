@@ -37,11 +37,7 @@
                                     <children>
                                         <Pane prefHeight="482.0" prefWidth="623.0" HBox.hgrow="ALWAYS">
                                             <children>
-                                                <ImageView fx:id="imagePhare" fitHeight="482.0" fitWidth="644.0" onMouseClicked="#clickImgPhare" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@images/rzrblade.png" />
-                                                    </image>
-                                                </ImageView>
+                                                <ImageView fx:id="imagePhare" fitHeight="482.0" fitWidth="644.0" onMouseClicked="#clickImgPhare" pickOnBounds="true" preserveRatio="true"/>
                                             </children>
                                         </Pane>
                                         <VBox prefHeight="482.0" prefWidth="817.0">

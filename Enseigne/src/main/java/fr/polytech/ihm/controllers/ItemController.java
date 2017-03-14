@@ -75,6 +75,8 @@ public class ItemController implements Initializable {
 
         nomProd.setText(product.getNom());
 
+        priceProd.setText(Float.toString(product.getPrix()));
+        
         Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
         imgProd.setImage(image);
@@ -87,15 +89,15 @@ public class ItemController implements Initializable {
     private void clickListItem(MouseEvent event) {
 
         Product prod = (Product) listItem.getSelectionModel().getSelectedItem();
-        
+
         System.out.println(prod.getNom());
-        
+
         displayItem(prod);
-        
+
     }
-    
+
     private void displayItem(Product product) {
-        
+
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
