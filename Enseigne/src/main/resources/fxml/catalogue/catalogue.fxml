@@ -48,7 +48,7 @@
                         <ComboBox fx:id="cbBoxMarque" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <ListView fx:id="listProduct" onMouseClicked="#clickListProduct" prefHeight="676.0" prefWidth="786.0" />
+                <ListView />
             </children>
         </VBox>
     </center>
