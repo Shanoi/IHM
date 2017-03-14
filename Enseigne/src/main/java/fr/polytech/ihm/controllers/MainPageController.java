@@ -5,34 +5,36 @@
  */
 package fr.polytech.ihm.controllers;
 
-import fr.polytech.ihm.data.Product;
-import fr.polytech.ihm.kernel.MainProducts;
-import fr.polytech.ihm.kernel.ProductsParser;
-import fr.polytech.ihm.kernel.PromoProduct;
-import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+    import fr.polytech.ihm.data.Product;
+    import fr.polytech.ihm.kernel.InfosEnseigneParser;
+    import fr.polytech.ihm.kernel.MainProducts;
+    import fr.polytech.ihm.kernel.PromoProduct;
+    import javafx.animation.AnimationTimer;
+    import javafx.animation.FadeTransition;
+    import javafx.animation.ParallelTransition;
+    import javafx.fxml.FXML;
+    import javafx.fxml.FXMLLoader;
+    import javafx.fxml.Initializable;
+    import javafx.scene.Parent;
+    import javafx.scene.Scene;
+    import javafx.scene.control.Label;
+    import javafx.scene.image.Image;
+    import javafx.scene.image.ImageView;
+    import javafx.scene.input.MouseEvent;
+    import javafx.stage.Stage;
+    import javafx.util.Duration;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+    import java.io.IOException;
+    import java.net.URL;
+    import java.util.ResourceBundle;
 
 public class MainPageController implements Initializable {
 
     private static final Logger log = LoggerFactory.getLogger(MainPageController.class);
+
+    InfosEnseigneParser infosEnseigneParser;
 
     @FXML
     private Label accrochePhare;
@@ -64,6 +66,8 @@ public class MainPageController implements Initializable {
     private Label lblPrixO2;
     @FXML
     private Label lblPrixO3;
+    @FXML
+    private Label descEnseigne;
 
     private MainProducts mainProds;
 
@@ -100,6 +104,9 @@ public class MainPageController implements Initializable {
         changeMainProd(mainProds.getCurrentProduct());
 
         changeAllPromoProd(promoProds.currentsProduct());
+
+        infosEnseigneParser = new InfosEnseigneParser();
+        modifyDesc();
 
         //accrochePhare.setText(mainProds.getCurrentProduct().getNom());
         //imagePhare.setImage(image);
@@ -168,6 +175,12 @@ public class MainPageController implements Initializable {
             }
         };
 
+    }
+
+    public void modifyDesc(){
+        infosEnseigneParser.extractData();
+
+        descEnseigne.setText(infosEnseigneParser.getDescEnseigne());
     }
 
     @FXML
