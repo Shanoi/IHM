@@ -24,6 +24,11 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +45,8 @@ public class ItemController implements Initializable {
     @FXML
     private ImageView imgProd;
     @FXML
+    private Label lblOldPrice;
+    @FXML
     private Label descrProd;
     @FXML
     private Label priceProd;
@@ -49,6 +56,10 @@ public class ItemController implements Initializable {
     private Label nomProd;
     @FXML
     private ListView listItem;
+
+    final Color[] colors = {Color.BLACK, Color.RED, Color.GREEN, Color.ORANGE, Color.GREY};
+
+    final String[] families = {"System"};
 
     private ObservableList<Product> productObservableList;
 
@@ -75,8 +86,22 @@ public class ItemController implements Initializable {
 
         nomProd.setText(product.getNom());
 
-        priceProd.setText(Float.toString(product.getPrix()));
-        
+        if (product.getCurrentPromo() > 0) {
+
+            final Text text = new Text(Float.toString(product.getPrixPromo()) + "€");
+            String st = "LOL";
+
+            text.setFill(colors[1]);
+            text.setFont(Font.font(families[0], 44));
+            //priceProd.add(text);
+            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+
+        } else {
+
+            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+
+        }
+
         Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
         imgProd.setImage(image);

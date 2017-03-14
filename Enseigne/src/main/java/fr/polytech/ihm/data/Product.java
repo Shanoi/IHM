@@ -5,23 +5,23 @@
  */
 package fr.polytech.ihm.data;
 
-    public class Product {
+public class Product {
 
-    private int productID;
-    private String nom;
-    private String description;
-    private float prix;
-    private int idMarque;
-    private int nbSell;
-    private String image;
-    private String category;
-    private boolean isProdPhare;
-    private boolean isInSell;
-    private int currentPromo;
+    private final int productID;
+    private final String nom;
+    private final String description;
+    private final float prix;
+    private final int idMarque;
+    private final int nbSell;
+    private final String image;
+    private final String category;
+    private final boolean isProdPhare;
+    private final boolean isInSell;
+    private final int currentPromo;
 
     public Product(float prix, String nom, String image,
-                   String description, String category, int idMarque, int nbSell, int productID,
-                   boolean isProdPhare, boolean isInSell, int currentPromo) {
+            String description, String category, int idMarque, int nbSell, int productID,
+            boolean isProdPhare, boolean isInSell, int currentPromo) {
         this.prix = prix;
         this.nom = nom;
         this.image = image;
@@ -37,6 +37,12 @@ package fr.polytech.ihm.data;
 
     public float getPrix() {
         return prix;
+    }
+    
+    public float getPrixPromo(){
+        System.out.println("PROMO : " + this.prix * ((float) currentPromo / 100));
+        return this.prix * ((float) currentPromo / 100);
+        
     }
 
     public String getNom() {
@@ -55,7 +61,7 @@ package fr.polytech.ihm.data;
         return category;
     }
 
-    public int getIdMarque(){
+    public int getIdMarque() {
         return idMarque;
     }
 
@@ -63,7 +69,7 @@ package fr.polytech.ihm.data;
         return nbSell;
     }
 
-    public int getProductID(){
+    public int getProductID() {
         return productID;
     }
 
@@ -79,4 +85,3 @@ package fr.polytech.ihm.data;
         return currentPromo;
     }
 }
-

@@ -279,7 +279,7 @@ public class MainPageController implements Initializable {
 
         pOrigin.setText(Float.toString(product.getPrix()) + "€");
 
-        pPromo.setText(Float.toString(product.getPrix() * ((float) product.getCurrentPromo() / 100)) + "€");
+        pPromo.setText(Float.toString(product.getCurrentPromo()) + "€");
 
     }
 
