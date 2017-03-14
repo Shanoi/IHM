@@ -5,9 +5,12 @@
  */
 package fr.polytech.ihm.controllers;
 
+import fr.polytech.ihm.custom.ProductCataListCell;
 import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
+import fr.polytech.ihm.data.Product;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
+import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 
 /**
@@ -42,6 +46,10 @@ public class CatalogueController implements Initializable {
     private ComboBox<String> cbBoxCat;
     @FXML
     private ComboBox<String> cbBoxMarque;
+    @FXML
+    private ListView<Product> listItem;
+
+    private ObservableList<Product> productObservableList;
 
     private static int MINPRICE = 0;
 
@@ -60,6 +68,18 @@ public class CatalogueController implements Initializable {
         initSliders(category);
         initCategory(cats);
         initBrand(category);
+        initProduct(category);
+
+    }
+
+    private void initProduct(String category) {
+
+        productObservableList = FXCollections.observableArrayList();
+
+        productObservableList.addAll(getCategoryProduct(category));
+
+        listItem.setItems(productObservableList);
+        listItem.setCellFactory(productlistItem -> new ProductCataListCell());
 
     }
 
@@ -86,9 +106,9 @@ public class CatalogueController implements Initializable {
     }
 
     private void initSliders(String category) {
-        
+
         float max = getMaxPriceCategoryProduct(category);
-        
+
         sliderPriceMin.setMin(0);
         sliderPriceMax.setMin(0);
         sliderPriceMin.setMax(max);

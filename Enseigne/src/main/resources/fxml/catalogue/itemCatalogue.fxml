@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="gridPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="176.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="210.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="779.0" minWidth="10.0" prefWidth="779.0" />
+      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="417.0" minWidth="10.0" prefWidth="288.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="242.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="nomProd" text="Label" wrapText="true" GridPane.columnIndex="1" />
+      <ImageView fx:id="imgProd" fitHeight="151.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="descProd" text="Label" wrapText="true" GridPane.columnIndex="2" />
+      <Label fx:id="prixProd" text="Label" GridPane.columnIndex="3" />
+   </children>
+</GridPane>

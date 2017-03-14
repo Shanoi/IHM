@@ -35,8 +35,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Slider fx:id="sliderPriceMin" GridPane.rowIndex="1" onMouseDragged="#actuMinPrice" />
-                        <Slider fx:id="sliderPriceMax" GridPane.rowIndex="3" onMouseDragged="#actuMaxPrice" />
+                        <Slider fx:id="sliderPriceMin" onMouseDragged="#actuMinPrice" GridPane.rowIndex="1" />
+                        <Slider fx:id="sliderPriceMax" onMouseDragged="#actuMaxPrice" GridPane.rowIndex="3" />
                         <CheckBox fx:id="chkBPromo" mnemonicParsing="false" text="Promo" GridPane.rowIndex="4" />
                         <Label text="prix max" GridPane.rowIndex="2" />
                         <Label text="Prix min" />
@@ -48,7 +48,7 @@
                         <ComboBox fx:id="cbBoxMarque" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                     </children>
                 </GridPane>
-                <ListView />
+                <ListView fx:id="listItem" prefHeight="928.0" prefWidth="1920.0" />
             </children>
         </VBox>
     </center>
