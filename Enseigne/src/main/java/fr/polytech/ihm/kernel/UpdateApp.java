@@ -90,4 +90,22 @@ public class UpdateApp {
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
         }
     }
+
+    public void updateEnseigne(int idEnseigne, String picture, String description) {
+
+        String sql = "UPDATE enseigne SET imageEnseigne = ?, descEnseigne = ?"
+                + "WHERE idEnseigne = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, picture);
+            pstmt.setString(2, description);
+            pstmt.setInt(3, idEnseigne);
+
+            System.out.println("Requête d'update Effectuée " + pstmt.executeUpdate());
+
+        } catch (SQLException e) {
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+        }
+    }
 }

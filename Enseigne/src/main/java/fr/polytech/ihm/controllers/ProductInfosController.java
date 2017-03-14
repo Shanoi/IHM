@@ -104,11 +104,12 @@ public class ProductInfosController {
         textFieldList.add(priceProductField);
         textFieldList.add(remiseProductField);
         textFieldList.add(catProductField);
+        textFieldList.add(picCatProductField);
     }
 
     @FXML
     public void saveChanges(){
-        if (allFieldsAreFull() && !descProductArea.getText().isEmpty()){
+        if (allFieldsAreFull() && !descProductArea.getText().isEmpty() && promoIsOk()){
 
             updateApp.updateProduct(idProduct,
                     nameProductField.getText(),
@@ -129,6 +130,10 @@ public class ProductInfosController {
 
     }
 
+    private boolean promoIsOk(){
+        return (Integer.parseInt(remiseProductField.getText()) >= 0 &&  Integer.parseInt(remiseProductField.getText()) <= 100);
+    }
+
     private int boolToInt(boolean bool){
         if (bool){
             return 1;
@@ -140,7 +145,7 @@ public class ProductInfosController {
     private boolean allFieldsAreFull(){
         for (TextField textfield :
                 textFieldList) {
-            if (textfield.getText().isEmpty()){
+            if (textfield.getText().isEmpty() && !textfield.isDisable()){
                 return false;
             }
         }

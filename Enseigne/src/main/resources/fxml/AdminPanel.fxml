@@ -71,6 +71,18 @@
                      </children></AnchorPane>
               </content>
             </Tab>
+            <Tab text="Modifier les détails de l'enseigne">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="logoTextField" layoutX="27.0" layoutY="26.0" prefHeight="31.0" prefWidth="229.0" promptText="Logo de l'enseigne" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0" />
+                        <TextField fx:id="descEnseigneField" layoutX="30.0" layoutY="418.0" prefHeight="31.0" prefWidth="739.0" promptText="Description rapide de l'enseigne" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                        <Button layoutX="698.0" layoutY="232.0" mnemonicParsing="false" onAction="#saveEnseigne" text="Valider" />
+                        <Label fx:id="confirmationEnseigne" layoutX="705.0" layoutY="271.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </center>

@@ -193,6 +193,9 @@ public class IndexController implements Translable {
     private void refreshCategories() {
         menuList.getChildren().clear();
         data.getCategoryFilter().clear();
+        Label categoryLabel = new Label(data.getLangBundle().getString("category"));
+        categoryLabel.getStyleClass().add("h1");
+        menuList.getChildren().add(categoryLabel);
         Arrays.stream(Category.values()).forEach(category ->  {
             CheckBox cb = new CheckBox(category.toString());
             cb.setSelected(data.getCategoryFilter().contains(category));

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.AdminController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="853.0" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.AdminController">
    <children>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -28,7 +28,7 @@
                               <Font size="25.0" />
                            </font>
                         </Button>
-                        <Label fx:id="applyNotif" alignment="CENTER" layoutX="536.0" layoutY="387.0" prefHeight="21.0" prefWidth="184.0" text="ApplyNotif" textAlignment="CENTER" />
+                        <Label fx:id="applyNotif" alignment="CENTER" layoutX="479.0" layoutY="387.0" prefHeight="21.0" prefWidth="295.0" text="ApplyNotif" textAlignment="CENTER" />
                      </children>
                   </AnchorPane>
                </content></Tab>
