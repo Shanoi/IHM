@@ -12,7 +12,7 @@ public class MagasinApp extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        AquaFx.style();
+        //AquaFx.style();
 
         primaryStage.setTitle("Magasin");
         String fxml_magasin = "/fxml/Client/shopMain_listView.fxml";

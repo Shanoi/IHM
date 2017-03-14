@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#takeFocus" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ShopMainController">
+<BorderPane fx:id="parentNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#takeFocus" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ShopMainController">
    <top>
       <HBox alignment="CENTER" prefHeight="160.0" prefWidth="0.0" BorderPane.alignment="CENTER">
          <children>
