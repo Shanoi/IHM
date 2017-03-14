@@ -1,31 +1,38 @@
-## Question à poser
+## Notes présentation
 
-* Doit-on faire le add/remove et le changement d'ordre ?
-    oui
-* Traduction ?
-    pas tout
-* Est-ce que le client va essayer de faire planter le soft ?
-* Peut-on changer de spé ?
+##### Par rapport à un MVC "classique"
+   * Trop d'intelligence dans les controlleurs, handicap si on multiplie les vues. Risque de duplication de code
+
+##### Force de l'implem
+* Le singleton facilement évoluable vers une BD
+* Grande utilisation de l'héritage 
+
+##### Faiblesse
+* Intelligence dans les controlleurs
+* Répétition des évenement. Un include pour le header de info et magasin ?
+* La detection de la taille des images dans le showcase
+    
+##### Idées d'améliorations
+
+* Localiser un magasin choisi dans l'index:
+    * Faire des numéros d'emplacement
+    * Faire saisir le numéro de l'emplacement lors de l'ajout d'un magasins
+* Insérer le logo du magasin sur la carte automatiquement
+* Voir pour mettre en plein ecran
+* un bouton pour pouvoir choisir son style
+* Traduire le texte saisi par l'administrateur:
+    * Modifier directement les properties
+    * Lui faire saisir un id
 
 
 
 ## TODO
 
 * Admin
-    * S'occuper de l'exception dans AddStore#sumbit ?
+    * S'occuper de l'exception dans AddStore#sumbit
 * Index
-    * Ajouter des magasins
+    * Clé qui disparait en big
 * Info
-    * Mettre les magasins sur la carte
 * Divers
-    * Regler le probleme de police qui change
-    * Extension
-    * Renommer le css
-    * Renommer les classes css
+    * S'occuper des exceptions
     
-## Idées d'améliorations
-
-* Localiser un magasin choisi dans l'index
-* Voir pour mettre en plein ecran
-* S'occuper des exceptions ?
-* Zoom sur la carte du centre

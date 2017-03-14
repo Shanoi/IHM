@@ -3,6 +3,7 @@ package fr.unice.polytech.a.ihm.g2c.model;
 import fr.unice.polytech.a.ihm.g2c.common.Category;
 import fr.unice.polytech.a.ihm.g2c.common.Language;
 import fr.unice.polytech.a.ihm.g2c.common.SortingType;
+import fr.unice.polytech.a.ihm.g2c.common.Stylesheet;
 
 import java.util.*;
 
@@ -15,6 +16,7 @@ public class DataModel {
 
     private Language lang;
     private ResourceBundle langBundle;
+    private String stylesheet = Stylesheet.BIG.toString();
 
     private List<Store> storeList = new ArrayList<>();
     private List<Store> storeSelectionList = new ArrayList<>();
@@ -83,6 +85,8 @@ public class DataModel {
     }
 
     public String getInformations() {
+        if (informations.isEmpty())
+            return langBundle.getString("description");
         return informations;
     }
 
@@ -101,5 +105,9 @@ public class DataModel {
 
     public ResourceBundle getLangBundle() {
         return langBundle;
+    }
+
+    public String getStylesheet() {
+        return stylesheet;
     }
 }

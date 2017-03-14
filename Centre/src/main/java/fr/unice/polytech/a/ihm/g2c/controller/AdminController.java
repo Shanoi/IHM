@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-public class AdminController {
+public class AdminController extends AbstractController{
 
     private static final Logger logger = LogManager.getLogger(AdminController.class);
     private AdminScene currentAdminScene;
@@ -24,7 +24,8 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-        FXMLLoader loader = new FXMLLoader();
+        initialize(rootPane);
+
         setAdminScene(AdminScene.MENU);
     }
 
@@ -32,7 +33,7 @@ public class AdminController {
     void back(MouseEvent event) {
         if (currentAdminScene == AdminScene.MENU) {
             Stage stage = (Stage) rootPane.getScene().getWindow();
-            ControllerUtil.showScene(AppScene.INDEX, stage);
+            showScene(AppScene.INDEX, stage);
         } else {
             setAdminScene(AdminScene.MENU);
         }

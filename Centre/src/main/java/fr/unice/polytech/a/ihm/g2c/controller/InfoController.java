@@ -19,7 +19,7 @@ import static fr.unice.polytech.a.ihm.g2c.common.AppScene.INDEX;
 /**
  * Created by Jeremy on 11/03/2017.
  */
-public class InfoController implements Translable {
+public class InfoController extends AbstractController implements Translable {
 
     private static final Logger logger = LogManager.getLogger(InfoController.class);
 
@@ -51,6 +51,8 @@ public class InfoController implements Translable {
 
     @FXML
     public void initialize() {
+        initialize(rootPane);
+
         baseHeight = scrollMap.getPrefHeight();
         baseWidth = scrollMap.getPrefWidth();
         logger.debug("baseWidth " + baseWidth + ", baseHeight " + baseHeight);
@@ -67,17 +69,21 @@ public class InfoController implements Translable {
     @FXML
     void back(MouseEvent mouseEvent) {
         Stage stage = (Stage) map.getScene().getWindow();
-        ControllerUtil.showScene(INDEX, stage);
+        showScene(INDEX, stage);
     }
 
     @FXML
     void zoomPlus(MouseEvent mouseEvent) {
+        if (zoom >= 500)
+            return;
         zoom += zoomStep;
         refreshMapSize();
     }
 
     @FXML
     void zoomMinus(MouseEvent mouseEvent) {
+        if (zoom <= 100)
+            return;
         zoom -= zoomStep;
         refreshMapSize();
     }
@@ -85,7 +91,8 @@ public class InfoController implements Translable {
     @Override
     public void refreshText() {
         ResourceBundle langBundle = data.getLangBundle();
-        description.setText(langBundle.getString("description"));
+        //description.setText(langBundle.getString("description"));
+        description.setText(data.getInformations());
         backButton.setText(langBundle.getString("back"));
         informationLabel.setText(langBundle.getString("information.about.center"));
         mapLabel.setText(langBundle.getString("map.of.center"));

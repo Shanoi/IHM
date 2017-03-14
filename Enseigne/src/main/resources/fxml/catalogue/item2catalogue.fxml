@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="HBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1700.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imgProd" fitHeight="174.0" fitWidth="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../apple_pc.png" />
+         </image></ImageView>
+      <Label fx:id="nomProd" alignment="CENTER" prefHeight="210.0" prefWidth="215.0" text="Label" />
+      <Label fx:id="descProd" alignment="CENTER" prefHeight="779.0" prefWidth="779.0" text="Label" />
+      <Label fx:id="prixProd" alignment="CENTER" prefHeight="288.0" prefWidth="417.0" text="Label" />
+   </children>
+</HBox>
