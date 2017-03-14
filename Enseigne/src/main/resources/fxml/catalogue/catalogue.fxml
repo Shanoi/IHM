@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -46,6 +47,7 @@
                         <Label text="Marque" GridPane.columnIndex="3" />
                         <ComboBox fx:id="cbBoxCat" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <ComboBox fx:id="cbBoxMarque" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onMouseClicked="#clickSearch" text="Rechercher" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
                 <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="928.0" prefWidth="1920.0" />

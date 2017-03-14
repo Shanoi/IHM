@@ -9,9 +9,11 @@ import fr.polytech.ihm.custom.ProductCataListCell;
 import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
+import static fr.polytech.ihm.kernel.Constantes.All;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
 import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
+import static fr.polytech.ihm.kernel.Tools.getSearchProduct;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -60,6 +63,9 @@ public class CatalogueController implements Initializable {
     private static int MINPRICE = 0;
 
     private static int MAXPRICE = 5000;
+    
+    private String currentCategory;
+   
 
     /**
      * Initializes the controller class.
@@ -71,6 +77,8 @@ public class CatalogueController implements Initializable {
 
     public void initCatalogue(ObservableList<Category> cats, String category) {
 
+        currentCategory = category;
+        
         initSliders(category);
         initCategory(cats);
         initBrand(category);
@@ -92,28 +100,36 @@ public class CatalogueController implements Initializable {
     private void initCategory(ObservableList<Category> cats) {
         ObservableList<String> catList = FXCollections.observableArrayList();
 
+        catList.add("All");
+        
         cats.stream().forEach((cat) -> {
             catList.add(cat.getCategory());
         });
 
         cbBoxCat.setItems(catList);
+        
+        cbBoxCat.getSelectionModel().select(currentCategory);
     }
 
     private void initBrand(String category) {
-        ObservableList<String> catList = FXCollections.observableArrayList();
+        ObservableList<String> brandList = FXCollections.observableArrayList();
 
         ArrayList<Marque> marques = getAllMarque(category);
 
+        brandList.add(All.toString());
+        
         marques.stream().forEach((marque) -> {
-            catList.add(marque.getNom());
+            brandList.add(marque.getNom());
         });
 
-        cbBoxMarque.setItems(catList);
+        cbBoxMarque.setItems(brandList);
+        
+        cbBoxMarque.getSelectionModel().selectFirst();
     }
 
     private void initSliders(String category) {
 
-        float max = getMaxPriceCategoryProduct(category);
+        float max = getMaxPriceCategoryProduct(category, All.toString());
 
         sliderPriceMin.setMin(0);
         sliderPriceMax.setMin(0);
@@ -170,6 +186,22 @@ public class CatalogueController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void clickSearch(MouseEvent event) {
+        
+        //getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem());
+        
+        //initSliders()
+        
+        productObservableList.clear();
+        
+        productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem()));
+
+        listItem.setItems(productObservableList);
+        listItem.setCellFactory(productlistItem -> new ProductCataListCell());
+        
     }
 
 }
