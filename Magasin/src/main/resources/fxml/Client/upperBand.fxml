@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.UpperBandController">
+<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/CustomDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.UpperBandController">
    <children>
       <ImageView fx:id="homePicture" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,7 +20,7 @@
             <Insets left="5.0" />
          </HBox.margin>
       </ImageView>
-      <Label fx:id="homeLabel" accessibleRole="BUTTON" onMouseClicked="#goHome" prefWidth="700.0" text="TO BE OR TO HAVE">
+      <Label fx:id="homeLabel" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goHome" prefWidth="700.0" styleClass="header" text="TO BE OR TO HAVE" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="60.0" />
          </font>
@@ -33,16 +33,19 @@
             <Insets right="80.0" />
          </HBox.margin>
          <children>
-            <HBox alignment="CENTER" prefWidth="400.0">
+            <HBox alignment="CENTER" prefWidth="400.0" styleClass="box">
                <children>
                   <ImageView fx:id="searchImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#searchProduct" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="/images/search_icon.png" />
                      </image>
-                  </ImageView>
-                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
                      <HBox.margin>
-                        <Insets left="2.0" />
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher" styleClass="text-input" stylesheets="@../../styles/CustomDarkTheme.css">
+                     <HBox.margin>
+                        <Insets />
                      </HBox.margin>
                      <font>
                         <Font size="20.0" />
@@ -50,14 +53,6 @@
                   </TextField>
                </children>
             </HBox>
-            <Label fx:id="searchNotif" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="306.0" text="Search Notif" textAlignment="CENTER">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Italic" size="15.0" />
-               </font>
-            </Label>
          </children>
       </VBox>
       <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#enSavoirPlus" prefWidth="375.0" text="En savoir plus">

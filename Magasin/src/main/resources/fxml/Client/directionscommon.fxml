@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionsCommonController">
+<HBox prefHeight="160.0" prefWidth="1920.0" styleClass="background" stylesheets="/styles/CustomDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionsCommonController">
    <children>
-      <VBox alignment="CENTER" prefHeight="160.0" prefWidth="1100.0">
+      <VBox alignment="CENTER" prefHeight="160.0" prefWidth="1103.0">
          <children>
-            <Label alignment="CENTER" text="Nos coordonnées" textAlignment="CENTER" underline="true">
+            <Label alignment="CENTER" style="-fx-font-size: 35;" styleClass="header" text="Nos coordonnées" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
@@ -21,12 +21,12 @@
                <children>
                   <HBox alignment="CENTER">
                      <children>
-                        <Label accessibleRole="BUTTON" text="Numéro de téléphone : " textAlignment="CENTER">
+                        <Label accessibleRole="BUTTON" style="-fx-font-size: 22;" styleClass="item-title" text="Numéro de téléphone : " textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="telMagasin" text="06.07.08.09.10">
+                        <Label fx:id="telMagasin" style="-fx-font-size: 20;" styleClass="text-custom" text="06.07.08.09.10">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -38,12 +38,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label text="Adresse : " textAlignment="CENTER">
+                        <Label style="-fx-font-size: 22;" styleClass="item-title" text="Adresse : " textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="adresseMagasin" text="123 avenue de France France, PARIS 75000" textAlignment="CENTER">
+                        <Label fx:id="adresseMagasin" style="-fx-font-size: 20;" styleClass="text-custom" text="123 avenue de France France, PARIS 75000" textAlignment="CENTER">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -58,12 +58,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
-                        <Label text="Notre site internet : " textAlignment="CENTER">
+                        <Label style="-fx-font-size: 22;" styleClass="item-title" text="Notre site internet : " textAlignment="CENTER">
                            <font>
                               <Font name="Calibri" size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="siteWebMagasin" text="www.ToBeOrToHave.com">
+                        <Label fx:id="siteWebMagasin" style="-fx-font-size: 20;" styleClass="text-custom" text="www.ToBeOrToHave.com">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -85,43 +85,28 @@
             <Separator orientation="VERTICAL" prefHeight="200.0" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" prefHeight="160.0" prefWidth="522.0">
+      <VBox alignment="CENTER_RIGHT" prefHeight="160.0" prefWidth="513.0">
          <children>
-            <Label fx:id="ouNousTrouver" alignment="CENTER" contentDisplay="CENTER" text="Vous ne savez pas où nous trouver ?" textAlignment="CENTER">
+            <Label fx:id="ouNousTrouver" alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 30;" styleClass="header" text="Vous ne savez pas où nous trouver ?" textAlignment="CENTER">
                <font>
                   <Font name="Calibri" size="30.0" />
                </font>
                <VBox.margin>
-                  <Insets left="20.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
             <HBox alignment="CENTER_LEFT">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Cliquez sur le bouton : " textAlignment="CENTER">
-                     <font>
-                        <Font name="Calibri" size="30.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="Se diriger">
-                     <font>
-                        <Font name="Calibri Bold" size="40.0" />
-                     </font>
-                  </Label>
-               </children>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
          </children>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="456.0">
+      <HBox alignment="CENTER" prefHeight="160.0" prefWidth="337.0">
          <children>
-            <Button fx:id="seDirigerBouton" mnemonicParsing="false" onAction="#directionsPage" text="Se diriger">
+            <Button fx:id="seDirigerBouton" mnemonicParsing="false" onAction="#directionsPage" prefHeight="53.0" prefWidth="200.0" text="Se diriger">
                <font>
-                  <Font name="System Bold" size="45.0" />
+                  <Font name="System Bold" size="35.0" />
                </font>
             </Button>
          </children>

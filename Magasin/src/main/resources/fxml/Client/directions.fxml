@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="directionParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#requestFocus" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionController">
+<BorderPane fx:id="directionParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#requestFocus" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionController">
    <center>
-      <AnchorPane prefHeight="880.0" prefWidth="1300.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="880.0" prefWidth="1300.0" styleClass="background" stylesheets="@../../styles/CustomLightTheme.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </BorderPane.margin>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="24.0" text="CARTE" textAlignment="CENTER" underline="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="24.0" styleClass="header" text="CARTE" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Impact" size="50.0" />
                </font>
@@ -34,9 +34,9 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="560.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="392.0" prefWidth="400.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Légende" textAlignment="CENTER" underline="true">
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="header" text="Légende" textAlignment="CENTER" underline="true">
                      <font>
                         <Font name="Calibri Bold" size="30.0" />
                      </font>
@@ -59,7 +59,7 @@
                               <Insets />
                            </HBox.margin>
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" text="Notre magasin" textAlignment="CENTER">
+                              <Label alignment="CENTER" contentDisplay="CENTER" styleClass="item-title" text="Notre magasin" textAlignment="CENTER">
                                  <font>
                                     <Font name="Impact" size="35.0" />
                                  </font>
@@ -80,7 +80,7 @@
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="320.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" text="Votre position" textAlignment="CENTER">
+                              <Label alignment="CENTER" contentDisplay="CENTER" styleClass="item-title" text="Votre position" textAlignment="CENTER">
                                  <font>
                                     <Font name="Impact" size="35.0" />
                                  </font>
@@ -94,59 +94,62 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="coordContainer" alignment="CENTER" prefHeight="400.0" prefWidth="400.0">
+            <VBox fx:id="coordContainer" alignment="CENTER" prefHeight="512.0" prefWidth="400.0">
                <children>
-                  <Label fx:id="nosCoordonnees" alignment="CENTER" text="Nos coordonnées" textAlignment="CENTER" underline="true">
+                  <Label fx:id="nosCoordonnees" alignment="CENTER" prefWidth="400.0" styleClass="header" text="Nos coordonnées" textAlignment="CENTER" underline="true">
                      <font>
                         <Font name="Calibri" size="30.0" />
                      </font>
                   </Label>
-                  <VBox fx:id="coordExpliciteContainer" alignment="CENTER_LEFT" fillWidth="false" prefHeight="311.0" prefWidth="400.0">
+                  <VBox fx:id="coordExpliciteContainer" alignment="CENTER_LEFT" fillWidth="false" prefHeight="380.0" prefWidth="400.0">
                      <children>
                         <VBox fx:id="numTelContainer">
                            <children>
-                              <Label fx:id="numTel" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" text="Numéro de téléphone : " textAlignment="CENTER">
+                              <Label fx:id="numTel" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" styleClass="item-title" text="Numéro de téléphone : " textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="30.0" />
                                  </font>
                               </Label>
                            </children>
                         </VBox>
-                        <Label fx:id="telMagasin" alignment="CENTER" text="06.07.08.09.10">
+                        <Label fx:id="telMagasin" prefWidth="265.0" styleClass="text-custom" text="06.07.08.09.10">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
                         </Label>
-                        <VBox fx:id="adresseContainer" prefWidth="291.0">
+                        <VBox fx:id="adresseContainer" alignment="CENTER" prefHeight="62.0" prefWidth="434.0">
                            <children>
-                              <Label fx:id="adresse" text="Adresse : " textAlignment="CENTER">
+                              <Label fx:id="adresse" prefHeight="42.0" prefWidth="433.0" styleClass="item-title" text="Adresse : " textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="30.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets right="170.0" />
+                                    <Insets />
                                  </VBox.margin>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
                         </VBox>
-                        <Label fx:id="adresseMagasin" prefHeight="77.0" prefWidth="400.0" text="123 avenue de France France, PARIS 75000" wrapText="true">
+                        <Label fx:id="adresseMagasin" alignment="TOP_LEFT" prefHeight="118.0" prefWidth="400.0" styleClass="text-custom" text="123 avenue de France France, PARIS 75000" wrapText="true">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
                         </Label>
-                        <VBox fx:id="webSiteContainer" prefWidth="291.0">
+                        <VBox fx:id="webSiteContainer" alignment="CENTER" prefHeight="42.0" prefWidth="414.0">
                            <children>
-                              <Label fx:id="webSite" text="Notre site internet : " textAlignment="CENTER">
+                              <Label fx:id="webSite" prefHeight="42.0" prefWidth="407.0" styleClass="item-title" text="Notre site internet : " textAlignment="CENTER">
                                  <font>
                                     <Font name="Calibri" size="30.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets right="40.0" />
+                                    <Insets />
                                  </VBox.margin>
                               </Label>
                            </children>
                         </VBox>
-                        <Label fx:id="siteWebMagasin" text="www.ToBeorToHave.com">
+                        <Label fx:id="siteWebMagasin" alignment="TOP_LEFT" prefHeight="77.0" prefWidth="320.0" styleClass="text-custom" text="www.ToBeorToHave.com" wrapText="true">
                            <font>
                               <Font name="Calibri Bold" size="30.0" />
                            </font>
@@ -168,7 +171,7 @@
       </VBox>
    </right>
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <fx:include source="upperBand.fxml" />
          </children>
