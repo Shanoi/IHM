@@ -2,10 +2,7 @@ package fr.polytech.ihm.controllers;
 
 import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.data.Shop;
-import fr.polytech.ihm.kernel.CheckerTool;
-import fr.polytech.ihm.kernel.InsertApp;
-import fr.polytech.ihm.kernel.ProductsParser;
-import fr.polytech.ihm.kernel.ShopParser;
+import fr.polytech.ihm.kernel.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,12 +25,15 @@ public class AdminPanelController {
 
     private ShopParser shopParser;
     private ProductsParser productsParser;
+    private InfosEnseigneParser infosEnseigneParser;
 
     private CheckerTool checkerTool;
     private InsertApp insertApp;
+    private UpdateApp updateApp;
 
     private List<TextField> shopTextFields;
     private List<TextField> productTextFields;
+    private List<TextField> enseigneFields;
 
     @FXML
     private TabPane adminPanel;
@@ -116,23 +116,37 @@ public class AdminPanelController {
     @FXML
     private Label resultLabelProduct;
 
+    @FXML
+    private TextField descEnseigneField;
+
+    @FXML
+    private TextField logoTextField;
+
+    @FXML
+    private Label confirmationEnseigne;
+
     public void initialize(){
         shopParser = new ShopParser();
         productsParser = new ProductsParser();
         insertApp = new InsertApp();
         checkerTool = new CheckerTool();
+        infosEnseigneParser = new InfosEnseigneParser();
+        updateApp = new UpdateApp();
 
         catProductField.textProperty().addListener((observable, oldValue, newValue) -> checkCategory());
 
         initShopFields();
         initProductFields();
+        initEnseigneFields();
 
         fillShop();
         fillProducts();
+        fillEnseigne();
 
         adminPanel.getSelectionModel().selectedIndexProperty().addListener((ov, oldValue, newValue) -> {
             int productTab = 0;
             int shopTab = 2;
+            int infosEnseigneTab = 3;
 
             if (newValue.intValue() == productTab){
                 fillProducts();
@@ -141,7 +155,18 @@ public class AdminPanelController {
             if (newValue.intValue() == shopTab){
                 fillShop();
             }
+
+            if (newValue.intValue() == infosEnseigneTab){
+                fillEnseigne();
+            }
         });
+    }
+
+    private void initEnseigneFields(){
+        this.enseigneFields = new ArrayList<>();
+
+        enseigneFields.add(logoTextField);
+        enseigneFields.add(descEnseigneField);
     }
 
     private void initProductFields(){
@@ -242,6 +267,14 @@ public class AdminPanelController {
     }
 
     @FXML
+    public void fillEnseigne(){
+        infosEnseigneParser.extractData();
+
+        logoTextField.setText(infosEnseigneParser.getImagePath());
+        descEnseigneField.setText(infosEnseigneParser.getDescEnseigne());
+    }
+
+    @FXML
     public void addProduct(){
         if(allFieldAreCompleted(productTextFields) && !descProductField.getText().isEmpty()){
             insertApp.insertProduct(nameProductField.getText(),
@@ -275,6 +308,19 @@ public class AdminPanelController {
 
             clearAllField(shopTextFields);
             resultLabel.setText("Effectué");
+        } else {
+            resultLabel.setText("Invalide");
+        }
+    }
+
+    @FXML
+    public void saveEnseigne(){
+        if (allFieldAreCompleted(enseigneFields)){
+            updateApp.updateEnseigne(1,
+                    logoTextField.getText(),
+                    descEnseigneField.getText());
+
+            confirmationEnseigne.setText("Effectué");
         } else {
             resultLabel.setText("Invalide");
         }
