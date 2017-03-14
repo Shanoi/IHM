@@ -12,18 +12,24 @@ import fr.polytech.ihm.data.Product;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
 import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -137,6 +143,33 @@ public class CatalogueController implements Initializable {
             lblPMin.setText(Integer.toString(sliderMax) + " €");
         }
         lblPMax.setText(Integer.toString(sliderMax) + " €");
+    }
+
+    @FXML
+    private void clickListItem(MouseEvent event) {
+
+        Product prod = (Product) listItem.getSelectionModel().getSelectedItem();
+
+        displayItem(prod);
+
+    }
+
+    private void displayItem(Product product) {
+
+        String fxmlFile = "/fxml/Item.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        try {
+            Stage stage = (Stage) listItem.getScene().getWindow();
+            Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+            Scene scene = new Scene(rootNode);
+            stage.setScene(scene);
+
+            ((ItemController) loader.getController()).initItem(product);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
