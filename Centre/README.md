@@ -1,18 +1,24 @@
-## Question à poser
+## Notes présentation
 
-* Doit-on faire le add/remove et le changement d'ordre ?
-    oui
-* Traduction ?
-    pas tout
-* Est-ce que le client va essayer de faire planter le soft ?
-* Peut-on changer de spé ?
+* Par rapport à un MVC "classique"
+    * Trop d'intelligence dans les controlleurs, handicap si on multiplie les vues. Risque de duplication de code
+    
+
+* Force de l'implem
+    * Le singleton facilement évoluable vers une BD
+    * Grande utilisation de l'héritage 
+* Faiblesse
+    * Intelligence dans les controlleurs
+    * Répétition des évenement. Un include pour le header de info et magasin ?
+
+
 
 
 
 ## TODO
 
 * Admin
-    * S'occuper de l'exception dans AddStore#sumbit ?
+    * S'occuper de l'exception dans AddStore#sumbit
 * Index
     * Ajouter des magasins
 * Info
