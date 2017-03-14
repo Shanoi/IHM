@@ -81,12 +81,6 @@ public class MainPageController implements Initializable {
     private Product currentPromos[];
     private PromoProduct promoProds;
 
-    
-    private ImageView imgV[];
-    private Label lblDescPromo[];
-    private Label lblPOPromo[];
-    private Label lblPPPromo[];
-
     private static final int NBPROMO = 3;
 
     /**
@@ -96,8 +90,6 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
-        
-        
         currentPromos = new Product[NBPROMO];
 
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
@@ -200,23 +192,29 @@ public class MainPageController implements Initializable {
     @FXML
     private void clickImgPhare(MouseEvent event) {
 
-        displayItem();
+        displayItem(currentProduct);
 
     }
 
     @FXML
     private void clickPromo1(MouseEvent event) {
 
+        displayItem(currentPromos[0]);
+        
     }
 
     @FXML
     private void clickPromo2(MouseEvent event) {
 
+        displayItem(currentPromos[1]);
+        
     }
 
     @FXML
     private void clickPromo3(MouseEvent event) {
 
+        displayItem(currentPromos[2]);
+        
     }
 
     @FXML
@@ -261,33 +259,31 @@ public class MainPageController implements Initializable {
 
     private void changeAllPromoProd(Product product[]) {
 
+        System.arraycopy(product, 0, currentPromos, 0, currentPromos.length);
+        
         changePromoProd(product[0], lblPrixP1, lblPrixO1, imgPromo1, lblPromo1);
-        
-        
+        changePromoProd(product[1], lblPrixP2, lblPrixO2, imgPromo2, lblPromo2);
+        changePromoProd(product[2], lblPrixP3, lblPrixO3, imgPromo3, lblPromo3);
 
     }
 
-    private void changePromoProd(Product product, Label pPromo, Label pOrigin, ImageView img, Label descr) {
+    private void changePromoProd(Product product, Label pPromo, Label pOrigin, ImageView img, Label nom) {
 
-        currentProduct = product;
-
-        accrochePhare.setText(product.getNom());
+        //currentProduct = product;
 
         image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
-        System.out.println("IMG --------- " + image);
-        
         img.setImage(image);
 
-        descr.setText(product.getDescription());
-        
+        nom.setText(product.getNom());
+
         pOrigin.setText(Float.toString(product.getPrix()) + "€");
 
         pPromo.setText(Float.toString(product.getPrix() * ((float) product.getCurrentPromo() / 100)) + "€");
 
     }
 
-    private void displayItem() {
+    private void displayItem(Product product) {
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
@@ -296,12 +292,12 @@ public class MainPageController implements Initializable {
 
             Scene scene = new Scene(rootNode);
             stage.setScene(scene);
-            log.info("Produit selectionné depuis la MainPage : " + currentProduct.getNom());
-            ((ItemController) loader.getController()).initItem(currentProduct);
+            log.info("Produit selectionné depuis la MainPage : " + product.getNom());
+            ((ItemController) loader.getController()).initItem(product);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
 }

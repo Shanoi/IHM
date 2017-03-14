@@ -127,13 +127,13 @@ public class PromoProduct {
 
         if (currentIndex == 0) {
 
-            currentIndex = products.size();
+            currentIndex = products.size() - 1;
             prods[0] = products.get(currentIndex);
             prods[1] = products.get(0);
             prods[2] = products.get(1);
             return prods;
 
-        } else if (currentIndex == 1) {
+        } else if (currentIndex == products.size() - 1) {
 
             currentIndex--;
             prods[0] = products.get(currentIndex);
@@ -141,7 +141,7 @@ public class PromoProduct {
             prods[2] = products.get(0);
             return prods;
 
-        } else if (currentIndex == 2) {
+        } else if (currentIndex == products.size() - 2) {
 
             currentIndex--;
             prods[0] = products.get(currentIndex);
