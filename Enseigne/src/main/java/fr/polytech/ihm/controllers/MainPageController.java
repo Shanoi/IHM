@@ -8,6 +8,7 @@ package fr.polytech.ihm.controllers;
 import fr.polytech.ihm.data.Product;
 import fr.polytech.ihm.kernel.MainProducts;
 import fr.polytech.ihm.kernel.ProductsParser;
+import fr.polytech.ihm.kernel.PromoProduct;
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
@@ -35,12 +36,34 @@ public class MainPageController implements Initializable {
 
     @FXML
     private Label accrochePhare;
-
     @FXML
     private ImageView imagePhare;
-
+    @FXML
+    private ImageView imgPromo1;
+    @FXML
+    private ImageView imgPromo2;
+    @FXML
+    private ImageView imgPromo3;
     @FXML
     private Label prixPhare;
+    @FXML
+    private Label lblPromo1;
+    @FXML
+    private Label lblPromo2;
+    @FXML
+    private Label lblPromo3;
+    @FXML
+    private Label lblPrixP1;
+    @FXML
+    private Label lblPrixP2;
+    @FXML
+    private Label lblPrixP3;
+    @FXML
+    private Label lblPrixO1;
+    @FXML
+    private Label lblPrixO2;
+    @FXML
+    private Label lblPrixO3;
 
     private MainProducts mainProds;
 
@@ -55,6 +78,16 @@ public class MainPageController implements Initializable {
     private AnimationTimer tracker;
 
     private Product currentProduct;
+    private Product currentPromos[];
+    private PromoProduct promoProds;
+
+    
+    private ImageView imgV[];
+    private Label lblDescPromo[];
+    private Label lblPOPromo[];
+    private Label lblPPPromo[];
+
+    private static final int NBPROMO = 3;
 
     /**
      * Initializes the controller class.
@@ -63,10 +96,18 @@ public class MainPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
+        
+        
+        currentPromos = new Product[NBPROMO];
+
         //Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/DVD.png"));
         mainProds = new MainProducts();
 
+        promoProds = new PromoProduct();
+
         changeMainProd(mainProds.getCurrentProduct());
+
+        changeAllPromoProd(promoProds.currentsProduct());
 
         //accrochePhare.setText(mainProds.getCurrentProduct().getNom());
         //imagePhare.setImage(image);
@@ -178,6 +219,24 @@ public class MainPageController implements Initializable {
 
     }
 
+    @FXML
+    private void clickLeftPromo(MouseEvent event) {
+
+        currentPromos = promoProds.prevProduct();
+
+        changeAllPromoProd(currentPromos);
+
+    }
+
+    @FXML
+    private void clickRightPromo(MouseEvent event) {
+
+        currentPromos = promoProds.nextProduct();
+
+        changeAllPromoProd(currentPromos);
+
+    }
+
     private void changeMainProd(Product product) {
 
         currentProduct = product;
@@ -200,6 +259,34 @@ public class MainPageController implements Initializable {
 
     }
 
+    private void changeAllPromoProd(Product product[]) {
+
+        changePromoProd(product[0], lblPrixP1, lblPrixO1, imgPromo1, lblPromo1);
+        
+        
+
+    }
+
+    private void changePromoProd(Product product, Label pPromo, Label pOrigin, ImageView img, Label descr) {
+
+        currentProduct = product;
+
+        accrochePhare.setText(product.getNom());
+
+        image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
+
+        System.out.println("IMG --------- " + image);
+        
+        img.setImage(image);
+
+        descr.setText(product.getDescription());
+        
+        pOrigin.setText(Float.toString(product.getPrix()) + "€");
+
+        pPromo.setText(Float.toString(product.getPrix() * ((float) product.getCurrentPromo() / 100)) + "€");
+
+    }
+
     private void displayItem() {
         String fxmlFile = "/fxml/Item.fxml";
         FXMLLoader loader = new FXMLLoader();
@@ -216,5 +303,5 @@ public class MainPageController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    
 }

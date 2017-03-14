@@ -69,7 +69,7 @@ public class ItemController implements Initializable {
         System.out.println("LIST : " + getCategoryProduct(product.getCategory()));
 
         listItem.setItems(productObservableList);
-        listItem.setCellFactory(studentListView -> new ProductListCell());
+        listItem.setCellFactory(productlistItem -> new ProductListCell());
 
         log.info("Produit selectionné : " + product.getNom());
 
