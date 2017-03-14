@@ -40,7 +40,7 @@
       </HBox>
    </top>
    <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="50.0" spacing="30.0" styleClass="store-central-panel" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="50.0" spacing="30.0" styleClass="central-panel" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
                <children>

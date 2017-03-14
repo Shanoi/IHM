@@ -1,10 +1,22 @@
 * {
-    -header-height: 75px;
+    /* Colors */
     -dark-color: #333333;
     -light-color: white;
     -highlight-color: #dd465d;
+    -menu-background-color: #f4f4f4;
+
+    -admin-menu-cell-width: 250px;
+    -admin-menu-cell-height: 50px;
+
+    -header-height: 75px;
     -showcase-tile-width:100px;
     -showcase-tile-height:100px;
+    -central-panel-width:900px;
+    -central-panel-height:400px;
+    -index-menu-width:175px;
+    -index-central-central-width: 725px;
+    -background-panel-width: 960px;
+    -background-panel-height: 540px;
 }
 
 .label {
@@ -85,47 +97,37 @@
 
 .background-panel {
     -fx-background-image: url("../images/background-panel.jpg");
-    -fx-background-repeat: stretch;
-    -fx-background-size: 960 540;
-    -fx-pref-width: 960px;
-    -fx-pref-height: 540px;
+    -fx-pref-width: -background-panel-width;
+    -fx-pref-height: -background-panel-height;
+    -fx-background-size: stretch;
 }
 
 .admin-menu-row {
-	-fx-spacing: 50px;
+	-fx-spacing: -admin-menu-cell-height;
 	-fx-alignement: center;
 }
 
 .admin-menu-col {
-    -fx-pref-width: 250px;
+    -fx-pref-width: -admin-menu-cell-width;
 }
 
 .index-menu {
-    -fx-background-color: #f4f4f4;
-    -fx-pref-width: 175px;
+    -fx-background-color: -menu-background-color;
+    -fx-pref-width: -index-menu-width;
+}
+
+.central-panel, .index-central-panel {
+    -fx-background-color: -light-color;
+    -fx-pref-height: -central-panel-height;
+    -fx-padding: 10 20 10 20;
 }
 
 .index-central-panel{
-    -fx-background-color: -light-color;
-    -fx-pref-width: 725px;
-    -fx-pref-height: 400px;
-    -fx-padding: 10 20 10 20;
+    -fx-pref-width: -index-central-central-width;
 }
 
-.admin-central-panel {
-    -fx-background-color: -light-color;
-    -fx-pref-width: 900px;
-    -fx-pref-height: 400px;
-    -fx-padding: 10 20 10 20;
-}
-
-.store-central-panel {
-    -fx-background-color: -light-color;
-    /*-fx-pref-width: 870px;
-    -fx-pref-height: 350px;*/
-    -fx-pref-width: 900px;
-    -fx-pref-height: 400px;
-    -fx-padding: 10 20 10 20;
+.central-panel {
+    -fx-pref-width: -central-panel-width;
 }
 
 .showcase-panel {
@@ -133,14 +135,3 @@
     -fx-pref-tile-height: -showcase-tile-height;
     -fx-pref-tile-width: -showcase-tile-width;
 }
-
-/*.showcase-scroll {
-	-fx-background-color: -light-color;
-	-fx-pref-width: 725px;
-	-fx-pref-height: 350px;
-	-fx-min-width: 725px;
-	-fx-min-height: 350px;
-	-fx-max-width: 725px;
-	-fx-max-height: 350px;
-	-fx-padding: 0 0 0 0;
-}*/

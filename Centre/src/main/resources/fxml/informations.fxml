@@ -43,7 +43,7 @@
    <center>
       <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
          <content>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="store-central-panel">
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" styleClass="central-panel">
                <children>
                   <Label fx:id="informationLabel" styleClass="h1" text="Informations sur le centre" />
                   <Label fx:id="description" styleClass="h2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textOverrun="CLIP" wrapText="true" />

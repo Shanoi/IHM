@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="rootPane" maxHeight="400.0" maxWidth="900.0" prefHeight="450.0" prefWidth="900.0" styleClass="admin-central-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.MenuController">
+<VBox fx:id="rootPane" maxHeight="400.0" maxWidth="900.0" prefHeight="450.0" prefWidth="900.0" styleClass="central-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.MenuController">
    <children>
       <Label styleClass="h1" text="Gestion Magasins" />
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="admin-menu-row">
