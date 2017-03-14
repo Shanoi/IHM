@@ -10,26 +10,26 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" styleClass="central-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.AddStoreController">
    <children>
       <Label styleClass="h1" text="Ajout d'un magasin" />
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" spacing="30.0">
          <children>
             <VBox alignment="TOP_RIGHT" spacing="15.0">
                <children>
-                  <Label styleClass="button-label" text="Nom du magasin" />
-                  <Label layoutX="10.0" layoutY="10.0" styleClass="button-label" text="Description du magasin" />
-                  <Label layoutX="10.0" layoutY="80.0" styleClass="button-label" text="Image">
+                  <Label styleClass="h2" text="Nom du magasin" />
+                  <Label layoutX="10.0" layoutY="10.0" styleClass="h2" text="Description du magasin" />
+                  <Label layoutX="10.0" layoutY="80.0" styleClass="h2" text="Image">
                      <VBox.margin>
                         <Insets top="90.0" />
                      </VBox.margin>
                   </Label>
-                  <Label layoutX="53.0" layoutY="10.0" styleClass="button-label" text="Catégorie du magasin">
+                  <Label layoutX="53.0" layoutY="10.0" styleClass="h2" text="Catégorie du magasin">
                      <VBox.margin>
                         <Insets top="4.0" />
                      </VBox.margin>
                   </Label>
-                  <Label layoutX="22.0" layoutY="201.0" styleClass="button-label" text="Enseigne">
+                  <Label layoutX="22.0" layoutY="201.0" styleClass="h2" text="Enseigne">
                      <VBox.margin>
                         <Insets top="2.0" />
                      </VBox.margin>
@@ -43,7 +43,7 @@
                   <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
                      <children>
                         <TextField fx:id="imgPath" prefHeight="20.0" prefWidth="200.0" />
-                        <Button mnemonicParsing="false" onMouseClicked="#browse" prefWidth="95.0" styleClass="button-file" text="Parcourir" />
+                        <Button mnemonicParsing="false" onMouseClicked="#browse" prefWidth="95.0" styleClass="button-browser" text="Parcourir" />
                      </children>
                   </HBox>
                   <ChoiceBox fx:id="category" minHeight="20.0" prefWidth="200.0" />
@@ -54,7 +54,7 @@
       </HBox>
       <VBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#submit" styleClass="button-done" text="Valider">
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#submit" styleClass="button-submit" text="Valider">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

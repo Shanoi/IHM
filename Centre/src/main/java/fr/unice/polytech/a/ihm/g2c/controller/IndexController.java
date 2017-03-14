@@ -186,7 +186,7 @@ public class IndexController implements Translable {
 
     private Label noResult() {
         Label lbl = new Label(data.getLangBundle().getString("no.result"));
-        lbl.getStyleClass().add("button-label");
+        lbl.getStyleClass().add("h2");
         return lbl;
     }
 

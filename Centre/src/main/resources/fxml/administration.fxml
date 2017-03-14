@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.AdminController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="background-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.AdminController">
    <top>
-      <HBox prefHeight="150.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER">
+      <HBox id="header" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -22,7 +22,7 @@
                   <Insets left="150.0" />
                </HBox.margin>
             </Label>
-            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="92.0" styleClass="button-back" text="Retour">
+            <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="40.0" prefWidth="92.0" styleClass="button-white" text="Retour">
                <HBox.margin>
                   <Insets left="90.0" top="17.0" />
                </HBox.margin>

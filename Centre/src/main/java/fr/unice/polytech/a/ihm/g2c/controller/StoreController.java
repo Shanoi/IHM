@@ -71,7 +71,7 @@ public class StoreController implements Translable{
 
     private Button createButton() {
         Button button = new Button("");
-        button.getStyleClass().add("button2");
+        button.getStyleClass().add("button-black");
         return button;
     }
 
