@@ -18,12 +18,10 @@ public class UpperBandController {
     private ImageView searchImage;
     @FXML
     private TextField searchBar;
-    @FXML
-    private Label searchNotif;
 
     @FXML
     public void initialize(){
-        searchNotif.setText(null);
+
     }
 
     @FXML
