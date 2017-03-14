@@ -10,6 +10,7 @@ import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
 import static fr.polytech.ihm.kernel.Constantes.All;
+import fr.polytech.ihm.kernel.Tools;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
 import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
@@ -33,6 +34,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * FXML Controller class
@@ -40,6 +43,8 @@ import javafx.stage.Stage;
  * @author Olivier
  */
 public class CatalogueController implements Initializable {
+
+    private static final Logger log = LoggerFactory.getLogger(CatalogueController.class);
 
     @FXML
     private Slider sliderPriceMin;
@@ -63,9 +68,8 @@ public class CatalogueController implements Initializable {
     private static int MINPRICE = 0;
 
     private static int MAXPRICE = 5000;
-    
+
     private String currentCategory;
-   
 
     /**
      * Initializes the controller class.
@@ -78,7 +82,7 @@ public class CatalogueController implements Initializable {
     public void initCatalogue(ObservableList<Category> cats, String category) {
 
         currentCategory = category;
-        
+
         initSliders(category);
         initCategory(cats);
         initBrand(category);
@@ -101,13 +105,13 @@ public class CatalogueController implements Initializable {
         ObservableList<String> catList = FXCollections.observableArrayList();
 
         catList.add("All");
-        
+
         cats.stream().forEach((cat) -> {
             catList.add(cat.getCategory());
         });
 
         cbBoxCat.setItems(catList);
-        
+
         cbBoxCat.getSelectionModel().select(currentCategory);
     }
 
@@ -117,19 +121,19 @@ public class CatalogueController implements Initializable {
         ArrayList<Marque> marques = getAllMarque(category);
 
         brandList.add(All.toString());
-        
+
         marques.stream().forEach((marque) -> {
             brandList.add(marque.getNom());
         });
 
         cbBoxMarque.setItems(brandList);
-        
+
         cbBoxMarque.getSelectionModel().selectFirst();
     }
 
     private void initSliders(String category) {
 
-        float max = getMaxPriceCategoryProduct(category, All.toString());
+        float max = getMaxPriceCategoryProduct(category, All.toString(), false);
 
         sliderPriceMin.setMin(0);
         sliderPriceMax.setMin(0);
@@ -190,17 +194,18 @@ public class CatalogueController implements Initializable {
 
     @FXML
     private void clickSearch(MouseEvent event) {
-        
-        //getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem());
-        
-        //initSliders()
-        
+
         productObservableList.clear();
-        
-        productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem()));
+
+        productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected()));
 
         listItem.setItems(productObservableList);
         listItem.setCellFactory(productlistItem -> new ProductCataListCell());
+
+        float max = getMaxPriceCategoryProduct(cbBoxCat.getSelectionModel().getSelectedItem(), cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected());
+        
+        sliderPriceMax.setMax(max);
+        sliderPriceMin.setMax(max);
         
     }
 

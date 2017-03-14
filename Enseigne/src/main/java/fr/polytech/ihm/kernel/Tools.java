@@ -15,12 +15,16 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author Olivier
  */
 public class Tools {
+
+    private static final Logger log = LoggerFactory.getLogger(Tools.class);
 
     public static ArrayList<Product> getCategoryProduct(String category) {
 
@@ -74,7 +78,9 @@ public class Tools {
 
     }
 
-    public static ArrayList<Product> getSearchProduct(String category, String marque) {
+    public static ArrayList<Product> getSearchProduct(String category, String marque, boolean promo) {
+
+        log.info("Marque : " + marque + " category : " + category);
 
         ArrayList<Product> products = new ArrayList<>();
 
@@ -103,11 +109,23 @@ public class Tools {
 
             if (!category.equals(All.toString()) && !marque.equals(All.toString())) {
 
-                query.append(" AND marqueName = \'").append(marque).append(All.toString());
+                query.append(" AND marqueName = \'").append(marque).append("\'");
 
-            } else if (category.equals(All.toString()) && !marque.equals(All.toString())) {
+            }
+
+            if (category.equals(All.toString()) && !marque.equals(All.toString())) {
 
                 query.append("WHERE marqueName = \'").append(marque).append("\'");
+
+            }
+
+            if (promo && category.equals("All") && marque.equals(All.toString())) {
+
+                query.append("WHERE promo != 0");
+
+            } else if (promo) {
+
+                query.append("AND promo != 0");
 
             }
 
@@ -136,7 +154,7 @@ public class Tools {
 
         } catch (Exception e) {
 
-            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+            log.error("getSearchProduct --- Le Programme a Echoué :/ \n" + e.getMessage());
 
         }
 
@@ -144,9 +162,13 @@ public class Tools {
 
     }
 
-    public static float getMaxPriceCategoryProduct(String category, String marque) {
+    public static float getMaxPriceCategoryProduct(String category, String marque, boolean promo) {
+
+        log.info("Marque : " + marque + " category : " + category);
 
         float max = 5000;
+
+        int promoPrice = 0;
 
         StringBuilder query = new StringBuilder();
 
@@ -161,13 +183,16 @@ public class Tools {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            query.append("select max(priceProduct) AS maxPrice "
+            /*query.append("select max(priceProduct) AS maxPrice "
+             + "FROM products "
+             + "NATURAL JOIN marque ");*/
+            query.append("select * "
                     + "FROM products "
-                    + "NATURAL JOIN marque");
+                    + "NATURAL JOIN marque ");
 
             if (!category.equals(All.toString())) {
 
-                query.append("WHERE products.category = \'").append(category).append("\'");
+                query.append("WHERE products.category = \'").append(category).append("\' ");
 
             }
 
@@ -175,16 +200,40 @@ public class Tools {
 
                 query.append(" AND marqueName = \'").append(marque).append("\'");
 
-            } else if (category.equals("All") && !marque.equals(All.toString())) {
+            }
+
+            if (category.equals("All") && !marque.equals(All.toString())) {
 
                 query.append("WHERE marqueName = \'").append(marque).append("\'");
 
             }
 
+            if (promo && category.equals("All") && marque.equals(All.toString())) {
+
+                query.append("WHERE promo != 0");
+
+            } else if (promo) {
+
+                query.append(" AND promo != 0");
+
+            }
+
+            query.append(" ORDER BY priceProduct DESC, promo ASC");
+
+            log.debug("QUERY : " + query);
+
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
-            max = rs.getFloat("maxPrice");
+            max = rs.getFloat("priceProduct");
+
+            promoPrice = rs.getInt("promo");
+
+            if (promoPrice != 0) {
+
+                max = max * ((float) promoPrice / 100);
+
+            }
 
             rs.close();
             lien.close();
@@ -194,7 +243,7 @@ public class Tools {
 
         } catch (Exception e) {
 
-            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+            log.error("getMaxPriceCategoryProduct -- Le Programme a Echoué :/ \n" + e.getMessage());
 
         }
 

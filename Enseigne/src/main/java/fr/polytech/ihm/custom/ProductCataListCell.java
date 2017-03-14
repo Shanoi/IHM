@@ -20,12 +20,12 @@ import javafx.scene.layout.GridPane;
  * @author Olivier
  */
 public class ProductCataListCell extends ListCell<Product> {
-    
+
     private FXMLLoader mLLoader;
-    
+
     @FXML
     private GridPane gridPane;
-    
+
     @FXML
     private Label nomProd;
     @FXML
@@ -34,13 +34,12 @@ public class ProductCataListCell extends ListCell<Product> {
     private Label prixProd;
     @FXML
     private ImageView imgProd;
-    
-    
+
     @Override
     protected void updateItem(Product product, boolean empty) {
         super.updateItem(product, empty);
 
-        if(empty || product == null) {
+        if (empty || product == null) {
 
             setText(null);
             setGraphic(null);
@@ -57,19 +56,27 @@ public class ProductCataListCell extends ListCell<Product> {
                 }
 
             }
-            
+
             Image img = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
-            
+
             imgProd.setImage(img);
             descProd.setText(product.getCategory());
             nomProd.setText(product.getNom());
-            prixProd.setText(String.valueOf(product.getPrix()) + "€");
-            
+
+            if (product.getCurrentPromo() != 0) {
+
+                prixProd.setText(String.valueOf(product.getPrixPromo()) + "€ Was " + String.valueOf(product.getPrix()) + "€");
+
+            } else {
+
+                prixProd.setText(String.valueOf(product.getPrix()) + "€");
+
+            }
 
             setText(null);
             setGraphic(gridPane);
         }
 
     }
-    
+
 }
