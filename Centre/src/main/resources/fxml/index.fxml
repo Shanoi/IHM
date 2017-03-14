@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/style-big.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
       <HBox id="header" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -54,10 +54,11 @@
    <left>
       <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="menuList" prefHeight="100.0" prefWidth="50.0" styleClass="index-menu">
+            <VBox prefHeight="100.0" prefWidth="50.0" styleClass="index-menu">
                <children>
                   <TextField fx:id="searchField" promptText="Recherche..." />
                   <Label fx:id="categoryLabel" styleClass="h1" text="Catégories" />
+                  <VBox fx:id="menuList" prefHeight="200.0" prefWidth="100.0" />
                </children>
             </VBox>
          </content>
@@ -78,10 +79,13 @@
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
                      <children>
                         <Label fx:id="storesLabel" styleClass="h1" text="Toutes les boutiques" />
-                        <Label fx:id="sortBy" styleClass="h2" text="Trier par">
+                        <Label id="index-sort-by" fx:id="sortBy" styleClass="h2" text="Trier par">
                            <HBox.margin>
-                              <Insets left="280.0" />
+                              <Insets />
                            </HBox.margin>
+                           <padding>
+                              <Insets left="150.0" />
+                           </padding>
                         </Label>
                         <ChoiceBox fx:id="sortTypeChooser" prefWidth="80.0" />
                      </children>

@@ -91,6 +91,11 @@
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
+#index-sort-by {
+    -fx-padding: 0 0 0 280;
+}
+
+
 .background-panel {
     -fx-background-image: url("../images/background-panel.jpg");
     -fx-pref-width: -background-panel-width;

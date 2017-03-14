@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/sytle.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.StoreController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/style.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.StoreController">
    <top>
       <HBox id="header" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -40,19 +40,19 @@
       </HBox>
    </top>
    <center>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="50.0" spacing="30.0" styleClass="central-panel" BorderPane.alignment="CENTER">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="50.0" spacing="30.0" styleClass="central-panel" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
                <children>
                   <ImageView fx:id="logo" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/stores/fnac.jpg" />
                      </image>
                   </ImageView>
-                  <VBox alignment="CENTER" prefHeight="200.0" spacing="15.0">
+                  <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="200.0" spacing="15.0">
                      <children>
-                        <Label fx:id="name" styleClass="h1" text="FNAC" />
-                        <Label fx:id="description" styleClass="h2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Label fx:id="name" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="h1" text="FNAC" textAlignment="CENTER" />
+                        <Label fx:id="description" alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="h2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin vulputate dolor ut pharetra. Aenean consectetur purus id eleifend dapibus. Donec maximus nec mauris nec dignissim. Pellentesque nec est non massa mattis consequat. Etiam sit amet sapien leo. Nullam id lorem facilisis est mattis feugiat. Sed aliquam lacinia sapien ut gravida. Pellentesque at dictum enim, et bibendum dui. Duis interdum nisi nibh. Ut vel accumsan leo. Vestibulum at velit nec ligula tempor pretium et a purus. Integer eu malesuada quam. " textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                      </children>
                   </VBox>
                </children>

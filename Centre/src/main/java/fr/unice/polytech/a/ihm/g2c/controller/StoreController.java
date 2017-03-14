@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ResourceBundle;
 
-public class StoreController implements Translable{
+public class StoreController extends AbstractController implements Translable{
 
     private static final Logger logger = LogManager.getLogger(StoreController.class);
 
@@ -41,10 +41,11 @@ public class StoreController implements Translable{
 
     @FXML
     void initialize() {
-
     }
 
     public void initStore(Store store) {
+        initialize(rootPane);
+
         logger.debug("Init "+store);
         name.setText(store.getName());
         description.setText(store.getDescription());
@@ -61,7 +62,7 @@ public class StoreController implements Translable{
     @FXML
     void back(MouseEvent event) {
         Stage stage = (Stage) rootPane.getScene().getWindow();
-        ControllerUtil.showScene(AppScene.INDEX, stage);
+        showScene(AppScene.INDEX, stage);
     }
 
     @FXML

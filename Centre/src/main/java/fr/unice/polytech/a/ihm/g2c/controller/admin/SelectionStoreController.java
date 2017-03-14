@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.controller.admin;
 
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
+import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.controller.AdminSceneController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
@@ -11,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -24,8 +26,9 @@ public class SelectionStoreController extends AdminSceneController {
 
     @FXML
     void initialize() {
-        storeMap = new HashMap<>();
+        storeMap = new LinkedHashMap<>();
         List<Store> stores = DataModel.getInstance().getStoreList();
+        stores.sort(SortingType.A_TO_Z.getComparator());
         List<Store> storeSelection = DataModel.getInstance().getStoreSelectionList();
         stores.forEach(store -> {
             CheckBox cb = new CheckBox(store.toString());
