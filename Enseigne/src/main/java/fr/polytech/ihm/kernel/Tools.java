@@ -8,6 +8,7 @@ package fr.polytech.ihm.kernel;
 import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
+import static fr.polytech.ihm.kernel.Constantes.All;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -56,7 +57,7 @@ public class Tools {
                         (rs.getInt("produitPhare") == 1),
                         (rs.getInt("enVente") == 1),
                         rs.getInt("promo")));
-                
+
             }
 
             rs.close();
@@ -73,12 +74,12 @@ public class Tools {
 
     }
 
-    public static float getMaxPriceCategoryProduct(String category) {
+    public static ArrayList<Product> getSearchProduct(String category, String marque) {
 
-        
+        ArrayList<Product> products = new ArrayList<>();
 
-        float max = 5000;
-        
+        StringBuilder query = new StringBuilder();
+
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -90,11 +91,97 @@ public class Tools {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            String query = "select max(priceProduct) AS maxPrice "
+            query.append("SELECT * "
                     + "FROM products "
-                    + "WHERE products.category = \'" + category + "\'";
+                    + "NATURAL JOIN marque ");
 
-            ResultSet rs = lien.executeQuery(query);
+            if (!category.equals(All.toString())) {
+
+                query.append("WHERE products.category = \'").append(category).append("\'");
+
+            }
+
+            if (!category.equals(All.toString()) && !marque.equals(All.toString())) {
+
+                query.append(" AND marqueName = \'").append(marque).append(All.toString());
+
+            } else if (category.equals(All.toString()) && !marque.equals(All.toString())) {
+
+                query.append("WHERE marqueName = \'").append(marque).append("\'");
+
+            }
+
+            ResultSet rs = lien.executeQuery(query.toString());
+            System.out.println("Requête Effectuée");
+
+            while (rs.next()) {
+
+                products.add(new Product(rs.getFloat("priceProduct"),
+                        rs.getString("productName"),
+                        rs.getString("picture"),
+                        rs.getString("description"),
+                        rs.getString("category"),
+                        rs.getInt("idMarque"),
+                        rs.getInt("nbSell"),
+                        rs.getInt("idProduct"),
+                        (rs.getInt("produitPhare") == 1),
+                        (rs.getInt("enVente") == 1),
+                        rs.getInt("promo")));
+
+            }
+
+            rs.close();
+            lien.close();
+            cnx.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+
+        return products;
+
+    }
+
+    public static float getMaxPriceCategoryProduct(String category, String marque) {
+
+        float max = 5000;
+
+        StringBuilder query = new StringBuilder();
+
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            query.append("select max(priceProduct) AS maxPrice "
+                    + "FROM products "
+                    + "NATURAL JOIN marque");
+
+            if (!category.equals(All.toString())) {
+
+                query.append("WHERE products.category = \'").append(category).append("\'");
+
+            }
+
+            if (!category.equals("All") && !marque.equals(All.toString())) {
+
+                query.append(" AND marqueName = \'").append(marque).append("\'");
+
+            } else if (category.equals("All") && !marque.equals(All.toString())) {
+
+                query.append("WHERE marqueName = \'").append(marque).append("\'");
+
+            }
+
+            ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
             max = rs.getFloat("maxPrice");
@@ -104,7 +191,7 @@ public class Tools {
             cnx.close();
 
             return max;
-            
+
         } catch (Exception e) {
 
             System.out.println("Le Programme a Echoué :/ \n" + e.getMessage());
