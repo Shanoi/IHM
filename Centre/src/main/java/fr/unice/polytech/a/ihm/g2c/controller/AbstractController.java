@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
@@ -13,6 +15,8 @@ import java.io.IOException;
  * Created by Jeremy on 14/03/2017.
  */
 public class AbstractController {
+    
+    private static final Logger logger = LogManager.getLogger(AbstractController.class);
 
     protected DataModel data = DataModel.getInstance();
 
@@ -28,7 +32,7 @@ public class AbstractController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 

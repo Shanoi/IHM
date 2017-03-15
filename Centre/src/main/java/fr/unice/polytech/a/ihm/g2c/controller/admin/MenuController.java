@@ -1,14 +1,10 @@
 package fr.unice.polytech.a.ihm.g2c.controller.admin;
 
-import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
-import fr.unice.polytech.a.ihm.g2c.controller.AdminSceneController;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 import static fr.unice.polytech.a.ihm.g2c.common.AdminScene.*;
-
-import java.io.IOException;
 
 /**
  * Created by user on 10/03/2017.

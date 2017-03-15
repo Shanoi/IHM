@@ -4,19 +4,27 @@ import fr.unice.polytech.a.ihm.g2c.common.Category;
 import fr.unice.polytech.a.ihm.g2c.common.Language;
 import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.common.Stylesheet;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by user on 08/03/2017.
  */
 public class DataModel {
 
+    private static final Logger logger = LogManager.getLogger(DataModel.class);
+    
     private static DataModel instance = new DataModel();
 
     private Language lang;
     private ResourceBundle langBundle;
-    private String stylesheet = Stylesheet.BIG.toString();
+    private String stylesheet = Stylesheet.NORMAL.toString();
+
 
     private List<Store> storeList = new ArrayList<>();
     private List<Store> storeSelectionList = new ArrayList<>();
@@ -41,6 +49,8 @@ public class DataModel {
     }
 
     public void removeStore(Store store) {
+        if (store == null)
+            throw new IllegalArgumentException();
         storeList.remove(store);
     }
 
@@ -100,6 +110,7 @@ public class DataModel {
 
     public void setLang(Language lang) {
         this.lang = lang;
+        logger.debug("Set language to: " + lang);
         langBundle = ResourceBundle.getBundle("properties.lang", lang.getLocale());
     }
 
