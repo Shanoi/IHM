@@ -407,7 +407,7 @@ public class Tools {
 
             query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(name).append("%\' ");
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
 
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
