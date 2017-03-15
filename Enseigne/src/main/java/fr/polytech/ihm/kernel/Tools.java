@@ -46,8 +46,9 @@ public class Tools {
             query.append("select * "
                     + "FROM products ");
 
-            query.append("WHERE products.category = \'").append(category).append("\'");
+            query.append("WHERE products.category = \'").append(category).append("\' ");
 
+            query.append("AND enVente = 1 ");
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
@@ -106,6 +107,8 @@ public class Tools {
                     .append(pMin)
                     .append(" AND priceProduct <= ")
                     .append(pMax);
+
+            query.append("AND enVente = 1 ");
 
             if (!category.equals(All.toString())) {
 
@@ -185,29 +188,21 @@ public class Tools {
                     + "FROM products "
                     + "NATURAL JOIN marque ");
 
+            query.append("WHERE enVente = 1 ");
+
             if (!category.equals(All.toString())) {
 
-                query.append("WHERE products.category = \'").append(category).append("\' ");
+                query.append("AND products.category = \'").append(category).append("\' ");
 
             }
 
-            if (!category.equals("All") && !marque.equals(All.toString())) {
+            if (!marque.equals(All.toString())) {
 
                 query.append(" AND marqueName = \'").append(marque).append("\'");
 
             }
 
-            if (category.equals("All") && !marque.equals(All.toString())) {
-
-                query.append("WHERE marqueName = \'").append(marque).append("\'");
-
-            }
-
-            if (promo && category.equals("All") && marque.equals(All.toString())) {
-
-                query.append("WHERE promo != 0");
-
-            } else if (promo) {
+            if (promo) {
 
                 query.append(" AND promo != 0");
 
@@ -266,7 +261,7 @@ public class Tools {
             System.out.println("Lien Créé");
 
             query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(search).append("%\' ");
-
+            query.append("AND enVente = 1 ");
             query.append(" ORDER BY priceProduct DESC, promo ASC");
 
             log.debug("QUERY : " + query);
@@ -411,6 +406,8 @@ public class Tools {
             System.out.println("Lien Créé");
 
             query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(name).append("%\' ");
+
+            query.append("AND enVente = 1 ");
 
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
