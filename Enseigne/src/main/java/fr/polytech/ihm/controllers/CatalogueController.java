@@ -11,9 +11,12 @@ import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
 import static fr.polytech.ihm.kernel.Constantes.All;
 import fr.polytech.ihm.kernel.Tools;
+import static fr.polytech.ihm.kernel.Tools.getAllCategory;
 import static fr.polytech.ihm.kernel.Tools.getAllMarque;
+import static fr.polytech.ihm.kernel.Tools.getAllProduct;
 import static fr.polytech.ihm.kernel.Tools.getCategoryProduct;
 import static fr.polytech.ihm.kernel.Tools.getMaxPriceCategoryProduct;
+import static fr.polytech.ihm.kernel.Tools.getMaxPriceSearchProduct;
 import static fr.polytech.ihm.kernel.Tools.getSearchProduct;
 import java.io.IOException;
 import java.net.URL;
@@ -90,6 +93,30 @@ public class CatalogueController implements Initializable {
 
     }
 
+    public void initCatalogue(String search) {
+
+        currentCategory = All.toString();
+
+        initSlidersAll(currentCategory);
+        initCategory(getAllCategory());
+        initBrand(All.toString());
+        initProduct(getAllProduct(search));
+
+    }
+
+    private void initSlidersAll(String search){
+        
+        float max = getMaxPriceSearchProduct(search);
+
+        sliderPriceMin.setMin(0);
+        sliderPriceMax.setMin(0);
+        sliderPriceMin.setMax(max);
+        sliderPriceMax.setMax(max);
+        sliderPriceMax.setValue(max);
+        lblPMax.setText((int) max + " €");
+        
+    }
+    
     private void initProduct(String category) {
 
         productObservableList = FXCollections.observableArrayList();
@@ -101,7 +128,32 @@ public class CatalogueController implements Initializable {
 
     }
 
+    private void initProduct(ArrayList<Product> prods) {
+
+        productObservableList = FXCollections.observableArrayList();
+
+        productObservableList.addAll(prods);
+
+        listItem.setItems(productObservableList);
+        listItem.setCellFactory(productlistItem -> new ProductCataListCell());
+
+    }
+
     private void initCategory(ObservableList<Category> cats) {
+        ObservableList<String> catList = FXCollections.observableArrayList();
+
+        catList.add("All");
+
+        cats.stream().forEach((cat) -> {
+            catList.add(cat.getCategory());
+        });
+
+        cbBoxCat.setItems(catList);
+
+        cbBoxCat.getSelectionModel().select(currentCategory);
+    }
+
+    private void initCategory(ArrayList<Category> cats) {
         ObservableList<String> catList = FXCollections.observableArrayList();
 
         catList.add("All");
@@ -185,9 +237,9 @@ public class CatalogueController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
-            
+
             scene.getStylesheets().add("/styles/DarkTheme.css");
-            
+
             stage.setScene(scene);
 
             ((ItemController) loader.getController()).initItem(product);

@@ -27,6 +27,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static fr.polytech.ihm.kernel.Tools.getAllCategory;
+import static fr.polytech.ihm.kernel.Tools.getAllProduct;
+import static java.awt.event.KeyEvent.VK_ENTER;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -37,7 +42,6 @@ public class MenuGNewController implements Initializable {
 
     private InfosEnseigneParser infosEnseigneParser;
 
-
     @FXML
     private Button shopsButton;
     @FXML
@@ -46,6 +50,8 @@ public class MenuGNewController implements Initializable {
     private ListView listCat;
     @FXML
     private ImageView logoCompany;
+    @FXML
+    private TextField txtSearch;
 
     private ObservableList<Category> catObservableList;
 
@@ -69,26 +75,26 @@ public class MenuGNewController implements Initializable {
             Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + infosEnseigneParser.getImagePath()));
 
             logoCompany.setImage(image);
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println("Cannot load the wanted logo : Invalid file name-->\n" + e.toString());
         }
 
     }
-    
+
     @FXML
-    private void clickListCat(MouseEvent event){
-        
+    private void clickListCat(MouseEvent event) {
+
         Category cat = (Category) listCat.getSelectionModel().getSelectedItem();
-        
+
         System.out.println(cat.getCategory());
-   
+
         displayCatalogue(catObservableList, cat.getCategory());
-        
+
     }
 
     @FXML
     private void clickedOnLogo(MouseEvent event) {
-        
+
         String fxmlFile = "/fxml/MainPage.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
@@ -98,48 +104,48 @@ public class MenuGNewController implements Initializable {
             ((MainPageController) loader.getController()).modifyDesc();
 
             Scene scene = new Scene(rootNode);
-            
+
             scene.getStylesheets().add("/styles/DarkTheme.css");
-            
+
             stage.setScene(scene);
-            
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
     }
 
     @FXML
     private void goToShopsViews(MouseEvent event) {
-        
+
         Stage stage = (Stage) shopsButton.getScene().getWindow();
-        
+
         goInfoPage(stage, 1);
-       
+
     }
 
     @FXML
     private void goToAboutUsView(MouseEvent event) {
 
         Stage stage = (Stage) aboutUsButton.getScene().getWindow();
-        
+
         goInfoPage(stage, 0);
 
     }
-    
-   private void goInfoPage(Stage stage, int id){
-       
-       String fxmlFile = "/fxml/testSp.fxml";
+
+    private void goInfoPage(Stage stage, int id) {
+
+        String fxmlFile = "/fxml/testSp.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
-            
+
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
-            
+
             scene.getStylesheets().add("/styles/DarkTheme.css");
-            
+
             stage.setScene(scene);
 
             SavoirPlusController savoirPlusController = loader.getController();
@@ -149,13 +155,11 @@ public class MenuGNewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-       
-   }
 
-   private void displayCatalogue(ObservableList<Category> cats, String category) {
-        
-       
-       
+    }
+
+    private void displayCatalogue(ObservableList<Category> cats, String category) {
+
         String fxmlFile = "/fxml/catalogue/catalogue.fxml";
         FXMLLoader loader = new FXMLLoader();
         try {
@@ -163,9 +167,9 @@ public class MenuGNewController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
-            
+
             scene.getStylesheets().add("/styles/DarkTheme.css");
-            
+
             stage.setScene(scene);
 
             ((CatalogueController) loader.getController()).initCatalogue(cats, category);
@@ -173,6 +177,33 @@ public class MenuGNewController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void typedEnter(KeyEvent event) {
+
+        if (event.getCode() == KeyCode.ENTER) {
+
+            String fxmlFile = "/fxml/catalogue/catalogue.fxml";
+            FXMLLoader loader = new FXMLLoader();
+            try {
+                Stage stage = (Stage) listCat.getScene().getWindow();
+                Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
+
+                Scene scene = new Scene(rootNode);
+
+                scene.getStylesheets().add("/styles/DarkTheme.css");
+
+                stage.setScene(scene);
+
+                //((CatalogueController) loader.getController()).initCatalogue(getAllProduct(txtSearch.getText()));
+                ((CatalogueController) loader.getController()).initCatalogue(txtSearch.getText());
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }
