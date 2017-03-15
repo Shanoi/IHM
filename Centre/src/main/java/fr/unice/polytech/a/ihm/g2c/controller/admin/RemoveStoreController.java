@@ -1,7 +1,6 @@
 package fr.unice.polytech.a.ihm.g2c.controller.admin;
 
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
-import fr.unice.polytech.a.ihm.g2c.controller.AdminSceneController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
@@ -20,8 +19,12 @@ public class RemoveStoreController extends AdminSceneController{
 
     @FXML
     void submit(MouseEvent event) {
-        DataModel.getInstance().removeStore(storeChoice.getValue());
-        adminController.setAdminScene(AdminScene.MENU);
+        try {
+            DataModel.getInstance().removeStore(storeChoice.getValue());
+            adminController.setAdminScene(AdminScene.MENU);
+        } catch (IllegalArgumentException e) {
+            errorDialog("Veuillez saisir un magasin");
+        }
     }
 
 }

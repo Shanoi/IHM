@@ -16,7 +16,8 @@ public class DataModel {
 
     private Language lang;
     private ResourceBundle langBundle;
-    private String stylesheet = Stylesheet.BIG.toString();
+    private String stylesheet = Stylesheet.NORMAL.toString();
+
 
     private List<Store> storeList = new ArrayList<>();
     private List<Store> storeSelectionList = new ArrayList<>();
@@ -41,6 +42,8 @@ public class DataModel {
     }
 
     public void removeStore(Store store) {
+        if (store == null)
+            throw new IllegalArgumentException();
         storeList.remove(store);
     }
 

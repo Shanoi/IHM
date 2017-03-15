@@ -2,16 +2,13 @@ package fr.unice.polytech.a.ihm.g2c.controller.admin;
 
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
 import fr.unice.polytech.a.ihm.g2c.common.SortingType;
-import fr.unice.polytech.a.ihm.g2c.controller.AdminSceneController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;

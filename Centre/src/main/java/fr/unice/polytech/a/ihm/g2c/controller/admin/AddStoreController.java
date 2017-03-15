@@ -5,14 +5,10 @@ package fr.unice.polytech.a.ihm.g2c.controller.admin;
  */
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
 import fr.unice.polytech.a.ihm.g2c.common.Category;
-import fr.unice.polytech.a.ihm.g2c.controller.AdminSceneController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
@@ -51,8 +47,10 @@ public class AddStoreController extends AdminSceneController {
             Store store = new Store(name.getText(), description.getText(), imgPath.getText(), category.getValue(), sign.isSelected());
             DataModel.getInstance().addStore(store);
             adminController.setAdminScene(AdminScene.MENU);
+        } catch (IllegalArgumentException e) {
+            errorDialog("Veuillez remplir tous les champs du formulaire");
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            errorDialog("Veuillez saisir une image valide");
         }
     }
 

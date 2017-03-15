@@ -2,6 +2,7 @@ package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
+import fr.unice.polytech.a.ihm.g2c.controller.admin.AdminSceneController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
