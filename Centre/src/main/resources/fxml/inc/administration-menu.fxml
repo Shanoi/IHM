@@ -7,39 +7,39 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="rootPane" maxHeight="400.0" maxWidth="900.0" prefHeight="450.0" prefWidth="900.0" styleClass="menu-pane" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.MenuController">
+<VBox fx:id="rootPane" maxHeight="400.0" maxWidth="900.0" prefHeight="450.0" prefWidth="900.0" styleClass="central-panel" stylesheets="@/styles/style.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.admin.MenuController">
    <children>
       <Label styleClass="h1" text="Gestion Magasins" />
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="menu-row">
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="admin-menu-row">
          <children>
-            <VBox alignment="CENTER" onMouseClicked="#changeSelection" prefHeight="100.0" prefWidth="250.0" styleClass="button-admin">
+            <VBox alignment="CENTER" onMouseClicked="#changeSelection" prefHeight="100.0" prefWidth="250.0" styleClass="admin-menu-col">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/buttons/star.png" />
                      </image>
                   </ImageView>
-                  <Label maxHeight="1.7976931348623157E308" styleClass="button-label" text="Modifier les boutiques à découvrir" textOverrun="CLIP" wrapText="true" />
+                  <Label maxHeight="1.7976931348623157E308" styleClass="h2" text="Modifier les boutiques à découvrir" textOverrun="CLIP" wrapText="true" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#addStore" prefHeight="100.0" prefWidth="250.0" styleClass="button-admin">
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" onMouseClicked="#addStore" prefHeight="100.0" prefWidth="250.0" styleClass="admin-menu-col">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/buttons/minus.jpg" />
                      </image>
                   </ImageView>
-                  <Label styleClass="button-label" text="Ajouter un magasin" />
+                  <Label styleClass="h2" text="Ajouter un magasin" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="155.0" layoutY="5.0" onMouseClicked="#removeStore" prefHeight="100.0" prefWidth="250.0" styleClass="button-admin">
+            <VBox alignment="CENTER" layoutX="155.0" layoutY="5.0" onMouseClicked="#removeStore" prefHeight="100.0" prefWidth="250.0" styleClass="admin-menu-col">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/buttons/plus.jpg" />
                      </image>
                   </ImageView>
-                  <Label styleClass="button-label" text="Enlever un magasin" />
+                  <Label styleClass="h2" text="Enlever un magasin" />
                </children>
             </VBox>
          </children>
@@ -52,26 +52,26 @@
             <Insets top="30.0" />
          </VBox.margin>
       </Label>
-      <HBox alignment="CENTER" layoutX="25.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" styleClass="menu-row">
+      <HBox alignment="CENTER" layoutX="25.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" styleClass="admin-menu-row">
          <children>
-            <VBox alignment="CENTER" onMouseClicked="#changeHighlight" prefHeight="100.0" prefWidth="200.0" styleClass="button-admin">
+            <VBox alignment="CENTER" onMouseClicked="#changeHighlight" prefHeight="100.0" prefWidth="200.0" styleClass="admin-menu-col">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/buttons/event.jpg" />
                      </image>
                   </ImageView>
-                  <Label styleClass="button-label" text="Modifier l'activité phare" />
+                  <Label styleClass="h2" text="Modifier l'activité phare" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#changeInfo" prefHeight="100.0" prefWidth="200.0" styleClass="button-admin">
+            <VBox alignment="CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#changeInfo" prefHeight="100.0" prefWidth="200.0" styleClass="admin-menu-col">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/images/buttons/info.jpg" />
                      </image>
                   </ImageView>
-                  <Label styleClass="button-label" text="Modifier les informations" />
+                  <Label styleClass="h2" text="Modifier les informations" />
                </children>
             </VBox>
          </children>

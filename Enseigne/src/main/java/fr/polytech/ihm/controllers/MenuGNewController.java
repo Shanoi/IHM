@@ -7,6 +7,7 @@ package fr.polytech.ihm.controllers;
 
 import fr.polytech.ihm.custom.CategoryListCell;
 import fr.polytech.ihm.data.Category;
+import fr.polytech.ihm.kernel.InfosEnseigneParser;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,11 +17,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,16 +35,17 @@ import static fr.polytech.ihm.kernel.Tools.getAllCategory;
  */
 public class MenuGNewController implements Initializable {
 
-    private static final Logger log = LoggerFactory.getLogger(MenuGNewController.class);
+    private InfosEnseigneParser infosEnseigneParser;
 
-    @FXML
-    private ImageView logoCompany;
+
     @FXML
     private Button shopsButton;
     @FXML
     private Button aboutUsButton;
     @FXML
     private ListView listCat;
+    @FXML
+    private ImageView logoCompany;
 
     private ObservableList<Category> catObservableList;
 
@@ -61,6 +62,16 @@ public class MenuGNewController implements Initializable {
         listCat.setItems(catObservableList);
 
         listCat.setCellFactory(param -> new CategoryListCell());
+
+        infosEnseigneParser = new InfosEnseigneParser();
+        infosEnseigneParser.extractData();
+        try {
+            Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + infosEnseigneParser.getImagePath()));
+
+            logoCompany.setImage(image);
+        } catch (IllegalArgumentException e){
+            System.out.println("Cannot load the wanted logo : Invalid file name-->\n" + e.toString());
+        }
 
     }
     

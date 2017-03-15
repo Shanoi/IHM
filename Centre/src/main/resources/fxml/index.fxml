@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main-panel" stylesheets="@/styles/administration.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background-panel" stylesheets="@/styles/style-big.css" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.unice.polytech.a.ihm.g2c.controller.IndexController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" styleClass="header" BorderPane.alignment="CENTER">
+      <HBox id="header" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="logo" fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@/images/logo.png" />
                </image>
@@ -43,7 +43,7 @@
                   <Insets left="160.0" />
                </HBox.margin>
             </ImageView>
-            <Button fx:id="aboutButton" mnemonicParsing="false" onMouseClicked="#info" styleClass="button-back" text="A propos">
+            <Button fx:id="aboutButton" mnemonicParsing="false" onMouseClicked="#info" styleClass="button-white" text="A propos">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
@@ -54,23 +54,24 @@
    <left>
       <ScrollPane fitToWidth="true" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="menuList" prefHeight="100.0" prefWidth="50.0" styleClass="nav">
+            <VBox prefHeight="100.0" prefWidth="50.0" styleClass="index-menu">
                <children>
                   <TextField fx:id="searchField" promptText="Recherche..." />
                   <Label fx:id="categoryLabel" styleClass="h1" text="Catégories" />
+                  <VBox fx:id="menuList" prefHeight="200.0" prefWidth="100.0" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
    </left>
    <center>
-      <ScrollPane fitToWidth="true" prefHeight="100.0" prefWidth="100.0" styleClass="showcase-scroll" BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefWidth="50.0" spacing="20.0" styleClass="index-central-pane">
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" spacing="20.0" styleClass="index-central-panel">
                <children>
-                  <Label id="highlight" fx:id="highlight" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                  <Label id="highlight" fx:id="highlight" alignment="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" text="Activité phare !" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <Label fx:id="selectionLabel" styleClass="h1" text="A découvrir" />
-                  <TilePane fx:id="storeSelection" hgap="12.0" layoutX="30.0" layoutY="84.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-pane" vgap="12.0">
+                  <TilePane fx:id="storeSelection" hgap="12.0" layoutX="30.0" layoutY="84.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-panel" vgap="12.0">
                      <padding>
                         <Insets left="12.0" top="12.0" />
                      </padding>
@@ -78,15 +79,18 @@
                   <HBox alignment="CENTER_LEFT" spacing="10.0">
                      <children>
                         <Label fx:id="storesLabel" styleClass="h1" text="Toutes les boutiques" />
-                        <Label fx:id="sortBy" styleClass="button-label" text="Trier par">
+                        <Label id="index-sort-by" fx:id="sortBy" styleClass="h2" text="Trier par">
                            <HBox.margin>
-                              <Insets left="280.0" />
+                              <Insets />
                            </HBox.margin>
+                           <padding>
+                              <Insets left="150.0" />
+                           </padding>
                         </Label>
                         <ChoiceBox fx:id="sortTypeChooser" prefWidth="80.0" />
                      </children>
                   </HBox>
-                  <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-pane" vgap="12.0">
+                  <TilePane fx:id="storesList" hgap="12.0" maxHeight="1.7976931348623157E308" prefTileHeight="100.0" prefTileWidth="100.0" styleClass="showcase-panel" vgap="12.0">
                      <padding>
                         <Insets left="12.0" top="12.0" />
                      </padding>
