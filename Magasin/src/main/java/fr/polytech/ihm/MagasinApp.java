@@ -17,7 +17,6 @@ public class MagasinApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         //AquaFx.style();
         //FlatterFX.style();
-        //AeroFX.style();
 
         primaryStage.setTitle("Magasin");
         String fxml_magasin = PREFIXE + "Client/shopMain_listView.fxml";
