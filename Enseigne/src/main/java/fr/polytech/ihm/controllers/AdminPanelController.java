@@ -146,7 +146,9 @@ public class AdminPanelController {
         adminPanel.getSelectionModel().selectedIndexProperty().addListener((ov, oldValue, newValue) -> {
             int productTab = 0;
             int shopTab = 2;
-            int infosEnseigneTab = 3;
+            int infosEnseigneTab = 4;
+            int addProductTab = 1;
+            int addShopTab = 3;
 
             if (newValue.intValue() == productTab){
                 fillProducts();
@@ -158,6 +160,14 @@ public class AdminPanelController {
 
             if (newValue.intValue() == infosEnseigneTab){
                 fillEnseigne();
+            }
+
+            if (newValue.intValue() == addProductTab) {
+                resultLabelProduct.setText("");
+            }
+
+            if (newValue.intValue() == addShopTab) {
+                resultLabel.setText("");
             }
         });
     }
@@ -276,6 +286,7 @@ public class AdminPanelController {
 
     @FXML
     public void addProduct(){
+        try{
         if(allFieldAreCompleted(productTextFields) && !descProductField.getText().isEmpty()){
             insertApp.insertProduct(nameProductField.getText(),
                     descProductField.getText(),
@@ -289,10 +300,15 @@ public class AdminPanelController {
         } else {
             resultLabelProduct.setText("Invalide");
         }
+    } catch (NumberFormatException e){
+        resultLabelProduct.setText("Invalide");
+        System.out.println("Wrong input in a text fields");
+    }
     }
 
     @FXML
     public void addShop(){
+        try{
         if(allFieldAreCompleted(shopTextFields)){
             insertApp.insertMagasin(nameShopField.getText(),
                     adressShopField.getText(),
@@ -311,10 +327,15 @@ public class AdminPanelController {
         } else {
             resultLabel.setText("Invalide");
         }
+    } catch (NumberFormatException e){
+        resultLabel.setText("Invalide");
+        System.out.println("Wrong input in a text fields");
+    }
     }
 
     @FXML
     public void saveEnseigne(){
+
         if (allFieldAreCompleted(enseigneFields)){
             updateApp.updateEnseigne(1,
                     logoTextField.getText(),
@@ -324,6 +345,7 @@ public class AdminPanelController {
         } else {
             resultLabel.setText("Invalide");
         }
+
     }
 
     public void checkCategory(){
