@@ -28,7 +28,8 @@ public class ProductCataListCell extends ListCell<Product> {
 
     @FXML
     private GridPane gridPane;
-
+    @FXML
+    private Label prixPromoProd;
     @FXML
     private Label nomProd;
     @FXML
@@ -68,8 +69,10 @@ public class ProductCataListCell extends ListCell<Product> {
 
             if (product.getCurrentPromo() != 0) {
 
-                prixProd.setText(String.valueOf(product.getPrixPromo()) + "€ Was " + String.valueOf(product.getPrix()) + "€");
+                prixProd.setText(String.valueOf(product.getPrix()) + "€");
 
+                prixPromoProd.setText(String.valueOf(product.getPrixPromo()) + "€");
+                
             } else {
 
                 prixProd.setText(String.valueOf(product.getPrix()) + "€");

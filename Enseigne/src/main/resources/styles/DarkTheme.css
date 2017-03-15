@@ -55,11 +55,25 @@
     -fx-opacity: 1;
 }
 
+.label-header1 {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #c4c4c4;
+    -fx-opacity: 1;
+}
+
 .label-corpse {
     -fx-font-size: 28pt;
     -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #ffffff;
     -fx-opacity: 1;
+}
+
+.text-field {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: white;
+    -fx-background-color: black;
 }
 
 .table-view {
