@@ -185,6 +185,9 @@ public class CatalogueController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
 
             ((ItemController) loader.getController()).initItem(product);
