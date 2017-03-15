@@ -9,12 +9,19 @@
       <TextField fx:id="brandProductField" layoutX="400.0" layoutY="40.0" prefHeight="31.0" prefWidth="250.0" promptText="Id de la marque" AnchorPane.rightAnchor="40.0" />
       <TextField fx:id="pictureProductField" layoutX="40.0" layoutY="104.0" prefHeight="31.0" prefWidth="250.0" promptText="Image du produit" />
       <TextField fx:id="priceProductField" layoutX="410.0" layoutY="104.0" prefHeight="31.0" prefWidth="250.0" promptText="Prix du produit" />
-      <TextField fx:id="catProductField" layoutX="410.0" layoutY="211.0" prefHeight="31.0" prefWidth="250.0" promptText="Catégorie du produit" />
-      <TextField fx:id="picCatProductField" disable="true" layoutX="410.0" layoutY="251.0" prefHeight="31.0" prefWidth="250.0" promptText="Image de la catégorie" />
-      <TextField fx:id="remiseProductField" layoutX="410.0" layoutY="145.0" prefHeight="31.0" prefWidth="250.0" promptText="Pourcentage de remise" />
-      <CheckBox fx:id="premiumCheckBox" layoutX="410.0" layoutY="324.0" mnemonicParsing="false" text="Produit phare" />
-      <CheckBox fx:id="sellCheckBox" layoutX="539.0" layoutY="324.0" mnemonicParsing="false" text="Mise en vente" />
+      <TextField fx:id="catProductField" layoutX="410.0" layoutY="241.0" prefHeight="31.0" prefWidth="250.0" promptText="Catégorie du produit" />
+      <TextField fx:id="picCatProductField" disable="true" layoutX="410.0" layoutY="286.0" prefHeight="31.0" prefWidth="250.0" promptText="Image de la catégorie" />
+      <TextField fx:id="remiseProductField" layoutX="410.0" layoutY="176.0" prefHeight="31.0" prefWidth="250.0" promptText="Pourcentage de remise" />
+      <CheckBox fx:id="premiumCheckBox" layoutX="410.0" layoutY="345.0" mnemonicParsing="false" text="Produit phare" />
+      <CheckBox fx:id="sellCheckBox" layoutX="536.0" layoutY="345.0" mnemonicParsing="false" text="Mise en vente" />
       <Button fx:id="confirmButton" layoutX="502.0" layoutY="384.0" mnemonicParsing="false" onAction="#saveChanges" text="Valider" />
       <Label fx:id="confirmationLabel" layoutX="508.0" layoutY="426.0" />
+      <Label layoutX="40.0" layoutY="19.0" text="Nom du produit" />
+      <Label layoutX="40.0" layoutY="83.0" text="Image du produit" />
+      <Label layoutX="40.0" layoutY="155.0" text="Description du produit" />
+      <Label layoutX="410.0" layoutY="19.0" text="Id de la marque" />
+      <Label layoutX="410.0" layoutY="83.0" text="Prix du produit" />
+      <Label layoutX="410.0" layoutY="155.0" text="Pourcentage de remise" />
+      <Label layoutX="410.0" layoutY="220.0" text="Catégorie du produit" />
    </children>
 </AnchorPane>
