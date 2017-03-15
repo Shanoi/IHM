@@ -4,6 +4,7 @@ import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+@FunctionalInterface
 public interface Translable {
 
     default void setFlag(ImageView flag) {

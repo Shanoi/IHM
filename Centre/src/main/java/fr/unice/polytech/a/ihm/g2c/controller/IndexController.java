@@ -24,11 +24,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
+import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
+
 /**
  * Created by Jeremy on 07/03/2017.
  */
-
-import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
 
 public class IndexController extends AbstractController implements Translable {
 
@@ -36,7 +36,6 @@ public class IndexController extends AbstractController implements Translable {
 
     private double tileWidth;
     private double tileHeight;
-    private DataModel data = DataModel.getInstance();
 
     @FXML
     private Label highlight;
@@ -141,7 +140,7 @@ public class IndexController extends AbstractController implements Translable {
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e);
             }
         });
         pane.getChildren().add(tile);
@@ -163,9 +162,9 @@ public class IndexController extends AbstractController implements Translable {
         String search = data.getSearch().toLowerCase();
         if (!search.isEmpty())
             storesToDisplay = storesToDisplay.stream()
-                    .filter(store -> (store.getName().toLowerCase().contains(search)
+                    .filter(store -> store.getName().toLowerCase().contains(search)
                             || store.getDescription().toLowerCase().contains(search)
-                            || store.getCategory().toString().toLowerCase().contains(search)))
+                            || store.getCategory().toString().toLowerCase().contains(search))
                     .collect(Collectors.toList());
         storesToDisplay.sort(data.getSortingType().getComparator());
         logger.debug("Stores to display: " + storesToDisplay);
@@ -210,6 +209,7 @@ public class IndexController extends AbstractController implements Translable {
         });
     }
 
+    @Override
     public void refreshText() {
         ResourceBundle langBundle = data.getLangBundle();
         aboutButton.setText(langBundle.getString("about"));

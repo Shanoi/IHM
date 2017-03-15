@@ -1,6 +1,5 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
-import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -23,12 +22,11 @@ public class InfoController extends AbstractController implements Translable {
 
     private static final Logger logger = LogManager.getLogger(InfoController.class);
 
-    private static final int zoomStep = 100;
+    private static final int ZOOM_STEP = 100;
 
     private int zoom = 100;
     private double baseHeight;
     private double baseWidth;
-    private DataModel data = DataModel.getInstance();
 
     @FXML
     private ImageView map;
@@ -76,7 +74,7 @@ public class InfoController extends AbstractController implements Translable {
     void zoomPlus(MouseEvent mouseEvent) {
         if (zoom >= 500)
             return;
-        zoom += zoomStep;
+        zoom += ZOOM_STEP;
         refreshMapSize();
     }
 
@@ -84,14 +82,13 @@ public class InfoController extends AbstractController implements Translable {
     void zoomMinus(MouseEvent mouseEvent) {
         if (zoom <= 100)
             return;
-        zoom -= zoomStep;
+        zoom -= ZOOM_STEP;
         refreshMapSize();
     }
 
     @Override
     public void refreshText() {
         ResourceBundle langBundle = data.getLangBundle();
-        //description.setText(langBundle.getString("description"));
         description.setText(data.getInformations());
         backButton.setText(langBundle.getString("back"));
         informationLabel.setText(langBundle.getString("information.about.center"));

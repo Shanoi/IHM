@@ -49,7 +49,7 @@ public class AdminController extends AbstractController{
             rootPane.setCenter(rootNode);
             currentAdminScene = scene;
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
