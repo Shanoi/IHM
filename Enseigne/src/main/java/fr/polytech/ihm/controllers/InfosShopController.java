@@ -92,24 +92,30 @@ public class InfosShopController {
 
     @FXML
     public void saveChanges(){
-        if (allFieldsAreFull()){
-            updateApp.upDateMagasin(idCurrentShop,
-                    nameShop.getText(),
-                    adressShop.getText(),
-                    Double.parseDouble(latShop.getText()),
-                    Double.parseDouble(longShop.getText()),
-                    phoneShop.getText(),
-                    mailShop.getText(),
-                    Double.parseDouble(caShop.getText()),
-                    Integer.parseInt(nbEmpShop.getText()),
-                    Double.parseDouble(costShop.getText()),
-                    websiteShop.getText(),
-                    Integer.parseInt(prodBackShop.getText())
-                    );
 
-            confirmLabel.setText("Effectué");
-        } else {
+        try {
+            if (allFieldsAreFull()) {
+                updateApp.upDateMagasin(idCurrentShop,
+                        nameShop.getText(),
+                        adressShop.getText(),
+                        Double.parseDouble(latShop.getText()),
+                        Double.parseDouble(longShop.getText()),
+                        phoneShop.getText(),
+                        mailShop.getText(),
+                        Double.parseDouble(caShop.getText()),
+                        Integer.parseInt(nbEmpShop.getText()),
+                        Double.parseDouble(costShop.getText()),
+                        websiteShop.getText(),
+                        Integer.parseInt(prodBackShop.getText())
+                );
+
+                confirmLabel.setText("Effectué");
+            } else {
+                confirmLabel.setText("Invalide");
+            }
+        } catch (NumberFormatException e){
             confirmLabel.setText("Invalide");
+            System.out.println("Wrong input in a text fields");
         }
     }
 

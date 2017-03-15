@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="212.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.MenuGNewController">
     <center>
-        <ListView fx:id="listCat" prefHeight="772.0" prefWidth="212.0" BorderPane.alignment="CENTER" onMouseClicked="#clickListCat" />
+        <ListView fx:id="listCat" onMouseClicked="#clickListCat" prefHeight="772.0" prefWidth="212.0" BorderPane.alignment="CENTER" />
     </center>
     <top>
         <VBox prefHeight="172.0" prefWidth="212.0" BorderPane.alignment="CENTER">
@@ -20,7 +20,7 @@
                         <Image url="@/images/Logo.png" />
                     </image>
                 </ImageView>
-                <TextField promptText="Recherche" />
+                <TextField fx:id="txtSearch" onKeyPressed="#typedEnter" promptText="Recherche" />
             </children>
         </VBox>
     </top>

@@ -30,6 +30,8 @@ public class Tools {
 
         ArrayList<Product> products = new ArrayList<>();
 
+        StringBuilder query = new StringBuilder();
+
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -41,11 +43,13 @@ public class Tools {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            String query = "select * "
-                    + "FROM products "
-                    + "WHERE products.category = \'" + category + "\'";
+            query.append("select * "
+                    + "FROM products ");
 
-            ResultSet rs = lien.executeQuery(query);
+            query.append("WHERE products.category = \'").append(category).append("\' ");
+
+            query.append("AND enVente = 1 ");
+            ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
             while (rs.next()) {
@@ -103,6 +107,8 @@ public class Tools {
                     .append(pMin)
                     .append(" AND priceProduct <= ")
                     .append(pMax);
+
+            query.append("AND enVente = 1 ");
 
             if (!category.equals(All.toString())) {
 
@@ -182,34 +188,80 @@ public class Tools {
                     + "FROM products "
                     + "NATURAL JOIN marque ");
 
+            query.append("WHERE enVente = 1 ");
+
             if (!category.equals(All.toString())) {
 
-                query.append("WHERE products.category = \'").append(category).append("\' ");
+                query.append("AND products.category = \'").append(category).append("\' ");
 
             }
 
-            if (!category.equals("All") && !marque.equals(All.toString())) {
+            if (!marque.equals(All.toString())) {
 
                 query.append(" AND marqueName = \'").append(marque).append("\'");
 
             }
 
-            if (category.equals("All") && !marque.equals(All.toString())) {
-
-                query.append("WHERE marqueName = \'").append(marque).append("\'");
-
-            }
-
-            if (promo && category.equals("All") && marque.equals(All.toString())) {
-
-                query.append("WHERE promo != 0");
-
-            } else if (promo) {
+            if (promo) {
 
                 query.append(" AND promo != 0");
 
             }
 
+            query.append(" ORDER BY priceProduct DESC, promo ASC");
+
+            log.debug("QUERY : " + query);
+
+            ResultSet rs = lien.executeQuery(query.toString());
+            System.out.println("Requête Effectuée");
+
+            max = rs.getFloat("priceProduct");
+
+            promoPrice = rs.getInt("promo");
+
+            if (promoPrice != 0) {
+
+                max = max * ((float) promoPrice / 100);
+
+            }
+
+            rs.close();
+            lien.close();
+            cnx.close();
+
+            return max + 1;
+
+        } catch (Exception e) {
+
+            log.error("getMaxPriceCategoryProduct -- Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+
+        return max + 1;
+
+    }
+
+    public static float getMaxPriceSearchProduct(String search) {
+
+        float max = 5000;
+
+        int promoPrice = 0;
+
+        StringBuilder query = new StringBuilder();
+
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(search).append("%\' ");
+            query.append("AND enVente = 1 ");
             query.append(" ORDER BY priceProduct DESC, promo ASC");
 
             log.debug("QUERY : " + query);
@@ -289,6 +341,8 @@ public class Tools {
 
         ArrayList<Marque> marques = new ArrayList<>();
 
+        StringBuilder query = new StringBuilder();
+
         try {
 
             Class.forName("org.sqlite.JDBC").newInstance();
@@ -300,12 +354,17 @@ public class Tools {
             Statement lien = cnx.createStatement();
             System.out.println("Lien Créé");
 
-            String query = "SELECT DISTINCT marqueName, idMarque "
+            query.append("SELECT DISTINCT marqueName, idMarque "
                     + "FROM marque "
-                    + "NATURAL JOIN products "
-                    + "WHERE category = \'" + category + "\'";
+                    + "NATURAL JOIN products ");
 
-            ResultSet rs = lien.executeQuery(query);
+            if (!category.equals(All.toString())) {
+
+                query.append("WHERE category = \'").append(category).append("\'");
+
+            }
+
+            ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
             while (rs.next()) {
@@ -326,6 +385,60 @@ public class Tools {
         }
 
         return marques;
+
+    }
+
+    public static ArrayList<Product> getAllProduct(String name) {
+
+        ArrayList<Product> products = new ArrayList<>();
+
+        StringBuilder query = new StringBuilder();
+
+        try {
+
+            Class.forName("org.sqlite.JDBC").newInstance();
+            System.out.println("Chargement du Driver Réussie");
+
+            Connection cnx = DriverManager.getConnection("jdbc:sqlite:magasin.sqlite");
+            System.out.println("Connexion Réussie");
+
+            Statement lien = cnx.createStatement();
+            System.out.println("Lien Créé");
+
+            query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(name).append("%\' ");
+
+            query.append("AND enVente = 1 ");
+
+            ResultSet rs = lien.executeQuery(query.toString());
+            System.out.println("Requête Effectuée");
+
+            while (rs.next()) {
+                System.out.println("RESR : " + rs.getString("productName"));
+                products.add(new Product(rs.getFloat("priceProduct"),
+                        rs.getString("productName"),
+                        rs.getString("picture"),
+                        rs.getString("description"),
+                        rs.getString("category"),
+                        rs.getInt("idMarque"),
+                        rs.getInt("nbSell"),
+                        rs.getInt("idProduct"),
+                        (rs.getInt("produitPhare") == 1),
+                        (rs.getInt("enVente") == 1),
+                        rs.getInt("promo")));
+
+            }
+
+            rs.close();
+            lien.close();
+            cnx.close();
+
+        } catch (Exception e) {
+
+            log.error("getSearchProduct --- Le Programme a Echoué :/ \n" + e.getMessage());
+
+        }
+
+        return products;
 
     }
 
