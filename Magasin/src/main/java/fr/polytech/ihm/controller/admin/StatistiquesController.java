@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.admin;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

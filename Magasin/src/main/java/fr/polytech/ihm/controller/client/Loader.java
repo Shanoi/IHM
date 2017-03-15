@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +31,7 @@ public class Loader {
         //scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setFullScreen(full_screen);
-        new CommonController(stage, scene);
+        new ClientCommonController(stage, scene);
 
         log.debug("Showing JFX scene");
 

@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -14,12 +14,12 @@ import java.util.function.Consumer;
  *          Represents the main application controller class. It allows to binds
  *          specifics actions to specifics keys for example.
  */
-public class CommonController {
+public class ClientCommonController {
 
     private Stage primaryStage;
     private Map<KeyCode, Consumer<Void>> mapKeyToActions;
 
-    CommonController(Stage primaryStage, Scene currentScene) {
+    ClientCommonController(Stage primaryStage, Scene currentScene) {
         this.primaryStage = primaryStage;
         mapKeyToActions = new HashMap<>();
         initializeKeyMap();
