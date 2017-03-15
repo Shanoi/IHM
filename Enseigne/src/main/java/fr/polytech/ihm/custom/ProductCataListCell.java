@@ -6,17 +6,15 @@
 package fr.polytech.ihm.custom;
 
 import fr.polytech.ihm.data.Product;
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.TilePane;
+
+import java.io.IOException;
 
 /**
  *
@@ -61,7 +59,7 @@ public class ProductCataListCell extends ListCell<Product> {
 
             }
 
-            Image img = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
+            Image img = new Image(getClass().getClassLoader().getResourceAsStream("/images/" + product.getImage()));
 
             imgProd.setImage(img);
             descProd.setText(product.getCategory());

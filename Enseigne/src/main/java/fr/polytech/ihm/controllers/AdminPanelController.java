@@ -35,6 +35,12 @@ public class AdminPanelController {
     private List<TextField> productTextFields;
     private List<TextField> enseigneFields;
 
+    int productTab = 0;
+    int addProductTab = 1;
+    int shopTab = 2;
+    int addShopTab = 3;
+    int infosEnseigneTab = 4;
+
     @FXML
     private TabPane adminPanel;
 
@@ -144,11 +150,6 @@ public class AdminPanelController {
         fillEnseigne();
 
         adminPanel.getSelectionModel().selectedIndexProperty().addListener((ov, oldValue, newValue) -> {
-            int productTab = 0;
-            int shopTab = 2;
-            int infosEnseigneTab = 4;
-            int addProductTab = 1;
-            int addShopTab = 3;
 
             if (newValue.intValue() == productTab){
                 fillProducts();
