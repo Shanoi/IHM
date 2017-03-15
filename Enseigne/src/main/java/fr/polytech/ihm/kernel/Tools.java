@@ -48,7 +48,7 @@ public class Tools {
 
             query.append("WHERE products.category = \'").append(category).append("\' ");
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
@@ -108,7 +108,7 @@ public class Tools {
                     .append(" AND priceProduct <= ")
                     .append(pMax);
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
 
             if (!category.equals(All.toString())) {
 

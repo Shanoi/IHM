@@ -278,7 +278,7 @@ public class MainPageController implements Initializable {
 
             lblPOld.setVisible(true);
             lblPrix.setText(Float.toString(product.getPrixPromo()) + "€");
-            lblPOld.setText(Float.toString(product.getPrix()) + "€");
+            lblPOld.setText(" Was " + Float.toString(product.getPrix()) + "€");
 
         }
 
@@ -303,7 +303,7 @@ public class MainPageController implements Initializable {
 
         nom.setText(product.getNom());
 
-        pOrigin.setText(Float.toString(product.getPrix()) + "€");
+        pOrigin.setText(" Was " + Float.toString(product.getPrix()) + "€");
 
         pPromo.setText(Float.toString(product.getPrixPromo()) + "€");
 

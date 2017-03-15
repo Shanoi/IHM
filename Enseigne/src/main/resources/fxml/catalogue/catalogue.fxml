@@ -47,7 +47,7 @@
                         <Label text="Marque" GridPane.columnIndex="3" />
                         <ComboBox fx:id="cbBoxCat" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                         <ComboBox fx:id="cbBoxMarque" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" onMouseClicked="#clickSearch" text="Rechercher" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onMouseClicked="#clickSearch" styleClass="button-search" text="Rechercher" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
                 <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="928.0" prefWidth="1920.0" styleClass="background"/>

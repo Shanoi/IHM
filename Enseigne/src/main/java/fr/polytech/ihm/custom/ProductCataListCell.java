@@ -69,7 +69,7 @@ public class ProductCataListCell extends ListCell<Product> {
 
             if (product.getCurrentPromo() != 0) {
 
-                prixProd.setText(String.valueOf(product.getPrix()) + "€");
+                prixProd.setText(" Was " + String.valueOf(product.getPrix()) + "€");
 
                 prixPromoProd.setText(String.valueOf(product.getPrixPromo()) + "€");
                 

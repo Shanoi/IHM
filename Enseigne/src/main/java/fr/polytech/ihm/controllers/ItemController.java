@@ -107,7 +107,7 @@ public class ItemController implements Initializable {
             lblOldPrice.setVisible(true);
             priceProd.setText(Float.toString(product.getPrixPromo()) + "€");
             priceProd.setStyle("-fx-text-fill: red;");
-            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+            lblOldPrice.setText(" Was " + Float.toString(product.getPrix()) + "€");
 
         } else {
 

@@ -20,6 +20,6 @@
         <ImageView fx:id="imgProd" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
         <Label fx:id="nomProd" text="Label" wrapText="true" GridPane.columnIndex="1" />
         <Label fx:id="prixProd" styleClass="label-promo-corpse" text="Label" GridPane.columnIndex="2" />
-        <Label fx:id="prixOld" styleClass="label-oldPrice-corpse" text="Label" GridPane.columnIndex="3" />
+        <Label fx:id="prixOld" prefHeight="134.0" prefWidth="213.0" styleClass="label-oldPrice-corpse" text="Label" wrapText="true" GridPane.columnIndex="3" />
     </children>
 </GridPane>
