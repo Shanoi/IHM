@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.CatalogueController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.CatalogueController">
        
     <left>
         <fx:include source="/fxml/MenuG.fxml"/>
@@ -38,7 +38,7 @@
                     <children>
                         <Slider fx:id="sliderPriceMin" onMouseDragged="#actuMinPrice" GridPane.rowIndex="1" />
                         <Slider fx:id="sliderPriceMax" onMouseDragged="#actuMaxPrice" GridPane.rowIndex="3" />
-                        <CheckBox fx:id="chkBPromo" mnemonicParsing="false" text="Promo" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="chkBPromo" mnemonicParsing="false" styleClass="label" text="Promo" GridPane.rowIndex="4" />
                         <Label text="prix max" GridPane.rowIndex="2" />
                         <Label text="Prix min" />
                         <Label fx:id="lblPMin" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -50,7 +50,7 @@
                         <Button mnemonicParsing="false" onMouseClicked="#clickSearch" text="Rechercher" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                     </children>
                 </GridPane>
-                <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="928.0" prefWidth="1920.0" />
+                <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="928.0" prefWidth="1920.0" styleClass="background"/>
             </children>
         </VBox>
     </center>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="productListView" onMouseClicked="#goProductPage" style="-fx-background-color: F2F2F2;" styleClass="background" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.ListViewProductController">
+<Pane fx:id="productListView" onMouseClicked="#goProductPage" style="-fx-background-color: F2F2F2;" styleClass="background" stylesheets="@../../styles/CustomLightTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.client.ProductInListViewController">
    <children>
       <VBox alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="200.0">
          <children>

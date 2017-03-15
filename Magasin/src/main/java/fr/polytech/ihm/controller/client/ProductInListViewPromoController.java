@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import fr.polytech.ihm.MagasinApp;
 import fr.polytech.ihm.model.ProductInListView;
@@ -10,22 +10,21 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * @author Jérémy LARA
- * @version 1.0
- *          Represents the main lower band (directionsCommon) controller class.
- *          It allows to go on the directions page and handle directions button.
- */
-public class ListViewProductController {
+public class ProductInListViewPromoController {
 
     @FXML
     private Label productName;
     @FXML
-    private ImageView productImage;
+    private ImageView imageProductPromo;
     @FXML
-    private Label price;
+    private Text oldPrice;
+    @FXML
+    private Label newPrice;
+    @FXML
+    private Label reduction;
 
     private ProductInListView productTemp;
 
@@ -34,10 +33,10 @@ public class ListViewProductController {
         Stage stage = (Stage) productName.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/produitMain.fxml"));
         Parent root = loader.load();
-        ((ProductMainController) loader.getController()).initProduct(productTemp);
+        ((ProductController) loader.getController()).initProduct(productTemp);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        new CommonController(stage, scene);
+        new ClientCommonController(stage, scene);
         stage.setFullScreen(true);
         stage.show();
     }
@@ -46,8 +45,11 @@ public class ListViewProductController {
         productTemp = product;
         productName.setText(product.getName());
         Image image = new Image(getClass().getResource(product.getImage()).toExternalForm());
-        productImage.setImage(image);
-        price.setText(Integer.toString(product.getPrice()) + "€");
+        imageProductPromo.setImage(image);
+        oldPrice.setText(Integer.toString(product.getPrice()) + "€");
+        oldPrice.setStrikethrough(true);
+        newPrice.setText(Integer.toString((int) ((1 - ((double) product.getPromo() / 100)) * product.getPrice())) + "€");
+        reduction.setText("-" + Double.toString(product.getPromo()) + "%");
     }
 
 }

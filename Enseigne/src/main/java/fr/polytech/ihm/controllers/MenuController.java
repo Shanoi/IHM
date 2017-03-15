@@ -98,7 +98,7 @@ public class MenuController implements Initializable {
         savoirPlusController.setTabView(tabID);
 
         Scene scene = new Scene(root, 1920, 1080);
-        scene.getStylesheets().add("/styles/styles.css");
+        scene.getStylesheets().add("/styles/DarkTheme.css");
         stage.setTitle("To be or To Have");
 
         stage.setScene(scene);
@@ -111,7 +111,7 @@ public class MenuController implements Initializable {
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root, 1920, 1080);
-        scene.getStylesheets().add("/styles/styles.css");
+        scene.getStylesheets().add("/styles/DarkTheme.css");
         stage.setTitle("To be or To Have");
 
         stage.setScene(scene);
@@ -125,7 +125,7 @@ public class MenuController implements Initializable {
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root, 1920, 1080);
-        scene.getStylesheets().add("/styles/styles.css");
+        scene.getStylesheets().add("/styles/DarkTheme.css");
         stage.setTitle("To be or To Have: Catalog");
 
         stage.setScene(scene);

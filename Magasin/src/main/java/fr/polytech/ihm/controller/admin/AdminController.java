@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.admin;
 
 import fr.polytech.ihm.model.ProductInListView;
 import fr.polytech.ihm.model.ProductModel;
