@@ -89,7 +89,8 @@ public class IndexController extends AbstractController implements Translable {
             refreshStoresList();
         });
 
-        // Search field
+        // Search
+        searchField.setText(data.getSearch());
         searchField.textProperty().addListener((observable, oldValue, newValue) -> {
             logger.debug("Search field changed");
             data.setSearch(searchField.getText());
