@@ -45,8 +45,13 @@ public class AddStoreController extends AdminSceneController {
     void browse(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
         File f = fileChooser.showOpenDialog(imgPath.getScene().getWindow());
-        imgPath.setText(f.getAbsolutePath());
+        try {
+            imgPath.setText(f.getAbsolutePath());
+        } catch (NullPointerException e) {
+            logger.error(e);
+        }
     }
 
     @FXML
