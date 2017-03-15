@@ -14,7 +14,7 @@ import java.util.function.Consumer;
  *          Represents the main application controller class. It allows to binds
  *          specifics actions to specifics keys for example.
  */
-class CommonController {
+public class CommonController {
 
     private Stage primaryStage;
     private Map<KeyCode, Consumer<Void>> mapKeyToActions;

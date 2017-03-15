@@ -1,6 +1,7 @@
 package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.JSONParser;
+import fr.polytech.ihm.MagasinApp;
 import fr.polytech.ihm.model.ProductInListView;
 import fr.polytech.ihm.model.ProductListViewCell;
 import fr.polytech.ihm.model.ProductModel;
@@ -64,7 +65,7 @@ public class ShopMainController {
     @FXML
     void goProductPage(MouseEvent event) throws Exception {
         Stage stage = (Stage) productName.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/produitMain.fxml"));
         Parent root = loader.load();
         JSONObject staticProductInfo = new JSONParser().parse("src/main/resources/data/produits_scientifique.json");
         ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_conductivité")));

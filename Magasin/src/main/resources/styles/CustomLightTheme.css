@@ -595,7 +595,7 @@
  *                                                                             *
  ******************************************************************************/
 .text-field{
-    -fx-skin: "jfxtras.styles.jmetro8.MetroTextFieldSkin";
+    /*-fx-skin: "jfxtras.styles.jmetro8.MetroTextFieldSkin";*/
 }
 
 .text-input{
@@ -700,7 +700,7 @@
  ******************************************************************************/
 
 .slider {
-    -fx-skin: "jfxtras.styles.jmetro8.FilledSliderSkin";
+    /*-fx-skin: "jfxtras.styles.jmetro8.FilledSliderSkin";*/
 }
 
 .slider .thumb {

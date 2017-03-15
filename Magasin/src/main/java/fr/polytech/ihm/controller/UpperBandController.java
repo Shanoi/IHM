@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.MagasinApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -28,14 +29,14 @@ public class UpperBandController {
     void goHome() throws Exception {
         Stage stage = (Stage) homeLabel.getScene().getWindow();
         Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/shopMain_listView.fxml");
+        loader.load(stage, MagasinApp.PREFIXE + "Client/shopMain_listView.fxml");
     }
 
     @FXML
     void enSavoirPlus() throws Exception {
         Stage stage = (Stage) homeLabel.getScene().getWindow();
         Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/savoirplus.fxml");
+        loader.load(stage, MagasinApp.PREFIXE + "Client/savoirplus.fxml");
     }
 
     @FXML
