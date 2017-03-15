@@ -109,6 +109,8 @@ public class ProductInfosController {
 
     @FXML
     public void saveChanges(){
+        try {
+
         if (allFieldsAreFull() && !descProductArea.getText().isEmpty() && promoIsOk()){
 
             updateApp.updateProduct(idProduct,
@@ -127,6 +129,10 @@ public class ProductInfosController {
         } else {
             confirmationLabel.setText("Invalide");
         }
+    } catch (NumberFormatException e){
+            confirmationLabel.setText("Invalide");
+        System.out.println("Wrong input in a text fields");
+    }
 
     }
 

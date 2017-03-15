@@ -4,18 +4,20 @@ import com.aquafx_project.AquaFx;
 import fr.polytech.ihm.controller.client.Loader;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.aerofx.AeroFX;
 
 public class MagasinApp extends Application {
 
-    public static final String PREFIXE = "/fxmlSansCss/";
+    public static final String PREFIXE = "/fxml/";
 
     public static void main(String[] args) throws Exception {
         launch(args);
     }
 
     public void start(Stage primaryStage) throws Exception {
-        AquaFx.style();
+        //AquaFx.style();
         //FlatterFX.style();
+        //AeroFX.style();
 
         primaryStage.setTitle("Magasin");
         String fxml_magasin = PREFIXE + "Client/shopMain_listView.fxml";

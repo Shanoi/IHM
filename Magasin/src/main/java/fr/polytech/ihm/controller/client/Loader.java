@@ -27,8 +27,8 @@ public class Loader {
 
         Parent root = FXMLLoader.load(getClass().getResource(fxml_file));
         Scene scene = new Scene(root);
-        //String css = getClass().getResource("/styles/windows.css").toExternalForm();
-        //scene.getStylesheets().add(css);
+        String css = getClass().getResource("/styles/windows.css").toExternalForm();
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.setFullScreen(full_screen);
         new ClientCommonController(stage, scene);
