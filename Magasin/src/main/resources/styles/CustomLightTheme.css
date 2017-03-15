@@ -17,7 +17,7 @@
 .text-custom {
     -fx-bounds-type: logical_vertical_center;
     -fx-font-smoothing-type: gray;
-    -fx-text-fill: shade-black;
+    /*-fx-text-fill: shade-black;*/
     -fx-font-family: "Segoe UI Light", Helvetica, Arial, sans-serif;
     -fx-font-size: 20pt;
 }
