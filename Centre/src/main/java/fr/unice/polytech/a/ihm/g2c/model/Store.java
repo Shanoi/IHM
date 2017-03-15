@@ -19,6 +19,8 @@ public class Store {
 
 
     public Store(String name, String description, String imgPath, Category category, boolean sign) throws FileNotFoundException {
+        if (name.isEmpty() || description.isEmpty() || imgPath.isEmpty() || category == null)
+            throw new IllegalArgumentException();
         this.name = name;
         this.description = description;
         this.img = new Image(new FileInputStream(imgPath));

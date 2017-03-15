@@ -1,18 +1,14 @@
 package fr.unice.polytech.a.ihm.g2c;
 
-import fr.unice.polytech.a.ihm.g2c.controller.IndexController;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import static fr.unice.polytech.a.ihm.g2c.common.AppScene.*;
+import static fr.unice.polytech.a.ihm.g2c.common.AppScene.INDEX;
 import static fr.unice.polytech.a.ihm.g2c.common.Category.*;
 
 public class MainApp extends Application {
@@ -20,9 +16,6 @@ public class MainApp extends Application {
     private static final int HEIGHT = 540;
     private static final int WIDTH = 960;
     private static final String DEFAULT_DESCRIPTION = "Descrption ici.";
-
-    private static final Logger logger = LogManager.getLogger(MainApp.class);
-
 
     public static void main(String[] args) throws Exception {
         launch(args);

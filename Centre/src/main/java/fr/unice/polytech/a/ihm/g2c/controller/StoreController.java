@@ -1,7 +1,6 @@
 package fr.unice.polytech.a.ihm.g2c.controller;
 
 import fr.unice.polytech.a.ihm.g2c.common.AppScene;
-import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,7 +19,6 @@ public class StoreController extends AbstractController implements Translable{
 
     private static final Logger logger = LogManager.getLogger(StoreController.class);
 
-    private DataModel data = DataModel.getInstance();
     private Button buttonSign;
     private Button buttonStore;
     
@@ -38,10 +36,6 @@ public class StoreController extends AbstractController implements Translable{
     private ImageView flag;
     @FXML
     private Button backButton;
-
-    @FXML
-    void initialize() {
-    }
 
     public void initStore(Store store) {
         initialize(rootPane);
