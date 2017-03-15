@@ -1,6 +1,7 @@
 package fr.unice.polytech.a.ihm.g2c.controller.admin;
 
 import fr.unice.polytech.a.ihm.g2c.common.AdminScene;
+import fr.unice.polytech.a.ihm.g2c.common.SortingType;
 import fr.unice.polytech.a.ihm.g2c.model.DataModel;
 import fr.unice.polytech.a.ihm.g2c.model.Store;
 import javafx.fxml.FXML;
@@ -8,6 +9,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class RemoveStoreController extends AdminSceneController{
 
@@ -18,7 +22,10 @@ public class RemoveStoreController extends AdminSceneController{
 
     @FXML
     void initialize() {
-        storeChoice.getItems().addAll(DataModel.getInstance().getStoreList());
+        List<Store> toDisplay = DataModel.getInstance().getStoreList().stream()
+                .sorted(SortingType.A_TO_Z.getComparator())
+                .collect(Collectors.toList());
+        storeChoice.getItems().addAll(toDisplay);
     }
 
     @FXML
