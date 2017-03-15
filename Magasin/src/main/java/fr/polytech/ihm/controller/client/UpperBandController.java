@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import fr.polytech.ihm.MagasinApp;
 import javafx.fxml.FXML;

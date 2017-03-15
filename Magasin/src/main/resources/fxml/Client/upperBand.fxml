@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/CustomDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.UpperBandController">
+<HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" styleClass="background" stylesheets="@../../styles/CustomDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.client.UpperBandController">
    <children>
       <ImageView fx:id="homePicture" accessibleRole="BUTTON" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
          <image>

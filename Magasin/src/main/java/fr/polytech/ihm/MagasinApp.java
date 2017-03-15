@@ -1,8 +1,7 @@
 package fr.polytech.ihm;
 
 import com.aquafx_project.AquaFx;
-import com.guigarage.flatterfx.FlatterFX;
-import fr.polytech.ihm.controller.Loader;
+import fr.polytech.ihm.controller.client.Loader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

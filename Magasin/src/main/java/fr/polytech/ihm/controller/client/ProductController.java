@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import fr.polytech.ihm.model.ProductInListView;
 import javafx.fxml.FXML;
@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
-public class ProductMainController {
+public class ProductController {
 
     @FXML
     private Label NomProduit;

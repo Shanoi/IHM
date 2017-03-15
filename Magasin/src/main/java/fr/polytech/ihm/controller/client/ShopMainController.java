@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import fr.polytech.ihm.JSONParser;
 import fr.polytech.ihm.MagasinApp;
@@ -68,10 +68,10 @@ public class ShopMainController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/produitMain.fxml"));
         Parent root = loader.load();
         JSONObject staticProductInfo = new JSONParser().parse("src/main/resources/data/produits_scientifique.json");
-        ((ProductMainController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_conductivité")));
+        ((ProductController) loader.getController()).initProduct(initializeProduct(staticProductInfo.getJSONObject("tablette_conductivité")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        new CommonController(stage, scene);
+        new ClientCommonController(stage, scene);
         stage.setFullScreen(true);
         stage.show();
     }

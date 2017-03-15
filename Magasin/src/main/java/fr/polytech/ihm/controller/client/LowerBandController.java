@@ -1,4 +1,4 @@
-package fr.polytech.ihm.controller;
+package fr.polytech.ihm.controller.client;
 
 import fr.polytech.ihm.JSONParser;
 import fr.polytech.ihm.MagasinApp;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
  *          Represents the main lower band (directionsCommon) controller class.
  *          It allows to go on the directions page and handle directions button.
  */
-public class DirectionsCommonController {
+public class LowerBandController {
 
     @FXML
     private Button seDirigerBouton;
