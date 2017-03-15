@@ -1,6 +1,7 @@
 package fr.polytech.ihm.controller;
 
 import fr.polytech.ihm.JSONParser;
+import fr.polytech.ihm.MagasinApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -33,7 +34,7 @@ public class DirectionsCommonController {
     void directionsPage() throws Exception {
         Stage stage = (Stage) seDirigerBouton.getScene().getWindow();
         Loader loader = new Loader();
-        loader.load(stage, "/fxml/Client/directions.fxml");
+        loader.load(stage, MagasinApp.PREFIXE + "Client/directions.fxml");
     }
 
     public void loadData() {

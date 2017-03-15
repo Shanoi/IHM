@@ -596,9 +596,9 @@
  * TextBox (and PasswordBox)                                                   *
  *                                                                             *
  ******************************************************************************/
-.text-field{
+/*.text-field{
     -fx-skin: "jfxtras.styles.jmetro8.MetroTextFieldSkin";
-}
+}*/
 
 .text-input{
     -fx-background-radius: 0, 0;
@@ -701,9 +701,9 @@
  *                                                                             *
  ******************************************************************************/
 
-.slider {
+/*.slider {
     -fx-skin: "jfxtras.styles.jmetro8.FilledSliderSkin";
-}
+}*/
 
 .slider .thumb {
     -fx-background-color: black;

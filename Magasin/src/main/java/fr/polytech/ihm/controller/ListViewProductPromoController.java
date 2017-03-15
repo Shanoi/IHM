@@ -1,5 +1,6 @@
 package fr.polytech.ihm.controller;
 
+import fr.polytech.ihm.MagasinApp;
 import fr.polytech.ihm.model.ProductInListView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +31,7 @@ public class ListViewProductPromoController {
     @FXML
     void goProductPage(MouseEvent event) throws Exception {
         Stage stage = (Stage) productName.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Client/produitMain.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/produitMain.fxml"));
         Parent root = loader.load();
         ((ProductMainController) loader.getController()).initProduct(productTemp);
         Scene scene = new Scene(root);

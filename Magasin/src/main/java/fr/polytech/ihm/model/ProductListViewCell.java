@@ -1,5 +1,6 @@
 package fr.polytech.ihm.model;
 
+import fr.polytech.ihm.MagasinApp;
 import fr.polytech.ihm.controller.ListViewProductController;
 import fr.polytech.ihm.controller.ListViewProductPromoController;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +22,11 @@ public class ProductListViewCell extends ListCell<ProductInListView> {
             Parent element = null;
             try {
                 if (product.isPromo()) {
-                    loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product_promo.fxml"));
+                    loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/listView_product_promo.fxml"));
                     element = loader.load();
                     ((ListViewProductPromoController) loader.getController()).initializeProduct(product);
                 } else {
-                    loader = new FXMLLoader(getClass().getResource("/fxml/Client/listView_product.fxml"));
+                    loader = new FXMLLoader(getClass().getResource(MagasinApp.PREFIXE + "Client/listView_product.fxml"));
                     element = loader.load();
                     ((ListViewProductController) loader.getController()).initializeProduct(product);
                 }

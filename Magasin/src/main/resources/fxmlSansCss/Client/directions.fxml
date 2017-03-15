@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="directionParent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#requestFocus" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.DirectionController">
+   <center>
+      <AnchorPane prefHeight="880.0" prefWidth="1300.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="668.0" layoutY="24.0" text="CARTE" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="Impact" size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="800.0" fitWidth="1460.0" layoutX="62.0" layoutY="95.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/images/plan_centre_commercial.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="392.0" prefWidth="400.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Légende" textAlignment="CENTER" underline="true">
+                     <font>
+                        <Font name="Calibri Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="88.0" fitWidth="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/arrival_icon.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="320.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Notre magasin" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Impact" size="35.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="86.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/start_icon.png" />
+                           </image>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="320.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="Votre position" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Impact" size="35.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="coordContainer" alignment="CENTER" prefHeight="512.0" prefWidth="400.0">
+               <children>
+                  <Label fx:id="nosCoordonnees" alignment="CENTER" prefWidth="400.0" text="Nos coordonnées" textAlignment="CENTER" underline="true">
+                     <font>
+                        <Font name="Calibri" size="30.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="coordExpliciteContainer" alignment="CENTER_LEFT" fillWidth="false" prefHeight="380.0" prefWidth="400.0">
+                     <children>
+                        <VBox fx:id="numTelContainer">
+                           <children>
+                              <Label fx:id="numTel" accessibleRole="BUTTON" alignment="CENTER" contentDisplay="CENTER" text="Numéro de téléphone : " textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Calibri" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label fx:id="telMagasin" prefWidth="265.0" text="06.07.08.09.10">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="adresseContainer" alignment="CENTER" prefHeight="62.0" prefWidth="434.0">
+                           <children>
+                              <Label fx:id="adresse" prefHeight="42.0" prefWidth="433.0" text="Adresse : " textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Calibri" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Label fx:id="adresseMagasin" alignment="TOP_LEFT" prefHeight="118.0" prefWidth="400.0" text="123 avenue de France France, PARIS 75000" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="webSiteContainer" alignment="CENTER" prefHeight="42.0" prefWidth="414.0">
+                           <children>
+                              <Label fx:id="webSite" prefHeight="42.0" prefWidth="407.0" text="Notre site internet : " textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Calibri" size="30.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label fx:id="siteWebMagasin" alignment="TOP_LEFT" prefHeight="77.0" prefWidth="320.0" text="www.ToBeorToHave.com" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <top>
+      <HBox prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <fx:include source="upperBand.fxml" />
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
