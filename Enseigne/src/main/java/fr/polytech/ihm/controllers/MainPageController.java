@@ -5,30 +5,31 @@
  */
 package fr.polytech.ihm.controllers;
 
-    import fr.polytech.ihm.data.Product;
-    import fr.polytech.ihm.kernel.InfosEnseigneParser;
-    import fr.polytech.ihm.kernel.MainProducts;
-    import fr.polytech.ihm.kernel.PromoProduct;
-    import javafx.animation.AnimationTimer;
-    import javafx.animation.FadeTransition;
-    import javafx.animation.ParallelTransition;
-    import javafx.fxml.FXML;
-    import javafx.fxml.FXMLLoader;
-    import javafx.fxml.Initializable;
-    import javafx.scene.Parent;
-    import javafx.scene.Scene;
-    import javafx.scene.control.Label;
-    import javafx.scene.image.Image;
-    import javafx.scene.image.ImageView;
-    import javafx.scene.input.MouseEvent;
-    import javafx.stage.Stage;
-    import javafx.util.Duration;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
+import fr.polytech.ihm.data.Product;
+import fr.polytech.ihm.kernel.InfosEnseigneParser;
+import fr.polytech.ihm.kernel.MainProducts;
+import fr.polytech.ihm.kernel.PromoProduct;
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    import java.io.IOException;
-    import java.net.URL;
-    import java.util.ResourceBundle;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.scene.control.Button;
 
 public class MainPageController implements Initializable {
 
@@ -37,7 +38,7 @@ public class MainPageController implements Initializable {
     InfosEnseigneParser infosEnseigneParser;
 
     @FXML
-    private Label accrochePhare;
+    private Label nomPhare;
     @FXML
     private ImageView imagePhare;
     @FXML
@@ -47,7 +48,9 @@ public class MainPageController implements Initializable {
     @FXML
     private ImageView imgPromo3;
     @FXML
-    private Label prixPhare;
+    private Label lblPrix;
+    @FXML
+    private Label lblPOld;
     @FXML
     private Label lblPromo1;
     @FXML
@@ -86,6 +89,14 @@ public class MainPageController implements Initializable {
     private PromoProduct promoProds;
 
     private static final int NBPROMO = 3;
+    @FXML
+    private Button gauchePhare;
+    @FXML
+    private Button droitePhare;
+    @FXML
+    private Button leftPromo;
+    @FXML
+    private Button rightPromo;
 
     /**
      * Initializes the controller class.
@@ -116,7 +127,7 @@ public class MainPageController implements Initializable {
 
          @Override
          public void run() {
-         accrochePhare.setText(mainProds.nextProduct().getNom());
+         nomPhare.setText(mainProds.nextProduct().getNom());
          }
          }, 0, 5000);*/
         //Soluttion qui fonctionne  
@@ -125,7 +136,7 @@ public class MainPageController implements Initializable {
          @Override
          public void handle(ActionEvent event) {
 
-         accrochePhare.setText(mainProds.nextProduct().getNom());
+         nomPhare.setText(mainProds.nextProduct().getNom());
 
          }
          }));
@@ -146,7 +157,7 @@ public class MainPageController implements Initializable {
 
                     product = mainProds.nextProduct();
 
-                    accrochePhare.setText(product.getNom());
+                    nomPhare.setText(product.getNom());
 
                     image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
@@ -159,7 +170,7 @@ public class MainPageController implements Initializable {
                     ft1.setCycleCount(0);
                     ft1.setAutoReverse(true);
 
-                    ft2.setNode(accrochePhare);
+                    ft2.setNode(nomPhare);
                     ft2.setDuration(new Duration(300));
                     ft2.setFromValue(1.0);
                     ft2.setToValue(0.0);
@@ -177,7 +188,7 @@ public class MainPageController implements Initializable {
 
     }
 
-    public void modifyDesc(){
+    public void modifyDesc() {
         infosEnseigneParser.extractData();
 
         descEnseigne.setText(infosEnseigneParser.getDescEnseigne());
@@ -213,21 +224,21 @@ public class MainPageController implements Initializable {
     private void clickPromo1(MouseEvent event) {
 
         displayItem(currentPromos[0]);
-        
+
     }
 
     @FXML
     private void clickPromo2(MouseEvent event) {
 
         displayItem(currentPromos[1]);
-        
+
     }
 
     @FXML
     private void clickPromo3(MouseEvent event) {
 
         displayItem(currentPromos[2]);
-        
+
     }
 
     @FXML
@@ -252,7 +263,7 @@ public class MainPageController implements Initializable {
 
         currentProduct = product;
 
-        accrochePhare.setText(product.getNom());
+        nomPhare.setText(product.getNom());
 
         image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
@@ -260,11 +271,14 @@ public class MainPageController implements Initializable {
 
         if (product.getCurrentPromo() == 0) {
 
-            prixPhare.setText(Float.toString(product.getPrix()) + "€");
+            lblPrix.setText(Float.toString(product.getPrix()) + "€");
+            lblPOld.setVisible(false);
 
         } else {
 
-            prixPhare.setText(Float.toString(product.getPrix()) + "€ Now : " + Float.toString(product.getPrix() * ((float) product.getCurrentPromo() / 100)) + "€");
+            lblPOld.setVisible(true);
+            lblPrix.setText(Float.toString(product.getPrixPromo()) + "€");
+            lblPOld.setText(Float.toString(product.getPrix()) + "€");
 
         }
 
@@ -273,7 +287,7 @@ public class MainPageController implements Initializable {
     private void changeAllPromoProd(Product product[]) {
 
         System.arraycopy(product, 0, currentPromos, 0, currentPromos.length);
-        
+
         changePromoProd(product[0], lblPrixP1, lblPrixO1, imgPromo1, lblPromo1);
         changePromoProd(product[1], lblPrixP2, lblPrixO2, imgPromo2, lblPromo2);
         changePromoProd(product[2], lblPrixP3, lblPrixO3, imgPromo3, lblPromo3);
@@ -283,7 +297,6 @@ public class MainPageController implements Initializable {
     private void changePromoProd(Product product, Label pPromo, Label pOrigin, ImageView img, Label nom) {
 
         //currentProduct = product;
-
         image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
 
         img.setImage(image);
@@ -292,7 +305,7 @@ public class MainPageController implements Initializable {
 
         pOrigin.setText(Float.toString(product.getPrix()) + "€");
 
-        pPromo.setText(Float.toString(product.getCurrentPromo()) + "€");
+        pPromo.setText(Float.toString(product.getPrixPromo()) + "€");
 
     }
 
@@ -304,6 +317,9 @@ public class MainPageController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
             log.info("Produit selectionné depuis la MainPage : " + product.getNom());
             ((ItemController) loader.getController()).initItem(product);

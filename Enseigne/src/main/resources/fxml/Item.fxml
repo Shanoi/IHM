@@ -10,24 +10,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.ItemController">
-      
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controllers.ItemController">
+        
     <left>
         <fx:include source="/fxml/MenuG.fxml"/>
     </left>
-   
+    
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1085.0" BorderPane.alignment="CENTER">
             <children>
                 <ImageView fx:id="imgProd" fitHeight="551.0" fitWidth="981.0" pickOnBounds="true" preserveRatio="true" />
             
-                <Label fx:id="nomProd" prefHeight="169.0" prefWidth="407.0" text="Nom">
+                <Label fx:id="nomProd" prefHeight="169.0" prefWidth="407.0" styleClass="label-header" text="Nom">
                     <font>
                         <Font size="50.0" />
                     </font>
                 </Label>
             
-                <Label fx:id="descrProd" prefHeight="359.0" prefWidth="903.0" text="Description" wrapText="true">
+                <Label fx:id="descrProd" prefHeight="359.0" prefWidth="903.0" styleClass="label-corpse" text="Description" wrapText="true">
                     <font>
                         <Font size="36.0" />
                     </font>
@@ -47,7 +47,7 @@
                 <RowConstraints maxHeight="637.0" minHeight="10.0" prefHeight="631.6666564941406" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="priceProd" prefHeight="78.0" prefWidth="155.0" text="">
+                <Label fx:id="priceProd" styleClass="label-promo-header" text="">
                     <font>
                         <Font size="44.0" />
                     </font>
@@ -57,8 +57,8 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="676.0" prefWidth="786.0" GridPane.rowIndex="3" />
-                <Label fx:id="lblOldPrice" text="" GridPane.rowIndex="1">
+                <ListView fx:id="listItem" onMouseClicked="#clickListItem" prefHeight="676.0" prefWidth="786.0" styleClass="background" GridPane.rowIndex="3" />
+                <Label fx:id="lblOldPrice" styleClass="label-oldPrice" text="" GridPane.rowIndex="1">
                     <font>
                         <Font size="22.0" />
                     </font>

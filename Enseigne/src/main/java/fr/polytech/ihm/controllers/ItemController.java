@@ -91,34 +91,39 @@ public class ItemController implements Initializable {
 
         if (product.getCurrentPromo() > 0) {
 
-            Text text = new Text(Float.toString(product.getPrixPromo()) + "€");
+            /*Text text = new Text(Float.toString(product.getPrixPromo()) + "€");
 
-            text.setFill(colors[1]);
-            text.setFont(Font.font(families[0], 44));
+             text.setFill(colors[1]);
+             text.setFont(Font.font(families[0], 44));
        
-            gridPane.add(text, 0, 0);
+             gridPane.add(text, 0, 0);
             
-            text = new Text(Float.toString(product.getPrix()) + "€");
+             text = new Text(Float.toString(product.getPrix()) + "€");
             
-            text.setFill(colors[0]);
-            text.setFont(Font.font(families[0], 30));
+             text.setFill(colors[0]);
+             text.setFont(Font.font(families[0], 30));
 
-            gridPane.add(text, 0, 1);
-            
-            //priceProd.setText(Float.toString(product.getPrixPromo()) + "€");
-            //lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+             gridPane.add(text, 0, 1);*/
+            lblOldPrice.setVisible(true);
+            priceProd.setText(Float.toString(product.getPrixPromo()) + "€");
+            priceProd.setStyle("-fx-text-fill: red;");
+            lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
 
         } else {
 
-            Text text = new Text(Float.toString(product.getPrix()) + "€");
+           /* Text text = new Text(Float.toString(product.getPrix()) + "€");
 
             text.setFill(colors[0]);
             text.setFont(Font.font(families[0], 44));
-       
-            gridPane.add(text, 0, 0);
-            
-            //lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
 
+            gridPane.add(text, 0, 0);*/
+
+            //lblOldPrice.setText(Float.toString(product.getPrix()) + "€");
+            
+            priceProd.setText(Float.toString(product.getPrix()) + "€");
+            priceProd.setStyle("-fx-text-fill: #FFFFFF;");
+            lblOldPrice.setVisible(false);
+            
         }
 
         Image image = new Image(getClass().getClassLoader().getResourceAsStream("images/" + product.getImage()));
@@ -149,6 +154,9 @@ public class ItemController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
             log.info("Produit selectionné depuis la page Item : " + product.getNom());
             ((ItemController) loader.getController()).initItem(product);

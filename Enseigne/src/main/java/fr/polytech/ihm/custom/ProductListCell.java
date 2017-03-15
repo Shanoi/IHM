@@ -29,6 +29,8 @@ public class ProductListCell extends ListCell<Product> {
     
     @FXML
     private Label prixProd;
+    @FXML
+    private Label prixOld;
     
     @FXML
     private GridPane gridPane;
@@ -66,11 +68,16 @@ public class ProductListCell extends ListCell<Product> {
 
             if (product.getCurrentPromo() != 0) {
 
-                prixProd.setText(String.valueOf(product.getPrixPromo()) + "€ Was " + String.valueOf(product.getPrix()) + "€");
-
+                prixProd.setVisible(true);
+                prixProd.setText(String.valueOf(product.getPrixPromo()) + "€");
+                //prixProd.setStyle("-fx-text-fill: red;");
+                prixOld.setText(String.valueOf(product.getPrix()) + "€");
+                
             } else {
 
-                prixProd.setText(String.valueOf(product.getPrix()) + "€");
+                prixProd.setVisible(false);
+                //prixOld.setStyle("-fx-text-fill: #FFFFFF;");
+                prixOld.setText(String.valueOf(product.getPrix()) + "€");
 
             }
             

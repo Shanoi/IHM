@@ -98,6 +98,9 @@ public class MenuGNewController implements Initializable {
             ((MainPageController) loader.getController()).modifyDesc();
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
             
             stage.show();
@@ -134,6 +137,9 @@ public class MenuGNewController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
 
             SavoirPlusController savoirPlusController = loader.getController();
@@ -157,6 +163,9 @@ public class MenuGNewController implements Initializable {
             Parent rootNode = loader.load(getClass().getResourceAsStream(fxmlFile));
 
             Scene scene = new Scene(rootNode);
+            
+            scene.getStylesheets().add("/styles/DarkTheme.css");
+            
             stage.setScene(scene);
 
             ((CatalogueController) loader.getController()).initCatalogue(cats, category);

@@ -35,7 +35,7 @@ public class MainApp extends Application {
         Scene sceneMain = new Scene(rootNodeMain, 1920, 1080);
         Scene sceneAdmin = new Scene(rootNodeAdmin, widthAdmin, heightAdmin);
 
-        sceneMain.getStylesheets().add("/styles/styles.css");
+        sceneMain.getStylesheets().add("/styles/DarkTheme.css");
         sceneAdmin.getStylesheets().add("/styles/styles.css");
 
         stage.setTitle("To Be Or To Have - Main Menu");
