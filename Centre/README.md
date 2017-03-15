@@ -11,6 +11,7 @@
 * Intelligence dans les controlleurs
 * Répétition des évenement. Un include pour le header de info et magasin ?
 * La detection de la taille des images dans le showcase
+* L'icone de le'espace admin disparait sur le 2ieme css
     
 ##### Idées d'améliorations
 
@@ -20,19 +21,8 @@
 * Insérer le logo du magasin sur la carte automatiquement
 * Voir pour mettre en plein ecran
 * un bouton pour pouvoir choisir son style
+* Les statistiques
 * Traduire le texte saisi par l'administrateur:
     * Modifier directement les properties
     * Lui faire saisir un id
-
-
-
-## TODO
-
-* Admin
-    * S'occuper de l'exception dans AddStore#sumbit
-* Index
-    * Clé qui disparait en big
-* Info
-* Divers
-    * S'occuper des exceptions
     
