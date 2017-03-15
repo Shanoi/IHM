@@ -44,7 +44,7 @@ public class ProductsParser {
 
             while (rs.next()) {
 
-                products.add(new Product(500,
+                products.add(new Product(rs.getFloat("priceProduct"),
                         rs.getString("productName"),
                         rs.getString("picture"),
                         rs.getString("description"),

@@ -8,15 +8,16 @@ package fr.polytech.ihm.kernel;
 import fr.polytech.ihm.data.Category;
 import fr.polytech.ihm.data.Marque;
 import fr.polytech.ihm.data.Product;
-import static fr.polytech.ihm.kernel.Constantes.All;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static fr.polytech.ihm.kernel.Constantes.All;
 
 /**
  *
@@ -48,7 +49,7 @@ public class Tools {
 
             query.append("WHERE products.category = \'").append(category).append("\' ");
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");
 
@@ -108,7 +109,7 @@ public class Tools {
                     .append(" AND priceProduct <= ")
                     .append(pMax);
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
 
             if (!category.equals(All.toString())) {
 
@@ -407,7 +408,7 @@ public class Tools {
 
             query.append("SELECT * " + "FROM products " + "NATURAL JOIN marque " + "WHERE productName LIKE \'%").append(name).append("%\' ");
 
-            query.append("AND enVente = 1 ");
+            query.append(" AND enVente = 1 ");
 
             ResultSet rs = lien.executeQuery(query.toString());
             System.out.println("Requête Effectuée");

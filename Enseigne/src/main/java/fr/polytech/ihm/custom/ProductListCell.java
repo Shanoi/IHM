@@ -71,7 +71,7 @@ public class ProductListCell extends ListCell<Product> {
                 prixProd.setVisible(true);
                 prixProd.setText(String.valueOf(product.getPrixPromo()) + "€");
                 //prixProd.setStyle("-fx-text-fill: red;");
-                prixOld.setText(String.valueOf(product.getPrix()) + "€");
+                prixOld.setText(" Was " + String.valueOf(product.getPrix()) + "€");
                 
             } else {
 

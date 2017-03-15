@@ -12,7 +12,7 @@
             <Image url="@../apple_pc.png" />
          </image>
       </ImageView>
-      <Label fx:id="nomProd" alignment="CENTER" layoutX="332.0" layoutY="67.0" prefHeight="107.0" prefWidth="210.0" text="Label" />
+      <Label fx:id="nomProd" alignment="CENTER" layoutX="332.0" layoutY="30.0" prefHeight="107.0" prefWidth="210.0" text="Label" />
       <Label fx:id="descProd" alignment="CENTER" layoutX="779.0" layoutY="22.0" prefHeight="120.0" prefWidth="200.0" text="Label" wrapText="true" AnchorPane.topAnchor="22.0" />
       <Label fx:id="prixPromoProd" alignment="CENTER" layoutX="332.0" layoutY="67.0" prefHeight="107.0" prefWidth="210.0" text="Label" styleClass="label-promo-corpse" />
       <Label fx:id="prixProd" alignment="CENTER" layoutX="423.0" layoutY="7.0" prefHeight="107.0" prefWidth="288.0" text="Label" styleClass="label-oldPrice-corpse" />

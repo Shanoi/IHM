@@ -257,6 +257,8 @@ public class CatalogueController implements Initializable {
         productObservableList.addAll(getSearchProduct(cbBoxCat.getSelectionModel().getSelectedItem(),
                 cbBoxMarque.getSelectionModel().getSelectedItem(), chkBPromo.isSelected(), (int) sliderPriceMax.getValue(), (int) sliderPriceMin.getValue()));
 
+        System.out.println("OBS : " + productObservableList);
+        
         listItem.setItems(productObservableList);
         listItem.setCellFactory(productlistItem -> new ProductCataListCell());
 

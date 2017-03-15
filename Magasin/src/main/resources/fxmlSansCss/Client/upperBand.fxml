@@ -3,11 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER" prefHeight="160.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.polytech.ihm.controller.client.UpperBandController">
@@ -28,33 +26,14 @@
             <Insets left="400.0" right="200.0" />
          </HBox.margin>
       </Label>
-      <VBox alignment="CENTER">
+      <Button mnemonicParsing="false" prefHeight="65.0" prefWidth="300.0" text="Centre">
+         <font>
+            <Font size="30.0" />
+         </font>
          <HBox.margin>
-            <Insets right="80.0" />
+            <Insets right="100.0" />
          </HBox.margin>
-         <children>
-            <HBox alignment="CENTER" prefWidth="400.0">
-               <children>
-                  <ImageView fx:id="searchImage" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#searchProduct" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="/images/search_icon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <TextField fx:id="searchBar" focusTraversable="false" prefHeight="50.0" prefWidth="300.0" promptText="Rechercher">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+      </Button>
       <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#enSavoirPlus" prefWidth="375.0" text="En savoir plus">
          <font>
             <Font size="30.0" />
